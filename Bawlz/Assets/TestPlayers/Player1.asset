@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de311d6d64408d04aac8c4af37b6aa44, type: 3}
+  m_Name: Player1
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  playerNum: 1
+  weaponPrefab: {fileID: 9124016292243078404, guid: 197b6462f8419164fb6286363c47f2a1, type: 3}
+  ballPrefab: {fileID: 7189852719700939712, guid: dbc579720f7d5db48ab5ecbe97d0ddfd, type: 3}
+  upgrades:
+  - {fileID: 11400000, guid: 682185272fe89a440a3031f304ba9897, type: 2}
+  weaponUpgrades:
+  - {fileID: 11400000, guid: fcb8f0797fba11341b7a8f395199e5d0, type: 2}
+  lives: 0
+  roundsWon: 0
