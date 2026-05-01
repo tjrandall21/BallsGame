@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     public string weaponName = "Weapon";
     public string description = "This is a weapon.";
-    [SerializeField] float damage = 10;
+    [SerializeField] protected float damage = 10;
     public float Damage { get { return damage; } }
     [SerializeField] float knockbackSpeed = 0;
     public float KnockbackSpeed { get { return knockbackSpeed; } }
@@ -96,9 +96,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    protected virtual void OnWallHit()
+    {
+        //called when the weapon hits a wall
+    }
+
     protected virtual void OnAttack()
     {
-        Debug.Log("weapon attack");
         //this function can be overidden to create cooldown based attacks like projectile shots
         //when the attack is finished call OnAttackEnd to reset the cooldown
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
@@ -183,12 +187,6 @@ public class Weapon : MonoBehaviour
         }
         OnWallHit();
     }
-
-    protected virtual void OnWallHit()
-    {
-        //called when the weapon hits a wall
-    }
-
 
     public virtual void OnRoundStart()
     {

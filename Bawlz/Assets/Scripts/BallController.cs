@@ -81,11 +81,16 @@ public class BallController : MonoBehaviour
         {
             upgrade.Update();
         }
-        healthText.text = health.ToString();
+        healthText.text = math.ceil(health).ToString();
     }
     void LateUpdate()
     {
         sprite.transform.rotation = new Quaternion(0, 0, 0, 1);
+    }
+
+    public void AddVelocity(Vector2 velocity)
+    {
+        rb.linearVelocity += velocity;
     }
 
 

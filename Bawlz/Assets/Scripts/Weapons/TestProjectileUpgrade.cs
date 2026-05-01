@@ -8,17 +8,12 @@ public class ProjectileUpgrade : WeaponUpgrade
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 15;
 
-
     public override void OnAttack()
     {
-        Debug.Log("bow attack");
         GameObject projectileObject = Instantiate(projectilePrefab, parentWeapon.transform.position, parentWeapon.transform.rotation);
         Projectile projectile = projectileObject.GetComponent<Projectile>();
-        float rotation = parentWeapon.transform.eulerAngles.z * math.PI/180.0f + math.PI/2;
-        Debug.Log(rotation);
-        projectile.direction = new Vector3(math.cos(rotation),math.sin(rotation));
-        Debug.Log(projectile.direction);
-        projectile.speed = projectileSpeed;
+        float rotation = parentWeapon.transform.eulerAngles.z * math.PI / 180.0f + math.PI / 2;
+        projectile.ProjectileInit(new Vector3(math.cos(rotation), math.sin(rotation)), projectileSpeed, 12);
         projectileObject.layer = parentWeapon.gameObject.layer;
         parentWeapon.OnAttackEnd();
     }
