@@ -17,13 +17,13 @@ public class BallController : MonoBehaviour
     [SerializeField] float speed = 6;
     [SerializeField] float launchAngle = 45;
     [SerializeField] float rotationSpeed = 360;
+    public float RotationSpeed {get{return rotationSpeed;}set{rotationSpeed = value;}}
     [SerializeField] float rotationDirection = -1;
     [SerializeField] float maxHealth = 200;
     [SerializeField] float contactDamage = 0;
     [SerializeField] float defenseMultiplier = 1;
     float health = 0;
     [SerializeField] SpriteRenderer sprite = null;
-    public float RotationSpeed { get { return rotationSpeed; } }
 
     public int playerNum = 0;
 
@@ -37,6 +37,7 @@ public class BallController : MonoBehaviour
             upgrades.Add(Instantiate(upgrade));
         }
     }
+
 
     void Start()
     {

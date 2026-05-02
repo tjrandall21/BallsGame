@@ -183,5 +183,5 @@ MonoBehaviour:
   description: This is a weapon.
   damage: 0
   knockbackSpeed: 0
-  attackCooldown: 0.1
+  attackCooldown: 0.5
   weaponUpgrades: []
