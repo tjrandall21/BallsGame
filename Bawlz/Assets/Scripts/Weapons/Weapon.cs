@@ -10,15 +10,15 @@ public class Weapon : MonoBehaviour
     public string description = "This is a weapon.";
     [SerializeField] protected float damage = 10;
     public float Damage { get { return damage; } }
-    [SerializeField] float knockbackSpeed = 0;
+    [SerializeField] protected float knockbackSpeed = 0;
     public float KnockbackSpeed { get { return knockbackSpeed; } }
-    [SerializeField] float attackCooldown = 0;
-    float attackTimer = 0;
-    Rigidbody2D rb = null;
-    BallController parent = null;
-    [SerializeField] List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
+    [SerializeField] protected float attackCooldown = 0;
+    protected float attackTimer = 0;
+    protected Rigidbody2D rb = null;
+    protected BallController parent = null;
+    [SerializeField] protected List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
 
-    List<uint> activeCollisions = new List<uint>();
+    protected List<uint> activeCollisions = new List<uint>();
 
     protected virtual void Start()
     {
@@ -195,11 +195,11 @@ public class Weapon : MonoBehaviour
             weaponUpgrade.OnRoundStart();
         }
     }
-    public virtual void OnBallSpawned()
+    public virtual void OnBallSpawned(BallController newBall)
     {
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
-            weaponUpgrade.OnBallSpawned();
+            weaponUpgrade.OnBallSpawned(newBall);
         }
     }
     public virtual void OnDamageTaken(float amount)

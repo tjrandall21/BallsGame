@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5009749163094406371}
   - component: {fileID: 5259496737918520621}
   m_Layer: 6
-  m_Name: TestProjectile
+  m_Name: BowArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5887f6c2c00e3da4b89f558ae2d41196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  weaponName: arrow
-  description: This is a weapon.
+  weaponName: Arrow
+  description: Arrow shot by a bow.
   damage: 10
   knockbackSpeed: 0
   attackCooldown: 0

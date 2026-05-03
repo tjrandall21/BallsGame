@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 207017317070638197}
   - component: {fileID: 2255129472153577191}
   - component: {fileID: 5009749163094406371}
-  - component: {fileID: 5473608699177936523}
+  - component: {fileID: 2162833993538169169}
   m_Layer: 6
-  m_Name: TestBow
+  m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5473608699177936523
+--- !u!114 &2162833993538169169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,12 +176,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9124016292243078404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef57cd3e16e06a4ea3605566381f63d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b4c0c1e804e1b947b5e12c39ff7a7c3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  weaponName: TestBow
-  description: This is a weapon.
+  m_EditorClassIdentifier: Assembly-CSharp::Bow
+  weaponName: Bow
+  description: Shoots arrows.
   damage: 0
   knockbackSpeed: 0
-  attackCooldown: 0.1
+  attackCooldown: 0.3
   weaponUpgrades: []
+  projectilePrefab: {fileID: 9124016292243078404, guid: e837acfa33ae31842acd69591b6a4543, type: 3}
+  projectileSpeed: 15
