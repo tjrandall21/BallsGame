@@ -18,7 +18,9 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}
   - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}
+  - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}
+  - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}
   weaponUpgrades:
-  - {fileID: 11400000, guid: fcb8f0797fba11341b7a8f395199e5d0, type: 2}
+  - {fileID: 11400000, guid: 5ef6cb52f6563ec4f9b37ac3b0f0ecde, type: 2}
   lives: 0
   roundsWon: 0

@@ -55,7 +55,7 @@ public class WeaponUpgrade : ScriptableObject
 
     //ball functions
 
-    public virtual void OnBallSpawned()
+    public virtual void OnBallSpawned(BallController newBall)
     {
         //called when this ball spawns another ball
     }

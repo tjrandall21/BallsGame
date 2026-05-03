@@ -195,11 +195,11 @@ public class Weapon : MonoBehaviour
             weaponUpgrade.OnRoundStart();
         }
     }
-    public virtual void OnBallSpawned()
+    public virtual void OnBallSpawned(BallController newBall)
     {
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
-            weaponUpgrade.OnBallSpawned();
+            weaponUpgrade.OnBallSpawned(newBall);
         }
     }
     public virtual void OnDamageTaken(float amount)

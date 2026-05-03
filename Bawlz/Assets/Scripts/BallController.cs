@@ -15,12 +15,12 @@ public class BallController : MonoBehaviour
     TextMeshPro healthText = null;
     [SerializeField] string ballName = "Ball";
     [SerializeField] float speed = 6;
-    [SerializeField] float launchAngle = 45;
+    [SerializeField] public float launchAngle = 45;
     [SerializeField] float rotationSpeed = 360;
     public float RotationSpeed {get{return rotationSpeed;}set{rotationSpeed = value;}}
     [SerializeField] float rotationDirection = -1;
-    [SerializeField] float maxHealth = 200;
-    [SerializeField] float contactDamage = 0;
+    [SerializeField] public float maxHealth = 200;
+    [SerializeField] public float contactDamage = 0;
     [SerializeField] float defenseMultiplier = 1;
     float health = 0;
     [SerializeField] SpriteRenderer sprite = null;
@@ -29,6 +29,7 @@ public class BallController : MonoBehaviour
 
     List<Weapon> weapons = new List<Weapon>();
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
+    [SerializeField] List<StatusEffect> statusEffects;
 
     public void SetUpgrades(List<Upgrade> newUpgrades)
     {
@@ -37,7 +38,7 @@ public class BallController : MonoBehaviour
             upgrades.Add(Instantiate(upgrade));
         }
     }
-
+    
 
     void Start()
     {
@@ -82,11 +83,38 @@ public class BallController : MonoBehaviour
         {
             upgrade.Update();
         }
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            statusEffect.Update();
+        }
         healthText.text = math.ceil(health).ToString();
     }
     void LateUpdate()
     {
         sprite.transform.rotation = new Quaternion(0, 0, 0, 1);
+    }
+
+
+    public void ApplyStatus(StatusEffect status, BallController sourceBall)
+    {
+        if (!status.stackable)
+        { //check for any active status with a matching name
+            foreach (StatusEffect statusEffect in statusEffects)
+            {
+                if (statusEffect.name == status.name)
+                {
+                    return;
+                }
+            }
+        }
+        StatusEffect newStatus = Instantiate(status);
+        newStatus.Init(this,sourceBall);
+        statusEffects.Add(newStatus);
+    }
+
+    public void RemoveStatus(StatusEffect status)
+    {
+        statusEffects.Remove(status);
     }
 
     public void AddVelocity(Vector2 velocity)
@@ -139,6 +167,10 @@ public class BallController : MonoBehaviour
         {
             weapon.OnWeaponCollision(otherWeapon);
         }
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            statusEffect.OnWeaponCollision(otherWeapon);
+        }
         if (otherWeapon.Damage > 0)
         {
             OnDamageTaken(otherWeapon.Damage);
@@ -159,19 +191,23 @@ public class BallController : MonoBehaviour
         }
     }
 
-    void OnBallSpawned()
+    public void OnBallSpawned(BallController newBall)
     {
         foreach (Upgrade upgrade in upgrades)
         {
-            upgrade.OnBallSpawned();
+            upgrade.OnBallSpawned(newBall);
         }
         foreach (Weapon weapon in weapons)
         {
-            weapon.OnBallSpawned();
+            weapon.OnBallSpawned(newBall);
+        }
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            statusEffect.OnBallSpawned(newBall);
         }
     }
 
-    void OnDamageTaken(float amount)
+    public void OnDamageTaken(float amount)
     {
         amount *= defenseMultiplier;
         health -= amount;
@@ -183,6 +219,10 @@ public class BallController : MonoBehaviour
         foreach (Weapon weapon in weapons)
         {
             weapon.OnDamageTaken(amount);
+        }
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            statusEffect.OnDamageTaken(amount);
         }
 
         Debug.Log($"{ballName} health: {health}");
@@ -203,6 +243,10 @@ public class BallController : MonoBehaviour
         {
             OnDamageTaken(otherBall.contactDamage);
         }
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            statusEffect.OnBallCollision(otherBall);
+        }
     }
 
     void OnWallCollision()
@@ -211,6 +255,10 @@ public class BallController : MonoBehaviour
         foreach (Upgrade upgrade in upgrades)
         {
             upgrade.OnWallCollision();
+        }
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            statusEffect.OnWallCollision();
         }
     }
 
