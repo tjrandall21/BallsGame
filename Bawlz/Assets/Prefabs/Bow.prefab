@@ -183,7 +183,9 @@ MonoBehaviour:
   description: Shoots arrows.
   damage: 0
   knockbackSpeed: 0
-  attackCooldown: 0.3
+  attackCooldown: 0.5
   weaponUpgrades: []
   projectilePrefab: {fileID: 9124016292243078404, guid: e837acfa33ae31842acd69591b6a4543, type: 3}
-  projectileSpeed: 15
+  arrowSpeed: 15
+  arrowCount: 1
+  arrowDamage: 10
