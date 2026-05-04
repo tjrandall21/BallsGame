@@ -228,6 +228,7 @@ public class BallController : MonoBehaviour
         Debug.Log($"{ballName} health: {health}");
         if (health <= 0)
         {
+            ParticleHitManager.Instance.PlayPlayerDeath(transform.position);
             Destroy(gameObject);
         }
     }
