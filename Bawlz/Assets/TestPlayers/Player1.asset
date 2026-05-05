@@ -17,6 +17,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 7189852719700939712, guid: dbc579720f7d5db48ab5ecbe97d0ddfd, type: 3}
   upgrades:
   - {fileID: 11400000, guid: 682185272fe89a440a3031f304ba9897, type: 2}
+  - {fileID: 11400000, guid: 6d3312ba05f833f4890338d3f92ea455, type: 2}
   weaponUpgrades:
   - {fileID: 11400000, guid: fcb8f0797fba11341b7a8f395199e5d0, type: 2}
   lives: 0

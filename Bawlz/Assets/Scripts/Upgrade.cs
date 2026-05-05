@@ -32,7 +32,7 @@ public class Upgrade : ScriptableObject
         //called when the round starts
     }
 
-    public virtual void OnBallSpawned()
+    public virtual void OnBallSpawned(BallController newBall)
     {
         //called when the ball this upgrade is applied to spawns another ball
     }

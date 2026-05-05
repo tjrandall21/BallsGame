@@ -6,11 +6,13 @@ public class Projectile : Weapon
 {
     public Vector3 direction = Vector3.zero;
     public float speed = 0;
-    public void ProjectileInit(Vector3 moveDirection, float moveSpeed, float projectileDamage)
+    public Weapon parentWeapon = null;
+    public void ProjectileInit(Vector3 moveDirection, float moveSpeed, float projectileDamage, Weapon weapon)
     {
         direction = moveDirection;
         speed = moveSpeed;
         damage = projectileDamage;
+        parentWeapon = weapon;
     }
 
     protected override void Update()
