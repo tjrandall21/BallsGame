@@ -3,17 +3,24 @@ using UnityEngine;
 
 public class Hammer : Weapon
 {
-    [SerializeField] float maxWeaponDmg = 10f; // will be incromented by 10 
-    [SerializeField] float maxWeaponSpin = 10f;
+    [SerializeField] float baseDmg = 10f;
+    [SerializeField] float maxWeaponSpin = 720f;
     [SerializeField] float rotationAcceleration = 100f;
-    [SerializeField] float baseRotationSpeed = 180;
-  
+    [SerializeField] float baseRotationSpeed = 180f;
+    [SerializeField] float maxSpinIncreasePerHit = 100f; // how much max spin grows each hit
 
-    protected virtual void Update()
+    private float GetSpinDamage()
     {
-        // will always increase spin up to maxSpin
-        parent.RotationSpeed += rotationAcceleration * Time.deltaTime;
-        base.Update();
+        float spinRatio = Mathf.Clamp01(parent.RotationSpeed / maxWeaponSpin / 2);
+        return baseDmg * (0.1f + spinRatio);
+    }
+
+    private void Update()
+    {
+        if (parent == null) return;
+        parent.RotationSpeed = Mathf.MoveTowards(
+            parent.RotationSpeed, maxWeaponSpin, rotationAcceleration * Time.deltaTime
+        );
     }
 
     protected override void OnBallHit(BallController otherBall)
@@ -23,26 +30,19 @@ public class Hammer : Weapon
         {
             parent.FlipRotation();
         }
+
+        float damage = GetSpinDamage();
+        Debug.Log($"Hammer hit for {damage} (baseDmg={baseDmg}, spin={parent.RotationSpeed})");
+        otherBall.OnDamageTaken(damage);
+
         otherBall.OnWeaponCollision(this);
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
             weaponUpgrade.OnBallHit(otherBall);
         }
 
-        maxWeaponDmg += 10;
-
-        parent.RotationSpeed = 180; // resets ball rotattion
-    }
-
-    protected override void OnWeaponHit(Weapon otherWeapon)
-    {
-        base.OnWeaponHit(otherWeapon);
-    }
-
-    protected override void OnWallHit()
-    {
-       
-       
-        base.OnWallHit();
+        baseDmg += 10;
+        maxWeaponSpin += maxSpinIncreasePerHit; // hammer can now spin faster next cycle
+        parent.RotationSpeed = baseRotationSpeed; // reset to base, begins climbing again
     }
 }
