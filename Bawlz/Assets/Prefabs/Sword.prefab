@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069279007790728011}
+  - component: {fileID: 3866882626821141082}
   - component: {fileID: 207017317070638197}
   - component: {fileID: 2255129472153577191}
   - component: {fileID: 5009749163094406371}
-  - component: {fileID: 5473608699177936523}
   m_Layer: 6
-  m_Name: TestWeapon
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3866882626821141082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124016292243078404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f63ac6ef941914ba4d068dfcbab4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sword
+  weaponName: Sword
+  description: This is a weapon.
+  damage: 1
+  knockbackSpeed: 0
+  attackCooldown: 0
+  weaponUpgrades: []
 --- !u!212 &207017317070638197
 SpriteRenderer:
   serializedVersion: 2
@@ -167,21 +185,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5473608699177936523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9124016292243078404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef57cd3e16e06a4ea3605566381f63d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  weaponName: Weapon
-  description: This is a weapon.
-  damage: 10
-  knockbackSpeed: 0
-  attackCooldown: 1
-  weaponUpgrades: []

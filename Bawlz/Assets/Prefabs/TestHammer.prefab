@@ -182,11 +182,11 @@ MonoBehaviour:
   weaponName: Hammer
   description: This is a Hammer
   damage: 10
-  knockbackSpeed: 1
+  knockbackSpeed: 10
   attackCooldown: 1
   weaponUpgrades: []
-  maxWeaponDmg: 10
-  maxWeaponSpin: 10
-  rotationAcceleration: 200
+  baseDmg: 10
+  maxWeaponSpin: 400
+  rotationAcceleration: 100
   baseRotationSpeed: 180
-  attackCooldown: 1
+  maxSpinIncreasePerHit: 100

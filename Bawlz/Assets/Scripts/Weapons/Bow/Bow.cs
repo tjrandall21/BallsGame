@@ -22,6 +22,6 @@ public class Bow : Weapon
     public override void OnWallCollision()
     {
         base.OnWallCollision();
-        attackCooldown *= 0.8f;
+        attackCooldown *= 0.98f;
     }
 }
