@@ -239,6 +239,10 @@ public class BallController : MonoBehaviour
         {
             upgrade.OnBallCollision(otherBall);
         }
+        foreach (Weapon weapon in weapons)
+        {
+            weapon.OnBallCollision(otherBall);
+        }
 
         if (otherBall.contactDamage > 0)
         {
@@ -256,6 +260,10 @@ public class BallController : MonoBehaviour
         foreach (Upgrade upgrade in upgrades)
         {
             upgrade.OnWallCollision();
+        }
+        foreach (Weapon weapon in weapons)
+        {
+            weapon.OnWallCollision();
         }
         foreach (StatusEffect statusEffect in statusEffects)
         {
