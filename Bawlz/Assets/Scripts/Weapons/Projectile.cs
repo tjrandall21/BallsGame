@@ -1,13 +1,12 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-
 
 public class Projectile : Weapon
 {
     public Vector3 direction = Vector3.zero;
     public float speed = 0;
     public Weapon parentWeapon = null;
-    public void ProjectileInit(Vector3 moveDirection, float moveSpeed, float projectileDamage, Weapon weapon)
+
+    public virtual void ProjectileInit(Vector3 moveDirection, float moveSpeed, float projectileDamage, Weapon weapon)
     {
         direction = moveDirection;
         speed = moveSpeed;
@@ -18,21 +17,22 @@ public class Projectile : Weapon
     protected override void Update()
     {
         base.Update();
-        Vector3 pos = transform.position;
-        pos += direction * speed * Time.deltaTime;
-        transform.position = pos;
+        transform.position += direction * speed * Time.deltaTime;
     }
+
     protected override void OnBallHit(BallController otherBall)
     {
         base.OnBallHit(otherBall);
-        otherBall.AddVelocity(direction*speed);
+        otherBall.AddVelocity(direction * speed);
         Destroy(gameObject);
     }
+
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
         base.OnWeaponHit(otherWeapon);
         Destroy(gameObject);
     }
+
     protected override void OnWallHit()
     {
         base.OnWallHit();

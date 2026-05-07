@@ -187,3 +187,4 @@ MonoBehaviour:
   weaponUpgrades: []
   direction: {x: 0, y: 0, z: 0}
   speed: 0
+  parentWeapon: {fileID: 0}
