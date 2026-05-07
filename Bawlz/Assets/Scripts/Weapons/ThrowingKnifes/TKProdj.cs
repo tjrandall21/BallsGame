@@ -1,10 +1,12 @@
+using Unity.Mathematics;
 using UnityEngine;
 
-public class Projectile : Weapon
+public class TKProdj : Projectile
 {
-    public Vector3 direction = Vector3.zero;
-    public float speed = 0;
-    public Weapon parentWeapon = null;
+
+    SpriteRenderer spriteRenderer;
+
+
 
     public virtual void ProjectileInit(Vector3 moveDirection, float moveSpeed, float projectileDamage, Weapon weapon)
     {
@@ -14,8 +16,19 @@ public class Projectile : Weapon
         parentWeapon = weapon;
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     protected override void Update()
     {
+        // spin go here
+
+
+
+
         base.Update();
         transform.position += direction * speed * Time.deltaTime;
     }

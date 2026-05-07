@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected float attackCooldown = 0;
     protected float attackTimer = 0;
     protected Rigidbody2D rb = null;
-    protected BallController parent = null;
+    public BallController parent = null;
     [SerializeField] protected List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
 
     protected List<uint> activeCollisions = new List<uint>();

@@ -213,14 +213,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cannon
   weaponName: Cannon
   description: LOTS OF RECOIL
-  damage: 10
+  damage: 5
   knockbackSpeed: 0
-  attackCooldown: 3
+  attackCooldown: 1.5
+  parent: {fileID: 0}
   weaponUpgrades:
   - {fileID: 11400000, guid: 2616e84e4f583734bac8c38ca4148fca, type: 2}
   projectilePrefab: {fileID: 9124016292243078404, guid: e7f298a72ba99434b9561c2018919173, type: 3}
   projSpeed: 10
   projCount: 1
-  projDamage: 100
-  knockbackForce: 100
-  knockbackDuration: 0.2
+  projDamage: 50
+  knockbackForce: 25
+  knockbackDuration: 0.1
