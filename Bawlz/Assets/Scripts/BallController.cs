@@ -31,12 +31,32 @@ public class BallController : MonoBehaviour
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<StatusEffect> statusEffects;
 
-    public void SetUpgrades(List<Upgrade> newUpgrades)
+    public void Init(List<Upgrade> newUpgrades, int playerNumber, float startingAngle)
     {
         foreach (Upgrade upgrade in newUpgrades)
         {
             upgrades.Add(Instantiate(upgrade));
         }
+        playerNum = playerNumber;
+        switch (playerNum)
+        {
+            case 1:
+                sprite.color = Color.red;
+                break;
+            case 2:
+                sprite.color = Color.blue;
+                break;
+            case 3:
+                sprite.color = Color.green;
+                break;
+            case 4:
+                sprite.color = Color.yellow;
+                break;
+            default:
+                Debug.LogError("Player Number not assigned");
+                break;
+        }
+        launchAngle = startingAngle;
     }
     
 

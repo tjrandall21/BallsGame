@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class MainMenuController : MonoBehaviour
     private int playerCount;
     [SerializeField] private List<Button> playerJoinButtons;
     [SerializeField] private List<Button> playerDropoutButtons;
+    [SerializeField] PlayerData emptyPlayerData;
 
     void Start()
     {
@@ -71,6 +73,14 @@ public class MainMenuController : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
+            GameManager.Instance.players.Clear(); //reset playerdata
+            for (int i = 0; i < playerCount; i++)
+            { //generate empty playerdata
+                PlayerData player = Instantiate(emptyPlayerData);
+                player.playerNum = i+1;
+                GameManager.Instance.players.Add(player);
+                
+            }
             GameManager.Instance.StartBattleWithPlayerCount(playerCount);
         }
         else
