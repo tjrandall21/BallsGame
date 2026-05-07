@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Sceptre : Weapon
@@ -17,7 +18,7 @@ public class Sceptre : Weapon
             ball.layer = gameObject.layer;
 
             BallController ballController = ball.GetComponent<BallController>();
-            ballController.launchAngle = Random.Range(0.0f,360.0f);
+            ballController.Init(new List<Upgrade>(),parent.playerNum,Random.Range(0.0f,360.0f));
             ballController.contactDamage = minionDamage;
             ballController.maxHealth = minionHealth;
             parent.OnBallSpawned(ballController);

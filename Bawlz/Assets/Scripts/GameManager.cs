@@ -12,9 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool isBattleScene = false;
     [SerializeField] int playerCount = 4;
 
-    [SerializeField] List<PlayerData> players = new List<PlayerData>();
+    public List<PlayerData> players = new List<PlayerData>();
 
     List<Vector2> spawnLocations = new List<Vector2>();
+    List<BallController> mainBalls = new List<BallController>();
 
     void Awake()
     {
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
+
+
 
     public void LoadBattleScene()
     {
@@ -56,14 +59,20 @@ public class GameManager : MonoBehaviour
 
     void SpawnPlayers()
     {
+        mainBalls.Clear();
         for (int i = 0; i < playerCount; i++)
         {
             GameObject ball = Instantiate(players[i].ballPrefab, spawnLocations[i], Quaternion.identity);
-            GameObject weapon = Instantiate(players[i].weaponPrefab, ball.transform);
             ball.layer = LayerMask.NameToLayer("Player"+(i+1).ToString());
-            weapon.layer = ball.layer;
-            ball.GetComponent<BallController>().SetUpgrades(players[i].upgrades);
-            weapon.GetComponent<Weapon>().SetUpgrades(players[i].weaponUpgrades);
+            if (players[i].weaponPrefab != null)
+            {
+                GameObject weapon = Instantiate(players[i].weaponPrefab, ball.transform);
+                weapon.layer = ball.layer;
+                weapon.GetComponent<Weapon>().SetUpgrades(players[i].weaponUpgrades);
+            }
+            BallController ballController = ball.GetComponent<BallController>();
+            ballController.Init(players[i].upgrades,players[i].playerNum,Random.Range(0.0f,360.0f));
+            mainBalls.Add(ballController);
         }
     }
 
