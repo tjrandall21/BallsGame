@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e472045e602417408286035325966f4, type: 3}
   m_Name: SpinUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 6049605792901559095, guid: f1b7fc2cf31b3bd458b4f9f72e16edb5, type: 3}
   upgradeName: Upgrade
   description: This is an upgrade.
   stackable: 1

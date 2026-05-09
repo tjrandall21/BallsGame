@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e472045e602417408286035325966f4, type: 3}
   m_Name: ContactDamageUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: -4335222134116007343, guid: ac29177abb72f0641a563a93b1aa5ad2, type: 3}
   upgradeName: Contact Damage
   description: This is an upgrade.
   stackable: 1
