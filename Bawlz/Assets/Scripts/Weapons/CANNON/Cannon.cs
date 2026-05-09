@@ -36,16 +36,12 @@ public class Cannon : Weapon
     private IEnumerator SmoothKnockback(Rigidbody2D rb, Vector3 direction)
     {
         rb.linearVelocity = Vector2.zero;
-        float elapsed = 0f;
-        while (elapsed < knockbackDuration)
-        {
-            // make it so the parent dosent take damage during the knockbaack here
+        // Apply the full knockback force instantly as an impulse
+        rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
 
-            float t = 1f - (elapsed / knockbackDuration);
-            rb.AddForce(direction * knockbackForce * t, ForceMode2D.Force);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
+        // Optionally, you can still wait for knockbackDuration if you need to disable damage or other effects
+        yield return new WaitForSeconds(knockbackDuration);
+
         _knockbackCoroutine = null;
     }
 }
