@@ -99,11 +99,11 @@ public class BallController : MonoBehaviour
     void Update()
     {
         rb.angularVelocity = rotationDirection * rotationSpeed;
-        foreach (Upgrade upgrade in upgrades)
+        foreach (Upgrade upgrade in upgrades.ToArray())
         {
             upgrade.Update();
         }
-        foreach (StatusEffect statusEffect in statusEffects)
+        foreach (StatusEffect statusEffect in statusEffects.ToArray())
         {
             statusEffect.Update();
         }
@@ -248,6 +248,7 @@ public class BallController : MonoBehaviour
         Debug.Log($"{ballName} health: {health}");
         if (health <= 0)
         {
+            ParticleHitManager.Instance.PlayPlayerDeath(transform.position);
             Destroy(gameObject);
         }
     }

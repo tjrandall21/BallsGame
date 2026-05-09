@@ -394,3 +394,4 @@ MonoBehaviour:
   sprite: {fileID: 4784969165194606517}
   playerNum: 1
   upgrades: []
+  statusEffects: []

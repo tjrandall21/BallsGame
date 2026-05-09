@@ -23,8 +23,16 @@ public class Hammer : Weapon
         );
     }
 
+    protected override void OnWeaponHit(Weapon otherWeapon)
+    {
+        ParticleHitManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
+        base.OnWeaponHit(otherWeapon);
+    }
+
     protected override void OnBallHit(BallController otherBall)
     {
+        ParticleHitManager.Instance.PlayPlayerHit(otherBall.transform.position);
+
         Debug.Log("Ball Collision");
         if (parent != null)
         {
@@ -44,5 +52,7 @@ public class Hammer : Weapon
         baseDmg += 10;
         maxWeaponSpin += maxSpinIncreasePerHit; // hammer can now spin faster next cycle
         parent.RotationSpeed = baseRotationSpeed; // reset to base, begins climbing again
+
+        
     }
 }

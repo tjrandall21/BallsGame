@@ -4,12 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StatusEffect", menuName = "Scriptable Objects/StatusEffect")]
 public class StatusEffect : ScriptableObject
 {
-    [SerializeField] protected string statusName = "Status Effect";
+    public string statusName = "Status Effect";
     public string StatusName {get{return statusName;}}
     [SerializeField] public bool stackable = true;
     protected BallController appliedBall;
     protected BallController sourceBall;
-    [SerializeField] protected float statusDuration;
+    public float statusDuration;
     protected float statusTimer;
 
     public virtual void Init(BallController appliedBall, BallController sourceBall)

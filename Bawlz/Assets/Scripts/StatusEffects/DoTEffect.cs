@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DoTEffect", menuName = "Scriptable Objects/DoTEffect")]
 public class DoTEffect : StatusEffect
 {
-    [SerializeField] float damagePerSecond = 5;
-    [SerializeField] float tickRate = 0.2f; //the interval in seconds that this will deal damage on
+    public float damagePerSecond = 5;
+    public float tickRate = 0.2f; //the interval in seconds that this will deal damage on
     float tickTimer = 0;
     public override void OnStatusApplied()
     {
