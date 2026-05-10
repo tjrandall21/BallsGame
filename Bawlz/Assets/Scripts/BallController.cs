@@ -14,7 +14,7 @@ public class BallController : MonoBehaviour
     Rigidbody2D rb = null;
     TextMeshPro healthText = null;
     [SerializeField] string ballName = "Ball";
-    [SerializeField] float speed = 6;
+    [SerializeField] public float speed = 6;
     [SerializeField] public float launchAngle = 45;
     [SerializeField] float rotationSpeed = 360;
     public float RotationSpeed {get{return rotationSpeed;}set{rotationSpeed = value;}}
