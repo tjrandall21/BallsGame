@@ -25,13 +25,13 @@ public class Hammer : Weapon
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
-        ParticleHitManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
+        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
     }
 
     protected override void OnBallHit(BallController otherBall)
     {
-        ParticleHitManager.Instance.PlayPlayerHit(otherBall.transform.position);
+        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
 
         Debug.Log("Ball Collision");
         if (parent != null)
