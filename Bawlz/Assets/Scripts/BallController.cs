@@ -115,6 +115,30 @@ public class BallController : MonoBehaviour
     }
 
 
+    public bool HasStatus(string statusName)
+    {
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            if (statusEffect.name == statusName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public StatusEffect GetStatus(string statusName)
+    {
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            if (statusEffect.name == statusName)
+            {
+                return statusEffect;
+            }
+        }
+        return null;
+    }
+
     public void ApplyStatus(StatusEffect status, BallController sourceBall)
     {
         if (!status.stackable)
@@ -123,6 +147,7 @@ public class BallController : MonoBehaviour
             {
                 if (statusEffect.name == status.name)
                 {
+                    statusEffect.OnStatusRefresh();
                     return;
                 }
             }

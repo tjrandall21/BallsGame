@@ -40,6 +40,11 @@ public class StatusEffect : ScriptableObject
         //override to add(or remove) effects when the status ends
     }
 
+    public virtual void OnStatusRefresh()
+    {
+        //override to add effects when the status is refreshed (reapplied while already active)
+    }
+
 
     //  ball functions
 
