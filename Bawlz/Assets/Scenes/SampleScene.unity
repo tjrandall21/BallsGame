@@ -713,29 +713,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 926064443}
-  - component: {fileID: 926064442}
+  - component: {fileID: 926064444}
   m_Layer: 0
-  m_Name: ParticleManager
+  m_Name: FXManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &926064442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926064441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7008b271d3674c04b996c064aab4fb8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParticleManager
-  weaponVsWeaponFX: {fileID: 2438070733455081059, guid: 98e996ea0ed4ad4459b7ab3bf744454e, type: 3}
-  weaponVsPlayerFX: {fileID: 2438070733455081059, guid: bb7a088a29706794a9cc4fa6d53dd460, type: 3}
-  PlayerDeathFX: {fileID: 2438070733455081059, guid: 5ede3ca26c083a041b882f82764fdddd, type: 3}
 --- !u!4 &926064443
 Transform:
   m_ObjectHideFlags: 0
@@ -751,6 +736,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &926064444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926064441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3a361195b93044cb540a09798876bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FXManager
+  weaponHitSFX: {fileID: 8300000, guid: 80adc6020c2da9845824fb7225f06b6e, type: 3}
+  playerHitSFX: {fileID: 8300000, guid: 538c361fbefe4964dbd61c63b0a6d7e7, type: 3}
+  playerDeathSFX: {fileID: 8300000, guid: e3d4cebb5b7517646b429781c44f95b3, type: 3}
+  minionDeathSFX: {fileID: 8300000, guid: 3cb8820f6bbfa914594416da2c0f6cb5, type: 3}
+  PlayerHitsPlayerSFX: {fileID: 8300000, guid: 975db6b7510d1064ebcf341b15be6efe, type: 3}
+  weaponVsWeaponFX: {fileID: 2438070733455081059, guid: 98e996ea0ed4ad4459b7ab3bf744454e, type: 3}
+  weaponVsPlayerFX: {fileID: 2438070733455081059, guid: bb7a088a29706794a9cc4fa6d53dd460, type: 3}
+  playerDeathFX: {fileID: 2438070733455081059, guid: 5ede3ca26c083a041b882f82764fdddd, type: 3}
+  minionDeathFX: {fileID: 2438070733455081059, guid: bb7a088a29706794a9cc4fa6d53dd460, type: 3}
+  audioPoolSize: 100
 --- !u!1 &1110308067
 GameObject:
   m_ObjectHideFlags: 0
