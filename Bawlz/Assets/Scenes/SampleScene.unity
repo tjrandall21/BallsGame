@@ -730,12 +730,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 926064441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7008b271d3674c04b996c064aab4fb8f, type: 3}
+  m_Script: {fileID: 11500000, guid: da3a361195b93044cb540a09798876bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParticleManager
-  weaponVsWeaponFX: {fileID: 2438070733455081059, guid: 98e996ea0ed4ad4459b7ab3bf744454e, type: 3}
-  weaponVsPlayerFX: {fileID: 2438070733455081059, guid: bb7a088a29706794a9cc4fa6d53dd460, type: 3}
-  PlayerDeathFX: {fileID: 2438070733455081059, guid: 5ede3ca26c083a041b882f82764fdddd, type: 3}
+  weaponHitSFX: {fileID: 0}
+  playerHitSFX: {fileID: 0}
+  playerDeathSFX: {fileID: 0}
+  minionDeathSFX: {fileID: 0}
+  PlayerHitsPlayerSFX: {fileID: 0}
+  weaponVsWeaponFX: {fileID: 0}
+  weaponVsPlayerFX: {fileID: 0}
+  playerDeathFX: {fileID: 0}
+  minionDeathFX: {fileID: 0}
+  audioPoolSize: 10
 --- !u!4 &926064443
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,7 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   isBattleScene: 1
-  playerCount: 4
+  playerCount: 2
   players:
   - {fileID: 11400000, guid: 7379a10fec6c96c4f8921073784fa80d, type: 2}
   - {fileID: 11400000, guid: 29d2cdfba8c85b64e8430d35273930d3, type: 2}

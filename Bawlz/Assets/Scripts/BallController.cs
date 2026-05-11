@@ -180,14 +180,19 @@ public class BallController : MonoBehaviour
         rotationDirection *= -1;
     }
 
-    void SetVelocityAngle(float angle, float magnitude = 0)
+    public void SetVelocityAngle(float angle, float magnitude = -1)
     {
-        if (magnitude == 0) //default to the current speed
+        if (magnitude == -1) //default to the current speed
         {
             magnitude = rb.linearVelocity.magnitude;
         }
-        rb.linearVelocityX = math.sin(angle - transform.rotation.z) * magnitude;
-        rb.linearVelocityY = math.cos(angle - transform.rotation.z) * magnitude;
+        rb.linearVelocityX = math.sin(angle - transform.rotation.eulerAngles.z) * magnitude;
+        rb.linearVelocityY = math.cos(angle - transform.rotation.eulerAngles.z) * magnitude;
+    }
+    
+    public void SetVelocity(Vector2 velocity)
+    {
+        rb.linearVelocity = velocity;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
