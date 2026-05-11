@@ -14,6 +14,8 @@ public class Dagger : Weapon
     }
     protected override void OnBallHit(BallController otherBall)
     {
+        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+
         Debug.Log("Ball Collision");
         if (parent != null)
         {
@@ -28,5 +30,11 @@ public class Dagger : Weapon
         otherBall.ApplyStatus(poisonEffect, parent); 
         poisonEffect.damagePerSecond += damageScaling;
         poisonEffect.statusDuration += durationScaling;
+    }
+
+    protected override void OnWeaponHit(Weapon otherWeapon)
+    {
+        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
+        base.OnWeaponHit(otherWeapon);
     }
 }
