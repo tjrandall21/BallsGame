@@ -6,16 +6,19 @@ public class MinionUpgrade : Upgrade
 {
     [SerializeField] GameObject minionPrefab;
     [SerializeField] float minionDamage = 1;
-
+    [SerializeField] float spawnChance = 0.25f;
     public override void OnWallCollision()
     {
         base.OnWallCollision();
-        GameObject ball = Instantiate(minionPrefab, parentBall.transform.position, Quaternion.identity);
-        ball.layer = parentBall.gameObject.layer;
+        if (Random.value < spawnChance)
+        {    
+            GameObject ball = Instantiate(minionPrefab, parentBall.transform.position, Quaternion.identity);
+            ball.layer = parentBall.gameObject.layer;
 
-        BallController ballController = ball.GetComponent<BallController>();
-        ballController.Init(new List<Upgrade>(),parentBall.playerNum,Random.Range(0.0f,360.0f));
-        ballController.contactDamage = minionDamage;
-        parentBall.OnBallSpawned(ballController);
+            BallController ballController = ball.GetComponent<BallController>();
+            ballController.Init(new List<Upgrade>(),parentBall.playerNum,Random.Range(0.0f,360.0f));
+            ballController.contactDamage = minionDamage;
+            parentBall.OnBallSpawned(ballController);
+        }
     }
 }
