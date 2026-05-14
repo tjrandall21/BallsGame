@@ -10,11 +10,15 @@ public class PlayerShop : MonoBehaviour
 
     [SerializeField] List<Image> upgradeIcons = new List<Image>();
     [SerializeField] List<Image> weaponUpgradeIcons = new List<Image>();
-    
+
+    private PlayerData player;
+    private List<Upgrade> currentShopUpgrades = new List<Upgrade>();
+    private List<WeaponUpgrade> currentShopWeaponUpgrades = new List<WeaponUpgrade>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameManager.Instance.players[playerNum];
         for (int i = 0; i < upgradeIcons.Count; i++)
         {
             if (i < upgrades.Count)
@@ -37,22 +41,37 @@ public class PlayerShop : MonoBehaviour
                 weaponUpgradeIcons[i].sprite = null;
             }
         }
-
     }
 
     public void BuyUpgrade(int index)
     {
-        if (index < upgrades.Count)
+        if (player.coins > 0)
         {
-            GameManager.Instance.players[playerNum].upgrades.Add(upgrades[index]);
+            if (index < upgrades.Count)
+            {
+                GameManager.Instance.players[playerNum].upgrades.Add(upgrades[index]);
+            }
+            player.coins -= 1;
+        }
+        else
+        {
+            Debug.Log("no money");
         }
     }
 
     public void BuyWeaponUpgrade(int index)
     {
-        if (index < weaponUpgrades.Count)
+        if (player.coins > 0)
         {
-            GameManager.Instance.players[playerNum].weaponUpgrades.Add(weaponUpgrades[index]);
+            if (index < weaponUpgrades.Count)
+            {
+                GameManager.Instance.players[playerNum].weaponUpgrades.Add(weaponUpgrades[index]);
+            }
+            player.coins -= 1;
+        }
+        else
+        {
+            Debug.Log("no money");
         }
     }
 

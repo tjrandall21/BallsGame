@@ -233,6 +233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6113726385239ed4cbc897a082b34ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerNum: 0
+  upgrades: []
+  weaponUpgrades: []
   upgradeIcons: []
   weaponUpgradeIcons: []
 --- !u!1001 &140845078
@@ -323,6 +326,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7193412149526430195, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
+      propertyPath: playerNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193412149526430195, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
+      propertyPath: 'weaponUpgrades.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fcb8f0797fba11341b7a8f395199e5d0, type: 2}
+    - target: {fileID: 7193412149526430195, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
+      propertyPath: 'weaponUpgrades.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a8b36f59d3bd2914da71818949d8a585, type: 2}
+    - target: {fileID: 7193412149526430195, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
+      propertyPath: 'weaponUpgrades.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2616e84e4f583734bac8c38ca4148fca, type: 2}
     - target: {fileID: 8719799319027765976, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
       propertyPath: m_Name
       value: PlayerShop
@@ -491,6 +510,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610946616}
   m_CullTransparentMesh: 1
+--- !u!1 &1507308780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1507308782}
+  - component: {fileID: 1507308781}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1507308781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507308780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac680fc0c1edcf4d91bdf551b21e02e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  isBattleScene: 0
+  playerCount: 4
+  players:
+  - {fileID: 11400000, guid: 7379a10fec6c96c4f8921073784fa80d, type: 2}
+  - {fileID: 11400000, guid: 29d2cdfba8c85b64e8430d35273930d3, type: 2}
+  - {fileID: 11400000, guid: 58fdf0a133fec424a916b2fbc84ef162, type: 2}
+  - {fileID: 11400000, guid: 9840fc3f0c0c579448aa968380498d0e, type: 2}
+--- !u!4 &1507308782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507308780}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 921.8297, y: 565.9337, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776258129
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +830,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7193412149526430195, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
+      propertyPath: 'weaponUpgrades.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fcb8f0797fba11341b7a8f395199e5d0, type: 2}
+    - target: {fileID: 7193412149526430195, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
+      propertyPath: 'weaponUpgrades.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a8b36f59d3bd2914da71818949d8a585, type: 2}
+    - target: {fileID: 7193412149526430195, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
+      propertyPath: 'weaponUpgrades.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1caf7f4252821ff4d897bc38b406ed01, type: 2}
     - target: {fileID: 8719799319027765976, guid: 0045527e72058884f874d58e81cb5cd4, type: 3}
       propertyPath: m_Name
       value: P1
@@ -779,3 +861,4 @@ SceneRoots:
   - {fileID: 13002414}
   - {fileID: 1861425821}
   - {fileID: 586979721}
+  - {fileID: 1507308782}

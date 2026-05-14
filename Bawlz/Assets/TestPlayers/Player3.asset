@@ -19,3 +19,4 @@ MonoBehaviour:
   weaponUpgrades: []
   lives: 0
   roundsWon: 0
+  coins: 4
