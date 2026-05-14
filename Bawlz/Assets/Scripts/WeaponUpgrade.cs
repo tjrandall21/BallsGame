@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponUpgrade", menuName = "Scriptable Objects/WeaponUpgrade")]
+[CreateAssetMenu(fileName = "WeaponUpgrade", menuName = "Weapon Upgrades/WeaponUpgrade")]
 //will probably need to extend this class for each weapon type (swordUpgrade, bowUpgrade, etc)
 public class WeaponUpgrade : ScriptableObject
 {

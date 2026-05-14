@@ -186,8 +186,9 @@ MonoBehaviour:
   attackCooldown: 1
   parent: {fileID: 0}
   weaponUpgrades: []
-  baseDmg: 10
-  maxWeaponSpin: 400
+  baseDmg: 6.5
+  maxWeaponSpin: 300
   rotationAcceleration: 100
-  baseRotationSpeed: 180
-  maxSpinIncreasePerHit: 100
+  rotationAccelerationScaling: 10
+  baseRotationSpeed: 120
+  maxSpinIncreasePerHit: 45

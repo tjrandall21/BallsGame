@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MinionUpgrade", menuName = "Scriptable Objects/MinionUpgrade")]
+[CreateAssetMenu(fileName = "MinionUpgrade", menuName = "Ball Upgrades/MinionUpgrade")]
 public class MinionUpgrade : Upgrade
 {
     [SerializeField] GameObject minionPrefab;
