@@ -16,6 +16,11 @@ public class FXManager : MonoBehaviour
     [SerializeField] ParticleSystem weaponVsPlayerFX;
     [SerializeField] ParticleSystem playerDeathFX;
     [SerializeField] ParticleSystem minionDeathFX;
+    [SerializeField] ParticleSystem posionFX;
+    [SerializeField] ParticleSystem bleedFX;
+
+    [Header("Audio Settings")]
+    [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
 
     [SerializeField] int audioPoolSize = 10;
     private AudioSource[] audioPool;
@@ -30,17 +35,38 @@ public class FXManager : MonoBehaviour
         {
             audioPool[i] = gameObject.AddComponent<AudioSource>();
             audioPool[i].playOnAwake = false;
+            audioPool[i].volume = sfxVolume;
         }
     }
 
     public void RegisterPlayer(AudioSource source) { }
 
+    // sound effects for hits and deaths
     public void PlayWeaponHit(Vector3 pos) => PlayFX(weaponVsWeaponFX, weaponHitSFX, pos);
     public void PlayPlayerHit(Vector3 pos) => PlayFX(weaponVsPlayerFX, playerHitSFX, pos);
     public void PlayPlayerDeath(Vector3 pos) => PlayFX(playerDeathFX, playerDeathSFX, pos);
     public void PlayMinionDeath(Vector3 pos) => PlayFX(minionDeathFX, minionDeathSFX, pos);
     public void PlayPlayerHitsPlayer(Vector3 pos) => PlayFX(weaponVsPlayerFX, PlayerHitsPlayerSFX, pos);
 
+    // particle effects for status effects
+    public void PlayPoisonEffect(Vector3 pos) => PlayFX(posionFX, null, pos);
+    public void StartBleedEffect(Transform parent)
+    {
+        if (bleedFX == null)
+        {
+            Debug.LogWarning("FXManager: bleedFX is not assigned!");
+            return;
+        }
+        bleedFX.transform.SetParent(parent);
+        bleedFX.transform.localPosition = Vector3.zero;
+        bleedFX.Play();
+    }
+
+    public void StopBleedEffect()
+    {
+        if (bleedFX == null) return;
+        bleedFX.transform.SetParent(transform);
+    }
     public void PlayDeath(GameObject entity)
     {
         if (entity.CompareTag("Minion")) PlayMinionDeath(entity.transform.position);
@@ -60,6 +86,7 @@ public class FXManager : MonoBehaviour
         source.transform.position = pos;
         source.clip = clip;
         source.pitch = Random.Range(0.9f, 1.1f);
+        source.volume = sfxVolume;
         source.Play();
     }
 

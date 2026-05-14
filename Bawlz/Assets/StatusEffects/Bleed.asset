@@ -15,5 +15,5 @@ MonoBehaviour:
   statusName: Bleed
   stackable: 1
   statusDuration: 5
-  damagePerSecond: 5
+  damagePerSecond: 1
   tickRate: 0.2

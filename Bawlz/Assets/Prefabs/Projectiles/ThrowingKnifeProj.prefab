@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069279007790728011}
-  - component: {fileID: 3866882626821141082}
   - component: {fileID: 207017317070638197}
   - component: {fileID: 2255129472153577191}
-  - component: {fileID: 3065030270114866193}
+  - component: {fileID: 2602683137986963969}
+  - component: {fileID: 8170812887504622762}
   m_Layer: 6
-  m_Name: ThrowingKnife
+  m_Name: ThrowingKnifeProj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,31 +29,12 @@ Transform:
   m_GameObject: {fileID: 9124016292243078404}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.384, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3866882626821141082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9124016292243078404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f63ac6ef941914ba4d068dfcbab4ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Sword
-  weaponName: Sword
-  description: This is a weapon.
-  damage: 3
-  knockbackSpeed: 0
-  attackCooldown: 0
-  parent: {fileID: 0}
-  weaponUpgrades: []
 --- !u!212 &207017317070638197
 SpriteRenderer:
   serializedVersion: 2
@@ -103,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5829953526420353825, guid: bb1728ecac2e2ba4eb8cad33d6411ca9, type: 3}
+  m_Sprite: {fileID: -5279007004018050257, guid: 82efb0b426566344abe836f3e779b235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,8 +121,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!58 &3065030270114866193
-CircleCollider2D:
+--- !u!114 &2602683137986963969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124016292243078404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5591f3ded3f093c4192973369be6c811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TKProdj
+  weaponName: Weapon
+  description: This is a weapon.
+  damage: 10
+  knockbackSpeed: 0
+  attackCooldown: 0
+  parent: {fileID: 0}
+  weaponUpgrades: []
+  direction: {x: 0, y: 0, z: 0}
+  speed: 0
+  parentWeapon: {fileID: 0}
+  spinSpeed: 720
+  stickDuration: 1
+  fadeDuration: 1
+  bleedEffect: {fileID: 11400000, guid: e65173a106d7d2545a5d918fe05e4d88, type: 2}
+--- !u!61 &8170812887504622762
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -174,5 +181,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
+  m_Offset: {x: -0.000000029802322, y: -0.034488052}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.1348316, y: 0.97159797}
+  m_EdgeRadius: 0

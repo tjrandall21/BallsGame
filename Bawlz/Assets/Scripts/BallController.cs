@@ -119,21 +119,26 @@ public class BallController : MonoBehaviour
 
     public void ApplyStatus(StatusEffect status, BallController sourceBall)
     {
+        Debug.Log($"Applying status: name='{status.name}' statusName='{status.statusName}'");
+
         if (!status.stackable)
-        { //check for any active status with a matching name
+        {
             foreach (StatusEffect statusEffect in statusEffects)
             {
                 if (statusEffect.name == status.name)
-                {
                     return;
-                }
             }
         }
+
+        if (status.statusName == "Poison")
+            FXManager.Instance.PlayPoisonEffect(transform.position);
+        else if (status.statusName == "Bleed")
+            FXManager.Instance.StartBleedEffect(transform);
+
         StatusEffect newStatus = Instantiate(status);
-        newStatus.Init(this,sourceBall);
+        newStatus.Init(this, sourceBall);
         statusEffects.Add(newStatus);
     }
-
     public void RemoveStatus(StatusEffect status)
     {
         statusEffects.Remove(status);
@@ -231,8 +236,6 @@ public class BallController : MonoBehaviour
 
     public void OnDamageTaken(float amount)
     {
-        FXManager.Instance.PlayPlayerHit(transform.position);
-
         amount *= defenseMultiplier;
         health -= amount;
 
@@ -259,7 +262,7 @@ public class BallController : MonoBehaviour
 
     void OnBallCollision(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+        
         foreach (Upgrade upgrade in upgrades)
         {
             upgrade.OnBallCollision(otherBall);

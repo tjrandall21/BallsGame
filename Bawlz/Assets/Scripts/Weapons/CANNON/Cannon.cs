@@ -32,6 +32,16 @@ public class Cannon : Weapon
 
         OnAttackEnd();
     }
+    protected override void OnWeaponHit(Weapon otherWeapon)
+    {
+        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
+        base.OnWeaponHit(otherWeapon);
+    }
+
+    protected override void OnBallHit(BallController otherBall)
+    {
+        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+    }
 
     private IEnumerator SmoothKnockback(Rigidbody2D rb, Vector3 direction)
     {
