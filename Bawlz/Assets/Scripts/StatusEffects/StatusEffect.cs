@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StatusEffect", menuName = "Scriptable Objects/StatusEffect")]
+[CreateAssetMenu(fileName = "StatusEffect", menuName = "Status Effects/StatusEffect")]
 public class StatusEffect : ScriptableObject
 {
     public string statusName = "Status Effect";
@@ -38,6 +38,11 @@ public class StatusEffect : ScriptableObject
     public virtual void OnStatusEnd()
     {
         //override to add(or remove) effects when the status ends
+    }
+
+    public virtual void OnStatusRefresh()
+    {
+        //override to add effects when the status is refreshed (reapplied while already active)
     }
 
 

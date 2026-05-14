@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 207017317070638197}
   - component: {fileID: 2255129472153577191}
   - component: {fileID: 5009749163094406371}
-  - component: {fileID: -8203709110801271295}
+  - component: {fileID: 832807001038863056}
   m_Layer: 6
-  m_Name: TestHammer
+  m_Name: HarpoonProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 9124016292243078404}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0279, y: 1.39, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 997769666358695455, guid: 2972383ad5aa0fa4d8d8e35f8d83623b, type: 3}
+  m_Sprite: {fileID: -557013291830842354, guid: ac4be5f23f92609438ff8a81e9e8eb21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,23 +151,23 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.020001546, y: -0.040002346}
+  m_Offset: {x: 0.0026788712, y: 0.006497979}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2.5625}
+    oldSize: {x: 0.875, y: 0.875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6599741, y: 2.480112}
+  m_Size: {x: 0.7788563, y: 0.7642157}
   m_EdgeRadius: 0
---- !u!114 &-8203709110801271295
+--- !u!114 &832807001038863056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,19 +176,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 9124016292243078404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181953dd2f212ce4c805d03863d97b4c, type: 3}
+  m_Script: {fileID: 11500000, guid: ee18117a1ed502f488ae6c861a689ed3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Hammer
-  weaponName: Hammer
-  description: This is a Hammer
+  m_EditorClassIdentifier: Assembly-CSharp::HarpoonProjectile
+  weaponName: Hook
+  description: This is a weapon.
   damage: 10
-  knockbackSpeed: 10
-  attackCooldown: 1
+  knockbackSpeed: 0
+  attackCooldown: 0
   parent: {fileID: 0}
   weaponUpgrades: []
-  baseDmg: 6.5
-  maxWeaponSpin: 300
-  rotationAcceleration: 100
-  rotationAccelerationScaling: 10
-  baseRotationSpeed: 120
-  maxSpinIncreasePerHit: 45
+  direction: {x: 0, y: 0, z: 0}
+  speed: 0
+  parentWeapon: {fileID: 0}
+  pullSpeed: 30

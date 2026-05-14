@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class Hammer : Weapon
 {
-    [SerializeField] float baseDmg = 10f;
-    [SerializeField] float maxWeaponSpin = 720f;
+    [SerializeField] float baseDmg = 6.5f;
+    [SerializeField] float maxWeaponSpin = 240f;
     [SerializeField] float rotationAcceleration = 100f;
+    [SerializeField] float rotationAccelerationScaling = 20f;
     [SerializeField] float baseRotationSpeed = 180f;
-    [SerializeField] float maxSpinIncreasePerHit = 100f; // how much max spin grows each hit
+    [SerializeField] float maxSpinIncreasePerHit = 45f; // how much max spin grows each hit
 
-    private float GetSpinDamage()
+    float GetSpinDamage()
     {
-        float spinRatio = Mathf.Clamp01(parent.RotationSpeed / maxWeaponSpin / 2);
-        return baseDmg * (0.1f + spinRatio);
+        return baseDmg * (parent.RotationSpeed / baseRotationSpeed);
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (parent == null) return;
         parent.RotationSpeed = Mathf.MoveTowards(
@@ -49,10 +49,8 @@ public class Hammer : Weapon
             weaponUpgrade.OnBallHit(otherBall);
         }
 
-        baseDmg += 10;
+        rotationAcceleration += rotationAccelerationScaling; // hammer accelerates faster next cycle
         maxWeaponSpin += maxSpinIncreasePerHit; // hammer can now spin faster next cycle
         parent.RotationSpeed = baseRotationSpeed; // reset to base, begins climbing again
-
-        
     }
 }

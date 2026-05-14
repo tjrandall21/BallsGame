@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DoTEffect", menuName = "Scriptable Objects/DoTEffect")]
+[CreateAssetMenu(fileName = "DoTEffect", menuName = "Status Effects/DoTEffect")]
 public class DoTEffect : StatusEffect
 {
     public float damagePerSecond = 5;
