@@ -93,6 +93,8 @@ public class BallController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthText = GetComponentInChildren<TextMeshPro>();
         SetVelocityAngle(launchAngle, speed);
+
+        FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
     }
 
     // Update is called once per frame
@@ -229,6 +231,8 @@ public class BallController : MonoBehaviour
 
     public void OnDamageTaken(float amount)
     {
+        FXManager.Instance.PlayPlayerHit(transform.position);
+
         amount *= defenseMultiplier;
         health -= amount;
 
@@ -248,13 +252,14 @@ public class BallController : MonoBehaviour
         Debug.Log($"{ballName} health: {health}");
         if (health <= 0)
         {
-            ParticleHitManager.Instance.PlayPlayerDeath(transform.position);
+            FXManager.Instance.PlayDeath(gameObject);
             Destroy(gameObject);
         }
     }
 
     void OnBallCollision(BallController otherBall)
     {
+        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
         foreach (Upgrade upgrade in upgrades)
         {
             upgrade.OnBallCollision(otherBall);
