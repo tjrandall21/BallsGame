@@ -72,22 +72,18 @@ public class Weapon : MonoBehaviour
 
     protected virtual void OnBallHit(BallController otherBall)
     {
-
-        Debug.Log("Ball Collision");
         if (parent != null)
+        {
             parent.FlipRotation();
-
+        }
         otherBall.OnWeaponCollision(this);
-
-
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
             weaponUpgrade.OnBallHit(otherBall);
+        }
     }
-
     protected virtual void OnWeaponHit(Weapon otherWeapon)
     {
-        
-        Debug.Log("Weapon Collision");
         if (parent != null)
         {
             parent.FlipRotation();

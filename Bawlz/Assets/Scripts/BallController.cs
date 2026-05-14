@@ -117,28 +117,48 @@ public class BallController : MonoBehaviour
     }
 
 
+    public bool HasStatus(string statusName)
+    {
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            if (statusEffect.name == statusName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public StatusEffect GetStatus(string statusName)
+    {
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            if (statusEffect.name == statusName)
+            {
+                return statusEffect;
+            }
+        }
+        return null;
+    }
+
     public void ApplyStatus(StatusEffect status, BallController sourceBall)
     {
-        Debug.Log($"Applying status: name='{status.name}' statusName='{status.statusName}'");
-
         if (!status.stackable)
-        {
+        { //check for any active status with a matching name
             foreach (StatusEffect statusEffect in statusEffects)
             {
                 if (statusEffect.name == status.name)
+                {
+                    statusEffect.OnStatusRefresh();
                     return;
+                }
             }
         }
-
-        if (status.statusName == "Poison")
-            FXManager.Instance.PlayPoisonEffect(transform.position);
-        else if (status.statusName == "Bleed")
-            FXManager.Instance.StartBleedEffect(transform);
-
         StatusEffect newStatus = Instantiate(status);
-        newStatus.Init(this, sourceBall);
+        newStatus.Init(this,sourceBall);
         statusEffects.Add(newStatus);
     }
+
     public void RemoveStatus(StatusEffect status)
     {
         statusEffects.Remove(status);
@@ -160,14 +180,19 @@ public class BallController : MonoBehaviour
         rotationDirection *= -1;
     }
 
-    void SetVelocityAngle(float angle, float magnitude = 0)
+    public void SetVelocityAngle(float angle, float magnitude = -1)
     {
-        if (magnitude == 0) //default to the current speed
+        if (magnitude == -1) //default to the current speed
         {
             magnitude = rb.linearVelocity.magnitude;
         }
-        rb.linearVelocityX = math.sin(angle - transform.rotation.z) * magnitude;
-        rb.linearVelocityY = math.cos(angle - transform.rotation.z) * magnitude;
+        rb.linearVelocityX = math.sin(angle - transform.rotation.eulerAngles.z) * magnitude;
+        rb.linearVelocityY = math.cos(angle - transform.rotation.eulerAngles.z) * magnitude;
+    }
+    
+    public void SetVelocity(Vector2 velocity)
+    {
+        rb.linearVelocity = velocity;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -236,6 +261,8 @@ public class BallController : MonoBehaviour
 
     public void OnDamageTaken(float amount)
     {
+        FXManager.Instance.PlayPlayerHit(transform.position);
+
         amount *= defenseMultiplier;
         health -= amount;
 
@@ -262,7 +289,7 @@ public class BallController : MonoBehaviour
 
     void OnBallCollision(BallController otherBall)
     {
-        
+        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
         foreach (Upgrade upgrade in upgrades)
         {
             upgrade.OnBallCollision(otherBall);
