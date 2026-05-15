@@ -221,3 +221,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 9124016292243078404, guid: 8375106d90a30f34a8b20fc2896ea327, type: 3}
   projectileSpeed: 20
   projectileDamage: 4
+  contactDamageScaling: 1.5
+  extraProjectileChanceScaling: 0.15
+  spreadIncreasePerBullet: 10
