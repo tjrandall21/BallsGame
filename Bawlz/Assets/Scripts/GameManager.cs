@@ -71,7 +71,8 @@ public class GameManager : MonoBehaviour
                 weapon.GetComponent<Weapon>().SetUpgrades(players[i].weaponUpgrades);
             }
             BallController ballController = ball.GetComponent<BallController>();
-            ballController.Init(players[i].upgrades,players[i].playerNum,Random.Range(0.0f,360.0f));
+            ballController.Init(players[i].upgrades, players[i].playerNum, Random.Range(0.0f, 360.0f), players[i].playerSprite);
+
             mainBalls.Add(ballController);
         }
     }

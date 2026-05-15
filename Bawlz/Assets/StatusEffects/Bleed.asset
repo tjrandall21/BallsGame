@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fa98960c5ce034e958704924fb1860, type: 3}
   m_Name: Bleed
   m_EditorClassIdentifier: Assembly-CSharp::DoTEffect
+  Fx: {fileID: 2438070733455081059, guid: f430fd59b8de20c429bef484868611cb, type: 3}
+  SFX: {fileID: 0}
   statusName: Bleed
-  stackable: 1
+  stackable: 0
   statusDuration: 5
   damagePerSecond: 1
-  tickRate: 0.2
+  tickRate: 0.1

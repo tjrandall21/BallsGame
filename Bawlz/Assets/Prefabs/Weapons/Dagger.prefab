@@ -216,7 +216,8 @@ MonoBehaviour:
   damage: 3
   knockbackSpeed: 0
   attackCooldown: 0
+  parent: {fileID: 0}
   weaponUpgrades: []
   poisonEffect: {fileID: 11400000, guid: f821b0b36c990c24babb330f473f6053, type: 2}
-  durationScaling: 0.5
-  damageScaling: 0.5
+  durationScaling: 0.2
+  damageScaling: 0.2

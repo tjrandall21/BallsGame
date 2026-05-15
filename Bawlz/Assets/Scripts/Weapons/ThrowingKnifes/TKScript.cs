@@ -20,13 +20,13 @@ public class TKScript : Weapon
     public override void OnWallCollision()
     {
         base.OnWallCollision();
-        attackCooldown *= 0.98f;
     }
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
         FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
+        attackCooldown *= 0.98f;
     }
 
     protected override void OnBallHit(BallController otherBall)

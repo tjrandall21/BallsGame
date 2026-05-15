@@ -38,8 +38,6 @@ public class TKProdj : Projectile
     {
         FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
         base.OnBallHit(otherBall);
-        otherBall.AddVelocity(direction * speed);
-
         otherBall.ApplyStatus(bleedEffect, parent);
     }
 

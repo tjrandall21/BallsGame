@@ -16,8 +16,6 @@ public class FXManager : MonoBehaviour
     [SerializeField] ParticleSystem weaponVsPlayerFX;
     [SerializeField] ParticleSystem playerDeathFX;
     [SerializeField] ParticleSystem minionDeathFX;
-    [SerializeField] ParticleSystem posionFX;
-    [SerializeField] ParticleSystem bleedFX;
 
     [Header("Audio Settings")]
     [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
@@ -25,6 +23,7 @@ public class FXManager : MonoBehaviour
     [SerializeField] int audioPoolSize = 10;
     private AudioSource[] audioPool;
     private int poolIndex;
+
 
     private void Awake()
     {
@@ -47,33 +46,14 @@ public class FXManager : MonoBehaviour
     public void PlayPlayerDeath(Vector3 pos) => PlayFX(playerDeathFX, playerDeathSFX, pos);
     public void PlayMinionDeath(Vector3 pos) => PlayFX(minionDeathFX, minionDeathSFX, pos);
     public void PlayPlayerHitsPlayer(Vector3 pos) => PlayFX(weaponVsPlayerFX, PlayerHitsPlayerSFX, pos);
-
-    // particle effects for status effects
-    public void PlayPoisonEffect(Vector3 pos) => PlayFX(posionFX, null, pos);
-    public void StartBleedEffect(Transform parent)
-    {
-        if (bleedFX == null)
-        {
-            Debug.LogWarning("FXManager: bleedFX is not assigned!");
-            return;
-        }
-        bleedFX.transform.SetParent(parent);
-        bleedFX.transform.localPosition = Vector3.zero;
-        bleedFX.Play();
-    }
-
-    public void StopBleedEffect()
-    {
-        if (bleedFX == null) return;
-        bleedFX.transform.SetParent(transform);
-    }
+   
     public void PlayDeath(GameObject entity)
     {
         if (entity.CompareTag("Minion")) PlayMinionDeath(entity.transform.position);
         else PlayPlayerDeath(entity.transform.position);
     }
 
-    private void PlayFX(ParticleSystem prefab, AudioClip clip, Vector3 pos)
+    public void PlayFX(ParticleSystem prefab, AudioClip clip, Vector3 pos)
     {
         if (prefab != null)
         {
