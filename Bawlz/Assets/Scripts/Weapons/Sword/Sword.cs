@@ -11,5 +11,16 @@ public class Sword : Weapon
         damage += damageScalingAmount;
     }
 
-    
+    protected override void OnBallHit(BallController otherBall)
+    {
+        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+        base.OnBallHit(otherBall);
+    }
+
+    protected override void OnWeaponHit(Weapon otherWeapon)
+    {
+        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
+        base.OnWeaponHit(otherWeapon);
+    }
+
 }
