@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour
     [SerializeField] public float contactDamage = 0;
     [SerializeField] float defenseMultiplier = 1;
     float health = 0;
-    [SerializeField] SpriteRenderer sprite = null;
+    [SerializeField] public SpriteRenderer sprite = null;
 
     public int playerNum = 0;
 
@@ -31,31 +31,19 @@ public class BallController : MonoBehaviour
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<StatusEffect> statusEffects;
 
-    public void Init(List<Upgrade> newUpgrades, int playerNumber, float startingAngle)
+    public void Init(List<Upgrade> newUpgrades, int playerNumber, float startingAngle,Sprite playerSprite)
     {
         foreach (Upgrade upgrade in newUpgrades)
         {
             upgrades.Add(Instantiate(upgrade));
         }
         playerNum = playerNumber;
-        switch (playerNum)
+
+        if (playerSprite != null)
         {
-            case 1:
-                sprite.color = Color.red;
-                break;
-            case 2:
-                sprite.color = Color.blue;
-                break;
-            case 3:
-                sprite.color = Color.green;
-                break;
-            case 4:
-                sprite.color = Color.yellow;
-                break;
-            default:
-                Debug.LogError("Player Number not assigned");
-                break;
+            sprite.sprite = playerSprite;
         }
+           
         launchAngle = startingAngle;
     }
     
@@ -117,6 +105,30 @@ public class BallController : MonoBehaviour
     }
 
 
+    public bool HasStatus(string statusName) // confirms if the ball has a status matching the name
+    {
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            if (statusEffect.name == statusName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public StatusEffect GetStatus(string statusName) // returns if the player has a status matching the name
+    {
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            if (statusEffect.name == statusName)
+            {
+                return statusEffect;
+            }
+        }
+        return null;
+    }
+
     public void ApplyStatus(StatusEffect status, BallController sourceBall)
     {
         if (!status.stackable)
@@ -125,6 +137,7 @@ public class BallController : MonoBehaviour
             {
                 if (statusEffect.name == status.name)
                 {
+                    statusEffect.OnStatusRefresh();
                     return;
                 }
             }
@@ -155,14 +168,19 @@ public class BallController : MonoBehaviour
         rotationDirection *= -1;
     }
 
-    void SetVelocityAngle(float angle, float magnitude = 0)
+    public void SetVelocityAngle(float angle, float magnitude = -1)
     {
-        if (magnitude == 0) //default to the current speed
+        if (magnitude == -1) //default to the current speed
         {
             magnitude = rb.linearVelocity.magnitude;
         }
-        rb.linearVelocityX = math.sin(angle - transform.rotation.z) * magnitude;
-        rb.linearVelocityY = math.cos(angle - transform.rotation.z) * magnitude;
+        rb.linearVelocityX = math.sin(angle - transform.rotation.eulerAngles.z) * magnitude;
+        rb.linearVelocityY = math.cos(angle - transform.rotation.eulerAngles.z) * magnitude;
+    }
+    
+    public void SetVelocity(Vector2 velocity)
+    {
+        rb.linearVelocity = velocity;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -231,7 +249,7 @@ public class BallController : MonoBehaviour
 
     public void OnDamageTaken(float amount)
     {
-        FXManager.Instance.PlayPlayerHit(transform.position);
+        //FXManager.Instance.PlayPlayerHit(transform.position);
 
         amount *= defenseMultiplier;
         health -= amount;

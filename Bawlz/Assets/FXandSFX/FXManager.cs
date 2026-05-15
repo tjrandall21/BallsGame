@@ -17,9 +17,13 @@ public class FXManager : MonoBehaviour
     [SerializeField] ParticleSystem playerDeathFX;
     [SerializeField] ParticleSystem minionDeathFX;
 
+    [Header("Audio Settings")]
+    [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
+
     [SerializeField] int audioPoolSize = 10;
     private AudioSource[] audioPool;
     private int poolIndex;
+
 
     private void Awake()
     {
@@ -30,24 +34,26 @@ public class FXManager : MonoBehaviour
         {
             audioPool[i] = gameObject.AddComponent<AudioSource>();
             audioPool[i].playOnAwake = false;
+            audioPool[i].volume = sfxVolume;
         }
     }
 
     public void RegisterPlayer(AudioSource source) { }
 
+    // sound effects for hits and deaths
     public void PlayWeaponHit(Vector3 pos) => PlayFX(weaponVsWeaponFX, weaponHitSFX, pos);
     public void PlayPlayerHit(Vector3 pos) => PlayFX(weaponVsPlayerFX, playerHitSFX, pos);
     public void PlayPlayerDeath(Vector3 pos) => PlayFX(playerDeathFX, playerDeathSFX, pos);
     public void PlayMinionDeath(Vector3 pos) => PlayFX(minionDeathFX, minionDeathSFX, pos);
     public void PlayPlayerHitsPlayer(Vector3 pos) => PlayFX(weaponVsPlayerFX, PlayerHitsPlayerSFX, pos);
-
+   
     public void PlayDeath(GameObject entity)
     {
         if (entity.CompareTag("Minion")) PlayMinionDeath(entity.transform.position);
         else PlayPlayerDeath(entity.transform.position);
     }
 
-    private void PlayFX(ParticleSystem prefab, AudioClip clip, Vector3 pos)
+    public void PlayFX(ParticleSystem prefab, AudioClip clip, Vector3 pos)
     {
         if (prefab != null)
         {
@@ -60,6 +66,7 @@ public class FXManager : MonoBehaviour
         source.transform.position = pos;
         source.clip = clip;
         source.pitch = Random.Range(0.9f, 1.1f);
+        source.volume = sfxVolume;
         source.Play();
     }
 

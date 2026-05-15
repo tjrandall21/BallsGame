@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fa98960c5ce034e958704924fb1860, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: Assembly-CSharp::DoTEffect
+  Fx: {fileID: 2438070733455081059, guid: 4e708d2f73084cb42b534f0afb97e5e5, type: 3}
+  SFX: {fileID: 8300000, guid: c1a39e60eb6fe944f875784eaddfc3e8, type: 3}
   statusName: Poison
   stackable: 1
-  statusDuration: 20
-  damagePerSecond: 2
+  statusDuration: 10
+  damagePerSecond: 1
   tickRate: 0.5

@@ -13,4 +13,6 @@ public class PlayerData : ScriptableObject
     public int lives = 0;
     public int roundsWon = 0;
 
+    public Sprite playerSprite;
+
 }

@@ -4,9 +4,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StatusEffect", menuName = "Scriptable Objects/StatusEffect")]
 public class StatusEffect : ScriptableObject
 {
+    [SerializeField] ParticleSystem Fx;
+    [SerializeField] AudioClip SFX;
+
     public string statusName = "Status Effect";
-    public string StatusName {get{return statusName;}}
+    public string StatusName { get { return statusName; } }
     [SerializeField] public bool stackable = true;
+
     protected BallController appliedBall;
     protected BallController sourceBall;
     public float statusDuration;
@@ -22,7 +26,12 @@ public class StatusEffect : ScriptableObject
 
     public virtual void OnStatusApplied()
     {
-        //override to add effects when the status begins
+        FXManager.Instance.PlayFX(Fx, SFX, appliedBall.transform.position);
+    }
+
+    public void PlayTickFX()
+    {
+        FXManager.Instance.PlayFX(Fx, SFX, appliedBall.transform.position);
     }
 
     public virtual void Update()
@@ -35,36 +44,14 @@ public class StatusEffect : ScriptableObject
         }
     }
 
-    public virtual void OnStatusEnd()
+    public virtual void OnStatusEnd() 
     {
-        //override to add(or remove) effects when the status ends
     }
 
-
-    //  ball functions
-
-    public virtual void OnBallSpawned(BallController newBall)
-    {
-        //called when the ball this upgrade is applied to spawns another ball
-    }
-
-    public virtual void OnDamageTaken(float amount)
-    {
-        //called when the ball takes damage from any source
-    }
-
-    public virtual void OnWeaponCollision(Weapon weapon)
-    {
-        //called when the ball gets hit by a weapon or projectile
-    }
-
-    public virtual void OnBallCollision(BallController otherBall)
-    {
-        //called when the ball collides directly with another ball
-    }
-
-    public virtual void OnWallCollision()
-    {
-        //called when the ball bounces off of a wall
-    }
+    public virtual void OnStatusRefresh() { }
+    public virtual void OnBallSpawned(BallController newBall) { }
+    public virtual void OnDamageTaken(float amount) { }
+    public virtual void OnWeaponCollision(Weapon weapon) { }
+    public virtual void OnBallCollision(BallController otherBall) { }
+    public virtual void OnWallCollision() { }
 }
