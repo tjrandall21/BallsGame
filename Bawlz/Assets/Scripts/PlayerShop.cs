@@ -16,25 +16,61 @@ public class PlayerShop : MonoBehaviour
     private List<WeaponUpgrade> currentShopWeaponUpgrades = new List<WeaponUpgrade>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    //void Start()
+    //{
+    //    player = GameManager.Instance.players[playerNum];
+    //    for (int i = 0; i < upgradeIcons.Count; i++)
+    //    {
+    //        if (i < upgrades.Count)
+    //        {
+    //            upgradeIcons[i].sprite = upgrades[i].shopIcon;
+    //        }
+    //        else
+    //        {
+    //            upgradeIcons[i].sprite = null;
+    //        }
+    //    }
+    //    for (int i = 0; i < weaponUpgradeIcons.Count; i++)
+    //    {
+    //        if (i < weaponUpgrades.Count)
+    //        {
+    //            weaponUpgradeIcons[i].sprite = weaponUpgrades[i].shopIcon;
+    //        }
+    //        else
+    //        {
+    //            weaponUpgradeIcons[i].sprite = null;
+    //        }
+    //    }
+    //}
+    public void SetPlayer(int playerIndex)
     {
+        playerNum = playerIndex;
         player = GameManager.Instance.players[playerNum];
+
+        SetupShop();
+    }
+
+    void SetupShop()
+    {
         for (int i = 0; i < upgradeIcons.Count; i++)
         {
             if (i < upgrades.Count)
             {
-                upgradeIcons[i].sprite = upgrades[i].shopIcon;
+                upgradeIcons[i].sprite =
+                    upgrades[i].shopIcon;
             }
             else
             {
                 upgradeIcons[i].sprite = null;
             }
         }
+
         for (int i = 0; i < weaponUpgradeIcons.Count; i++)
         {
             if (i < weaponUpgrades.Count)
             {
-                weaponUpgradeIcons[i].sprite = weaponUpgrades[i].shopIcon;
+                weaponUpgradeIcons[i].sprite =
+                    weaponUpgrades[i].shopIcon;
             }
             else
             {

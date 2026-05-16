@@ -3187,9 +3187,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}
   - {fileID: 11400000, guid: cb77b707ac0e5684f931b31c9e9a5cdc, type: 2}
   weaponUpgrades:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: fcb8f0797fba11341b7a8f395199e5d0, type: 2}
+  - {fileID: 11400000, guid: a8b36f59d3bd2914da71818949d8a585, type: 2}
+  - {fileID: 11400000, guid: ea3c68ec1ea77e34f8df9c49f49dfc6e, type: 2}
   upgradeIcons:
   - {fileID: 7269551001897026003}
   - {fileID: 202247126862667661}
