@@ -24,7 +24,7 @@ public class TKProdj : Projectile
     protected override void Start()
     {
         base.Start();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     protected override void Update()
     {

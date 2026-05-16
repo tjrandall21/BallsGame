@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] bool isBattleScene = false;
     [SerializeField] int playerCount = 4;
+    public int PlayerCount {get{return playerCount;}}
 
     public List<PlayerData> players = new List<PlayerData>();
 
-    List<Vector2> spawnLocations = new List<Vector2>();
+    List<Vector2> spawnLocations = new List<Vector2>{Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero};
     List<BallController> mainBalls = new List<BallController>();
 
     void Awake()
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+            spawnLocations.Capacity = 4;
         }
     }
 
@@ -31,7 +33,8 @@ public class GameManager : MonoBehaviour
     public void LoadBattleScene()
     {
         //empty spawn locations
-        spawnLocations = new List<Vector2>();
+        spawnLocations = new List<Vector2>{Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero};
+        spawnLocations.Capacity = 4;
         SceneManager.LoadScene(1);
     }
 
@@ -52,9 +55,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddSpawnLocation(Vector2 location)
+    public void AddSpawnLocation(Vector2 location, int index)
     {
-        spawnLocations.Add(location);
+        spawnLocations[index] = location;
     }
 
     void SpawnPlayers()

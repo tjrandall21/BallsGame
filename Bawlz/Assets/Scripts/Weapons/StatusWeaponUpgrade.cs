@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StatusWeaponUpgrade", menuName = "Scriptable Objects/StatusWeaponUpgrade")]
+[CreateAssetMenu(fileName = "StatusWeaponUpgrade", menuName = "Weapon Upgrades/StatusWeaponUpgrade")]
 public class StatusWeaponUpgrade : WeaponUpgrade
 {
     [SerializeField] StatusEffect status;
