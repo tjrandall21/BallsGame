@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e472045e602417408286035325966f4, type: 3}
   m_Name: HealthUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 2903848411162822477, guid: 989110cc7b608bf4b96948a5db85ae2c, type: 3}
   upgradeName: Health Upgrade
+  description: This is an upgrade.
   stackable: 1
   health: 50
   contactDamage: 0

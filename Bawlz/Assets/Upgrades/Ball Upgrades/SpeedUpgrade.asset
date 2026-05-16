@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e472045e602417408286035325966f4, type: 3}
   m_Name: SpeedUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 2952564868547622667, guid: 593be67408642294a8363e214c408090, type: 3}
   upgradeName: Speed Upgrade
   description: This is an upgrade.
   stackable: 1
