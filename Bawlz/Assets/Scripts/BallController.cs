@@ -22,12 +22,12 @@ public class BallController : MonoBehaviour
     [SerializeField] public float maxHealth = 200;
     [SerializeField] public float contactDamage = 0;
     [SerializeField] float defenseMultiplier = 1;
-    float health = 0;
+    public float health = 0;
     [SerializeField] SpriteRenderer sprite = null;
 
     public int playerNum = 0;
 
-    List<Weapon> weapons = new List<Weapon>();
+    public List<Weapon> weapons = new List<Weapon>();
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<StatusEffect> statusEffects;
 
