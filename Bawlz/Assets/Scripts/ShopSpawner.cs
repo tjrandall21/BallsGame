@@ -26,18 +26,16 @@ public class ShopSpawner : MonoBehaviour
         {
             GameObject shop = Instantiate(playerShopPrefab);
 
-            // Parent correctly for UI
+            // parent UI
             shop.transform.SetParent(shopParent, false);
 
-            // Move UI
-            RectTransform rect =
-                shop.GetComponent<RectTransform>();
+            // move UI
+            RectTransform rect = shop.GetComponent<RectTransform>();
 
             rect.anchoredPosition = positions[i];
 
-            // Assign player
-            shop.GetComponent<PlayerShop>()
-                 .SetPlayer(i);
+            // assign player
+            shop.GetComponent<PlayerShop>().SetPlayer(i);
         }
     }
 }
