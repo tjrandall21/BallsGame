@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour
     [SerializeField] public float contactDamage = 0;
     [SerializeField] float defenseMultiplier = 1;
     public float health = 0;
-    [SerializeField] SpriteRenderer sprite = null;
+    [SerializeField] public SpriteRenderer sprite = null;
 
     public int playerNum = 0;
 
@@ -31,31 +31,19 @@ public class BallController : MonoBehaviour
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<StatusEffect> statusEffects;
 
-    public void Init(List<Upgrade> newUpgrades, int playerNumber, float startingAngle)
+    public void Init(List<Upgrade> newUpgrades, int playerNumber, float startingAngle,Sprite playerSprite)
     {
         foreach (Upgrade upgrade in newUpgrades)
         {
             upgrades.Add(Instantiate(upgrade));
         }
         playerNum = playerNumber;
-        switch (playerNum)
+
+        if (playerSprite != null)
         {
-            case 1:
-                sprite.color = Color.red;
-                break;
-            case 2:
-                sprite.color = Color.blue;
-                break;
-            case 3:
-                sprite.color = Color.green;
-                break;
-            case 4:
-                sprite.color = Color.yellow;
-                break;
-            default:
-                Debug.LogError("Player Number not assigned");
-                break;
+            sprite.sprite = playerSprite;
         }
+           
         launchAngle = startingAngle;
     }
     
@@ -117,7 +105,7 @@ public class BallController : MonoBehaviour
     }
 
 
-    public bool HasStatus(string statusName)
+    public bool HasStatus(string statusName) // confirms if the ball has a status matching the name
     {
         foreach (StatusEffect statusEffect in statusEffects)
         {
@@ -129,7 +117,7 @@ public class BallController : MonoBehaviour
         return false;
     }
 
-    public StatusEffect GetStatus(string statusName)
+    public StatusEffect GetStatus(string statusName) // returns if the player has a status matching the name
     {
         foreach (StatusEffect statusEffect in statusEffects)
         {
@@ -261,7 +249,7 @@ public class BallController : MonoBehaviour
 
     public void OnDamageTaken(float amount)
     {
-        FXManager.Instance.PlayPlayerHit(transform.position);
+        //FXManager.Instance.PlayPlayerHit(transform.position);
 
         amount *= defenseMultiplier;
         health -= amount;

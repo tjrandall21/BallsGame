@@ -19,3 +19,4 @@ MonoBehaviour:
   weaponUpgrades: []
   lives: 0
   roundsWon: 0
+  playerSprite: {fileID: 4807775697852972887, guid: 4719ee1fb2727284292d75c18f84eade, type: 3}
