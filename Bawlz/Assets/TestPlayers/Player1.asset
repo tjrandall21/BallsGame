@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   playerNum: 1
-  weaponPrefab: {fileID: 9124016292243078404, guid: 9bf94f272db4a1a48a21e1dfa20d3ecc, type: 3}
+  weaponPrefab: {fileID: 9124016292243078404, guid: bbf1ca69f21ac77469d60f4aea4cc19f, type: 3}
   ballPrefab: {fileID: 7189852719700939712, guid: dbc579720f7d5db48ab5ecbe97d0ddfd, type: 3}
   upgrades: []
   weaponUpgrades: []
