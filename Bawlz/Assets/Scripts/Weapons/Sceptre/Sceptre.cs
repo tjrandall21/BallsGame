@@ -9,8 +9,11 @@ public class Sceptre : Weapon
     [SerializeField] float minionHealth = 1;
     [SerializeField] float minionHealthScaling = 1.5f;
     [SerializeField] int minionsPerHit = 1;
+
     protected override void OnBallHit(BallController otherBall)
     {
+        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+
         base.OnBallHit(otherBall);
         for (int i = 0; i < minionsPerHit; i++)
         {       
@@ -18,7 +21,7 @@ public class Sceptre : Weapon
             ball.layer = gameObject.layer;
 
             BallController ballController = ball.GetComponent<BallController>();
-            ballController.Init(new List<Upgrade>(),parent.playerNum,Random.Range(0.0f,360.0f));
+            ballController.Init(new List<Upgrade>(),parent.playerNum,Random.Range(0.0f,360.0f),ballController.sprite.sprite);
             ballController.contactDamage = minionDamage;
             ballController.maxHealth = minionHealth;
             parent.OnBallSpawned(ballController);
@@ -26,6 +29,14 @@ public class Sceptre : Weapon
 
         minionDamage += minionDamageScaling;
         minionHealth += minionHealthScaling;
+    }
+
+    
+
+    protected override void OnWeaponHit(Weapon otherWeapon)
+    {
+        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
+        base.OnWeaponHit(otherWeapon);
     }
 
     protected override void Start()

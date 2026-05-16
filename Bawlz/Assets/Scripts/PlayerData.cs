@@ -14,4 +14,6 @@ public class PlayerData : ScriptableObject
     public int roundsWon = 0;
     public int coins = 4;
 
+    public Sprite playerSprite;
+
 }
