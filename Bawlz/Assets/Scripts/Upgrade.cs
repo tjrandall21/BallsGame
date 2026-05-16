@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-[CreateAssetMenu(fileName = "Upgrade", menuName = "Scriptable Objects/Upgrade")]
+[CreateAssetMenu(fileName = "Upgrade", menuName = "Ball Upgrades/Upgrade")]
 public class Upgrade : ScriptableObject
 {
     public Sprite shopIcon = null;

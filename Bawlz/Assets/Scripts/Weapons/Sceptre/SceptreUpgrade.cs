@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SceptreUpgrade", menuName = "Scriptable Objects/SceptreUpgrade")]
+[CreateAssetMenu(fileName = "SceptreUpgrade", menuName = "Weapon Upgrades/Sceptre Upgrades/SceptreUpgrade")]
 public class SceptreUpgrade : WeaponUpgrade
 {
     public float minionDamageScaling = 0;

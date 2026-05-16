@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5735915160715436268}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.66, y: 0.66, z: 0.66}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5069279007790728011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!212 &8318737096607406310
 SpriteRenderer:
   serializedVersion: 2
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1089049267076014440, guid: 43f2a6d31b1699b4d8edee74473842fb, type: 3}
+  m_Sprite: {fileID: -7595402317553810631, guid: aae13f9cd869fde4482a42200f9be43a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -221,3 +221,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 9124016292243078404, guid: 8375106d90a30f34a8b20fc2896ea327, type: 3}
   projectileSpeed: 20
   projectileDamage: 4
+  contactDamageScaling: 1.5
+  extraProjectileChanceScaling: 0.15
+  spreadIncreasePerBullet: 10

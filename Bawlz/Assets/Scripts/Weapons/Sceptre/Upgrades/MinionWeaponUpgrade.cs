@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MinionWeaponUpgrade", menuName = "Scriptable Objects/MinionWeaponUpgrade")]
+[CreateAssetMenu(fileName = "MinionWeaponUpgrade", menuName = "Weapon Upgrades/Sceptre Upgrades/MinionWeaponUpgrade")]
 public class MinionWeaponUpgrade : SceptreUpgrade
 {
     [SerializeField] GameObject weaponPrefab;
