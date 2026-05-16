@@ -81,7 +81,7 @@ public class MainMenuController : MonoBehaviour
                 GameManager.Instance.players.Add(player);
                 
             }
-            GameManager.Instance.StartBattleWithPlayerCount(playerCount);
+            GameManager.Instance.StartShopWithPlayerCount(playerCount);
         }
         else
         {
