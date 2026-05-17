@@ -38,11 +38,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void StartBattleWithPlayerCount(int count)
+
+
+    public void StartShopWithPlayerCount(int count)
     {
         playerCount = count;
-        LoadBattleScene();
+        SceneManager.LoadScene(2);
     }
+
     void Start()
     {
         if (isBattleScene)
