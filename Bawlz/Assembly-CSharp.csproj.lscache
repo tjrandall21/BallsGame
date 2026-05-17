@@ -67,8 +67,11 @@ Assets/Scripts/
  TestMenuButton.cs
  Upgrade.cs
  VolumeSettings.cs
+ Weapons/Bow/
+  Bow.cs
+  BowProjectile.cs
+  BowUpgrade.cs
  Weapons/
-  Bow/Bow.cs
   CANNON/Cannon.cs
   Dagger/Dagger.cs
   Hammer/Hammer.cs
