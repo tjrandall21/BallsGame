@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -158,11 +159,25 @@ public class MainMenuController : MonoBehaviour
 
     public void FullScreen()
     {
-        isFullscreen = Screen.fullScreen;
-
-        Screen.fullScreen = !isFullscreen;
-
-        Debug.Log(isFullscreen ? "Switched to Windowed" : "Switched to Fullscreen");
+       if(EventSystem.current != null && EventSystem.current.currentSelectedGameObject != null)
+        {
+            var clickedObject = EventSystem.current.currentSelectedGameObject;
+            var clickedButton = clickedObject.GetComponent<Button>();
+            Debug.Log("Fullscreen button clicked.");
+            if (clickedButton != null)
+            {
+                isFullscreen = !isFullscreen; // Toggle fullscreen state
+                Screen.fullScreen = isFullscreen; // Apply the fullscreen setting
+                if(isFullscreen)
+                {
+                    clickedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Fullscreen: On";
+                }
+                else
+                {
+                    clickedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Fullscreen: Off";
+                }
+            }
+        }
     }
 
     public void QuitGame()
