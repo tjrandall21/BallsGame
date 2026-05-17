@@ -122,17 +122,18 @@ public class MainMenuController : MonoBehaviour
                         {
                             playerJoinButtons[index].interactable = true; 
                         }
+                       
 
                         // Decrement playerCount but ensure it doesn't go below zero.
                         playerCount = Mathf.Max(0, playerCount - 1);
+                        if (playerCount < 2)
+                        {
+                            startGameButton.interactable = false;
+                        }
                     }
                     return;
                 }
             }
-        }
-        if(playerCount < 2)
-        {
-            startGameButton.interactable = false;
         }
    
     }
