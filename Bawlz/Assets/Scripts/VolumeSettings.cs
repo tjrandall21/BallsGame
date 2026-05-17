@@ -10,6 +10,10 @@ public class VolumeSettings : MonoBehaviour
     {
         masterVolume = masterVolumeSlider.value;
         float dBVolume = Mathf.Log10(masterVolume) * 20;
+        if(dBVolume <= -80f) 
+        {
+            dBVolume = -80f;
+        }
         audioMixer.SetFloat("MasterVolume", dBVolume);
     }
 
