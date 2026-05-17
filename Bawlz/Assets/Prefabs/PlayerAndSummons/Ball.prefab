@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a068ad0365c714b9acdce4b880837b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallController
-  ballName: Ball1
+  ballName: Ball
   speed: 10
   launchAngle: 200
   rotationSpeed: 360

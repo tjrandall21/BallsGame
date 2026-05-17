@@ -45,6 +45,11 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public void AddUpgrade(WeaponUpgrade newUpgrade)
+    {
+        weaponUpgrades.Add(Instantiate(newUpgrade));
+    }
+
     protected virtual void Update()
     {
         if (attackTimer > 0)

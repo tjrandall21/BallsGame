@@ -19,4 +19,6 @@ MonoBehaviour:
   weaponUpgrades: []
   lives: 0
   roundsWon: 0
+  coins: 4
+  placementsByRound: 
   playerSprite: {fileID: 9157969803310431562, guid: 83a4c19e7c83d174eb21a485f9ef64de, type: 3}

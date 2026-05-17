@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VectorGraphics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,9 +15,20 @@ public class GameManager : MonoBehaviour
     public int PlayerCount {get{return playerCount;}}
 
     public List<PlayerData> players = new List<PlayerData>();
+    
+    public List<int> playerDeathOrder = new List<int>();
 
     List<Vector2> spawnLocations = new List<Vector2>{Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero};
     List<BallController> mainBalls = new List<BallController>();
+
+    bool queueGameOverCheck = false;
+
+    public int coinsPerRound = 10;
+
+    public int roundNumber = 1;
+    public int maxRounds = 5;
+
+    public EndBattlePanel endBattlePanel = null;
 
     void Awake()
     {
@@ -24,7 +36,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
-            spawnLocations.Capacity = 4;
         }
     }
 
@@ -33,8 +44,8 @@ public class GameManager : MonoBehaviour
     public void LoadBattleScene()
     {
         //empty spawn locations
+        playerDeathOrder = new List<int>();
         spawnLocations = new List<Vector2>{Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero};
-        spawnLocations.Capacity = 4;
         SceneManager.LoadScene(1);
     }
 
@@ -78,14 +89,105 @@ public class GameManager : MonoBehaviour
             }
             BallController ballController = ball.GetComponent<BallController>();
             ballController.Init(players[i].upgrades, players[i].playerNum, Random.Range(0.0f, 360.0f), players[i].playerSprite);
-
+            ballController.isMainBall = true;
             mainBalls.Add(ballController);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public BallController GetMainBallByNumber(int playerNum)
+    {
+        mainBalls.RemoveAll(item => item == null);
+        foreach (BallController ball in mainBalls)
+        {
+            if (ball.playerNum == playerNum)
+            {
+                return ball;
+            }
+        }
+        return null;
+    }
+
+    public void CheckGameOver()
+    {
+        mainBalls.RemoveAll(item => item == null);
+        if (mainBalls.Count == 0) // Draw
+        {
+            int index = playerDeathOrder.Count-1;
+            for (int i = 0; i < 2; i++)
+            {
+                int playerNum = playerDeathOrder[playerDeathOrder.Count-1];
+                playerDeathOrder.Remove(playerNum);
+                players[playerNum-1].placementsByRound.Add(1);
+                players[playerNum-1].roundsWon++;
+                index--;
+            }
+
+
+            endBattlePanel.SetUpPanelForDraw();
+            ShowEndScreen();
+        }
+        else if (mainBalls.Count == 1) // single winner
+        {
+            int winnerNum = mainBalls[0].playerNum;
+            players[winnerNum-1].roundsWon ++;
+            players[winnerNum-1].placementsByRound.Add(1);
+            for (int i = 0; i < playerDeathOrder.Count; i++)
+            {
+                int playerNum = playerDeathOrder[i];
+                players[playerNum-1].placementsByRound.Add(playerCount-i);
+            }
+            endBattlePanel.SetUpPanel();
+            ShowEndScreen();
+        }
+    }
+
+    void ShowEndScreen()
     {
         
+        endBattlePanel.gameObject.SetActive(true);
+
+    }
+
+    public void EndBattleScene()
+    {
+        
+        if (roundNumber > maxRounds)
+        {
+            ReturnToMainMenu();
+        }
+        else
+        {
+            roundNumber++;
+
+            foreach (PlayerData player in players)
+            {
+                player.coins += coinsPerRound;
+            }
+            
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    void ReturnToMainMenu()
+    {
+        instance = null;
+        SceneManager.LoadScene(0);
+        Destroy(this);
+    }
+
+    void Update()
+    {
+        if (queueGameOverCheck)
+        {
+            queueGameOverCheck = false;
+            CheckGameOver();
+        }
+    }
+
+    public void MainBallDied(BallController deadBall)
+    {
+        mainBalls.Remove(deadBall);
+        queueGameOverCheck = true; //delay checking until next frame in case theres a draw
+        playerDeathOrder.Add(deadBall.playerNum);
     }
 }

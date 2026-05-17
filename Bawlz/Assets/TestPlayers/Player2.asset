@@ -20,4 +20,5 @@ MonoBehaviour:
   lives: 0
   roundsWon: 0
   coins: 4
+  placementsByRound: 
   playerSprite: {fileID: 2019789747948817947, guid: 7376bbf61e0b0d94d96f42fc2cf2702b, type: 3}
