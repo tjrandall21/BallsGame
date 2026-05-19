@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 5069279007790728011}
   - component: {fileID: 2255129472153577191}
   - component: {fileID: 5009749163094406371}
-  - component: {fileID: 5259496737918520621}
+  - component: {fileID: 6641588995716309070}
   m_Layer: 6
   m_Name: BowArrow
   m_TagString: Untagged
@@ -199,7 +199,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.34710568, y: 2.1390924}
   m_EdgeRadius: 0
---- !u!114 &5259496737918520621
+--- !u!114 &6641588995716309070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,9 +208,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9124016292243078404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5887f6c2c00e3da4b89f558ae2d41196, type: 3}
+  m_Script: {fileID: 11500000, guid: 0aed59185204af04a892eabe0b56757b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  m_EditorClassIdentifier: Assembly-CSharp::BowProjectile
   weaponName: Arrow
   description: Arrow shot by a bow.
   damage: 10
