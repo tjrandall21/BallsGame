@@ -6,8 +6,13 @@ using UnityEngine;
 public class WeaponUpgrade : ScriptableObject
 {
     public Sprite shopIcon = null;
+    public string upgradeFamily = "Upgrade"; //Each level of an upgrade should share the same ID
     public string upgradeName = "Weapon Upgrade";
     public string description = "This is a weapon upgrade.";
+    public int upgradeLevel = 0;
+    public int upgradeExp = 0;
+    public Upgrade nextLevelUpgrade = null;
+
     public bool stackable = true;
     public float damage = 0;
     public float knockbackSpeed = 0;
@@ -24,6 +29,10 @@ public class WeaponUpgrade : ScriptableObject
         parentWeapon = weapon;
     }
 
+    public bool isUpgradeMaxLevel()
+    {
+        return nextLevelUpgrade == null;
+    }
 
     //override any of the following functions to add behaviour to specific upgrades
 

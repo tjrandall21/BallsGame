@@ -18,4 +18,46 @@ public class PlayerData : ScriptableObject
 
     public Sprite playerSprite;
 
+
+    public bool AddUpgrade(Upgrade newUpgrade)
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            if (upgrade.upgradeFamily == newUpgrade.upgradeFamily)
+            {
+                if (upgrade.isUpgradeMaxLevel())
+                {   
+                    Debug.Log($"Player {playerNum} is trying to buy an upgrade they already have the max level of.");
+                    return false;
+                }
+                else
+                {
+                  upgrade.upgradeExp++;  
+                }
+            }
+        }
+        return false;
+    }
+
+    public bool AddWeaponUpgrade(WeaponUpgrade newUpgrade)
+    {
+        foreach (WeaponUpgrade upgrade in weaponUpgrades)
+        {
+            if (upgrade.upgradeFamily == newUpgrade.upgradeFamily)
+            {
+                if (upgrade.isUpgradeMaxLevel())
+                {   
+                    Debug.Log($"Player {playerNum} is trying to buy an upgrade they already have the max level of.");
+                    return false;
+                }
+                else
+                {
+                  upgrade.upgradeExp++;  
+                }
+            }
+        }
+        return false;
+    }
+
+    
 }

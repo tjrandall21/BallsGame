@@ -42,6 +42,4 @@ public class ShopItem : MonoBehaviour
         shopItemType = ShopItemType.WeaponUpgrade;
     }
 
-    
-
 }
