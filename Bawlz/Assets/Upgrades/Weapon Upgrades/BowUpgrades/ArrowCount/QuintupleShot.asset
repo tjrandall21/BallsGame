@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660016734f24a1b459f127c9cefea355, type: 3}
   m_Name: QuintupleShot
   m_EditorClassIdentifier: Assembly-CSharp::BowUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 636870760719533455, guid: 6cf0104417dd8944eaa13aca284023b3, type: 3}
   upgradeName: Quintuple Shot
   description: Fire a spread of 5 arrows at a time.
   stackable: 1

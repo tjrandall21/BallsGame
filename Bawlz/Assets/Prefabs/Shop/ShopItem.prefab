@@ -433,6 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3593810509514172117}
+  - component: {fileID: 7513256565131462394}
   - component: {fileID: 6654443811092578941}
   - component: {fileID: 8656634510634581047}
   m_Layer: 5
@@ -466,6 +467,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 140, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7513256565131462394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304276327096560793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac994b6e620bd64488e7f9905b7bd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItem
+  icon: {fileID: 2745530737924717434}
+  nameText: {fileID: 8871343168985730518}
+  buttonText: {fileID: 4988132862908654407}
+  coinText: {fileID: 8289424084235610688}
+  shopItemType: 0
 --- !u!222 &6654443811092578941
 CanvasRenderer:
   m_ObjectHideFlags: 0

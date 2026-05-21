@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24eddd8be9c8d94db39af4ebf7a1516, type: 3}
   m_Name: HarpoonArrows 1
   m_EditorClassIdentifier: Assembly-CSharp::BowPullUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: -4047989089806489235, guid: d85140d4511dd664692112bfd484100f, type: 3}
   upgradeName: Harpoon Arrows 1
   description: Your arrows pull enemies towards you and increase your contact damage
     on hit.

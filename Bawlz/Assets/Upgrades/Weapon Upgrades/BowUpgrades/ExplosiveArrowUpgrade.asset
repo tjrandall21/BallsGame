@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9dbfa5e7bfe6243a56158e2712aeeb, type: 3}
   m_Name: ExplosiveArrowUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::ExplosiveArrowUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 7498587124051985547, guid: b349207364432da4589ef258895bf676, type: 3}
   upgradeName: Explosive Arrows
   description: Your arrows explode on impact but you have a reduced fire rate.
   stackable: 1

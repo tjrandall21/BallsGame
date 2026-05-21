@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     bool queueGameOverCheck = false;
 
     public int coinsPerRound = 10;
+    public int buyPrice = 3;
 
     public int roundNumber = 1;
     public int maxRounds = 5;

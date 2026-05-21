@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +12,11 @@ public class PlayerShop : MonoBehaviour
     [SerializeField] List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
     [SerializeField] List<GameObject> weaponPrefabs = new List<GameObject>();
 
-    // UI image
-    [SerializeField] List<Image> upgradeIcons = new List<Image>();
-    [SerializeField] List<Image> weaponUpgradeIcons = new List<Image>();
-    [SerializeField] List<Image> weaponPrefabIcons = new List<Image>();
+    // Shop Item Slots
+    [SerializeField] List<ShopItem> upgradeItems = new List<ShopItem>();
+    [SerializeField] List<ShopItem> weaponUpgradeItems = new List<ShopItem>();
+    [SerializeField] List<ShopItem> weaponItems = new List<ShopItem>();
+
 
     [SerializeField] Image playerSprite;
     [SerializeField] TextMeshProUGUI coinText;
@@ -35,30 +37,22 @@ public class PlayerShop : MonoBehaviour
         playerSprite.sprite = GameManager.Instance.players[playerNum].playerSprite;
         UpdateCoinText();
 
-        for (int i = 0; i < upgradeIcons.Count; i++)
+        for (int i = 0; i < upgradeItems.Count; i++)
         {
             if (i < upgrades.Count)
             {
-                upgradeIcons[i].sprite = upgrades[i].shopIcon;
-            }
-            else
-            {
-                upgradeIcons[i].sprite = null;
+                upgradeItems[i].Init(upgrades[i]);
             }
         }
 
-        for (int i = 0; i < weaponUpgradeIcons.Count; i++)
+        for (int i = 0; i < weaponUpgradeItems.Count; i++)
         {
             if (i < weaponUpgrades.Count)
             {
-                weaponUpgradeIcons[i].sprite = weaponUpgrades[i].shopIcon;
-            }
-            else
-            {
-                weaponUpgradeIcons[i].sprite = null;
+                weaponUpgradeItems[i].Init(weaponUpgrades[i]);
             }
         }
-        for (int i = 0; i < weaponPrefabIcons.Count; i++)
+        for (int i = 0; i < weaponItems.Count; i++)
         {
             if (i < weaponPrefabs.Count && weaponPrefabs[i] != null)
             {
@@ -81,11 +75,7 @@ public class PlayerShop : MonoBehaviour
                     }
                 }
 
-                weaponPrefabIcons[i].sprite = icon;
-            }
-            else
-            {
-                weaponPrefabIcons[i].sprite = null;
+                weaponItems[i].Init(icon, weaponPrefabs[i].name);
             }
         }
     }
