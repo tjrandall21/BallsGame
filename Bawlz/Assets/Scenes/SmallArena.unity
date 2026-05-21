@@ -5572,12 +5572,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   isBattleScene: 1
-  playerCount: 4
+  playerCount: 2
   players:
   - {fileID: 11400000, guid: 7379a10fec6c96c4f8921073784fa80d, type: 2}
   - {fileID: 11400000, guid: 29d2cdfba8c85b64e8430d35273930d3, type: 2}
-  - {fileID: 11400000, guid: 58fdf0a133fec424a916b2fbc84ef162, type: 2}
-  - {fileID: 11400000, guid: 9840fc3f0c0c579448aa968380498d0e, type: 2}
   playerDeathOrder: 
   coinsPerRound: 10
   roundNumber: 1

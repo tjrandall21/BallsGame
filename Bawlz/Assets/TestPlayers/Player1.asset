@@ -17,9 +17,11 @@ MonoBehaviour:
   ballPrefab: {fileID: 7189852719700939712, guid: dbc579720f7d5db48ab5ecbe97d0ddfd, type: 3}
   upgrades: []
   weaponUpgrades:
-  - {fileID: 11400000, guid: 668d84887a2d4e644b2c3f3ea7d9fd14, type: 2}
+  - {fileID: 11400000, guid: e78246a47df0ca942926bea0bc87c9ba, type: 2}
+  - {fileID: 11400000, guid: 7c1eab3dde0a30549ab3b4d4b89885c4, type: 2}
+  - {fileID: 11400000, guid: 8f2f571beb01a624eb468279fb898f97, type: 2}
   lives: 0
-  roundsWon: 20
-  coins: 14
-  placementsByRound: 0400000001000000020000000100000001000000
+  roundsWon: 15
+  coins: 2
+  placementsByRound: 010000000200000002000000020000000100000001000000010000000100000001000000020000000200000002000000
   playerSprite: {fileID: 5731981955572824522, guid: f16fe25a5aef5ab44abf7f15e6708e0f, type: 3}
