@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class PlayerShop : MonoBehaviour
     [SerializeField] List<Image> weaponUpgradeIcons = new List<Image>();
     [SerializeField] List<Image> weaponPrefabIcons = new List<Image>();
 
+    [SerializeField] Image playerSprite;
+    [SerializeField] TextMeshProUGUI coinText;
 
     private PlayerData player;
 
@@ -28,6 +31,10 @@ public class PlayerShop : MonoBehaviour
 
     void SetupShop()
     {
+        //set player sprite
+        playerSprite.sprite = GameManager.Instance.players[playerNum].playerSprite;
+        UpdateCoinText();
+
         for (int i = 0; i < upgradeIcons.Count; i++)
         {
             if (i < upgrades.Count)
@@ -85,13 +92,14 @@ public class PlayerShop : MonoBehaviour
 
     public void BuyUpgrade(int index)
     {
-        if (player.coins > 0)
+        if (player.coins >= 3)
         {
             if (index < upgrades.Count)
             {
                 GameManager.Instance.players[playerNum].upgrades.Add(upgrades[index]);
             }
-            player.coins -= 1;
+            player.coins -= 3;
+            UpdateCoinText();
         }
         else
         {
@@ -101,13 +109,14 @@ public class PlayerShop : MonoBehaviour
 
     public void BuyWeaponUpgrade(int index)
     {
-        if (player.coins > 0)
+        if (player.coins >= 3)
         {
             if (index < weaponUpgrades.Count)
             {
                 GameManager.Instance.players[playerNum].weaponUpgrades.Add(weaponUpgrades[index]);
             }
-            player.coins -= 1;
+            player.coins -= 3;
+            UpdateCoinText();
         }
         else
         {
@@ -117,7 +126,7 @@ public class PlayerShop : MonoBehaviour
     // not fully working
     public void BuyWeaponPrefab(int index)
     {
-        if (player.coins > 0)
+        if (player.coins >= 3)
         {
             if (index < weaponPrefabs.Count && weaponPrefabs[index] != null)
             {
@@ -150,11 +159,17 @@ public class PlayerShop : MonoBehaviour
                     }
                 }
             }
-            player.coins -= 1;
+            player.coins -= 3;
+            UpdateCoinText();
         }
         else
         {
             Debug.Log("no money");
         }
+    }
+
+    void UpdateCoinText()
+    {
+        coinText.text = $"{player.coins} Coins";
     }
 }
