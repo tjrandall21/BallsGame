@@ -10,6 +10,18 @@ public class Hammer : Weapon
     [SerializeField] float baseRotationSpeed = 180f;
     [SerializeField] float maxSpinIncreasePerHit = 45f; // how much max spin grows each hit
 
+    protected override void Start()
+    {
+        base.Start();
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is HammerUpgrades)
+            {
+                baseDmg += ((HammerUpgrades)weaponUpgrade).damage;
+                maxWeaponSpin += ((HammerUpgrades)weaponUpgrade).attackCooldown;
+            }
+        }
+    }
     float GetSpinDamage()
     {
         return baseDmg * (parent.RotationSpeed / baseRotationSpeed);
@@ -44,9 +56,13 @@ public class Hammer : Weapon
         otherBall.OnDamageTaken(damage);
 
         otherBall.OnWeaponCollision(this);
+
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
-            weaponUpgrade.OnBallHit(otherBall);
+            if (weaponUpgrade is HammerUpgrades)
+            {
+                weaponUpgrade.OnBallHit(otherBall);
+            } 
         }
 
         rotationAcceleration += rotationAccelerationScaling; // hammer accelerates faster next cycle
