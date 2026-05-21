@@ -25,6 +25,8 @@ public class BallController : MonoBehaviour
     [SerializeField] public SpriteRenderer sprite = null;
 
     public int playerNum = 0;
+    public bool isMainBall = false;
+    public bool alive = true;
 
     List<Weapon> weapons = new List<Weapon>();
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
@@ -220,14 +222,6 @@ public class BallController : MonoBehaviour
             float currentSpeed = rb.linearVelocity.magnitude;
             rb.linearVelocity = rb.linearVelocity.normalized * (currentSpeed + otherWeapon.KnockbackSpeed);
         }
-
-
-
-        Debug.Log($"{ballName} health: {health}");
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void OnBallSpawned(BallController newBall)
@@ -266,9 +260,22 @@ public class BallController : MonoBehaviour
             statusEffect.OnDamageTaken(amount);
         }
 
-        Debug.Log($"{ballName} health: {health}");
+        Debug.Log($"Name: {ballName}, PlayerNum: {playerNum}, Health: {health}");
         if (health <= 0)
         {
+            OnBallDeath();
+        }
+    }
+
+    void OnBallDeath()
+    {
+        if (alive)
+        {   
+            alive = false;
+            if (isMainBall)
+            {
+                GameManager.Instance.MainBallDied(this);
+            }
             FXManager.Instance.PlayDeath(gameObject);
             Destroy(gameObject);
         }
