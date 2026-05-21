@@ -31,16 +31,21 @@ public class BallController : MonoBehaviour
     List<Weapon> weapons = new List<Weapon>();
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<StatusEffect> statusEffects;
+    [SerializeField] List<BallController> minions = new List<BallController>();
+    bool queueCleanMinions = false;
 
-    public void Init(List<Upgrade> newUpgrades, int playerNumber, float startingAngle,Sprite playerSprite)
+    public void Init(List<Upgrade> newUpgrades, int playerNumber, float startingAngle,Sprite playerSprite = null)
     {
         foreach (Upgrade upgrade in newUpgrades)
         {
             upgrades.Add(Instantiate(upgrade));
         }
         playerNum = playerNumber;
-
-        if (playerSprite != null)
+        if (playerSprite == null)
+        {
+            sprite.sprite = GameManager.Instance.players[playerNum-1].playerSprite;
+        }
+        else
         {
             sprite.sprite = playerSprite;
         }
@@ -99,6 +104,13 @@ public class BallController : MonoBehaviour
             statusEffect.Update();
         }
         healthText.text = math.ceil(health).ToString();
+
+        //remove dead minions from list
+        if (queueCleanMinions)
+        {
+            queueCleanMinions = false;
+            minions.RemoveAll(item => item == null);
+        }
     }
     void LateUpdate()
     {
@@ -238,6 +250,7 @@ public class BallController : MonoBehaviour
         {
             statusEffect.OnBallSpawned(newBall);
         }
+        minions.Add(newBall);
     }
 
     public void OnDamageTaken(float amount)
@@ -267,14 +280,39 @@ public class BallController : MonoBehaviour
         }
     }
 
+    public void OnMinionDeath(BallController minion)
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.OnMinionDeath(minion);
+        }
+        foreach (Weapon weapon in weapons)
+        {
+            weapon.OnMinionDeath(minion);
+        }
+        queueCleanMinions = true;
+    }
+
     void OnBallDeath()
     {
         if (alive)
         {   
+            
             alive = false;
             if (isMainBall)
             {
+                //kill all minions
+                foreach (BallController minion in minions)
+                {
+                    minion.OnBallDeath();
+                }
+                
+                //alert gamemanager that a player's main ball has died
                 GameManager.Instance.MainBallDied(this);
+            }
+            else
+            {
+                GameManager.Instance.GetMainBallByNumber(playerNum).OnMinionDeath(this);
             }
             FXManager.Instance.PlayDeath(gameObject);
             Destroy(gameObject);

@@ -57,4 +57,9 @@ public class Upgrade : ScriptableObject
         //called when the ball bounces off of a wall
     }
 
+    public virtual void OnMinionDeath(BallController minion)
+    {
+        //called when a minion or clone of this ball dies
+    }
+
 }

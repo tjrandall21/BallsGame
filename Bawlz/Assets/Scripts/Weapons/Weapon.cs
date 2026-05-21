@@ -233,4 +233,12 @@ public class Weapon : MonoBehaviour
             weaponUpgrade.OnWallCollision();
         }
     }
+    public virtual void OnMinionDeath(BallController minion)
+    {
+        //called when a minion or clone of this ball dies
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            weaponUpgrade.OnMinionDeath(minion);
+        }
+    }
 }

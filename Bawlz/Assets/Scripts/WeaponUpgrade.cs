@@ -18,7 +18,7 @@ public class WeaponUpgrade : ScriptableObject
 
     
 
-    public void Init(BallController ball, Weapon weapon)
+    public virtual void Init(BallController ball, Weapon weapon)
     {
         parentBall = ball;
         parentWeapon = weapon;
@@ -74,5 +74,9 @@ public class WeaponUpgrade : ScriptableObject
     public virtual void OnWallCollision()
     {
         //called when the ball bounces off of a wall
+    }
+    public virtual void OnMinionDeath(BallController minion)
+    {
+        //called when a minion or clone of this ball dies
     }
 }
