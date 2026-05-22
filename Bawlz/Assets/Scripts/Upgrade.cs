@@ -35,6 +35,22 @@ public class Upgrade : ScriptableObject
         return nextLevelUpgrade == null;
     }
 
+    public bool canLevelUp()
+    {
+        if (isUpgradeMaxLevel())
+        {
+            return false;
+        }
+        if (upgradeExp >= GameManager.Instance.GetLevelUpThreshold(upgradeLevel))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public virtual void Update()
     {
         //Called every frame by the ball this upgrade is applied to

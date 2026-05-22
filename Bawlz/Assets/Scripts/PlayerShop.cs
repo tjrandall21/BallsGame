@@ -86,7 +86,7 @@ public class PlayerShop : MonoBehaviour
         {
             if (index < upgrades.Count)
             {
-                GameManager.Instance.players[playerNum].upgrades.Add(upgrades[index]);
+                GameManager.Instance.players[playerNum].AddUpgrade(upgrades[index]);
             }
             player.coins -= 3;
             UpdateCoinText();
@@ -103,7 +103,7 @@ public class PlayerShop : MonoBehaviour
         {
             if (index < weaponUpgrades.Count)
             {
-                GameManager.Instance.players[playerNum].weaponUpgrades.Add(weaponUpgrades[index]);
+                GameManager.Instance.players[playerNum].AddWeaponUpgrade(weaponUpgrades[index]);
             }
             player.coins -= 3;
             UpdateCoinText();
@@ -121,33 +121,6 @@ public class PlayerShop : MonoBehaviour
             if (index < weaponPrefabs.Count && weaponPrefabs[index] != null)
             {
                 GameManager.Instance.players[playerNum].weaponPrefab = weaponPrefabs[index];
-
-                BallController mainBall = GameManager.Instance.GetMainBallByNumber(player.playerNum);
-                if (mainBall != null)
-                {
-                    // Remove any existing weapon GameObjects that are children of the ball.
-                    Weapon[] existingWeapons = mainBall.GetComponentsInChildren<Weapon>();
-                    foreach (var w in existingWeapons)
-                    {
-                        if (w != null && w.gameObject != null)
-                        {
-                            Destroy(w.gameObject);
-                        }
-                    }
-
-                    GameObject newWeapon = Instantiate(weaponPrefabs[index], mainBall.transform);
-                    newWeapon.layer = mainBall.gameObject.layer;
-
-                    Weapon weaponComp = newWeapon.GetComponent<Weapon>();
-                    if (weaponComp != null)
-                    {
-                        weaponComp.SetUpgrades(player.weaponUpgrades);
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"Bought weapon prefab at index {index} does not contain a Weapon component.");
-                    }
-                }
             }
             player.coins -= 3;
             UpdateCoinText();

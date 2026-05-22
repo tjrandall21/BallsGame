@@ -10,7 +10,6 @@ public class PlayerData : ScriptableObject
     public List<Upgrade> upgrades = new List<Upgrade>();
     public List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
 
-    public int lives = 0;
     public int roundsWon = 0;
     public int coins = 4;
 
@@ -21,43 +20,64 @@ public class PlayerData : ScriptableObject
 
     public bool AddUpgrade(Upgrade newUpgrade)
     {
-        foreach (Upgrade upgrade in upgrades)
+        if (upgrades.Count >= 3)
         {
-            if (upgrade.upgradeFamily == newUpgrade.upgradeFamily)
+            Debug.Log("Player already has the max number of upgrades");
+            return false;
+        }
+        for (int i = 0; i < upgrades.Count; i++)
+        {
+            if (upgrades[i].upgradeFamily == newUpgrade.upgradeFamily)
             {
-                if (upgrade.isUpgradeMaxLevel())
+                if (upgrades[i].isUpgradeMaxLevel())
                 {   
                     Debug.Log($"Player {playerNum} is trying to buy an upgrade they already have the max level of.");
                     return false;
                 }
                 else
                 {
-                  upgrade.upgradeExp++;  
+                  upgrades[i].upgradeExp++;  
+                  if (upgrades[i].canLevelUp())
+                  {
+                    upgrades[i] = Instantiate(upgrades[i].nextLevelUpgrade);
+                  }
                 }
             }
         }
+        upgrades.Add(Instantiate(newUpgrade));
         return false;
     }
 
     public bool AddWeaponUpgrade(WeaponUpgrade newUpgrade)
     {
-        foreach (WeaponUpgrade upgrade in weaponUpgrades)
+        if (weaponUpgrades.Count >= 3)
         {
-            if (upgrade.upgradeFamily == newUpgrade.upgradeFamily)
+            Debug.Log("Player already has the max number of weapon upgrades");
+            return false;
+        }
+        for (int i = 0; i < upgrades.Count; i++)
+        {
+            if (weaponUpgrades[i].upgradeFamily == newUpgrade.upgradeFamily)
             {
-                if (upgrade.isUpgradeMaxLevel())
+                if (weaponUpgrades[i].isUpgradeMaxLevel())
                 {   
-                    Debug.Log($"Player {playerNum} is trying to buy an upgrade they already have the max level of.");
+                    Debug.Log($"Player {playerNum} is trying to buy a weapon upgrade they already have the max level of.");
                     return false;
                 }
                 else
                 {
-                  upgrade.upgradeExp++;  
+                  weaponUpgrades[i].upgradeExp++;  
+                  if (weaponUpgrades[i].canLevelUp())
+                  {
+                    weaponUpgrades[i] = Instantiate(weaponUpgrades[i].nextLevelUpgrade);
+                  }
                 }
             }
         }
+        weaponUpgrades.Add(Instantiate(newUpgrade));
         return false;
     }
 
+    
     
 }

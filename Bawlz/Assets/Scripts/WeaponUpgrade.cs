@@ -11,7 +11,7 @@ public class WeaponUpgrade : ScriptableObject
     public string description = "This is a weapon upgrade.";
     public int upgradeLevel = 0;
     public int upgradeExp = 0;
-    public Upgrade nextLevelUpgrade = null;
+    public WeaponUpgrade nextLevelUpgrade = null;
 
     public bool stackable = true;
     public float damage = 0;
@@ -32,6 +32,22 @@ public class WeaponUpgrade : ScriptableObject
     public bool isUpgradeMaxLevel()
     {
         return nextLevelUpgrade == null;
+    }
+
+    public bool canLevelUp()
+    {
+        if (isUpgradeMaxLevel())
+        {   
+            return false;
+        }
+        if (upgradeExp >= GameManager.Instance.GetLevelUpThreshold(upgradeLevel))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //override any of the following functions to add behaviour to specific upgrades

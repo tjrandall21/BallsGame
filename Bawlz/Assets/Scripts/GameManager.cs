@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public int roundNumber = 1;
     public int maxRounds = 5;
 
+
     public EndBattlePanel endBattlePanel = null;
 
     void Awake()
@@ -40,7 +41,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    public int GetLevelUpThreshold(int level)
+    {
+        switch (level)
+        {
+            case 0:
+                return 2;
+            case 1:
+                return 3;
+            default:
+                Debug.Log("Gamemanager.GetLevelUpThreshold: invalid level provided");
+                return 0;
+        }
+    }
 
     public void LoadBattleScene()
     {
@@ -162,7 +175,7 @@ public class GameManager : MonoBehaviour
 
             foreach (PlayerData player in players)
             {
-                player.coins += coinsPerRound;
+                player.coins = coinsPerRound;
             }
             
             SceneManager.LoadScene(2);
