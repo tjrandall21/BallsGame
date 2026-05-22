@@ -4245,17 +4245,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac680fc0c1edcf4d91bdf551b21e02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  blankPlayerData: {fileID: 11400000, guid: 51b9ea0182cc94e44807f82eca6e1ddf, type: 2}
   isBattleScene: 0
   playerCount: 4
-  players:
-  - {fileID: 11400000, guid: 7379a10fec6c96c4f8921073784fa80d, type: 2}
-  - {fileID: 11400000, guid: 29d2cdfba8c85b64e8430d35273930d3, type: 2}
-  - {fileID: 11400000, guid: 58fdf0a133fec424a916b2fbc84ef162, type: 2}
-  - {fileID: 11400000, guid: 9840fc3f0c0c579448aa968380498d0e, type: 2}
+  players: []
   playerDeathOrder: 
   coinsPerRound: 10
+  buyPrice: 3
   roundNumber: 1
   maxRounds: 5
+  clearPlayerDataOnStart: 0
   endBattlePanel: {fileID: 0}
 --- !u!4 &1223880454
 Transform:

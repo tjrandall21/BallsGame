@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     static GameManager instance = null;
     public static GameManager Instance {get{return instance;}}
     
+    [SerializeField] PlayerData blankPlayerData = null;
+
     [SerializeField] bool isBattleScene = false;
     [SerializeField] int playerCount = 4;
     public int PlayerCount {get{return playerCount;}}
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     bool queueGameOverCheck = false;
 
+    bool gameOver = false;
+
     public int coinsPerRound = 10;
     public int buyPrice = 3;
 
@@ -32,6 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool clearPlayerDataOnStart = false;
 
     public EndBattlePanel endBattlePanel = null;
+
 
     void Awake()
     {
@@ -103,6 +108,7 @@ public class GameManager : MonoBehaviour
     void SpawnPlayers()
     {
         mainBalls.Clear();
+        gameOver = false;
         for (int i = 0; i < playerCount; i++)
         {
             GameObject ball = Instantiate(players[i].ballPrefab, spawnLocations[i], Quaternion.identity);
@@ -133,37 +139,54 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
+    public void ResetPlayers()
+    {
+        players.Clear(); //reset playerdata
+        for (int i = 0; i < playerCount; i++)
+        { //generate empty playerdata
+            PlayerData player = Instantiate(blankPlayerData);
+            player.coins = coinsPerRound;
+            player.playerNum = i+1;
+            players.Add(player);
+        }
+    }
+
     public void CheckGameOver()
     {
         mainBalls.RemoveAll(item => item == null);
-        if (mainBalls.Count == 0) // Draw
+        if (!gameOver)
         {
-            int index = playerDeathOrder.Count-1;
-            for (int i = 0; i < 2; i++)
+            if (mainBalls.Count == 0) // Draw
             {
-                int playerNum = playerDeathOrder[playerDeathOrder.Count-1];
-                playerDeathOrder.Remove(playerNum);
-                players[playerNum-1].placementsByRound.Add(1);
-                players[playerNum-1].roundsWon++;
-                index--;
+                int index = playerDeathOrder.Count-1;
+                for (int i = 0; i < 2; i++)
+                {
+                    int playerNum = playerDeathOrder[playerDeathOrder.Count-1];
+                    playerDeathOrder.Remove(playerNum);
+                    players[playerNum-1].placementsByRound.Add(1);
+                    players[playerNum-1].roundsWon++;
+                    index--;
+                }
+
+                gameOver = true;
+                endBattlePanel.SetUpPanelForDraw();
+                ShowEndScreen();
             }
-
-
-            endBattlePanel.SetUpPanelForDraw();
-            ShowEndScreen();
-        }
-        else if (mainBalls.Count == 1) // single winner
-        {
-            int winnerNum = mainBalls[0].playerNum;
-            players[winnerNum-1].roundsWon ++;
-            players[winnerNum-1].placementsByRound.Add(1);
-            for (int i = 0; i < playerDeathOrder.Count; i++)
+            else if (mainBalls.Count == 1) // single winner
             {
-                int playerNum = playerDeathOrder[i];
-                players[playerNum-1].placementsByRound.Add(playerCount-i);
+                int winnerNum = mainBalls[0].playerNum;
+                players[winnerNum-1].roundsWon ++;
+                players[winnerNum-1].placementsByRound.Add(1);
+                for (int i = 0; i < playerDeathOrder.Count; i++)
+                {
+                    int playerNum = playerDeathOrder[i];
+                    players[playerNum-1].placementsByRound.Add(playerCount-i);
+                }
+
+                gameOver = true;
+                endBattlePanel.SetUpPanel();
+                ShowEndScreen();
             }
-            endBattlePanel.SetUpPanel();
-            ShowEndScreen();
         }
     }
 

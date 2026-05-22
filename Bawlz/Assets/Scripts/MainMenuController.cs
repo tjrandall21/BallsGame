@@ -78,6 +78,8 @@ public class MainMenuController : MonoBehaviour
         CharacterSelectPanel.alpha = 1;
         CharacterSelectPanel.interactable = true;
         CharacterSelectPanel.blocksRaycasts = true;
+        if (GameManager.Instance.players.Count == 0)
+            GameManager.Instance.ResetPlayers();
     }
 
     public void CharacterSelectBack()
@@ -129,7 +131,6 @@ public class MainMenuController : MonoBehaviour
                 }
             }
         }
-      
     }
 
     public void Dropout()
@@ -172,14 +173,6 @@ public class MainMenuController : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.players.Clear(); //reset playerdata
-            for (int i = 0; i < playerCount; i++)
-            { //generate empty playerdata
-                PlayerData player = Instantiate(emptyPlayerData);
-                player.playerNum = i+1;
-                GameManager.Instance.players.Add(player);
-                
-            }
             GameManager.Instance.StartShopWithPlayerCount(playerCount);
         }
         else
@@ -274,6 +267,7 @@ public class MainMenuController : MonoBehaviour
 
         playerCharacterSelectPreviews[indexToUse].sprite = CharacterImage.sprite;
         playerCharacterSelectPreviews[indexToUse].SetNativeSize();
+        
         GameManager.Instance.players[indexToUse].playerSprite = CharacterImage.sprite;
         Debug.Log("Set character sprite for player " + (indexToUse + 1) + ": " + CharacterImage.sprite.name);
     }
