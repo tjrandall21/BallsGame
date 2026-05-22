@@ -10,12 +10,16 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private CanvasGroup OptionPanel;
     [SerializeField] private CanvasGroup PlayPanel;
+    [SerializeField] private CanvasGroup CharacterSelectPanel;
     private bool isFullscreen = true;
     private int playerCount;
     [SerializeField] private List<Button> playerJoinButtons;
     [SerializeField] private List<Button> playerDropoutButtons;
     [SerializeField] PlayerData emptyPlayerData;
     [SerializeField] private Button startGameButton;
+    // Character selection variables 
+    [SerializeField] private List<Image> playerCharacterSelectPreviews;
+    [SerializeField] private List<GameObject> characterSelectGrids; // Character Grid Prefabs to be enabled/disabled based on player count
 
     void Start()
     {
@@ -26,6 +30,9 @@ public class MainMenuController : MonoBehaviour
         PlayPanel.alpha = 0;
         PlayPanel.interactable = false;
         PlayPanel.blocksRaycasts = false;
+        CharacterSelectPanel.alpha = 0;
+        CharacterSelectPanel.interactable = false;
+        CharacterSelectPanel.blocksRaycasts = false;
         playerDropoutButtons.ForEach(button => button.interactable = false); // Disable all dropout buttons at the start
         playerJoinButtons[0].interactable = true; // Enable the first join button at the start
         for(int i = 1; i < playerJoinButtons.Count; i++)
@@ -62,12 +69,37 @@ public class MainMenuController : MonoBehaviour
             playerJoinButtons[i].interactable = false; // Disable all join buttons except the first one
         }
     }
+
+    public void CharacterSelectShowPanel()
+    {
+        PlayPanel.alpha = 0;
+        PlayPanel.interactable = false;
+        PlayPanel.blocksRaycasts = false;
+        CharacterSelectPanel.alpha = 1;
+        CharacterSelectPanel.interactable = true;
+        CharacterSelectPanel.blocksRaycasts = true;
+        if (GameManager.Instance.players.Count == 0)
+            GameManager.Instance.ResetPlayers();
+    }
+
+    public void CharacterSelectBack()
+    {
+        CharacterSelectPanel.alpha = 0;
+        CharacterSelectPanel.interactable = false;
+        CharacterSelectPanel.blocksRaycasts = false;
+        PlayPanel.alpha = 1;
+        PlayPanel.interactable = true;
+        PlayPanel.blocksRaycasts = true;
+    }
+
     public void Back() //Back button for the options panel
     {
         OptionPanel.alpha = 0;
         OptionPanel.interactable = false;
         OptionPanel.blocksRaycasts = false;
     }
+
+
 
     public void Join()
     {
@@ -99,7 +131,6 @@ public class MainMenuController : MonoBehaviour
                 }
             }
         }
-      
     }
 
     public void Dropout()
@@ -122,17 +153,18 @@ public class MainMenuController : MonoBehaviour
                         {
                             playerJoinButtons[index].interactable = true; 
                         }
+                       
 
                         // Decrement playerCount but ensure it doesn't go below zero.
                         playerCount = Mathf.Max(0, playerCount - 1);
+                        if (playerCount < 2)
+                        {
+                            startGameButton.interactable = false;
+                        }
                     }
                     return;
                 }
             }
-        }
-        if(playerCount < 2)
-        {
-            startGameButton.interactable = false;
         }
    
     }
@@ -141,14 +173,6 @@ public class MainMenuController : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.players.Clear(); //reset playerdata
-            for (int i = 0; i < playerCount; i++)
-            { //generate empty playerdata
-                PlayerData player = Instantiate(emptyPlayerData);
-                player.playerNum = i+1;
-                GameManager.Instance.players.Add(player);
-                
-            }
             GameManager.Instance.StartShopWithPlayerCount(playerCount);
         }
         else
@@ -185,4 +209,67 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
+    public void SelectCharacterSprite()
+    {
+        if (EventSystem.current != null && EventSystem.current.currentSelectedGameObject != null)
+        {
+            var clickedObject = EventSystem.current.currentSelectedGameObject;
+            var clickedButton = clickedObject.GetComponent<Button>();
+            if (clickedButton != null)
+            {
+                // Determine which grid the clicked button belongs to so we update only the corresponding player's preview
+                int gridIndex = GetCharacterGridIndex(clickedObject.transform);
+                var image = clickedButton.GetComponent<Image>();
+                if (image != null)
+                {
+                    SetPlayerCharacterSprite(image, gridIndex);
+                    Debug.Log("Character sprite selected: " + image.sprite.name + " for player index: " + gridIndex);
+                }
+            }
+
+        }
+    }
+
+    // Traverses up from the clicked transform to find which character select grid it belongs to.
+    private int GetCharacterGridIndex(Transform clickedTransform)
+    {
+        Transform current = clickedTransform;
+        while (current != null)
+        {
+            if (characterSelectGrids != null)
+            {
+                int idx = characterSelectGrids.IndexOf(current.gameObject);
+                if (idx >= 0)
+                {
+                    return idx;
+                }
+            }
+            current = current.parent;
+        }
+        return -1;
+    }
+
+    // Updated to accept an optional playerIndex. If playerIndex is -1 or out of range, logs a warning and falls back to player 0.
+    public void SetPlayerCharacterSprite(Image CharacterImage, int playerIndex = 0)
+    {
+        if (playerCharacterSelectPreviews == null || playerCharacterSelectPreviews.Count == 0)
+        {
+            Debug.LogWarning("SetPlayerCharacterSprite: No playerCharacterSelectPreviews configured.");
+            return;
+        }
+
+        int indexToUse = playerIndex;
+        if (playerIndex < 0 || playerIndex >= playerCharacterSelectPreviews.Count)
+        {
+            Debug.LogWarning("SetPlayerCharacterSprite: invalid playerIndex " + playerIndex + ". Falling back to player 0.");
+            indexToUse = 0;
+        }
+
+        playerCharacterSelectPreviews[indexToUse].sprite = CharacterImage.sprite;
+        playerCharacterSelectPreviews[indexToUse].SetNativeSize();
+        
+        GameManager.Instance.players[indexToUse].playerSprite = CharacterImage.sprite;
+        Debug.Log("Set character sprite for player " + (indexToUse + 1) + ": " + CharacterImage.sprite.name);
+    }
+   
 }
