@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc8d06586d00f048ac4dbe711b4cab9, type: 3}
+  m_Name: MagnetismUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::MagnetismUpgrade
+  shopIcon: {fileID: -3421563057652809195, guid: b7ee614682101534a9f7a52472c4fbe8, type: 3}
+  upgradeFamily: Magnetism
+  upgradeName: Magnetism 3
+  description: Pulls nearby enemies towards you and increases your defense and contact
+    damage.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  health: 0
+  contactDamage: 10
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 0.9
+  ballAreaPrefab: {fileID: 4866617159980323993, guid: 93194089957f1884fb12b623bcd867d1, type: 3}
+  radius: 2.5
+  magnetismStrength: 50
