@@ -21,6 +21,8 @@ public class PlayerShop : MonoBehaviour
     [SerializeField] Image playerSprite;
     [SerializeField] TextMeshProUGUI coinText;
 
+    [SerializeField] PlayerOverviewUI playerOverviewUI;
+
     private PlayerData player;
 
     public void SetPlayer(int playerIndex)
@@ -78,6 +80,7 @@ public class PlayerShop : MonoBehaviour
                 weaponItems[i].Init(icon, weaponPrefabs[i].name);
             }
         }
+        playerOverviewUI.UpdateIcons(playerNum);
     }
 
     public void BuyUpgrade(int index)
@@ -86,10 +89,11 @@ public class PlayerShop : MonoBehaviour
         {
             if (index < upgrades.Count)
             {
-                GameManager.Instance.players[playerNum].AddUpgrade(upgrades[index]);
+                if (GameManager.Instance.players[playerNum].AddUpgrade(upgrades[index]))
+                    player.coins -= 3;
             }
-            player.coins -= 3;
             UpdateCoinText();
+            playerOverviewUI.UpdateIcons(playerNum);
         }
         else
         {
@@ -103,10 +107,11 @@ public class PlayerShop : MonoBehaviour
         {
             if (index < weaponUpgrades.Count)
             {
-                GameManager.Instance.players[playerNum].AddWeaponUpgrade(weaponUpgrades[index]);
+                if (GameManager.Instance.players[playerNum].AddWeaponUpgrade(weaponUpgrades[index]))
+                    player.coins -= 3;
             }
-            player.coins -= 3;
             UpdateCoinText();
+            playerOverviewUI.UpdateIcons(playerNum);
         }
         else
         {
@@ -124,6 +129,7 @@ public class PlayerShop : MonoBehaviour
             }
             player.coins -= 3;
             UpdateCoinText();
+            playerOverviewUI.UpdateIcons(playerNum);
         }
         else
         {

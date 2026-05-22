@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: BleedArrows
   m_EditorClassIdentifier: Assembly-CSharp::StatusArrows
   shopIcon: {fileID: 4046606177240750169, guid: 07d034312ed66ae4ba11d76201d06db2, type: 3}
+  upgradeFamily: Bleeding Arrows
   upgradeName: Bleeding Arrows
   description: Applies bleed to hit enemies.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

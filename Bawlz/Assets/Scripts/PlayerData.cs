@@ -30,22 +30,20 @@ public class PlayerData : ScriptableObject
             if (upgrades[i].upgradeFamily == newUpgrade.upgradeFamily)
             {
                 if (upgrades[i].isUpgradeMaxLevel())
-                {   
+                {
                     Debug.Log($"Player {playerNum} is trying to buy an upgrade they already have the max level of.");
                     return false;
                 }
-                else
+                upgrades[i].upgradeExp++;
+                if (upgrades[i].canLevelUp())
                 {
-                  upgrades[i].upgradeExp++;  
-                  if (upgrades[i].canLevelUp())
-                  {
                     upgrades[i] = Instantiate(upgrades[i].nextLevelUpgrade);
-                  }
                 }
+                return true;
             }
         }
         upgrades.Add(Instantiate(newUpgrade));
-        return false;
+        return true;
     }
 
     public bool AddWeaponUpgrade(WeaponUpgrade newUpgrade)
@@ -55,29 +53,28 @@ public class PlayerData : ScriptableObject
             Debug.Log("Player already has the max number of weapon upgrades");
             return false;
         }
-        for (int i = 0; i < upgrades.Count; i++)
+        for (int i = 0; i < weaponUpgrades.Count; i++)
         {
             if (weaponUpgrades[i].upgradeFamily == newUpgrade.upgradeFamily)
             {
                 if (weaponUpgrades[i].isUpgradeMaxLevel())
-                {   
+                {
                     Debug.Log($"Player {playerNum} is trying to buy a weapon upgrade they already have the max level of.");
                     return false;
                 }
-                else
+                weaponUpgrades[i].upgradeExp++;
+
+                if (weaponUpgrades[i].canLevelUp())
                 {
-                  weaponUpgrades[i].upgradeExp++;  
-                  if (weaponUpgrades[i].canLevelUp())
-                  {
                     weaponUpgrades[i] = Instantiate(weaponUpgrades[i].nextLevelUpgrade);
-                  }
                 }
+                return true;
             }
         }
         weaponUpgrades.Add(Instantiate(newUpgrade));
-        return false;
+        return true;
     }
 
-    
-    
+
+
 }

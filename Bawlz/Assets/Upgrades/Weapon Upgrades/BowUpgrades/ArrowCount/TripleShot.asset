@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: TripleShot
   m_EditorClassIdentifier: Assembly-CSharp::BowUpgrade
   shopIcon: {fileID: 636870760719533455, guid: 6cf0104417dd8944eaa13aca284023b3, type: 3}
+  upgradeFamily: Multishot
   upgradeName: Triple Shot
   description: Fire a spread of 3 arrows at a time.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 7c1eab3dde0a30549ab3b4d4b89885c4, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

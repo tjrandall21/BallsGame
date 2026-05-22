@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: HarpoonArrows 2
   m_EditorClassIdentifier: Assembly-CSharp::BowPullUpgrade
   shopIcon: {fileID: -4047989089806489235, guid: d85140d4511dd664692112bfd484100f, type: 3}
+  upgradeFamily: Pull Arrows
   upgradeName: Harpoon Arrows 2
   description: Your arrows pull enemies towards you and increase your contact damage
     on hit.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

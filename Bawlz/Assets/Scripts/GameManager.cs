@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public int roundNumber = 1;
     public int maxRounds = 5;
 
+    [SerializeField] bool clearPlayerDataOnStart = false;
 
     public EndBattlePanel endBattlePanel = null;
 
@@ -80,6 +81,17 @@ public class GameManager : MonoBehaviour
         if (Instance != this)
         {
             Destroy(this);
+        }
+        else if (clearPlayerDataOnStart)
+        {
+            foreach (PlayerData player in players)
+            {
+                player.upgrades = new List<Upgrade>();
+                player.weaponUpgrades = new List<WeaponUpgrade>();
+                player.placementsByRound = new List<int>();
+                player.roundsWon = 0;
+                player.coins = coinsPerRound;
+            }
         }
     }
 

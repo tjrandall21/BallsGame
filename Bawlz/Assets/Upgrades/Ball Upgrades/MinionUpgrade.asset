@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: MinionUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::MinionUpgrade
   shopIcon: {fileID: -8560334748698867635, guid: 096c7c71368a4c94788182cfa00422d4, type: 3}
+  upgradeFamily: Necromancy
   upgradeName: Necromancy
   description: This is an upgrade.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
   stackable: 0
   health: 0
   contactDamage: 0

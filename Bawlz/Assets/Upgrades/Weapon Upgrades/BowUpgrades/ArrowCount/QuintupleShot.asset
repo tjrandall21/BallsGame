@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: QuintupleShot
   m_EditorClassIdentifier: Assembly-CSharp::BowUpgrade
   shopIcon: {fileID: 636870760719533455, guid: 6cf0104417dd8944eaa13aca284023b3, type: 3}
+  upgradeFamily: Multishot
   upgradeName: Quintuple Shot
   description: Fire a spread of 5 arrows at a time.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

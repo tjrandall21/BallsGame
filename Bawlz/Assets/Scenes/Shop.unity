@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.255981, y: -2.5430298}
+  m_AnchoredPosition: {x: -15.25592, y: -2.5429688}
   m_SizeDelta: {x: 310.196, y: 249.173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &554900153
@@ -595,8 +595,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9840fc3f0c0c579448aa968380498d0e, type: 2}
   playerDeathOrder: 
   coinsPerRound: 10
+  buyPrice: 3
   roundNumber: 1
   maxRounds: 5
+  clearPlayerDataOnStart: 1
   endBattlePanel: {fileID: 0}
 --- !u!4 &1507308782
 Transform:
