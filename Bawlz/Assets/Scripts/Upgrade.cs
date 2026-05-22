@@ -5,8 +5,14 @@ using UnityEngine.Rendering;
 public class Upgrade : ScriptableObject
 {
     public Sprite shopIcon = null;
+    public string upgradeFamily = "Upgrade"; //Each level of an upgrade should share the same ID
     public string upgradeName = "Upgrade";
     public string description = "This is an upgrade.";
+    public int upgradeLevel = 0;
+    public int upgradeExp = 0;
+    public Upgrade nextLevelUpgrade = null;
+
+
     public bool stackable = true; //can only be purchased once if false
 
     //these stats will be automatically added to the ball
@@ -15,11 +21,34 @@ public class Upgrade : ScriptableObject
     public float moveSpeed = 0;
     public float rotationSpeed = 0; //In degrees
     public float defenseMultiplier = 1;
+
+
     protected BallController parentBall = null;
 
     public void Init(BallController ball)
     {
         parentBall = ball;
+    }
+
+    public bool isUpgradeMaxLevel()
+    {
+        return nextLevelUpgrade == null;
+    }
+
+    public bool canLevelUp()
+    {
+        if (isUpgradeMaxLevel())
+        {
+            return false;
+        }
+        if (upgradeExp >= GameManager.Instance.GetLevelUpThreshold(upgradeLevel))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public virtual void Update()

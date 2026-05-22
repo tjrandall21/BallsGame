@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e472045e602417408286035325966f4, type: 3}
   m_Name: DamageReductionUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  shopIcon: {fileID: -2757887451555568444, guid: b133698a7e9ee1d4caf1a682d68cf912, type: 3}
-  upgradeName: Upgrade
+  shopIcon: {fileID: 5021562696428726632, guid: 2c6d1b7d425f6404ca11101871d04eaa, type: 3}
+  upgradeFamily: Damage Reduction
+  upgradeName: Damage Reduction
   description: This is an upgrade.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
   stackable: 1
   health: 0
   contactDamage: 0

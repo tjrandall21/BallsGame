@@ -1,47 +1,30 @@
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerShop : MonoBehaviour
 {
     [SerializeField] int playerNum = 0;
+    // Upgrades lists
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
+    [SerializeField] List<GameObject> weaponPrefabs = new List<GameObject>();
 
-    [SerializeField] List<Image> upgradeIcons = new List<Image>();
-    [SerializeField] List<Image> weaponUpgradeIcons = new List<Image>();
+    // Shop Item Slots
+    [SerializeField] List<ShopItem> upgradeItems = new List<ShopItem>();
+    [SerializeField] List<ShopItem> weaponUpgradeItems = new List<ShopItem>();
+    [SerializeField] List<ShopItem> weaponItems = new List<ShopItem>();
+
+
+    [SerializeField] Image playerSprite;
+    [SerializeField] TextMeshProUGUI coinText;
+
+    [SerializeField] PlayerOverviewUI playerOverviewUI;
 
     private PlayerData player;
-    private List<Upgrade> currentShopUpgrades = new List<Upgrade>();
-    private List<WeaponUpgrade> currentShopWeaponUpgrades = new List<WeaponUpgrade>();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //void Start()
-    //{
-    //    player = GameManager.Instance.players[playerNum];
-    //    for (int i = 0; i < upgradeIcons.Count; i++)
-    //    {
-    //        if (i < upgrades.Count)
-    //        {
-    //            upgradeIcons[i].sprite = upgrades[i].shopIcon;
-    //        }
-    //        else
-    //        {
-    //            upgradeIcons[i].sprite = null;
-    //        }
-    //    }
-    //    for (int i = 0; i < weaponUpgradeIcons.Count; i++)
-    //    {
-    //        if (i < weaponUpgrades.Count)
-    //        {
-    //            weaponUpgradeIcons[i].sprite = weaponUpgrades[i].shopIcon;
-    //        }
-    //        else
-    //        {
-    //            weaponUpgradeIcons[i].sprite = null;
-    //        }
-    //    }
-    //}
     public void SetPlayer(int playerIndex)
     {
         playerNum = playerIndex;
@@ -52,42 +35,65 @@ public class PlayerShop : MonoBehaviour
 
     void SetupShop()
     {
-        for (int i = 0; i < upgradeIcons.Count; i++)
+        //set player sprite
+        playerSprite.sprite = GameManager.Instance.players[playerNum].playerSprite;
+        UpdateCoinText();
+
+        for (int i = 0; i < upgradeItems.Count; i++)
         {
             if (i < upgrades.Count)
             {
-                upgradeIcons[i].sprite =
-                    upgrades[i].shopIcon;
-            }
-            else
-            {
-                upgradeIcons[i].sprite = null;
+                upgradeItems[i].Init(upgrades[i]);
             }
         }
 
-        for (int i = 0; i < weaponUpgradeIcons.Count; i++)
+        for (int i = 0; i < weaponUpgradeItems.Count; i++)
         {
             if (i < weaponUpgrades.Count)
             {
-                weaponUpgradeIcons[i].sprite =
-                    weaponUpgrades[i].shopIcon;
-            }
-            else
-            {
-                weaponUpgradeIcons[i].sprite = null;
+                weaponUpgradeItems[i].Init(weaponUpgrades[i]);
             }
         }
+        for (int i = 0; i < weaponItems.Count; i++)
+        {
+            if (i < weaponPrefabs.Count && weaponPrefabs[i] != null)
+            {
+                Sprite icon = null;
+                var prefab = weaponPrefabs[i];
+
+                // SpriteRenderer 
+                var sr = prefab.GetComponentInChildren<SpriteRenderer>();
+                if (sr != null)
+                {
+                    icon = sr.sprite;
+                }
+                else
+                {
+                    // UI Image
+                    var img = prefab.GetComponentInChildren<Image>();
+                    if (img != null)
+                    {
+                        icon = img.sprite;
+                    }
+                }
+
+                weaponItems[i].Init(icon, weaponPrefabs[i].name);
+            }
+        }
+        playerOverviewUI.UpdateIcons(playerNum);
     }
 
     public void BuyUpgrade(int index)
     {
-        if (player.coins > 0)
+        if (player.coins >= 3)
         {
             if (index < upgrades.Count)
             {
-                GameManager.Instance.players[playerNum].upgrades.Add(upgrades[index]);
+                if (GameManager.Instance.players[playerNum].AddUpgrade(upgrades[index]))
+                    player.coins -= 3;
             }
-            player.coins -= 1;
+            UpdateCoinText();
+            playerOverviewUI.UpdateIcons(playerNum);
         }
         else
         {
@@ -97,13 +103,33 @@ public class PlayerShop : MonoBehaviour
 
     public void BuyWeaponUpgrade(int index)
     {
-        if (player.coins > 0)
+        if (player.coins >= 3)
         {
             if (index < weaponUpgrades.Count)
             {
-                GameManager.Instance.players[playerNum].weaponUpgrades.Add(weaponUpgrades[index]);
+                if (GameManager.Instance.players[playerNum].AddWeaponUpgrade(weaponUpgrades[index]))
+                    player.coins -= 3;
             }
-            player.coins -= 1;
+            UpdateCoinText();
+            playerOverviewUI.UpdateIcons(playerNum);
+        }
+        else
+        {
+            Debug.Log("no money");
+        }
+    }
+    // not fully working
+    public void BuyWeaponPrefab(int index)
+    {
+        if (player.coins >= 3)
+        {
+            if (index < weaponPrefabs.Count && weaponPrefabs[index] != null)
+            {
+                GameManager.Instance.players[playerNum].weaponPrefab = weaponPrefabs[index];
+            }
+            player.coins -= 3;
+            UpdateCoinText();
+            playerOverviewUI.UpdateIcons(playerNum);
         }
         else
         {
@@ -111,4 +137,8 @@ public class PlayerShop : MonoBehaviour
         }
     }
 
+    void UpdateCoinText()
+    {
+        coinText.text = $"{player.coins} Coins";
+    }
 }
