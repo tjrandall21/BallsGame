@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36adaca39c783ec44b52751845fe9e4a, type: 3}
   m_Name: MinionUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::MinionUpgrade
-  shopIcon: {fileID: -7841636702536913860, guid: e8b9328833457ea49872928ac705e9cb, type: 3}
-  upgradeName: Upgrade
+  shopIcon: {fileID: -8560334748698867635, guid: 096c7c71368a4c94788182cfa00422d4, type: 3}
+  upgradeFamily: Necromancy
+  upgradeName: Necromancy
   description: This is an upgrade.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
   stackable: 0
   health: 0
   contactDamage: 0
@@ -23,3 +27,4 @@ MonoBehaviour:
   defenseMultiplier: 1
   minionPrefab: {fileID: 7189852719700939712, guid: 849f3f1784d95034e8ac6c79eb317c27, type: 3}
   minionDamage: 1
+  spawnChance: 0.25

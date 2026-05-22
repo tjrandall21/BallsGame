@@ -23,7 +23,7 @@ public class Projectile : Weapon
     protected override void OnBallHit(BallController otherBall)
     {
         base.OnBallHit(otherBall);
-        otherBall.AddVelocity(direction * speed);
+        otherBall.AddVelocity(direction * speed * 0.5f);
         Destroy(gameObject);
     }
 

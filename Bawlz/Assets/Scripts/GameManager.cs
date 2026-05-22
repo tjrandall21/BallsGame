@@ -24,9 +24,12 @@ public class GameManager : MonoBehaviour
     bool queueGameOverCheck = false;
 
     public int coinsPerRound = 10;
+    public int buyPrice = 3;
 
     public int roundNumber = 1;
     public int maxRounds = 5;
+
+    [SerializeField] bool clearPlayerDataOnStart = false;
 
     public EndBattlePanel endBattlePanel = null;
 
@@ -39,7 +42,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    public int GetLevelUpThreshold(int level)
+    {
+        switch (level)
+        {
+            case 0:
+                return 2;
+            case 1:
+                return 3;
+            default:
+                Debug.Log("Gamemanager.GetLevelUpThreshold: invalid level provided");
+                return 0;
+        }
+    }
 
     public void LoadBattleScene()
     {
@@ -66,6 +81,17 @@ public class GameManager : MonoBehaviour
         if (Instance != this)
         {
             Destroy(this);
+        }
+        else if (clearPlayerDataOnStart)
+        {
+            foreach (PlayerData player in players)
+            {
+                player.upgrades = new List<Upgrade>();
+                player.weaponUpgrades = new List<WeaponUpgrade>();
+                player.placementsByRound = new List<int>();
+                player.roundsWon = 0;
+                player.coins = coinsPerRound;
+            }
         }
     }
 
@@ -161,7 +187,7 @@ public class GameManager : MonoBehaviour
 
             foreach (PlayerData player in players)
             {
-                player.coins += coinsPerRound;
+                player.coins = coinsPerRound;
             }
             
             SceneManager.LoadScene(2);

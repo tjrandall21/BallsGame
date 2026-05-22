@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   playerNum: 1
-  weaponPrefab: {fileID: 9124016292243078404, guid: bbf1ca69f21ac77469d60f4aea4cc19f, type: 3}
+  weaponPrefab: {fileID: 9124016292243078404, guid: 502494173fd300a42a15616314ec96aa, type: 3}
   ballPrefab: {fileID: 7189852719700939712, guid: dbc579720f7d5db48ab5ecbe97d0ddfd, type: 3}
   upgrades: []
   weaponUpgrades: []
-  lives: 0
   roundsWon: 0
-  coins: 4
+  coins: 10
   placementsByRound: 
   playerSprite: {fileID: 5731981955572824522, guid: f16fe25a5aef5ab44abf7f15e6708e0f, type: 3}
