@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a972091fc9c46144b4d30840f728173, type: 3}
+  m_Name: BigArrowUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::BigArrowUpgrade
+  shopIcon: {fileID: 1730117128237689286, guid: de24cbb1933b4314a88818ec3528c702, type: 3}
+  upgradeFamily: Big Arrows
+  upgradeName: Nuclear Arrow
+  description: Periodically shoots a large arrow that deals 5x damage and creates
+    a huge explosion.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  arrowSpeed: 0
+  arrowDamage: 0
+  arrowDamageScaling: 0
+  extraProjectiles: 0
+  attackSpeedScaling: 0
+  passToArrows: 0
+  explodingBigArrows: 1
+  explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
+  explosionDamage: 35
+  explosionKnockback: 30
+  explosionSize: 3
+  bigArrowDamageMultiple: 5
+  bigArrowSpeed: 5
+  bigArrowCooldown: 2.2
+  bigArrowSize: 1.3
+  arrowPrefab: {fileID: 9124016292243078404, guid: e837acfa33ae31842acd69591b6a4543, type: 3}

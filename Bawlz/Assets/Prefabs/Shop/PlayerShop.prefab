@@ -3155,9 +3155,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}
   - {fileID: 11400000, guid: cb77b707ac0e5684f931b31c9e9a5cdc, type: 2}
   weaponUpgrades:
-  - {fileID: 11400000, guid: c1bdc1698bac98d479bbab946e2ae541, type: 2}
+  - {fileID: 11400000, guid: ecb45aac70fce3645b9c2e3cc08c6aab, type: 2}
   - {fileID: 11400000, guid: 11893f453ad4bf84689a9b0c18ce374e, type: 2}
-  - {fileID: 11400000, guid: e78246a47df0ca942926bea0bc87c9ba, type: 2}
+  - {fileID: 11400000, guid: 668d84887a2d4e644b2c3f3ea7d9fd14, type: 2}
   weaponPrefabs:
   - {fileID: 9124016292243078404, guid: 197b6462f8419164fb6286363c47f2a1, type: 3}
   - {fileID: 9124016292243078404, guid: bb4bef6c9f5aaca459680b5b7e086c2c, type: 3}
