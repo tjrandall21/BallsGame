@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f1916b9ab933942af59bc3ba0ea09c, type: 3}
+  m_Name: RageUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::RageUpgrade
+  shopIcon: {fileID: 0}
+  upgradeName: Upgrade
+  description: This is an upgrade.
+  stackable: 1
+  health: 0
+  contactDamage: 0
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 1
+  damageIncrease: 0.5
