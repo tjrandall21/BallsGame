@@ -18,7 +18,9 @@ MonoBehaviour:
   upgrades: []
   weaponUpgrades:
   - {fileID: 11400000, guid: cce0a3fb5c06df34fbaf2a5c51eb68e3, type: 2}
-  roundsWon: 1
+  - {fileID: 11400000, guid: 7c1eab3dde0a30549ab3b4d4b89885c4, type: 2}
+  - {fileID: 11400000, guid: fe3afd3dc0d6c6c46aa55d2d88c27992, type: 2}
+  roundsWon: 0
   coins: 10
-  placementsByRound: 0100000002000000020000000200000002000000
+  placementsByRound: 
   playerSprite: {fileID: 2019789747948817947, guid: 7376bbf61e0b0d94d96f42fc2cf2702b, type: 3}
