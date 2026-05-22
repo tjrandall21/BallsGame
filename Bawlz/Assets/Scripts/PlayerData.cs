@@ -20,11 +20,6 @@ public class PlayerData : ScriptableObject
 
     public bool AddUpgrade(Upgrade newUpgrade)
     {
-        if (upgrades.Count >= 3)
-        {
-            Debug.Log("Player already has the max number of upgrades");
-            return false;
-        }
         for (int i = 0; i < upgrades.Count; i++)
         {
             if (upgrades[i].upgradeFamily == newUpgrade.upgradeFamily)
@@ -41,6 +36,11 @@ public class PlayerData : ScriptableObject
                 }
                 return true;
             }
+        } 
+        if (upgrades.Count >= 3)
+        {
+            Debug.Log("Player already has the max number of upgrades");
+            return false;
         }
         upgrades.Add(Instantiate(newUpgrade));
         return true;
@@ -48,11 +48,6 @@ public class PlayerData : ScriptableObject
 
     public bool AddWeaponUpgrade(WeaponUpgrade newUpgrade)
     {
-        if (weaponUpgrades.Count >= 3)
-        {
-            Debug.Log("Player already has the max number of weapon upgrades");
-            return false;
-        }
         for (int i = 0; i < weaponUpgrades.Count; i++)
         {
             if (weaponUpgrades[i].upgradeFamily == newUpgrade.upgradeFamily)
@@ -70,6 +65,11 @@ public class PlayerData : ScriptableObject
                 }
                 return true;
             }
+        }
+        if (weaponUpgrades.Count >= 3)
+        {
+            Debug.Log("Player already has the max number of weapon upgrades");
+            return false;
         }
         weaponUpgrades.Add(Instantiate(newUpgrade));
         return true;

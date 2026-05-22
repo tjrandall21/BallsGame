@@ -31,11 +31,12 @@ public class PlayerOverviewUI : MonoBehaviour
         {
             bar.color = new Color(0,0,0,0);
         }
+        weaponIcon.color = new Color(0,0,0,0);
         for (int i = 0; i < player.upgrades.Count; i++)
         {
             playerUpgradeIcons[i].sprite = player.upgrades[i].shopIcon;
             playerUpgradeIcons[i].color = Color.white;
-            if (!player.weaponUpgrades[i].isUpgradeMaxLevel())
+            if (!player.upgrades[i].isUpgradeMaxLevel())
             {              
                 playerUpgradeBars[i].color = upgradeBarColor;
                 playerUpgradeBars[i].fillAmount = (float)player.upgrades[i].upgradeExp / 
@@ -53,6 +54,10 @@ public class PlayerOverviewUI : MonoBehaviour
                         GameManager.Instance.GetLevelUpThreshold(player.weaponUpgrades[i].upgradeLevel);
             }
         }
-        weaponIcon.sprite = player.weaponPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
+        if (player.weaponPrefab != null)
+        {
+            weaponIcon.sprite = player.weaponPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
+            weaponIcon.color = Color.white;
+        }
     }
 }
