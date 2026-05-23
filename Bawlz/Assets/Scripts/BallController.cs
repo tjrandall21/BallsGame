@@ -20,7 +20,7 @@ public class BallController : MonoBehaviour
     [SerializeField] float rotationDirection = -1;
     [SerializeField] public float maxHealth = 200;
     [SerializeField] public float contactDamage = 0;
-    [SerializeField] float defenseMultiplier = 1;
+    [SerializeField] public float defenseMultiplier = 1;
     public float health = 0;
     [SerializeField] public SpriteRenderer sprite = null;
 

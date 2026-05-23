@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 35dcca1d6604a50479c6ab92f1d86164
+  - enabled: 1
+    path: Assets/Scenes/SmallArena.unity
+    guid: 6bdd5cc82aba98f48816d27b04782116
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

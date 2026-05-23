@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54360676264f94479f90fbac9d116ba, type: 3}
+  m_Name: SwordDamage
+  m_EditorClassIdentifier: Assembly-CSharp::SwordUpgrade
+  shopIcon: {fileID: 8888916686812885884, guid: a7c0496685194f64ea7370e39d0d2e9b, type: 3}
+  upgradeFamily: SwordDamage
+  upgradeName: Sharpened Blade
+  description: Increases your damage and damage scaling.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: e046b9a3e0695e4428559d241dfcb055, type: 2}
+  stackable: 1
+  damage: 5
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0.5
+  size: 1
+  spinSpeed: 0

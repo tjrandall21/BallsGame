@@ -145,6 +145,7 @@ MonoBehaviour:
   attackCooldown: 0
   parent: {fileID: 0}
   weaponUpgrades: []
+  damageScalingAmount: 1
 --- !u!50 &2255129472153577191
 Rigidbody2D:
   serializedVersion: 5

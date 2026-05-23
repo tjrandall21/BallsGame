@@ -32,7 +32,7 @@ public class Harpoon : Weapon
             GameObject projectileObject = Instantiate(projectilePrefab, transform.position, transform.rotation);
             HarpoonProjectile projectile = projectileObject.GetComponent<HarpoonProjectile>();
             projectile.ProjectileInit(new Vector3(math.cos(rotation), math.sin(rotation)), projectileSpeed, projectileDamage, this);
-            projectileObject.layer = gameObject.layer;
+            projectileObject.layer = gameObject.layer+4;
         }
 
         OnAttackEnd();

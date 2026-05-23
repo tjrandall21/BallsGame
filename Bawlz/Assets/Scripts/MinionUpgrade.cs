@@ -13,7 +13,7 @@ public class MinionUpgrade : Upgrade
         if (Random.value < spawnChance)
         {    
             GameObject ball = Instantiate(minionPrefab, parentBall.transform.position, Quaternion.identity);
-            ball.layer = parentBall.gameObject.layer;
+            ball.layer = parentBall.gameObject.layer+4;
 
             BallController ballController = ball.GetComponent<BallController>();
             ballController.Init(new List<Upgrade>(),parentBall.playerNum,Random.Range(0.0f,360.0f));

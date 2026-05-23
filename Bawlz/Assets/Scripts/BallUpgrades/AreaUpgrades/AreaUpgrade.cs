@@ -15,7 +15,7 @@ public class AreaUpgrade : Upgrade
         base.Init(ball);
         GameObject area = Instantiate(ballAreaPrefab, parentBall.transform);
         ballArea = area.GetComponent<BallArea>();
-        ballArea.Init(this, radius, parentBall.gameObject.layer);
+        ballArea.Init(this, radius, parentBall.gameObject.layer+4);
     }
 
     public override void Update()
