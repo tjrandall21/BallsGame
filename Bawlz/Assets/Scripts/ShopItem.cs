@@ -1,9 +1,11 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
+    public int index = 0;
 
     [SerializeField] Image icon;
     [SerializeField] TextMeshProUGUI nameText;
@@ -19,7 +21,7 @@ public class ShopItem : MonoBehaviour
         Weapon
     }
 
-    public void Init(Sprite itemIcon, string itemName, bool sellMode = false)
+    public void Init(Sprite itemIcon,  string itemName, int newIndex, bool sellMode = false)
     {
         icon.sprite = itemIcon;
         nameText.text = itemName;
@@ -28,17 +30,18 @@ public class ShopItem : MonoBehaviour
             coinText.text = "1";
             buttonText.text = "Sell";
         }
+        index = newIndex;
     }
 
-    public void Init(Upgrade upgrade, bool sellMode = false)
+    public void Init(Upgrade upgrade, int newIndex, bool sellMode = false)
     {
-        Init(upgrade.shopIcon,upgrade.upgradeName, sellMode);
+        Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, sellMode);
         shopItemType = ShopItemType.Upgrade;
     }
 
-    public void Init(WeaponUpgrade upgrade, bool sellMode = false)
+    public void Init(WeaponUpgrade upgrade, int newIndex, bool sellMode = false)
     {
-        Init(upgrade.shopIcon,upgrade.upgradeName,  sellMode);
+        Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, sellMode);
         shopItemType = ShopItemType.WeaponUpgrade;
     }
 

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e219d99439b614aa18b90927e7b7a5, type: 3}
+  m_Name: SwordLifeSteal 1
+  m_EditorClassIdentifier: Assembly-CSharp::SwordLifeSteal
+  shopIcon: {fileID: -1139824113138062426, guid: a6e7be2f503c64e49b4b9acd0efc0c58, type: 3}
+  upgradeFamily: SwordLifeSteal
+  upgradeName: Vampiric Blade 2
+  description: You constantly lose health but your sword gains lifesteal.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: ead348c85619c7042aa47688ac8155af, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  size: 1
+  spinSpeed: 0
+  multipleOfDamageStolen: 0.3
+  damagePerSecond: 3
+  tickRate: 0.5

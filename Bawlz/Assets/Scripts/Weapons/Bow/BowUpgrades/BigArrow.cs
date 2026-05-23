@@ -49,7 +49,7 @@ public class BigArrowUpgrade : BowUpgrade
         GameObject projectileObject = Instantiate(arrowPrefab, parentBall.transform.position, arrowRotation);
         BowProjectile projectile = projectileObject.GetComponent<BowProjectile>();
         projectile.ProjectileInit(new Vector3(math.cos(rotation), math.sin(rotation)), bigArrowSpeed, ((Bow)parentWeapon).arrowDamage, parentWeapon);
-        projectileObject.layer = parentBall.gameObject.layer;
+        projectileObject.layer = parentBall.gameObject.layer+4;
         projectileObject.tag = "Big Arrow";
         projectile.transform.localScale = new Vector3(bigArrowSize,bigArrowSize,1);
     }

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     List<Vector2> spawnLocations = new List<Vector2>{Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero};
     List<BallController> mainBalls = new List<BallController>();
+    [SerializeField] List<Upgrade> passiveStatUpgradesPerRound = new List<Upgrade>();
 
     bool queueGameOverCheck = false;
 
@@ -66,7 +67,15 @@ public class GameManager : MonoBehaviour
         //empty spawn locations
         playerDeathOrder = new List<int>();
         spawnLocations = new List<Vector2>{Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero};
-        SceneManager.LoadScene(1);
+        if (playerCount == 2)
+        {
+            SceneManager.LoadScene(3); //small arena
+        }
+        else
+        {
+            SceneManager.LoadScene(1); //regular arena
+        }
+        
     }
 
 
@@ -119,8 +128,22 @@ public class GameManager : MonoBehaviour
                 weapon.layer = ball.layer;
                 weapon.GetComponent<Weapon>().SetUpgrades(players[i].weaponUpgrades);
             }
+            //add passive round upgrades to player upgrades
+            List<Upgrade> upgrades  = new List<Upgrade>();
+            foreach (Upgrade upgrade in players[i].upgrades)
+            {
+                upgrades.Add(upgrade);
+            }
+            for (int j = 0; j < roundNumber-1; j++)
+            {
+                foreach (Upgrade upgrade in passiveStatUpgradesPerRound)
+                {
+                    upgrades.Add(upgrade);
+                }
+            }
+
             BallController ballController = ball.GetComponent<BallController>();
-            ballController.Init(players[i].upgrades, players[i].playerNum, Random.Range(0.0f, 360.0f), players[i].playerSprite);
+            ballController.Init(upgrades, players[i].playerNum, Random.Range(0.0f, 360.0f), players[i].playerSprite);
             ballController.isMainBall = true;
             mainBalls.Add(ballController);
         }

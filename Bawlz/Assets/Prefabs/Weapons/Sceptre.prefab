@@ -172,12 +172,18 @@ MonoBehaviour:
   attackCooldown: 0
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop:
+  - {fileID: 11400000, guid: ea3c68ec1ea77e34f8df9c49f49dfc6e, type: 2}
+  - {fileID: 11400000, guid: 41838c4e473dd7f40b5d609b50193c92, type: 2}
+  - {fileID: 11400000, guid: 15250d7ec9897f343b402e1dabd76157, type: 2}
+  - {fileID: 11400000, guid: a8b36f59d3bd2914da71818949d8a585, type: 2}
   minionPrefab: {fileID: 7189852719700939712, guid: 849f3f1784d95034e8ac6c79eb317c27, type: 3}
   minionDamageScaling: 2
   minionDamage: 2
   minionHealth: 1
   minionHealthScaling: 1.5
   minionsPerHit: 1
+  extraMinionChance: 0
 --- !u!61 &5009749163094406371
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class Revolver : Weapon
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         float rotation = transform.eulerAngles.z * math.PI / 180.0f + math.PI / 2;
         projectile.ProjectileInit(new Vector3(math.cos(rotation), math.sin(rotation)), arrowSpeed, arrowDamage, this);
-        projectileObject.layer = gameObject.layer;
+        projectileObject.layer = gameObject.layer+4;
         OnAttackEnd();
     }
 

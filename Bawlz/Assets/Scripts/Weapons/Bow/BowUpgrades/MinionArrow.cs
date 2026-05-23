@@ -14,7 +14,7 @@ public class MinionArrow : BowUpgrade
         if (Random.value < spawnChance)
         {    
             GameObject ball = Instantiate(minionPrefab, arrow.transform.position, Quaternion.identity);
-            ball.layer = parentBall.gameObject.layer;
+            ball.layer = parentBall.gameObject.layer+4;
 
             BallController ballController = ball.GetComponent<BallController>();
             ballController.maxHealth = minionHealth;

@@ -218,6 +218,14 @@ MonoBehaviour:
   attackCooldown: 0.4
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop:
+  - {fileID: 11400000, guid: bc617e783d4411a429b79765cf7f733d, type: 2}
+  - {fileID: 11400000, guid: 3290d1c9729d66a46bf753e62986e7f8, type: 2}
+  - {fileID: 11400000, guid: e78246a47df0ca942926bea0bc87c9ba, type: 2}
+  - {fileID: 11400000, guid: 11893f453ad4bf84689a9b0c18ce374e, type: 2}
+  - {fileID: 11400000, guid: fdd269cc3db354c4aa97a756a11f8b52, type: 2}
+  - {fileID: 11400000, guid: 668d84887a2d4e644b2c3f3ea7d9fd14, type: 2}
+  - {fileID: 11400000, guid: ecb45aac70fce3645b9c2e3cc08c6aab, type: 2}
   projectilePrefab: {fileID: 9124016292243078404, guid: e837acfa33ae31842acd69591b6a4543, type: 3}
   arrowSpeed: 30
   arrowDamage: 10

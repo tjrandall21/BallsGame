@@ -46,7 +46,7 @@ public class Bow : Weapon
             GameObject projectileObject = Instantiate(projectilePrefab, transform.position, arrowRotation);
             BowProjectile projectile = projectileObject.GetComponent<BowProjectile>();
             projectile.ProjectileInit(new Vector3(math.cos(rotation), math.sin(rotation)), arrowSpeed, arrowDamage, this);
-            projectileObject.layer = gameObject.layer;
+            projectileObject.layer = gameObject.layer+4;
 
             foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
             {

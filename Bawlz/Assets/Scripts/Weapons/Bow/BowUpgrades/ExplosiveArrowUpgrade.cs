@@ -12,7 +12,7 @@ public class ExplosiveArrowUpgrade : BowUpgrade
     public override void OnArrowDestroyed(BowProjectile arrow)
     {
         GameObject explosionObject = Instantiate(explosionPrefab);
-        explosionObject.layer = arrow.gameObject.layer;
+        explosionObject.layer = arrow.gameObject.layer+4;
         Explosion explosion = explosionObject.GetComponent<Explosion>();
         explosion.ExplosionInit(explosionDamage,arrow.transform.position,explosionKnockback,explosionSize);
         base.OnArrowDestroyed(arrow);
