@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bow : Weapon
@@ -8,7 +7,7 @@ public class Bow : Weapon
 
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float arrowSpeed = 15;
-    [SerializeField] float arrowDamage = 5;
+    [SerializeField] public float arrowDamage = 5;
     [SerializeField] float arrowDamageScaling = 1;
     [SerializeField] int extraProjectiles = 0;
     [SerializeField] float spreadIncreasePerArrow = 20;

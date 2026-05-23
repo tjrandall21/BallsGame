@@ -9,19 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e472045e602417408286035325966f4, type: 3}
-  m_Name: HealthUpgrade
-  m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  shopIcon: {fileID: -1071690539025508676, guid: fe929a87c83d50e42a9dbb0b3de60835, type: 3}
-  upgradeFamily: HealthUpgrade
-  upgradeName: Max Health
+  m_Script: {fileID: 11500000, guid: 34f1916b9ab933942af59bc3ba0ea09c, type: 3}
+  m_Name: RageUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::RageUpgrade
+  shopIcon: {fileID: 0}
+  upgradeName: Upgrade
   description: This is an upgrade.
-  upgradeLevel: 0
-  upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
   stackable: 1
-  health: 50
+  health: 0
   contactDamage: 0
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 1
+  damageIncrease: 0.5

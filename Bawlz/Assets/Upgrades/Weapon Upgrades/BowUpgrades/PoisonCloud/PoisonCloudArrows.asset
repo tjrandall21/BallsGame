@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c9dbfa5e7bfe6243a56158e2712aeeb, type: 3}
-  m_Name: ExplosiveArrowUpgrade
+  m_Name: PoisonCloudArrows
   m_EditorClassIdentifier: Assembly-CSharp::ExplosiveArrowUpgrade
-  shopIcon: {fileID: 7498587124051985547, guid: b349207364432da4589ef258895bf676, type: 3}
-  upgradeFamily: Explosive Arrows
-  upgradeName: Explosive Arrows
-  description: Your arrows explode on impact but you have a reduced fire rate.
+  shopIcon: {fileID: -1181283550536322723, guid: a32739013c7b40e4483b769c7ffce058, type: 3}
+  upgradeFamily: Poison Cloud Arrows
+  upgradeName: Poison Cloud
+  description: Your arrows create a burst of poison on impact but you have a reduced
+    fire rate.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: 5175f5bdcbb2f4b43924b4cebfd29f50, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0
@@ -32,7 +33,7 @@ MonoBehaviour:
   extraProjectiles: 0
   attackSpeedScaling: 0
   passToArrows: 0
-  explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
-  explosionDamage: 15
-  explosionKnockback: 25
+  explosionPrefab: {fileID: 9124016292243078404, guid: ce351ec3afaf3194c841198925454b4e, type: 3}
+  explosionDamage: 5
+  explosionKnockback: 15
   explosionSize: 1
