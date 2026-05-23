@@ -11,6 +11,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private CanvasGroup OptionPanel;
     [SerializeField] private CanvasGroup PlayPanel;
     [SerializeField] private CanvasGroup CharacterSelectPanel;
+    [SerializeField] private CanvasGroup WeaponSelectPanel;
     private bool isFullscreen = true;
     private int playerCount;
     [SerializeField] private List<Button> playerJoinButtons;
@@ -20,6 +21,8 @@ public class MainMenuController : MonoBehaviour
     // Character selection variables 
     [SerializeField] private List<Image> playerCharacterSelectPreviews;
     [SerializeField] private List<GameObject> characterSelectGrids; // Character Grid Prefabs to be enabled/disabled based on player count
+    [SerializeField] private List<GameObject> weaponSelectGrids; // Weapon Grid Prefabs to be enabled/disabled based on player count
+    [SerializeField] List<Image> weaponSelectPreviews;
 
     void Start()
     {
@@ -33,6 +36,9 @@ public class MainMenuController : MonoBehaviour
         CharacterSelectPanel.alpha = 0;
         CharacterSelectPanel.interactable = false;
         CharacterSelectPanel.blocksRaycasts = false;
+        WeaponSelectPanel.alpha = 0;
+        WeaponSelectPanel.interactable = false;
+        WeaponSelectPanel.blocksRaycasts = false;
         playerDropoutButtons.ForEach(button => button.interactable = false); // Disable all dropout buttons at the start
         playerJoinButtons[0].interactable = true; // Enable the first join button at the start
         for(int i = 1; i < playerJoinButtons.Count; i++)
@@ -78,8 +84,28 @@ public class MainMenuController : MonoBehaviour
         CharacterSelectPanel.alpha = 1;
         CharacterSelectPanel.interactable = true;
         CharacterSelectPanel.blocksRaycasts = true;
-        if (GameManager.Instance.players.Count == 0)
-            GameManager.Instance.ResetPlayers();
+        GameManager.Instance.ResetPlayers(playerCount);
+
+        foreach (Image image in playerCharacterSelectPreviews)
+        {
+            image.gameObject.SetActive(false);
+        }
+        foreach (GameObject grid in characterSelectGrids)
+        {
+            grid.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < playerCount; i++)
+        {
+            playerCharacterSelectPreviews[i].gameObject.SetActive(true);
+            characterSelectGrids[i].gameObject.SetActive(true);
+        }
+        
+
+        for (int i = 0; i < playerCount; i++)
+        { //set the sprite for each player to whatever is initially selected
+            GameManager.Instance.players[i].playerSprite = playerCharacterSelectPreviews[i].sprite;
+
+        }
     }
 
     public void CharacterSelectBack()
@@ -90,6 +116,40 @@ public class MainMenuController : MonoBehaviour
         PlayPanel.alpha = 1;
         PlayPanel.interactable = true;
         PlayPanel.blocksRaycasts = true;
+        GameManager.Instance.players.Clear();
+    }
+
+    public void WeaponSelectShowPanel()
+    {
+        CharacterSelectPanel.alpha = 0;
+        CharacterSelectPanel.interactable = false;
+        CharacterSelectPanel.blocksRaycasts = false;
+        WeaponSelectPanel.alpha = 1;
+        WeaponSelectPanel.interactable = true;
+        WeaponSelectPanel.blocksRaycasts = true;
+        foreach (Image image in weaponSelectPreviews)
+        {
+            image.gameObject.SetActive(false);
+        }
+        foreach (GameObject grid in weaponSelectGrids)
+        {
+            grid.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < playerCount; i++)
+        {
+            weaponSelectPreviews[i].gameObject.SetActive(true);
+            weaponSelectGrids[i].gameObject.SetActive(true);
+        }
+    }
+
+    public void WeaponSelectBack()
+    {
+        WeaponSelectPanel.alpha = 0;
+        WeaponSelectPanel.interactable = false;
+        WeaponSelectPanel.blocksRaycasts = false;
+        CharacterSelectPanel.alpha = 1;
+        CharacterSelectPanel.interactable = true;
+        CharacterSelectPanel.blocksRaycasts = true;
     }
 
     public void Back() //Back button for the options panel
@@ -208,6 +268,15 @@ public class MainMenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void SelectWeapon(Button button)
+    {
+        WeaponSelectButton buttonData = button.GetComponent<WeaponSelectButton>();
+        int playerIndex = buttonData.playerNum-1;
+        GameManager.Instance.players[playerIndex].weaponPrefab = buttonData.weaponPrefab;
+        weaponSelectPreviews[playerIndex].sprite = button.GetComponent<Image>().sprite;
+    }
+
 
     public void SelectCharacterSprite()
     {

@@ -723,6 +723,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 3419037846644853496, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
+      propertyPath: m_fontSize
+      value: 31.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8666410435609515704, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
       propertyPath: m_Name
       value: 3rdRow
@@ -861,6 +865,10 @@ PrefabInstance:
       value: 'Player 2
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419037846644853496, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
+      propertyPath: m_fontSize
+      value: 31.3
       objectReference: {fileID: 0}
     - target: {fileID: 8666410435609515704, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
       propertyPath: m_Name
@@ -1001,6 +1009,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 3419037846644853496, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
+      propertyPath: m_fontSize
+      value: 31.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8666410435609515704, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
       propertyPath: m_Name
       value: 4thRow
@@ -1121,6 +1133,10 @@ PrefabInstance:
     - target: {fileID: 1849591190683238116, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419037846644853496, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
+      propertyPath: m_fontSize
+      value: 31.3
       objectReference: {fileID: 0}
     - target: {fileID: 8666410435609515704, guid: 44f2081f4a02e444f9331a1807cfc23a, type: 3}
       propertyPath: m_Name

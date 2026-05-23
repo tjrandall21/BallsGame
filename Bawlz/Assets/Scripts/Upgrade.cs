@@ -25,7 +25,7 @@ public class Upgrade : ScriptableObject
 
     protected BallController parentBall = null;
 
-    public void Init(BallController ball)
+    public virtual void Init(BallController ball)
     {
         parentBall = ball;
     }

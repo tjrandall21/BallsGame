@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ExplosiveminionsUpgrade", menuName = "Weapon Upgrades/Sceptre Upgrades/ExplosiveMinionsUpgrade")]
-public class ExplosiveMinions : SceptreUpgrade
+[CreateAssetMenu(fileName = "ExplosiveMinionsUpgrade", menuName = "Ball Upgrades/Minion Upgrades/ExplosiveMinionsUpgrade")]
+public class ExplosiveMinions : Upgrade
 {
     [SerializeField] GameObject explosionPrefab;
 

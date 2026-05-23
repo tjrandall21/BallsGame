@@ -151,6 +151,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetPlayers(int playerAmount)
+    {
+        playerCount = playerAmount;
+        ResetPlayers();
+    }
+
     public void CheckGameOver()
     {
         mainBalls.RemoveAll(item => item == null);
