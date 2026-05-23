@@ -3161,6 +3161,9 @@ MonoBehaviour:
   weaponPrefabs:
   - {fileID: 9124016292243078404, guid: 197b6462f8419164fb6286363c47f2a1, type: 3}
   - {fileID: 9124016292243078404, guid: bb4bef6c9f5aaca459680b5b7e086c2c, type: 3}
+  upgradeWeights: 020000000100000001000000
+  weaponUpgradeWeights: 
+  weaponPrefabWeights: 
   upgradeItems:
   - {fileID: 7606978346055840472}
   - {fileID: 9057114930260952547}

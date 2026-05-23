@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class PlayerShop : MonoBehaviour
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
     [SerializeField] List<GameObject> weaponPrefabs = new List<GameObject>();
+
+    // Per-item spawn weights 
+    [SerializeField] List<int> upgradeWeights = new List<int>();
+    [SerializeField] List<int> weaponUpgradeWeights = new List<int>();
+    [SerializeField] List<int> weaponPrefabWeights = new List<int>();
 
     // Shop Item Slots
     [SerializeField] List<ShopItem> upgradeItems = new List<ShopItem>();
@@ -39,48 +45,150 @@ public class PlayerShop : MonoBehaviour
         playerSprite.sprite = GameManager.Instance.players[playerNum].playerSprite;
         UpdateCoinText();
 
+        // Character Upgrades
+        var upgradeSelection = PickWeightedIndices(upgradeWeights, upgrades.Count, upgradeItems.Count);
         for (int i = 0; i < upgradeItems.Count; i++)
         {
-            if (i < upgrades.Count)
+            if (i < upgradeSelection.Count)
             {
-                upgradeItems[i].Init(upgrades[i]);
+                int chosenIndex = upgradeSelection[i];
+                if (chosenIndex >= 0 && chosenIndex < upgrades.Count)
+                {
+                    upgradeItems[i].Init(upgrades[chosenIndex]);
+                }
             }
         }
 
+        // Weapon Upgrades
+        var weaponUpgradeSelection = PickWeightedIndices(weaponUpgradeWeights, weaponUpgrades.Count, weaponUpgradeItems.Count);
         for (int i = 0; i < weaponUpgradeItems.Count; i++)
         {
-            if (i < weaponUpgrades.Count)
+            if (i < weaponUpgradeSelection.Count)
             {
-                weaponUpgradeItems[i].Init(weaponUpgrades[i]);
+                int chosenIndex = weaponUpgradeSelection[i];
+                if (chosenIndex >= 0 && chosenIndex < weaponUpgrades.Count)
+                {
+                    weaponUpgradeItems[i].Init(weaponUpgrades[chosenIndex]);
+                }
             }
         }
+
+        // Weapon Prefabs
+        var weaponPrefabSelection = PickWeightedIndices(weaponPrefabWeights, weaponPrefabs.Count, weaponItems.Count);
         for (int i = 0; i < weaponItems.Count; i++)
         {
-            if (i < weaponPrefabs.Count && weaponPrefabs[i] != null)
+            if (i < weaponPrefabSelection.Count)
             {
-                Sprite icon = null;
-                var prefab = weaponPrefabs[i];
+                int chosenIndex = weaponPrefabSelection[i];
+                if (chosenIndex >= 0 && chosenIndex < weaponPrefabs.Count && weaponPrefabs[chosenIndex] != null)
+                {
+                    Sprite icon = null;
+                    var prefab = weaponPrefabs[chosenIndex];
 
-                // SpriteRenderer 
-                var sr = prefab.GetComponentInChildren<SpriteRenderer>();
-                if (sr != null)
-                {
-                    icon = sr.sprite;
-                }
-                else
-                {
-                    // UI Image
-                    var img = prefab.GetComponentInChildren<Image>();
-                    if (img != null)
+                    // SpriteRenderer 
+                    var sr = prefab.GetComponentInChildren<SpriteRenderer>();
+                    if (sr != null)
                     {
-                        icon = img.sprite;
+                        icon = sr.sprite;
                     }
-                }
+                    else
+                    {
+                        // UI Image
+                        var img = prefab.GetComponentInChildren<Image>();
+                        if (img != null)
+                        {
+                            icon = img.sprite;
+                        }
+                    }
 
-                weaponItems[i].Init(icon, weaponPrefabs[i].name);
+                    weaponItems[i].Init(icon, weaponPrefabs[chosenIndex].name);
+                }
             }
         }
+
         playerOverviewUI.UpdateIcons(playerNum);
+    }
+
+    List<int> PickWeightedIndices(List<int> weightList, int availableCount, int pickCount)
+    {
+        List<int> selected = new List<int>();
+
+        // stop if numbers are bad
+        if (availableCount <= 0 || pickCount <= 0)
+        {
+            return selected;
+        }
+
+        // create weights array
+        float[] weights = new float[availableCount];
+
+        for (int i = 0; i < availableCount; i++)
+        {
+            if (weightList != null && i < weightList.Count)
+            {
+                weights[i] = Mathf.Max(0, weightList[i]);
+            }
+            else
+            {
+                weights[i] = 1;
+            }
+        }
+
+        // if all weights are 0, make everything equal chance
+        float totalCheck = 0;
+
+        for (int i = 0; i < availableCount; i++)
+        {
+            totalCheck += weights[i];
+        }
+
+        if (totalCheck <= 0)
+        {
+            for (int i = 0; i < availableCount; i++)
+            {
+                weights[i] = 1;
+            }
+        }
+
+        int maxPicks = Mathf.Min(pickCount, availableCount);
+
+        for (int pick = 0; pick < maxPicks; pick++)
+        {
+            // calculate total weight
+            float totalWeight = 0;
+
+            for (int i = 0; i < availableCount; i++)
+            {
+                totalWeight += weights[i];
+            }
+
+            if (totalWeight <= 0)
+            {
+                break;
+            }
+
+            // pick random number
+            float randomNum = Random.Range(0f, totalWeight);
+
+            float current = 0;
+
+            for (int i = 0; i < availableCount; i++)
+            {
+                current += weights[i];
+
+                if (randomNum <= current)
+                {
+                    selected.Add(i);
+
+                    // remove from future picks
+                    weights[i] = 0;
+
+                    break;
+                }
+            }
+        }
+
+        return selected;
     }
 
     public void BuyUpgrade(int index)
