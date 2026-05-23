@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625ed967742b21c45ad72a7d98fecac6, type: 3}
+  m_Name: SwordShieldUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::SwordShieldUpgrade
+  shopIcon: {fileID: 405509090037169084, guid: a4d33f9e9d59e4646bfdf15dd3d2eb32, type: 3}
+  upgradeFamily: SwordShieldBuff
+  upgradeName: Shield Buff 3
+  description: Gain a brief damage reduction effect after your sword hits.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  size: 1
+  spinSpeed: 0
+  duration: 1.5
+  dmgMult: 0.5

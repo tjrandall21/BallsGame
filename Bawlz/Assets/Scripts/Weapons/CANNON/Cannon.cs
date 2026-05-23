@@ -20,7 +20,7 @@ public class Cannon : Weapon
         float rotation = transform.eulerAngles.z * math.PI / 180.0f + math.PI / 2;
         Vector3 shotDirection = new Vector3(math.cos(rotation), math.sin(rotation));
         projectile.ProjectileInit(shotDirection, projSpeed, projDamage, this);
-        projectileObject.layer = gameObject.layer;
+        projectileObject.layer = gameObject.layer+4;
 
         Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
         if (rb != null)
