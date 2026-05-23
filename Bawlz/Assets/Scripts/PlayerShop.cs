@@ -54,11 +54,12 @@ public class PlayerShop : MonoBehaviour
                 int chosenIndex = upgradeSelection[i];
                 if (chosenIndex >= 0 && chosenIndex < upgrades.Count)
                 {
-                    upgradeItems[i].Init(upgrades[chosenIndex]);
+                    upgradeItems[i].Init(upgrades[chosenIndex], chosenIndex);
                 }
             }
         }
 
+        weaponUpgrades = GameManager.Instance.players[playerNum].weaponPrefab.GetComponent<Weapon>().possibleWeaponUpgradesInShop;
         // Weapon Upgrades
         var weaponUpgradeSelection = PickWeightedIndices(weaponUpgradeWeights, weaponUpgrades.Count, weaponUpgradeItems.Count);
         for (int i = 0; i < weaponUpgradeItems.Count; i++)
@@ -68,7 +69,7 @@ public class PlayerShop : MonoBehaviour
                 int chosenIndex = weaponUpgradeSelection[i];
                 if (chosenIndex >= 0 && chosenIndex < weaponUpgrades.Count)
                 {
-                    weaponUpgradeItems[i].Init(weaponUpgrades[chosenIndex]);
+                    weaponUpgradeItems[i].Init(weaponUpgrades[chosenIndex], chosenIndex);
                 }
             }
         }
@@ -101,7 +102,7 @@ public class PlayerShop : MonoBehaviour
                         }
                     }
 
-                    weaponItems[i].Init(icon, weaponPrefabs[chosenIndex].name);
+                    weaponItems[i].Init(icon, weaponPrefabs[chosenIndex].name, chosenIndex);
                 }
             }
         }
@@ -193,6 +194,7 @@ public class PlayerShop : MonoBehaviour
 
     public void BuyUpgrade(int index)
     {
+        index = upgradeItems[index].index;
         if (player.coins >= 3)
         {
             if (index < upgrades.Count)
@@ -202,15 +204,18 @@ public class PlayerShop : MonoBehaviour
             }
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
+            SetupShop();
         }
         else
         {
             Debug.Log("no money");
         }
+        
     }
 
     public void BuyWeaponUpgrade(int index)
     {
+        index = weaponUpgradeItems[index].index;
         if (player.coins >= 3)
         {
             if (index < weaponUpgrades.Count)
@@ -220,15 +225,27 @@ public class PlayerShop : MonoBehaviour
             }
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
+            SetupShop();
         }
         else
         {
             Debug.Log("no money");
         }
+        
     }
-    // not fully working
+
+    public void ReRoll()
+    {
+        if (GameManager.Instance.players[playerNum].coins > 0)
+        {
+            GameManager.Instance.players[playerNum].coins -= 1;
+            SetupShop();
+        }
+    }
+
     public void BuyWeaponPrefab(int index)
     {
+        index = weaponItems[index].index;
         if (player.coins >= 3)
         {
             if (index < weaponPrefabs.Count && weaponPrefabs[index] != null)
@@ -238,6 +255,7 @@ public class PlayerShop : MonoBehaviour
             player.coins -= 3;
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
+            SetupShop();
         }
         else
         {

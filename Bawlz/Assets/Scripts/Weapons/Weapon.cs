@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour
 
     Dictionary<int, float> excludeDict = new Dictionary<int, float>();
     float layerExcludeDuration = 0.1f;
+
+    [SerializeField] public List<WeaponUpgrade> possibleWeaponUpgradesInShop = new List<WeaponUpgrade>();
     
 
 

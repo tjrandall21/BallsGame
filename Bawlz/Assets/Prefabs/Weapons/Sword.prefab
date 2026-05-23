@@ -145,6 +145,12 @@ MonoBehaviour:
   attackCooldown: 0
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop:
+  - {fileID: 11400000, guid: aaa2941347070f64bb7ad8a1115df0f7, type: 2}
+  - {fileID: 11400000, guid: 360b9b6f2d2c55543b880a6b89f7de0c, type: 2}
+  - {fileID: 11400000, guid: b1678731424e8a04a810a4bc8c945d4b, type: 2}
+  - {fileID: 11400000, guid: 6b2076624bd39614f81dea66fa6d26b3, type: 2}
+  - {fileID: 11400000, guid: 21dde4170052970489b4bb4c22710c6e, type: 2}
   damageScalingAmount: 1
 --- !u!50 &2255129472153577191
 Rigidbody2D:
