@@ -11,6 +11,7 @@ public class Cannon : Weapon
     [SerializeField, Tooltip("Damage dealt by each projectile")] int projDamage = 10;
     [SerializeField, Tooltip("Force applied to the shooter on firing")] float knockbackForce = 10f;
     [SerializeField, Tooltip("Duration in seconds the knockback force is spread over")] float knockbackDuration = 0.2f;
+    [HideInInspector] public bool suppressBaseShot = false; // <- for grapeshot and volly upgrades to prevent base shot from firing
 
     public GameObject ProjectilePrefab => projectilePrefab;
     public float ProjSpeed => projSpeed;
@@ -46,14 +47,18 @@ public class Cannon : Weapon
             }
         }
 
-        // Fire base projectiles
-        for (int i = 0; i < projCount; i++)
+        // Fire base projectiles only if no upgrade suppressed it
+        if (!suppressBaseShot)
         {
-            GameObject projectileObject = Instantiate(projectilePrefab, transform.position, transform.rotation);
-            Projectile projectile = projectileObject.GetComponent<Projectile>();
-            projectile.ProjectileInit(shotDirection, projSpeed, projDamage, this);
-            projectileObject.layer = gameObject.layer + 4;
+            for (int i = 0; i < projCount; i++)
+            {
+                GameObject projectileObject = Instantiate(projectilePrefab, transform.position, transform.rotation);
+                CannonProdj projectile = projectileObject.GetComponent<CannonProdj>();
+                projectile.ProjectileInit(shotDirection, projSpeed, projDamage, this);
+                projectileObject.layer = gameObject.layer + 4;
+            }
         }
+        suppressBaseShot = false;
 
         Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -65,7 +70,6 @@ public class Cannon : Weapon
 
         OnAttackEnd();
     }
-
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
         FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
@@ -132,5 +136,31 @@ public class Cannon : Weapon
         rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(knockbackDuration);
         _knockbackCoroutine = null;
+    }
+
+    public void FireVolley()
+    {
+        float rotation = transform.eulerAngles.z * math.PI / 180.0f + math.PI / 2;
+        Vector3 shotDirection = new Vector3(math.cos(rotation), math.sin(rotation));
+
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade && !(cannonUpgrade is BurstUpgrade))
+            {
+                cannonUpgrade.OnAttack();
+            }
+        }
+
+        if (!suppressBaseShot)
+        {
+            for (int i = 0; i < projCount; i++)
+            {
+                GameObject projectileObject = Instantiate(projectilePrefab, transform.position, transform.rotation);
+                CannonProdj projectile = projectileObject.GetComponent<CannonProdj>();
+                projectile.ProjectileInit(shotDirection, projSpeed, projDamage, this);
+                projectileObject.layer = gameObject.layer + 4;
+            }
+        }
+        suppressBaseShot = false;
     }
 }

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2993b15e7247e6d43a9ed575a8d76736
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shopIcon: {instanceID: 0}
+  - nextLevelUpgrade: {instanceID: 0}
+  - parentBall: {instanceID: 0}
+  - parentWeapon: {instanceID: 0}
+  - explosionPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

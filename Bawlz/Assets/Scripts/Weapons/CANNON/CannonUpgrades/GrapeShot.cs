@@ -2,13 +2,14 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GrapeShotUpgrade", menuName = "Weapon Upgrades/GrapeShotUpgrade")]
-public class GrapeShot : CannonUpgrade
+public class GrapeShotUpgrade : CannonUpgrade
 {
-    [SerializeField, Tooltip("Number of projectiles in the spread")]
-    int projectileCount = 5;
-
-    [SerializeField, Tooltip("Total angle of the spread in degrees")]
-    float spreadAngle = 45f;
+    [SerializeField] GameObject grapeProjectilePrefab;
+    [SerializeField] int projectileCount = 5;
+    [SerializeField] float spreadAngle = 45f;
+    [SerializeField] float spawnJitter = 0.1f;
+    [SerializeField] float speedVariance = 0.2f;
+    [SerializeField] float damageMultiplier = 0.5f; 
 
     public override void OnAttack()
     {
@@ -16,6 +17,9 @@ public class GrapeShot : CannonUpgrade
 
         Cannon cannon = parentWeapon as Cannon;
         if (cannon == null) return;
+
+        cannon.suppressBaseShot = true;
+
         float baseRotation = parentWeapon.transform.eulerAngles.z * math.PI / 180f + math.PI / 2f;
         Vector3 baseDirection = new Vector3(math.cos(baseRotation), math.sin(baseRotation), 0f);
 
@@ -23,15 +27,17 @@ public class GrapeShot : CannonUpgrade
         {
             float angleOffset = UnityEngine.Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
             Vector3 spreadDirection = Quaternion.Euler(0f, 0f, angleOffset) * baseDirection;
+            Vector3 spawnPos = parentWeapon.transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * spawnJitter;
+            float randomSpeed = cannon.ProjSpeed * UnityEngine.Random.Range(1f - speedVariance, 1f + speedVariance);
 
             GameObject projectileObject = Instantiate(
-                cannon.ProjectilePrefab,
-                parentWeapon.transform.position,
+                grapeProjectilePrefab,
+                spawnPos,
                 parentWeapon.transform.rotation
             );
 
-            Projectile projectile = projectileObject.GetComponent<Projectile>();
-            projectile.ProjectileInit(spreadDirection, cannon.ProjSpeed, cannon.ProjDamage, parentWeapon);
+            CannonProdj projectile = projectileObject.GetComponent<CannonProdj>();
+            projectile.ProjectileInit(spreadDirection, randomSpeed, cannon.ProjDamage * damageMultiplier, cannon);
             projectileObject.layer = parentWeapon.gameObject.layer + 4;
         }
     }

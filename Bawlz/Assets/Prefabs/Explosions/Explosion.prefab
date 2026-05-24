@@ -119,6 +119,7 @@ MonoBehaviour:
   attackCooldown: 0
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop: []
 --- !u!212 &6466981764433241920
 SpriteRenderer:
   serializedVersion: 2
@@ -211,9 +212,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 89982799965cf944eba6e77167761820, type: 3}
+  m_Resource: {fileID: 8300000, guid: 249c2132d3392f64a9b9df47b9f38c99, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.311
   m_Pitch: 1
   Loop: 0
   Mute: 0
