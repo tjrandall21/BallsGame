@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e472045e602417408286035325966f4, type: 3}
+  m_Name: HealthUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::Upgrade
+  shopIcon: {fileID: -1071690539025508676, guid: fe929a87c83d50e42a9dbb0b3de60835, type: 3}
+  upgradeFamily: Max Health
+  upgradeName: Max Health 3
+  description: Increases your max Health by 200.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  health: 200
+  contactDamage: 0
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 1

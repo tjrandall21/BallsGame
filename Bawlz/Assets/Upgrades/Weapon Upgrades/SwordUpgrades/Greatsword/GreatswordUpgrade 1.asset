@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54360676264f94479f90fbac9d116ba, type: 3}
+  m_Name: GreatswordUpgrade 1
+  m_EditorClassIdentifier: Assembly-CSharp::SwordUpgrade
+  shopIcon: {fileID: -8896383897770638663, guid: 457b5e91ca31114429b4b68052374f5e, type: 3}
+  upgradeFamily: Greatsword
+  upgradeName: Greatsword
+  description: Increases the size of your sword.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: dd1454f3cf9ad814c87a83305a80e401, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  size: 1.4
+  spinSpeed: 0

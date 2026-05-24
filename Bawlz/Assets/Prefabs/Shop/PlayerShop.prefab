@@ -2505,7 +2505,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9043883356249010796}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7193412149526430195}
+        m_TargetAssemblyTypeName: PlayerShop, Assembly-CSharp
+        m_MethodName: ReRoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7507314788347911454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,13 +3166,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 441bd96e1e5313445aa11c38a0a217c7, type: 2}
   - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}
   - {fileID: 11400000, guid: cb77b707ac0e5684f931b31c9e9a5cdc, type: 2}
+  - {fileID: 11400000, guid: cfac1c1255f465f4580c422b4b71cf83, type: 2}
+  - {fileID: 11400000, guid: 682185272fe89a440a3031f304ba9897, type: 2}
+  - {fileID: 11400000, guid: 27da74e40eff6de469d922fa2314695a, type: 2}
+  - {fileID: 11400000, guid: 1710ca59695d2c1498f1be04bc308c27, type: 2}
+  - {fileID: 11400000, guid: 1dc5a0aa2142a7744b48281d9b055b45, type: 2}
   weaponUpgrades:
-  - {fileID: 11400000, guid: c1bdc1698bac98d479bbab946e2ae541, type: 2}
+  - {fileID: 11400000, guid: ecb45aac70fce3645b9c2e3cc08c6aab, type: 2}
   - {fileID: 11400000, guid: 11893f453ad4bf84689a9b0c18ce374e, type: 2}
-  - {fileID: 11400000, guid: e78246a47df0ca942926bea0bc87c9ba, type: 2}
+  - {fileID: 11400000, guid: 668d84887a2d4e644b2c3f3ea7d9fd14, type: 2}
   weaponPrefabs:
   - {fileID: 9124016292243078404, guid: 197b6462f8419164fb6286363c47f2a1, type: 3}
   - {fileID: 9124016292243078404, guid: bb4bef6c9f5aaca459680b5b7e086c2c, type: 3}
+  - {fileID: 9124016292243078404, guid: 9598dc8f8abab4a4e82d958447ebcb94, type: 3}
+  upgradeWeights: 020000000100000001000000
+  weaponUpgradeWeights: 
+  weaponPrefabWeights: 
   upgradeItems:
   - {fileID: 7606978346055840472}
   - {fileID: 9057114930260952547}

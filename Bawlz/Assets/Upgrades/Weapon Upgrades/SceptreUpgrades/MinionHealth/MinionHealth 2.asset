@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ed19ba9956b6549b7cf01b7610051f, type: 3}
+  m_Name: MinionHealth 2
+  m_EditorClassIdentifier: Assembly-CSharp::SceptreUpgrade
+  shopIcon: {fileID: 5154132780313247222, guid: 397710badc90a1c4ca564c6d1758ac43, type: 3}
+  upgradeFamily: Sceptre Minion Health
+  upgradeName: Healthy Minions 3
+  description: Increases the health of your sceptre minions.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  minionDamageScaling: 0
+  minionDamage: 0
+  minionHealth: 24
+  minionHealthScaling: 3
+  minionsPerHit: 0

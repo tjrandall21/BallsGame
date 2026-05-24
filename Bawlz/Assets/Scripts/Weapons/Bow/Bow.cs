@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bow : Weapon
@@ -8,7 +7,7 @@ public class Bow : Weapon
 
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float arrowSpeed = 15;
-    [SerializeField] float arrowDamage = 5;
+    [SerializeField] public float arrowDamage = 5;
     [SerializeField] float arrowDamageScaling = 1;
     [SerializeField] int extraProjectiles = 0;
     [SerializeField] float spreadIncreasePerArrow = 20;
@@ -47,7 +46,7 @@ public class Bow : Weapon
             GameObject projectileObject = Instantiate(projectilePrefab, transform.position, arrowRotation);
             BowProjectile projectile = projectileObject.GetComponent<BowProjectile>();
             projectile.ProjectileInit(new Vector3(math.cos(rotation), math.sin(rotation)), arrowSpeed, arrowDamage, this);
-            projectileObject.layer = gameObject.layer;
+            projectileObject.layer = gameObject.layer+4;
 
             foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
             {

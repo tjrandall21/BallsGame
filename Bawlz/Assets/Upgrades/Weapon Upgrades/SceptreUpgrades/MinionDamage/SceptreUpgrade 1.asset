@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ed19ba9956b6549b7cf01b7610051f, type: 3}
+  m_Name: SceptreUpgrade 1
+  m_EditorClassIdentifier: Assembly-CSharp::SceptreUpgrade
+  shopIcon: {fileID: 7619200178112292876, guid: 9e46e71278d626e49b5d32e58892903d, type: 3}
+  upgradeFamily: Sceptre Minion Damage
+  upgradeName: Minion Damage
+  description: This is a weapon upgrade.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: e967c3ac4d137554094a207bb71aeff4, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  minionDamageScaling: 2
+  minionDamage: 10
+  minionHealth: 0
+  minionHealthScaling: 0
+  minionsPerHit: 0
+  extraMinionChance: 0

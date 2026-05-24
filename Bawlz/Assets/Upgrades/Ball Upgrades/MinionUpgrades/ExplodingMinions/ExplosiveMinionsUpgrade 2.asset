@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a16510a43199ee4e859aab20efc7a20, type: 3}
+  m_Name: ExplosiveMinionsUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::ExplosiveMinions
+  shopIcon: {fileID: 3186300881023684162, guid: b8d02a8565ea62a44b025dd4a55efc68, type: 3}
+  upgradeFamily: Explsosive Minions
+  upgradeName: Explsosive Minions
+  description: Your minions create a damaging explosion on death.
+  upgradeLevel: 0
+  upgradeExp: 2
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  health: 0
+  contactDamage: 0
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 1
+  explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
+  explosionDamage: 25
+  explosionKnockback: 30
+  explosionSize: 1.6

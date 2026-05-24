@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660016734f24a1b459f127c9cefea355, type: 3}
+  m_Name: FlatArrowDamage 2
+  m_EditorClassIdentifier: Assembly-CSharp::BowUpgrade
+  shopIcon: {fileID: -1881540084077715370, guid: 01fab7c30bf841d4180519c176050feb, type: 3}
+  upgradeFamily: FlatArrowDamage
+  upgradeName: Stronger Arrows 3
+  description: Increases the damage of your arrows.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  arrowSpeed: 0
+  arrowDamage: 15
+  arrowDamageScaling: 6
+  extraProjectiles: 0
+  attackSpeedScaling: 0
+  passToArrows: 0

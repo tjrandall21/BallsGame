@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2407735339859285361, guid: 00b75ff36adc4b944bfb892a3b1b9e42, type: 3}
+  m_Sprite: {fileID: -7848443895318311861, guid: db521a2cececb0c4a8428f6a215e611f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,6 +145,13 @@ MonoBehaviour:
   attackCooldown: 0
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop:
+  - {fileID: 11400000, guid: aaa2941347070f64bb7ad8a1115df0f7, type: 2}
+  - {fileID: 11400000, guid: 360b9b6f2d2c55543b880a6b89f7de0c, type: 2}
+  - {fileID: 11400000, guid: b1678731424e8a04a810a4bc8c945d4b, type: 2}
+  - {fileID: 11400000, guid: 6b2076624bd39614f81dea66fa6d26b3, type: 2}
+  - {fileID: 11400000, guid: 21dde4170052970489b4bb4c22710c6e, type: 2}
+  damageScalingAmount: 1
 --- !u!50 &2255129472153577191
 Rigidbody2D:
   serializedVersion: 5

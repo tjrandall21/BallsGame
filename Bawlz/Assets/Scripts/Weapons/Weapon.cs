@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,15 +16,23 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected float attackCooldown = 0;
     protected float attackTimer = 0;
     protected Rigidbody2D rb = null;
+    protected Collider2D collider = null;
     public BallController parent = null;
     [SerializeField] protected List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
 
-    protected List<uint> activeCollisions = new List<uint>();
+    Dictionary<int, float> excludeDict = new Dictionary<int, float>();
+    float layerExcludeDuration = 0.1f;
+
+    [SerializeField] public List<WeaponUpgrade> possibleWeaponUpgradesInShop = new List<WeaponUpgrade>();
+    
+
+
 
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         parent = GetComponentInParent<BallController>();
+        collider = GetComponent<Collider2D>();
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
             weaponUpgrade.Init(parent, this);
@@ -64,15 +73,35 @@ public class Weapon : MonoBehaviour
         {
             weaponUpgrade.Update();
         }
+        List<int> includeLayerQueue = new List<int>();
+        
+        for (int i = 0; i < excludeDict.Count; i++)
+        {
+            KeyValuePair<int,float> pair = excludeDict.ElementAt(i);
+            excludeDict[pair.Key] -= Time.deltaTime;
+            if (excludeDict[pair.Key] <= 0)
+            {
+                includeLayerQueue.Add(pair.Key);
+            }
+        }
+        foreach (int layer in includeLayerQueue)
+        {
+            IncludeLayer(layer);
+        }
     }
 
-    uint GetID()
+    void ExcludeLayer(int layer)
     {
-        if (parent == null)
+        if (!excludeDict.ContainsKey(layer))
         {
-            return 0;
+            excludeDict.Add(layer,layerExcludeDuration);
+            collider.excludeLayers |= 1<<layer;
         }
-        return parent.BallID;
+    }
+    void IncludeLayer(int layer)
+    {
+        excludeDict.Remove(layer);
+        collider.excludeLayers &= ~(1 << layer);
     }
 
     protected virtual void OnBallHit(BallController otherBall)
@@ -86,6 +115,7 @@ public class Weapon : MonoBehaviour
         {
             weaponUpgrade.OnBallHit(otherBall);
         }
+        ExcludeLayer(otherBall.gameObject.layer);
     }
     protected virtual void OnWeaponHit(Weapon otherWeapon)
     {
@@ -96,6 +126,10 @@ public class Weapon : MonoBehaviour
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
             weaponUpgrade.OnWeaponHit(otherWeapon);
+        }
+        if (otherWeapon.gameObject.layer < 10)
+        { 
+            ExcludeLayer(otherWeapon.gameObject.layer);
         }
     }
 
@@ -128,32 +162,19 @@ public class Weapon : MonoBehaviour
         BallController ball = collision.GetComponent<BallController>();
         if (ball != null)
         {
-            uint newID = ball.BallID;
-            foreach (uint id in activeCollisions)
-            {
-                if (newID == id)
-                {
-                    return;
-                }
-            }
             OnBallHit(ball);
             return;
         }
         Weapon otherWeapon = collision.GetComponent<Weapon>();
         if (otherWeapon != null)
         {
-            uint newID = otherWeapon.GetID();
-            foreach (uint id in activeCollisions)
-            {
-                if (newID == id)
-                {
-                    return;
-                }
-            }
             OnWeaponHit(otherWeapon);
             return;
         }
-        OnWallHit();
+        if(collision.gameObject.layer == 0)
+        {
+            OnWallHit();
+        }
     }
 
 
@@ -163,28 +184,12 @@ public class Weapon : MonoBehaviour
         BallController ball = collision.collider.GetComponent<BallController>();
         if (ball != null)
         {
-            uint newID = ball.BallID;
-            foreach (uint id in activeCollisions)
-            {
-                if (newID == id)
-                {
-                    return;
-                }
-            }
             OnBallHit(ball);
             return;
         }
         Weapon otherWeapon = collision.collider.GetComponent<Weapon>();
         if (otherWeapon != null)
         {
-            uint newID = otherWeapon.GetID();
-            foreach (uint id in activeCollisions)
-            {
-                if (newID == id)
-                {
-                    return;
-                }
-            }
             OnWeaponHit(otherWeapon);
             return;
         }

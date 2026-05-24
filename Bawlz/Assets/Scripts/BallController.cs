@@ -13,22 +13,22 @@ public class BallController : MonoBehaviour
     Rigidbody2D rb = null;
     TextMeshPro healthText = null;
     [SerializeField] string ballName = "Ball";
-    [SerializeField] float speed = 6;
+    [SerializeField] public float speed = 6;
     [SerializeField] public float launchAngle = 45;
     [SerializeField] float rotationSpeed = 360;
     public float RotationSpeed {get{return rotationSpeed;}set{rotationSpeed = value;}}
     [SerializeField] float rotationDirection = -1;
     [SerializeField] public float maxHealth = 200;
     [SerializeField] public float contactDamage = 0;
-    [SerializeField] float defenseMultiplier = 1;
-    float health = 0;
+    [SerializeField] public float defenseMultiplier = 1;
+    public float health = 0;
     [SerializeField] public SpriteRenderer sprite = null;
 
     public int playerNum = 0;
     public bool isMainBall = false;
     public bool alive = true;
 
-    List<Weapon> weapons = new List<Weapon>();
+    public List<Weapon> weapons = new List<Weapon>();
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<StatusEffect> statusEffects;
     [SerializeField] List<BallController> minions = new List<BallController>();
