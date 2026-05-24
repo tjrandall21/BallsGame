@@ -16,9 +16,9 @@ MonoBehaviour:
   upgradeFamily: Damage Reduction
   upgradeName: Damage Reduction
   description: You recieve less damage.
-  upgradeLevel: 0
+  upgradeLevel: 1
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: a5b17e46d1e6f7a4abf8eeb8148a40b2, type: 2}
   stackable: 1
   health: 0
   contactDamage: 0

@@ -13,7 +13,7 @@ public class ExplosiveMinions : Upgrade
     {
         base.OnMinionDeath(minion);
         GameObject explosionObject = Instantiate(explosionPrefab);
-        explosionObject.layer = minion.gameObject.layer+4;
+        explosionObject.layer = minion.gameObject.layer;
         Explosion explosion = explosionObject.GetComponent<Explosion>();
         explosion.ExplosionInit(explosionDamage,minion.transform.position,explosionKnockback,explosionSize);
     }

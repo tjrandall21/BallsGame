@@ -5251,6 +5251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac680fc0c1edcf4d91bdf551b21e02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  blankPlayerData: {fileID: 0}
   isBattleScene: 1
   playerCount: 4
   players:
@@ -5259,9 +5260,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58fdf0a133fec424a916b2fbc84ef162, type: 2}
   - {fileID: 11400000, guid: 9840fc3f0c0c579448aa968380498d0e, type: 2}
   playerDeathOrder: 
+  passiveStatUpgradesPerRound:
+  - {fileID: 11400000, guid: 6b3caa479a18ffb468cecb830b00b1e2, type: 2}
   coinsPerRound: 10
+  buyPrice: 3
   roundNumber: 1
   maxRounds: 3
+  clearPlayerDataOnStart: 0
   endBattlePanel: {fileID: 3022722500298040821}
 --- !u!4 &1420895644
 Transform:
