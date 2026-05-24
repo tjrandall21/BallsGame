@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -11,16 +12,48 @@ public class Cannon : Weapon
     [SerializeField, Tooltip("Force applied to the shooter on firing")] float knockbackForce = 10f;
     [SerializeField, Tooltip("Duration in seconds the knockback force is spread over")] float knockbackDuration = 0.2f;
 
+    public GameObject ProjectilePrefab => projectilePrefab;
+    public float ProjSpeed => projSpeed;
+    public int ProjDamage => projDamage;
+
     private Coroutine _knockbackCoroutine;
+
+    protected override void Start()
+    {
+        base.Start();
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+            {
+                projSpeed += cannonUpgrade.u_projSpeed;
+                projDamage += cannonUpgrade.u_projDamage;
+                projCount += cannonUpgrade.u_prodCount;
+            }
+        }
+    }
 
     protected override void OnAttack()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, transform.position, transform.rotation);
-        Projectile projectile = projectileObject.GetComponent<Projectile>();
         float rotation = transform.eulerAngles.z * math.PI / 180.0f + math.PI / 2;
         Vector3 shotDirection = new Vector3(math.cos(rotation), math.sin(rotation));
-        projectile.ProjectileInit(shotDirection, projSpeed, projDamage, this);
-        projectileObject.layer = gameObject.layer+4;
+
+        // Let upgrades override attack behaviour (e.g. GrapeShotUpgrade)
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+            {
+                cannonUpgrade.OnAttack();
+            }
+        }
+
+        // Fire base projectiles
+        for (int i = 0; i < projCount; i++)
+        {
+            GameObject projectileObject = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            Projectile projectile = projectileObject.GetComponent<Projectile>();
+            projectile.ProjectileInit(shotDirection, projSpeed, projDamage, this);
+            projectileObject.layer = gameObject.layer + 4;
+        }
 
         Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -32,26 +65,72 @@ public class Cannon : Weapon
 
         OnAttackEnd();
     }
+
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
         FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
+
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+            {
+                cannonUpgrade.OnWeaponHit(otherWeapon);
+            }
+        }
     }
 
     protected override void OnBallHit(BallController otherBall)
     {
         FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+            {
+                cannonUpgrade.OnBallHit(otherBall);
+            }
+        }
+    }
+
+    public void OnProjectileHit(BallController otherBall, Projectile projectile)
+    {
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+            {
+                cannonUpgrade.OnProjectileHit(otherBall, projectile);
+            }
+        }
+    }
+
+    public void OnProjectileWeaponHit(Weapon otherWeapon, Projectile projectile)
+    {
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+            {
+                cannonUpgrade.OnProjectileWeaponHit(otherWeapon, projectile);
+            }
+        }
+    }
+
+    public void OnProjectileDestroyed(Projectile projectile)
+    {
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+            {
+                cannonUpgrade.OnProjectileDestroyed(projectile);
+            }
+        }
     }
 
     private IEnumerator SmoothKnockback(Rigidbody2D rb, Vector3 direction)
     {
         rb.linearVelocity = Vector2.zero;
-        // Apply the full knockback force instantly as an impulse
         rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
-
-        // Optionally, you can still wait for knockbackDuration if you need to disable damage or other effects
         yield return new WaitForSeconds(knockbackDuration);
-
         _knockbackCoroutine = null;
     }
 }
