@@ -12,7 +12,7 @@ public class BigBoomUpgrade : HammerUpgrades
     public override void OnBallHit(BallController otherBall)
     {
         GameObject explosionObject = Instantiate(explosionPrefab);
-        explosionObject.layer = otherBall.gameObject.layer;
+        explosionObject.layer = parentBall.gameObject.layer;
         Explosion explosion = explosionObject.GetComponent<Explosion>();
         explosion.ExplosionInit(explosionDamage,otherBall.transform.position,explosionKnockback,explosionSize);
         base.OnBallHit(otherBall);
