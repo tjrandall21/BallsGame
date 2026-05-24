@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ExplosiveUpgrade", menuName = "Weapon Upgrades/Hammer Upgrades/ExplosiveUpgrade")]
-public class BigBoomUpgrade : HammerUpgrades
+public class BigBoomUpgrade : HammerUpgrade
 {
     [SerializeField] GameObject explosionPrefab;
 

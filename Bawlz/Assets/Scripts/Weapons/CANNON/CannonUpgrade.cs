@@ -10,4 +10,6 @@ public class CannonUpgrade : WeaponUpgrade
     public virtual void OnProjectileHit(BallController otherBall, Projectile projectile) { }
     public virtual void OnProjectileWeaponHit(Weapon otherWeapon, Projectile projectile) { }
     public virtual void OnProjectileDestroyed(Projectile projectile) { }
+
+    public virtual void OnMinionDeath(Vector3 position) { }
 }

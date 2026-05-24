@@ -215,7 +215,7 @@ MonoBehaviour:
   description: LOTS OF RECOIL
   damage: 5
   knockbackSpeed: 0
-  attackCooldown: 0.6
+  attackCooldown: 2
   parent: {fileID: 0}
   weaponUpgrades:
   - {fileID: 11400000, guid: 2616e84e4f583734bac8c38ca4148fca, type: 2}
@@ -226,3 +226,4 @@ MonoBehaviour:
   projDamage: 50
   knockbackForce: 20
   knockbackDuration: 0.4
+  suppressBaseShot: 0

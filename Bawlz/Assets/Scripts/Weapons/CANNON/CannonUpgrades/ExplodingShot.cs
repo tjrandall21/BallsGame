@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ExplodingShotUpgrade", menuName = "Weapon Upgrades/ExplodingShotUpgrade")]
-
+[CreateAssetMenu(fileName = "ExplodingShotUpgrade", menuName = "Weapon Upgrades/Cannon Upgrades/ExplodingShotUpgrade")]
 public class ExplodingShot : CannonUpgrade
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,5 +18,14 @@ public class ExplodingShot : CannonUpgrade
         explosion.ExplosionInit(explosionDamage, projectile.transform.position, explosionKnockback, explosionSize);
         Debug.Log("Explosion created at " + projectile.transform.position);
         base.OnProjectileDestroyed(projectile);
+    }
+
+    public override void OnMinionDeath(Vector3 position)
+    {
+        GameObject explosionObject = Instantiate(explosionPrefab);
+        explosionObject.layer = parentWeapon.gameObject.layer + 4;
+        Explosion explosion = explosionObject.GetComponent<Explosion>();
+        explosion.ExplosionInit(explosionDamage, position, explosionKnockback, explosionSize);
+        base.OnMinionDeath(position);
     }
 }

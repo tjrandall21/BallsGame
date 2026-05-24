@@ -8,20 +8,24 @@ public class Hammer : Weapon
     [SerializeField] float rotationAcceleration = 100f;
     [SerializeField] float rotationAccelerationScaling = 20f;
     [SerializeField] float baseRotationSpeed = 180f;
-    [SerializeField] float maxSpinIncreasePerHit = 45f; // how much max spin grows each hit
+    [SerializeField] float maxSpinIncreasePerHit = 45f;
 
     protected override void Start()
     {
         base.Start();
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
-            if (weaponUpgrade is HammerUpgrades)
+            if (weaponUpgrade is HammerUpgrade hammerUpgrade)
             {
-                baseDmg += ((HammerUpgrades)weaponUpgrade).damage;
-                maxWeaponSpin += ((HammerUpgrades)weaponUpgrade).attackCooldown;
+                baseDmg += hammerUpgrade.u_baseDmg;
+                maxWeaponSpin += hammerUpgrade.u_maxWeaponSpin;
+                baseRotationSpeed += hammerUpgrade.u_baseRotationSpeed;
+                rotationAcceleration += hammerUpgrade.u_rotationAcceleration;
+                maxSpinIncreasePerHit += hammerUpgrade.u_maxSpinIncreasePerHit;
             }
         }
     }
+
     float GetSpinDamage()
     {
         return baseDmg * (parent.RotationSpeed / baseRotationSpeed);
@@ -39,34 +43,33 @@ public class Hammer : Weapon
     {
         FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
+
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is HammerUpgrade hammerUpgrade)
+                hammerUpgrade.OnWeaponHit(otherWeapon);
+        }
     }
 
     protected override void OnBallHit(BallController otherBall)
     {
         FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
 
-        Debug.Log("Ball Collision");
         if (parent != null)
-        {
             parent.FlipRotation();
-        }
 
         float damage = GetSpinDamage();
-        Debug.Log($"Hammer hit for {damage} (baseDmg={baseDmg}, spin={parent.RotationSpeed})");
         otherBall.OnDamageTaken(damage);
-
         otherBall.OnWeaponCollision(this);
 
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
-            if (weaponUpgrade is HammerUpgrades)
-            {
-                weaponUpgrade.OnBallHit(otherBall);
-            } 
+            if (weaponUpgrade is HammerUpgrade hammerUpgrade)
+                hammerUpgrade.OnBallHit(otherBall);
         }
 
-        rotationAcceleration += rotationAccelerationScaling; // hammer accelerates faster next cycle
-        maxWeaponSpin += maxSpinIncreasePerHit; // hammer can now spin faster next cycle
-        parent.RotationSpeed = baseRotationSpeed; // reset to base, begins climbing again
+        rotationAcceleration += rotationAccelerationScaling;
+        maxWeaponSpin += maxSpinIncreasePerHit;
+        parent.RotationSpeed = baseRotationSpeed;
     }
 }

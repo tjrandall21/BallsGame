@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GrapeShotUpgrade", menuName = "Weapon Upgrades/GrapeShotUpgrade")]
+[CreateAssetMenu(fileName = "GrapeShotUpgrade", menuName = "Weapon Upgrades/Cannon Upgrades/GrapeShotUpgrade")]
 public class GrapeShotUpgrade : CannonUpgrade
 {
     [SerializeField] GameObject grapeProjectilePrefab;
@@ -9,7 +9,7 @@ public class GrapeShotUpgrade : CannonUpgrade
     [SerializeField] float spreadAngle = 45f;
     [SerializeField] float spawnJitter = 0.1f;
     [SerializeField] float speedVariance = 0.2f;
-    [SerializeField] float damageMultiplier = 0.5f; 
+    [SerializeField] float damageMultiplier = 0.5f;
 
     public override void OnAttack()
     {
@@ -19,6 +19,18 @@ public class GrapeShotUpgrade : CannonUpgrade
         if (cannon == null) return;
 
         cannon.suppressBaseShot = true;
+
+        GameObject prefabToUse = grapeProjectilePrefab;
+        MinionRoundUpgrade minionRoundUpgrade = null;
+        foreach (WeaponUpgrade upgrade in cannon.WeaponUpgrades)
+        {
+            if (upgrade is MinionRoundUpgrade minionRound)
+            {
+                prefabToUse = minionRound.MinionPrefab;
+                minionRoundUpgrade = minionRound;
+                break;
+            }
+        }
 
         float baseRotation = parentWeapon.transform.eulerAngles.z * math.PI / 180f + math.PI / 2f;
         Vector3 baseDirection = new Vector3(math.cos(baseRotation), math.sin(baseRotation), 0f);
@@ -31,13 +43,28 @@ public class GrapeShotUpgrade : CannonUpgrade
             float randomSpeed = cannon.ProjSpeed * UnityEngine.Random.Range(1f - speedVariance, 1f + speedVariance);
 
             GameObject projectileObject = Instantiate(
-                grapeProjectilePrefab,
+                prefabToUse,
                 spawnPos,
                 parentWeapon.transform.rotation
             );
 
             CannonProdj projectile = projectileObject.GetComponent<CannonProdj>();
-            projectile.ProjectileInit(spreadDirection, randomSpeed, cannon.ProjDamage * damageMultiplier, cannon);
+            if (projectile != null)
+            {
+                projectile.ProjectileInit(spreadDirection, randomSpeed, cannon.ProjDamage * damageMultiplier, cannon);
+            }
+            else
+            {
+                Projectile proj = projectileObject.GetComponent<Projectile>();
+                if (proj != null)
+                    proj.ProjectileInit(spreadDirection, randomSpeed, cannon.ProjDamage * damageMultiplier, cannon);
+            }
+
+            // Register minion with MinionRoundUpgrade for death tracking
+            BallController minion = projectileObject.GetComponent<BallController>();
+            if (minion != null && minionRoundUpgrade != null)
+                minionRoundUpgrade.TrackMinion(minion, spawnPos);
+
             projectileObject.layer = parentWeapon.gameObject.layer + 4;
         }
     }

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BurstUpgrade", menuName = "Weapon Upgrades/BurstUpgrade")]
+[CreateAssetMenu(fileName = "VollyUpgrade", menuName = "Weapon Upgrades/Cannon Upgrades/VollyUpgrade")]
 public class BurstUpgrade : CannonUpgrade
 {
     [SerializeField, Tooltip("Number of volleys in the burst")] int burstCount = 3;

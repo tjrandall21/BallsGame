@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2993b15e7247e6d43a9ed575a8d76736, type: 3}
-  m_Name: ExplodingShotUpgrade
-  m_EditorClassIdentifier: Assembly-CSharp::ExplodingShot
-  shopIcon: {fileID: 7344041230131399282, guid: c9ce12219f8d50f4aac3f802d4c3cd4b, type: 3}
+  m_Script: {fileID: 11500000, guid: a6d67a569fc010149933d53a30cb3719, type: 3}
+  m_Name: MinionRoundUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::MinionRoundUpgrade
+  shopIcon: {fileID: 2642110035874775915, guid: 349496ac6d345c74989d36d2eb546fbd, type: 3}
   upgradeFamily: Upgrade
   upgradeName: Weapon Upgrade
   description: This is a weapon upgrade.
@@ -29,7 +29,4 @@ MonoBehaviour:
   u_prodCount: 0
   u_projSpeed: 0
   u_projDamage: 0
-  explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
-  explosionDamage: 10
-  explosionKnockback: 1
-  explosionSize: 0.5
+  minionPrefab: {fileID: 7189852719700939712, guid: 849f3f1784d95034e8ac6c79eb317c27, type: 3}

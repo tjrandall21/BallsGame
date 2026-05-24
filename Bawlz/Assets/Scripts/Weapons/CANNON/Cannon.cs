@@ -11,8 +11,9 @@ public class Cannon : Weapon
     [SerializeField, Tooltip("Damage dealt by each projectile")] int projDamage = 10;
     [SerializeField, Tooltip("Force applied to the shooter on firing")] float knockbackForce = 10f;
     [SerializeField, Tooltip("Duration in seconds the knockback force is spread over")] float knockbackDuration = 0.2f;
-    [HideInInspector] public bool suppressBaseShot = false; // <- for grapeshot and volly upgrades to prevent base shot from firing
+    [HideInInspector] public bool suppressBaseShot = false;
 
+    public List<WeaponUpgrade> WeaponUpgrades => weaponUpgrades;
     public GameObject ProjectilePrefab => projectilePrefab;
     public float ProjSpeed => projSpeed;
     public int ProjDamage => projDamage;
@@ -38,7 +39,6 @@ public class Cannon : Weapon
         float rotation = transform.eulerAngles.z * math.PI / 180.0f + math.PI / 2;
         Vector3 shotDirection = new Vector3(math.cos(rotation), math.sin(rotation));
 
-        // Let upgrades override attack behaviour (e.g. GrapeShotUpgrade)
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
             if (weaponUpgrade is CannonUpgrade cannonUpgrade)
@@ -47,7 +47,6 @@ public class Cannon : Weapon
             }
         }
 
-        // Fire base projectiles only if no upgrade suppressed it
         if (!suppressBaseShot)
         {
             for (int i = 0; i < projCount; i++)
@@ -70,6 +69,7 @@ public class Cannon : Weapon
 
         OnAttackEnd();
     }
+
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
         FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
@@ -130,13 +130,16 @@ public class Cannon : Weapon
         }
     }
 
-    private IEnumerator SmoothKnockback(Rigidbody2D rb, Vector3 direction)
+    public void OnMinionDeath(Vector3 position)
+{
+    foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
     {
-        rb.linearVelocity = Vector2.zero;
-        rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(knockbackDuration);
-        _knockbackCoroutine = null;
+        if (weaponUpgrade is CannonUpgrade cannonUpgrade)
+        {
+            cannonUpgrade.OnMinionDeath(position);
+        }
     }
+}
 
     public void FireVolley()
     {
@@ -162,5 +165,13 @@ public class Cannon : Weapon
             }
         }
         suppressBaseShot = false;
+    }
+
+    private IEnumerator SmoothKnockback(Rigidbody2D rb, Vector3 direction)
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(knockbackDuration);
+        _knockbackCoroutine = null;
     }
 }
