@@ -17,7 +17,7 @@ MonoBehaviour:
   upgradeName: Pull Arrows 3
   description: Your arrows pull enemies towards you and increase your contact damage
     on hit.
-  upgradeLevel: 0
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1

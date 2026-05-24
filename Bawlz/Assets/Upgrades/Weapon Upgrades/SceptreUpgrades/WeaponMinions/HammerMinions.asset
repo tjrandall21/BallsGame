@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7414eeeb1aaa540b84f18844083be4, type: 3}
   m_Name: HammerMinions
   m_EditorClassIdentifier: Assembly-CSharp::MinionWeaponUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: -5554422304647149764, guid: 5788fee8c24bbf647adbe198f733d866, type: 3}
   upgradeFamily: Weapon Minions
   upgradeName: Armed Minions
   description: Gives Hammers to spawned minions.
@@ -31,4 +31,5 @@ MonoBehaviour:
   minionHealth: 0
   minionHealthScaling: 0
   minionsPerHit: 0
+  extraMinionChance: 0
   weaponPrefab: {fileID: 9124016292243078404, guid: bbf1ca69f21ac77469d60f4aea4cc19f, type: 3}

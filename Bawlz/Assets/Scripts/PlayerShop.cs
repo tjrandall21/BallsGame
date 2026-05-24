@@ -200,11 +200,13 @@ public class PlayerShop : MonoBehaviour
             if (index < upgrades.Count)
             {
                 if (GameManager.Instance.players[playerNum].AddUpgrade(upgrades[index]))
+                {
                     player.coins -= 3;
+                    SetupShop();
+                }
             }
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
-            SetupShop();
         }
         else
         {
@@ -221,17 +223,26 @@ public class PlayerShop : MonoBehaviour
             if (index < weaponUpgrades.Count)
             {
                 if (GameManager.Instance.players[playerNum].AddWeaponUpgrade(weaponUpgrades[index]))
+                {   
                     player.coins -= 3;
+                    SetupShop();
+                }
             }
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
-            SetupShop();
         }
         else
         {
             Debug.Log("no money");
         }
         
+    }
+
+    void SellAllWeaponUpgrades()
+    {
+        int upgradeAmount = GameManager.Instance.players[playerNum].weaponUpgrades.Count;
+        GameManager.Instance.players[playerNum].weaponUpgrades.Clear();
+        GameManager.Instance.players[playerNum].coins += upgradeAmount;
     }
 
     public void ReRoll()
@@ -255,6 +266,7 @@ public class PlayerShop : MonoBehaviour
             player.coins -= 3;
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
+            SellAllWeaponUpgrades();
             SetupShop();
         }
         else
