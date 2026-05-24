@@ -19,7 +19,7 @@ MonoBehaviour:
     fire rate.
   upgradeLevel: 1
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: fe3afd3dc0d6c6c46aa55d2d88c27992, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

@@ -16,9 +16,9 @@ MonoBehaviour:
   upgradeFamily: Sceptre Minion Damage
   upgradeName: Minion Damage
   description: This is a weapon upgrade.
-  upgradeLevel: 0
+  upgradeLevel: 1
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: e967c3ac4d137554094a207bb71aeff4, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

@@ -171,7 +171,10 @@ public class Weapon : MonoBehaviour
             OnWeaponHit(otherWeapon);
             return;
         }
-        OnWallHit();
+        if(collision.gameObject.layer == 0)
+        {
+            OnWallHit();
+        }
     }
 
 

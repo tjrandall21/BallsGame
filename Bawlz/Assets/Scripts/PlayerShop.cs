@@ -23,13 +23,26 @@ public class PlayerShop : MonoBehaviour
     [SerializeField] List<ShopItem> weaponUpgradeItems = new List<ShopItem>();
     [SerializeField] List<ShopItem> weaponItems = new List<ShopItem>();
 
+    [SerializeField] GameObject buyPanel;
+    [SerializeField] GameObject sellPanel;
+
+    [SerializeField] List<ShopItem> sellUpgradeItems = new List<ShopItem>();
+    [SerializeField] List<ShopItem> sellWeaponUpgradeItems = new List<ShopItem>();
+    [SerializeField] ShopItem sellWeaponItem;
 
     [SerializeField] Image playerSprite;
     [SerializeField] TextMeshProUGUI coinText;
 
+    [SerializeField] TextMeshProUGUI sellButtonText;
+
     [SerializeField] PlayerOverviewUI playerOverviewUI;
 
     private PlayerData player;
+
+    bool sellmode = false;
+    bool detailsMode = false;
+
+    
 
     public void SetPlayer(int playerIndex)
     {
@@ -41,8 +54,9 @@ public class PlayerShop : MonoBehaviour
 
     void SetupShop()
     {
+        sellPanel.SetActive(false);
         //set player sprite
-        playerSprite.sprite = GameManager.Instance.players[playerNum].playerSprite;
+        playerSprite.sprite = player.playerSprite;
         UpdateCoinText();
 
         // Character Upgrades
@@ -59,18 +73,29 @@ public class PlayerShop : MonoBehaviour
             }
         }
 
-        weaponUpgrades = GameManager.Instance.players[playerNum].weaponPrefab.GetComponent<Weapon>().possibleWeaponUpgradesInShop;
-        // Weapon Upgrades
-        var weaponUpgradeSelection = PickWeightedIndices(weaponUpgradeWeights, weaponUpgrades.Count, weaponUpgradeItems.Count);
-        for (int i = 0; i < weaponUpgradeItems.Count; i++)
+        if (player.weaponPrefab != null)
         {
-            if (i < weaponUpgradeSelection.Count)
+            weaponUpgrades = player.weaponPrefab.GetComponent<Weapon>().possibleWeaponUpgradesInShop;
+            // Weapon Upgrades
+            var weaponUpgradeSelection = PickWeightedIndices(weaponUpgradeWeights, weaponUpgrades.Count, weaponUpgradeItems.Count);
+            for (int i = 0; i < weaponUpgradeItems.Count; i++)
             {
-                int chosenIndex = weaponUpgradeSelection[i];
-                if (chosenIndex >= 0 && chosenIndex < weaponUpgrades.Count)
+                if (i < weaponUpgradeSelection.Count)
                 {
-                    weaponUpgradeItems[i].Init(weaponUpgrades[chosenIndex], chosenIndex);
+                    int chosenIndex = weaponUpgradeSelection[i];
+                    if (chosenIndex >= 0 && chosenIndex < weaponUpgrades.Count)
+                    {
+                        weaponUpgradeItems[i].gameObject.SetActive(true);
+                        weaponUpgradeItems[i].Init(weaponUpgrades[chosenIndex], chosenIndex);
+                    }
                 }
+            }
+        }
+        else
+        {
+            foreach (ShopItem shopItem in weaponUpgradeItems)
+            {
+                shopItem.gameObject.SetActive(false);
             }
         }
 
@@ -101,13 +126,95 @@ public class PlayerShop : MonoBehaviour
                             icon = img.sprite;
                         }
                     }
-
-                    weaponItems[i].Init(icon, weaponPrefabs[chosenIndex].name, chosenIndex);
+                    Weapon weapon = weaponPrefabs[chosenIndex].GetComponent<Weapon>();
+                    weaponItems[i].Init(icon, weapon.weaponName, chosenIndex, weapon.description);
                 }
             }
         }
 
         playerOverviewUI.UpdateIcons(playerNum);
+        UpdateDetails();
+    }
+
+    void SetupSellMenu()
+    {
+        foreach (ShopItem shopItem in sellUpgradeItems)
+        {
+            shopItem.gameObject.SetActive(false);
+        }
+        foreach (ShopItem shopItem in sellWeaponUpgradeItems)
+        {
+            shopItem.gameObject.SetActive(false);
+        }
+        sellWeaponItem.gameObject.SetActive(false);
+
+        for (int i = 0; i < player.upgrades.Count; i++)
+        {
+            sellUpgradeItems[i].gameObject.SetActive(true);
+            sellUpgradeItems[i].Init(player.upgrades[i], i, true);
+        }
+        for (int i = 0; i < GameManager.Instance.players[playerNum].weaponUpgrades.Count; i++)
+        {
+            sellWeaponUpgradeItems[i].gameObject.SetActive(true);
+            sellWeaponUpgradeItems[i].Init(player.weaponUpgrades[i], i, true);
+        }
+        if (player.weaponPrefab != null)
+        {
+            Weapon weapon = player.weaponPrefab.GetComponent<Weapon>(); ;
+            sellWeaponItem.gameObject.SetActive(true);
+
+            sellWeaponItem.Init(weapon.GetComponentInChildren<SpriteRenderer>().sprite, weapon.weaponName, 0, weapon.description, true);
+        }
+        UpdateDetails();
+    }
+
+    public void ToggleBuySell()
+    {
+        sellmode = !sellmode;
+        if (sellmode)
+        {
+            SetupSellMenu();
+            sellButtonText.text = "Back to Shop";
+            buyPanel.SetActive(false);
+            sellPanel.SetActive(true);
+        }
+        else
+        {
+            sellButtonText.text = "See Current Upgrades";
+            buyPanel.SetActive(true);
+            sellPanel.SetActive(false);
+        }
+    }
+
+    public void ToggleDetails()
+    {
+        detailsMode = !detailsMode;
+        UpdateDetails();
+    }
+
+    void UpdateDetails()
+    {
+        foreach (ShopItem shopItem in upgradeItems)
+        {
+            shopItem.ShowDetails(detailsMode);
+        }
+        foreach (ShopItem shopItem in weaponUpgradeItems)
+        {
+            shopItem.ShowDetails(detailsMode);
+        }
+        foreach (ShopItem shopItem in weaponItems)
+        {
+            shopItem.ShowDetails(detailsMode);
+        }
+        foreach (ShopItem shopItem in sellUpgradeItems)
+        {
+            shopItem.ShowDetails(detailsMode);
+        }
+        foreach (ShopItem shopItem in sellWeaponUpgradeItems)
+        {
+            shopItem.ShowDetails(detailsMode);
+        }
+        sellWeaponItem.ShowDetails(detailsMode);
     }
 
     List<int> PickWeightedIndices(List<int> weightList, int availableCount, int pickCount)
@@ -200,17 +307,37 @@ public class PlayerShop : MonoBehaviour
             if (index < upgrades.Count)
             {
                 if (GameManager.Instance.players[playerNum].AddUpgrade(upgrades[index]))
+                {
                     player.coins -= 3;
+                    SetupShop();
+                }
             }
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
-            SetupShop();
         }
         else
         {
             Debug.Log("no money");
         }
-        
+    }
+    
+    public void SellUpgrade(int index)
+    {
+        Upgrade upgrade = player.upgrades[index];
+        player.coins += 1 + upgrade.upgradeLevel;
+        player.upgrades.Remove(upgrade);
+        UpdateCoinText();
+        playerOverviewUI.UpdateIcons(playerNum);
+        SetupSellMenu();
+    }
+    public void SellWeaponUpgrade(int index)
+    {
+        WeaponUpgrade upgrade = player.weaponUpgrades[index];
+        player.coins += 1 + upgrade.upgradeLevel;
+        player.weaponUpgrades.Remove(upgrade);
+        UpdateCoinText();
+        playerOverviewUI.UpdateIcons(playerNum);
+        SetupSellMenu();
     }
 
     public void BuyWeaponUpgrade(int index)
@@ -221,17 +348,40 @@ public class PlayerShop : MonoBehaviour
             if (index < weaponUpgrades.Count)
             {
                 if (GameManager.Instance.players[playerNum].AddWeaponUpgrade(weaponUpgrades[index]))
+                {
                     player.coins -= 3;
+                    SetupShop();
+                }
             }
             UpdateCoinText();
             playerOverviewUI.UpdateIcons(playerNum);
-            SetupShop();
         }
         else
         {
             Debug.Log("no money");
         }
-        
+
+    }
+
+    public void SellWeapon()
+    {
+        player.weaponPrefab = null;
+        SellAllWeaponUpgrades();
+        UpdateCoinText();
+        playerOverviewUI.UpdateIcons(playerNum);
+        SetupSellMenu();
+        foreach (ShopItem shopItem in weaponUpgradeItems)
+        {
+            shopItem.gameObject.SetActive(false);
+        }
+    }
+
+    void SellAllWeaponUpgrades()
+    {
+        for (int i = 0; i < player.weaponUpgrades.Count; i++)
+        {
+            SellWeaponUpgrade(0);
+        }
     }
 
     public void ReRoll()
@@ -250,12 +400,13 @@ public class PlayerShop : MonoBehaviour
         {
             if (index < weaponPrefabs.Count && weaponPrefabs[index] != null)
             {
-                GameManager.Instance.players[playerNum].weaponPrefab = weaponPrefabs[index];
+                SellWeapon();
+                player.weaponPrefab = weaponPrefabs[index];
+                player.coins -= 3;
+                UpdateCoinText();
+                playerOverviewUI.UpdateIcons(playerNum);
+                SetupShop();
             }
-            player.coins -= 3;
-            UpdateCoinText();
-            playerOverviewUI.UpdateIcons(playerNum);
-            SetupShop();
         }
         else
         {

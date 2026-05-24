@@ -11,7 +11,7 @@ public class MinionWeaponUpgrade : SceptreUpgrade
         if (newBall.GetComponentInChildren<Weapon>() == null)
         {
             GameObject weapon = Instantiate(weaponPrefab, newBall.transform);
-            weapon.layer = newBall.gameObject.layer+4;
+            weapon.layer = newBall.gameObject.layer;
             Vector3 weaponScale = weapon.transform.localScale;
             weaponScale *= 0.5f;
             weapon.transform.localScale = weaponScale;

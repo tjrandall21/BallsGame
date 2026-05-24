@@ -19,7 +19,7 @@ MonoBehaviour:
     on hit.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: 7c9152ecee1a5274ca2e9a53b5faf2e9, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

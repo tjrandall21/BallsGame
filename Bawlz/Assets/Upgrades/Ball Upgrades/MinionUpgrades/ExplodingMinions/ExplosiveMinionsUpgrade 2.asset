@@ -17,7 +17,7 @@ MonoBehaviour:
   upgradeName: Explsosive Minions
   description: Your minions create a damaging explosion on death.
   upgradeLevel: 0
-  upgradeExp: 0
+  upgradeExp: 2
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
   health: 0
