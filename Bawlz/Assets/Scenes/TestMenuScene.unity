@@ -558,7 +558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7806759438263799239, guid: bbe9acf200234194ab8a1b6a0ddb1b1b, type: 3}
+  m_Sprite: {fileID: 4807775697852972887, guid: 4719ee1fb2727284292d75c18f84eade, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f6c68f8d15bb459a57d853bd907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacter
-  characterName: Mr. Smith
+  characterName: Homer
 --- !u!1 &102205164
 GameObject:
   m_ObjectHideFlags: 0
@@ -2370,7 +2370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7806759438263799239, guid: bbe9acf200234194ab8a1b6a0ddb1b1b, type: 3}
+  m_Sprite: {fileID: 1948035008154585338, guid: 0fba3e8e8518e3746af6ecb560486acc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2400,7 +2400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f6c68f8d15bb459a57d853bd907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacter
-  characterName: Mr. Smith
+  characterName: Lois
 --- !u!1 &438646748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,6 +3040,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectCharacterSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: selectedCharacters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1912436778}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[1]'
+      value: 
+      objectReference: {fileID: 59912604}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1495665169}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[3]'
+      value: 
+      objectReference: {fileID: 396899398}
     - target: {fileID: 3299203329078800965, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3534,6 +3554,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectCharacterSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: selectedCharacters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1912436778}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[1]'
+      value: 
+      objectReference: {fileID: 59912604}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1495665169}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[3]'
+      value: 
+      objectReference: {fileID: 396899398}
     - target: {fileID: 3299203329078800965, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7336,6 +7376,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectCharacterSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: selectedCharacters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1912436778}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[1]'
+      value: 
+      objectReference: {fileID: 59912604}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1495665169}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[3]'
+      value: 
+      objectReference: {fileID: 396899398}
     - target: {fileID: 3299203329078800965, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8316,7 +8376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7806759438263799239, guid: bbe9acf200234194ab8a1b6a0ddb1b1b, type: 3}
+  m_Sprite: {fileID: -2663283879771305436, guid: 7d2ea5fcacd3b8540ab78a55373373d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8346,7 +8406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f6c68f8d15bb459a57d853bd907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacter
-  characterName: Mr. Smith
+  characterName: Dave
 --- !u!114 &1509346813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2546962851324852652, guid: 6188889fb30ca554e83cf73e93b0e8c8, type: 3}
@@ -11838,6 +11898,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectCharacterSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: selectedCharacters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1912436778}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[1]'
+      value: 
+      objectReference: {fileID: 59912604}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1495665169}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: 'selectedCharacters.Array.data[3]'
+      value: 
+      objectReference: {fileID: 396899398}
     - target: {fileID: 3299203329078800965, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
