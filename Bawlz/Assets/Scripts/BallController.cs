@@ -52,7 +52,12 @@ public class BallController : MonoBehaviour
            
         launchAngle = startingAngle;
     }
-    
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        healthText = GetComponentInChildren<TextMeshPro>();
+    }
 
     void Start()
     {
@@ -84,8 +89,7 @@ public class BallController : MonoBehaviour
         health = maxHealth;
 
         launchAngle = launchAngle * math.PI / 180.0f;
-        rb = GetComponent<Rigidbody2D>();
-        healthText = GetComponentInChildren<TextMeshPro>();
+        
         SetVelocityAngle(launchAngle, speed);
 
         FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
@@ -187,8 +191,8 @@ public class BallController : MonoBehaviour
         {
             magnitude = rb.linearVelocity.magnitude;
         }
-        rb.linearVelocityX = math.sin(angle - transform.rotation.eulerAngles.z) * magnitude;
-        rb.linearVelocityY = math.cos(angle - transform.rotation.eulerAngles.z) * magnitude;
+        rb.linearVelocityX = Mathf.Cos(angle) * magnitude;
+        rb.linearVelocityY = Mathf.Sin(angle) * magnitude;
     }
     
     public void SetVelocity(Vector2 velocity)
@@ -277,6 +281,16 @@ public class BallController : MonoBehaviour
         if (health <= 0)
         {
             OnBallDeath();
+        }
+    }
+
+    public void SendMinionsTo(Vector2 pos, float speed = -1)
+    {
+        foreach (BallController minion in minions)
+        {
+            Vector2 difference = pos - (Vector2)minion.transform.position;
+            float angle = math.atan2(difference.y,difference.x);
+            minion.SetVelocityAngle(angle, speed);
         }
     }
 

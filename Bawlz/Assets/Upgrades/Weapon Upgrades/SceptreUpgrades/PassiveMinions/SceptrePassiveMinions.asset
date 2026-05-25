@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79542993a6ca064ab72719ed6bc2194, type: 3}
+  m_Name: SceptrePassiveMinions
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveMinions
+  shopIcon: {fileID: -6593789865660963755, guid: ebb90cc63b0eff5459671a2903ffc406, type: 3}
+  upgradeFamily: Passive Minions
+  upgradeName: Passive Minions
+  description: Your Sceptre passively generates a minion every 5 seconds.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: dca9e049034c19d489f4954a67d0debe, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  minionDamageScaling: 0
+  minionDamage: 0
+  minionHealth: 0
+  minionHealthScaling: 0
+  minionsPerHit: 0
+  extraMinionChance: 0
+  superMinionChance: 0
+  superMinionDamageMult: 1
+  superMinionHealthMult: 1
+  minionSpawnRate: 5

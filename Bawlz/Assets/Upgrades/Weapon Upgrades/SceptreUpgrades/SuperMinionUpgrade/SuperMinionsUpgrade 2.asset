@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7414eeeb1aaa540b84f18844083be4, type: 3}
-  m_Name: HammerMinions
-  m_EditorClassIdentifier: Assembly-CSharp::MinionWeaponUpgrade
-  shopIcon: {fileID: -5554422304647149764, guid: 5788fee8c24bbf647adbe198f733d866, type: 3}
-  upgradeFamily: Weapon Minions
-  upgradeName: Armed Minions
-  description: Gives Hammers to spawned minions.
+  m_Script: {fileID: 11500000, guid: e9ed19ba9956b6549b7cf01b7610051f, type: 3}
+  m_Name: SuperMinionsUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::SceptreUpgrade
+  shopIcon: {fileID: 4915327407224778498, guid: 6b140af15c8757249b5e87368a3111c5, type: 3}
+  upgradeFamily: Super Minion
+  upgradeName: Super Minions 3
+  description: Your Minions have a 1/3 chance to spawn as a Super Minion.
   upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
@@ -32,4 +32,6 @@ MonoBehaviour:
   minionHealthScaling: 0
   minionsPerHit: 0
   extraMinionChance: 0
-  weaponPrefab: {fileID: 9124016292243078404, guid: bbf1ca69f21ac77469d60f4aea4cc19f, type: 3}
+  superMinionChance: 0.33
+  superMinionDamageMult: 2
+  superMinionHealthMult: 5

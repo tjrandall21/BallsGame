@@ -151,6 +151,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int GetMainBallCount()
+    {
+        return mainBalls.Count;
+    }
+
+    public List<BallController> GetMainBalls()
+    {
+        return mainBalls;
+    }
+
     public BallController GetMainBallByNumber(int playerNum)
     {
         mainBalls.RemoveAll(item => item == null);

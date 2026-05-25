@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     public string weaponName = "Weapon";
     public string description = "This is a weapon.";
     [SerializeField] protected float damage = 10;
-    public float Damage { get { return damage; } }
+    public float Damage { get { return damage; } set {damage = value;}}
     [SerializeField] protected float knockbackSpeed = 0;
     public float KnockbackSpeed { get { return knockbackSpeed; } }
     [SerializeField] protected float attackCooldown = 0;

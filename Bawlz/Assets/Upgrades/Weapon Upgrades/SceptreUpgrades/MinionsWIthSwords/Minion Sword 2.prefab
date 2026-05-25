@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8409188370481698044
+--- !u!1 &4079610640978698689
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5916915030112519194}
-  - component: {fileID: 2125978718053285099}
-  m_Layer: 6
+  - component: {fileID: 8841329805297284377}
+  - component: {fileID: 3997513881674522689}
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5916915030112519194
+--- !u!4 &8841329805297284377
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8409188370481698044}
+  m_GameObject: {fileID: 4079610640978698689}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.8571429}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5069279007790728011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!212 &2125978718053285099
+--- !u!212 &3997513881674522689
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8409188370481698044}
+  m_GameObject: {fileID: 4079610640978698689}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5742911994467115398, guid: 5e7a49cefdbf220428246a3dcde8465b, type: 3}
+  m_Sprite: {fileID: -7848443895318311861, guid: db521a2cececb0c4a8428f6a215e611f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,11 +100,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069279007790728011}
+  - component: {fileID: 3866882626821141082}
   - component: {fileID: 2255129472153577191}
-  - component: {fileID: 8509576604400896292}
   - component: {fileID: 5009749163094406371}
   m_Layer: 6
-  m_Name: Sceptre
+  m_Name: Minion Sword 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,13 +119,40 @@ Transform:
   m_GameObject: {fileID: 9124016292243078404}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 1.384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5916915030112519194}
+  - {fileID: 8841329805297284377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3866882626821141082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124016292243078404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f63ac6ef941914ba4d068dfcbab4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sword
+  weaponName: Sword
+  description: This is a weapon.
+  damage: 3
+  knockbackSpeed: 0
+  attackCooldown: 0
+  parent: {fileID: 0}
+  weaponUpgrades:
+  - {fileID: 11400000, guid: 1a41d3def04ec8b4ab00f8628c425875, type: 2}
+  possibleWeaponUpgradesInShop:
+  - {fileID: 11400000, guid: aaa2941347070f64bb7ad8a1115df0f7, type: 2}
+  - {fileID: 11400000, guid: 360b9b6f2d2c55543b880a6b89f7de0c, type: 2}
+  - {fileID: 11400000, guid: b1678731424e8a04a810a4bc8c945d4b, type: 2}
+  - {fileID: 11400000, guid: 6b2076624bd39614f81dea66fa6d26b3, type: 2}
+  - {fileID: 11400000, guid: 21dde4170052970489b4bb4c22710c6e, type: 2}
+  damageScalingAmount: 1
 --- !u!50 &2255129472153577191
 Rigidbody2D:
   serializedVersion: 5
@@ -153,42 +180,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &8509576604400896292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9124016292243078404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cfbb6007ee136f4c8cd023ec78516a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Sceptre
-  weaponName: Sceptre
-  description: Spawns Minions on hit.
-  damage: 3
-  knockbackSpeed: 0
-  attackCooldown: 0
-  parent: {fileID: 0}
-  weaponUpgrades: []
-  possibleWeaponUpgradesInShop:
-  - {fileID: 11400000, guid: ea3c68ec1ea77e34f8df9c49f49dfc6e, type: 2}
-  - {fileID: 11400000, guid: 41838c4e473dd7f40b5d609b50193c92, type: 2}
-  - {fileID: 11400000, guid: 15250d7ec9897f343b402e1dabd76157, type: 2}
-  - {fileID: 11400000, guid: a8b36f59d3bd2914da71818949d8a585, type: 2}
-  - {fileID: 11400000, guid: 50be998c8a4c6714696d24cf5014bf89, type: 2}
-  - {fileID: 11400000, guid: 52665fabb8f06b042a961e06c2f7763c, type: 2}
-  - {fileID: 11400000, guid: b4da9281d7b211946aae74d03eb4713c, type: 2}
-  - {fileID: 11400000, guid: db681031bbddfc545b1d7aee74b437b9, type: 2}
-  minionPrefab: {fileID: 7189852719700939712, guid: 849f3f1784d95034e8ac6c79eb317c27, type: 3}
-  superMinionPrefab: {fileID: 7189852719700939712, guid: b4805f4c237cd3d4ea391790c57a6f88, type: 3}
-  minionDamageScaling: 2
-  minionDamage: 2
-  minionHealth: 1
-  minionHealthScaling: 1.5
-  minionsPerHit: 1
-  extraMinionChance: 0
 --- !u!61 &5009749163094406371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -223,15 +214,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0064374506, y: -0.03153038}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 2.875}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.38023, y: 1.4828427}
+  m_Size: {x: 0.23086083, y: 1.7414273}
   m_EdgeRadius: 0

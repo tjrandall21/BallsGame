@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5731981955572824522, guid: f16fe25a5aef5ab44abf7f15e6708e0f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.61721087, g: 0.35635456, b: 0.6745283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -287,8 +287,8 @@ GameObject:
   - component: {fileID: 8545179988194218778}
   - component: {fileID: -2338485125596000248}
   m_Layer: 6
-  m_Name: Ball
-  m_TagString: Untagged
+  m_Name: SuperMinion
+  m_TagString: Super Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

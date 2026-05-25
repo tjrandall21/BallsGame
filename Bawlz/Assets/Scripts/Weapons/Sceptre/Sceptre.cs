@@ -4,12 +4,16 @@ using UnityEngine;
 public class Sceptre : Weapon
 {
     [SerializeField] GameObject minionPrefab;
+    [SerializeField] GameObject superMinionPrefab;
     [SerializeField] float minionDamageScaling = 2f;
     [SerializeField] float minionDamage = 2;
     [SerializeField] float minionHealth = 1;
     [SerializeField] float minionHealthScaling = 1.5f;
     [SerializeField] int minionsPerHit = 1;
     [SerializeField] float extraMinionChance = 0;
+    float superMinionChance = 0;
+    float superMinionDamageMult = 1;
+    float superMinionHealthMult = 1;
 
     protected override void OnBallHit(BallController otherBall)
     {
@@ -24,21 +28,33 @@ public class Sceptre : Weapon
         base.OnBallHit(otherBall);
         for (int i = 0; i < minionAmount; i++)
         {       
-            GameObject ball = Instantiate(minionPrefab, parent.transform.position, Quaternion.identity);
-            ball.layer = gameObject.layer+4;
+            SpawnMinion();
+        }
+    }
 
-            BallController ballController = ball.GetComponent<BallController>();
-            ballController.Init(new List<Upgrade>(),parent.playerNum,Random.Range(0.0f,360.0f));
-            ballController.contactDamage = minionDamage;
-            ballController.maxHealth = minionHealth;
-            parent.OnBallSpawned(ballController);
+    public void SpawnMinion()
+    {
+        GameObject ball;
+        bool superMinion = Random.value < superMinionChance;
+        if (superMinion)
+        {
+            ball = Instantiate(superMinionPrefab, parent.transform.position, Quaternion.identity);       
+        }
+        else
+        {
+            ball = Instantiate(minionPrefab, parent.transform.position, Quaternion.identity);     
         }
 
+        ball.layer = gameObject.layer+4;
+        BallController ballController = ball.GetComponent<BallController>();
+        ballController.Init(new List<Upgrade>(),parent.playerNum,Random.Range(0.0f,360.0f));
+        ballController.contactDamage = superMinion ? minionDamage*superMinionDamageMult : minionDamage;
+        ballController.maxHealth = superMinion ? minionHealth*superMinionHealthMult : minionHealth;
+        parent.OnBallSpawned(ballController);
+        
         minionDamage += minionDamageScaling;
         minionHealth += minionHealthScaling;
     }
-
-    
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
@@ -60,6 +76,9 @@ public class Sceptre : Weapon
                 minionHealthScaling += sceptreUpgrade.minionHealthScaling;
                 minionsPerHit += sceptreUpgrade.minionsPerHit;
                 extraMinionChance += sceptreUpgrade.extraMinionChance;
+                superMinionChance += sceptreUpgrade.superMinionChance;
+                superMinionDamageMult += sceptreUpgrade.superMinionDamageMult;
+                superMinionHealthMult *= sceptreUpgrade.superMinionHealthMult;
             }
         }
     }
