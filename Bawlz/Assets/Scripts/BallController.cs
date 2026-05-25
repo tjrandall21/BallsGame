@@ -148,7 +148,7 @@ public class BallController : MonoBehaviour
         { //check for any active status with a matching name
             foreach (StatusEffect statusEffect in statusEffects)
             {
-                if (statusEffect.name == status.name)
+                if (statusEffect.statusName == status.statusName)
                 {
                     statusEffect.OnStatusRefresh();
                     return;

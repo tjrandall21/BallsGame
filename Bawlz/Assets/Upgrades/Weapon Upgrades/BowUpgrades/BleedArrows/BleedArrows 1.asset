@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39090083662a1a14a82ad7946ff8c1d5, type: 3}
-  m_Name: BleedArrows
+  m_Name: BleedArrows 1
   m_EditorClassIdentifier: Assembly-CSharp::StatusArrows
   shopIcon: {fileID: 4046606177240750169, guid: 07d034312ed66ae4ba11d76201d06db2, type: 3}
   upgradeFamily: Bleeding Arrows
-  upgradeName: Bleeding Arrows
-  description: Applies bleed to hit enemies.
-  upgradeLevel: 0
+  upgradeName: Bleeding Arrows 2
+  description: Applies 2 stacks of bleed to hit enemies and explodes at 10 stacks.
+  upgradeLevel: 1
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: 1e18b4c325956af449cd57a31ed70fb0, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0
@@ -32,4 +32,5 @@ MonoBehaviour:
   extraProjectiles: 0
   attackSpeedScaling: 0
   passToArrows: 0
-  status: {fileID: 11400000, guid: e65173a106d7d2545a5d918fe05e4d88, type: 2}
+  status: {fileID: 11400000, guid: c14e9294fdfe14f42bdcdbe5cb8f54a0, type: 2}
+  stacks: 2
