@@ -90,7 +90,10 @@ public class EndBattlePanel : MonoBehaviour
                     }
                 }
             }
-            rows[i].SetPlayerForStandings(playersByPoints[i]);
+            if (i == 1)
+            {
+                rows[i].SetPlayerForStandings(playersByPoints[i], "2nd:");
+            }
         }
     }
 
