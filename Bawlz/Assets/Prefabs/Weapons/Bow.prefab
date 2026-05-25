@@ -229,7 +229,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 9124016292243078404, guid: e837acfa33ae31842acd69591b6a4543, type: 3}
   arrowSpeed: 30
   arrowDamage: 10
-  arrowDamageScaling: 2
+  arrowDamageScaling: 1.5
   extraProjectiles: 0
   spreadIncreasePerArrow: 20
   attackSpeedScaling: 0.02

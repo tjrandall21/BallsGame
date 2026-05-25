@@ -104,8 +104,9 @@ public class MainMenuController : MonoBehaviour
         for (int i = 0; i < playerCount; i++)
         { //set the sprite for each player to whatever is initially selected
             GameManager.Instance.players[i].playerSprite = playerCharacterSelectPreviews[i].sprite;
-
+            GameManager.Instance.players[i].playerName = playerCharacterSelectPreviews[i].GetComponent<SelectedCharacter>().characterName;
         }
+        UpdateButtons();
     }
 
     public void CharacterSelectBack()
@@ -277,6 +278,14 @@ public class MainMenuController : MonoBehaviour
         weaponSelectPreviews[playerIndex].sprite = button.GetComponent<Image>().sprite;
     }
 
+    public void UpdateButtons()
+    {
+        foreach (GameObject grid in characterSelectGrids)
+        {
+            grid.GetComponent<CharacterSelectPanel>().UpdateCells();
+        }
+    }
+
 
     public void SelectCharacterSprite()
     {
@@ -288,14 +297,13 @@ public class MainMenuController : MonoBehaviour
             {
                 // Determine which grid the clicked button belongs to so we update only the corresponding player's preview
                 int gridIndex = GetCharacterGridIndex(clickedObject.transform);
-                var image = clickedButton.GetComponent<Image>();
+                var image = clickedButton.GetComponentInChildren<Image>();
                 if (image != null)
                 {
-                    SetPlayerCharacterSprite(image, gridIndex);
-                    Debug.Log("Character sprite selected: " + image.sprite.name + " for player index: " + gridIndex);
+                    SetPlayerCharacterSprite(image, clickedButton.name, gridIndex);
+                    Debug.Log("Character sprite selected: " + clickedButton.name + " for player index: " + gridIndex);
                 }
             }
-
         }
     }
 
@@ -319,8 +327,9 @@ public class MainMenuController : MonoBehaviour
     }
 
     // Updated to accept an optional playerIndex. If playerIndex is -1 or out of range, logs a warning and falls back to player 0.
-    public void SetPlayerCharacterSprite(Image CharacterImage, int playerIndex = 0)
+    public void SetPlayerCharacterSprite(Image CharacterImage, string characterName, int playerIndex = 0)
     {
+
         if (playerCharacterSelectPreviews == null || playerCharacterSelectPreviews.Count == 0)
         {
             Debug.LogWarning("SetPlayerCharacterSprite: No playerCharacterSelectPreviews configured.");
@@ -334,11 +343,16 @@ public class MainMenuController : MonoBehaviour
             indexToUse = 0;
         }
 
+        
+
         playerCharacterSelectPreviews[indexToUse].sprite = CharacterImage.sprite;
+        playerCharacterSelectPreviews[indexToUse].GetComponent<SelectedCharacter>().characterName = characterName;
         playerCharacterSelectPreviews[indexToUse].SetNativeSize();
         
         GameManager.Instance.players[indexToUse].playerSprite = CharacterImage.sprite;
-        Debug.Log("Set character sprite for player " + (indexToUse + 1) + ": " + CharacterImage.sprite.name);
+        GameManager.Instance.players[indexToUse].playerName = characterName;
+        Debug.Log("Set character sprite for player " + (indexToUse + 1) + ": " + characterName);
+        UpdateButtons();
     }
    
 }
