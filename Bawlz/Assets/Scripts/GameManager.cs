@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     bool gameOver = false;
 
+    int[] placementPoints = {3,2,1,0};
+
     public int coinsPerRound = 10;
     public int buyPrice = 3;
 
@@ -197,6 +199,7 @@ public class GameManager : MonoBehaviour
                     index--;
                 }
 
+                UpdatePoints();
                 gameOver = true;
                 endBattlePanel.SetUpPanelForDraw();
                 ShowEndScreen();
@@ -212,6 +215,7 @@ public class GameManager : MonoBehaviour
                     players[playerNum-1].placementsByRound.Add(playerCount-i);
                 }
 
+                UpdatePoints();
                 gameOver = true;
                 endBattlePanel.SetUpPanel();
                 ShowEndScreen();
@@ -219,11 +223,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int GetPointsByPlacement(int placement)
+    {
+        return placementPoints[placement-1]-(4-playerCount);
+    }
+
+    void UpdatePoints()
+    {
+        foreach (PlayerData player in players)
+        {
+            player.winPoints = 0;
+            foreach (int placement in player.placementsByRound)
+            {
+                player.winPoints += GetPointsByPlacement(placement);
+            }
+        }
+    }
+
     void ShowEndScreen()
     {
-        
         endBattlePanel.gameObject.SetActive(true);
-
     }
 
     public void EndBattleScene()
