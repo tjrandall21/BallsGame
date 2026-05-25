@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05961a7eb37529a44a20dcf029d3bf64, type: 3}
   m_Name: BOOM
   m_EditorClassIdentifier: Assembly-CSharp::BigBoomUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 2543244090855550724, guid: 1b5443337ca8e4e4eb5734e840c4976a, type: 3}
   upgradeFamily: Upgrade
   upgradeName: Weapon Upgrade
   description: This is a weapon upgrade.
