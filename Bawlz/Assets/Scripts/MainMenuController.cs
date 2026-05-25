@@ -106,6 +106,7 @@ public class MainMenuController : MonoBehaviour
             GameManager.Instance.players[i].playerSprite = playerCharacterSelectPreviews[i].sprite;
             GameManager.Instance.players[i].playerName = playerCharacterSelectPreviews[i].GetComponent<SelectedCharacter>().characterName;
         }
+        UpdateButtons();
     }
 
     public void CharacterSelectBack()
@@ -277,6 +278,14 @@ public class MainMenuController : MonoBehaviour
         weaponSelectPreviews[playerIndex].sprite = button.GetComponent<Image>().sprite;
     }
 
+    public void UpdateButtons()
+    {
+        foreach (GameObject grid in characterSelectGrids)
+        {
+            grid.GetComponent<CharacterSelectPanel>().UpdateCells();
+        }
+    }
+
 
     public void SelectCharacterSprite()
     {
@@ -334,6 +343,8 @@ public class MainMenuController : MonoBehaviour
             indexToUse = 0;
         }
 
+        
+
         playerCharacterSelectPreviews[indexToUse].sprite = CharacterImage.sprite;
         playerCharacterSelectPreviews[indexToUse].GetComponent<SelectedCharacter>().characterName = characterName;
         playerCharacterSelectPreviews[indexToUse].SetNativeSize();
@@ -341,6 +352,7 @@ public class MainMenuController : MonoBehaviour
         GameManager.Instance.players[indexToUse].playerSprite = CharacterImage.sprite;
         GameManager.Instance.players[indexToUse].playerName = characterName;
         Debug.Log("Set character sprite for player " + (indexToUse + 1) + ": " + characterName);
+        UpdateButtons();
     }
    
 }
