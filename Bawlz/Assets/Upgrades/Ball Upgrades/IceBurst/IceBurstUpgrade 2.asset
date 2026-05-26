@@ -9,32 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f2b0fa77095ab4da85866d21661c1c, type: 3}
-  m_Name: IceSword 2
-  m_EditorClassIdentifier: Assembly-CSharp::SwordIcicleBurst
-  shopIcon: {fileID: -9011520686636964963, guid: 8952f3f8ff624b942a7c57a37cfcfa31, type: 3}
-  upgradeFamily: SwordIceBurst
-  upgradeName: Ice Blade 3
-  description: Shoots a burst of ice shards on hit.
+  m_Script: {fileID: 11500000, guid: 1c48737a8d00e2546b07a4afd378356b, type: 3}
+  m_Name: IceBurstUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::IceBurstUpgrade
+  shopIcon: {fileID: 2855848296032535913, guid: 80c143c721729334ea7515831eed5b54, type: 3}
+  upgradeFamily: IceBurst
+  upgradeName: Icicle Burst 3
+  description: Releases a burst of icicles when you get hit.
   upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
-  damage: 0
-  knockbackSpeed: 0
-  attackCooldown: 0
-  attackCooldownMultiplier: 1
-  parentBall: {fileID: 0}
-  parentWeapon: {fileID: 0}
-  damageScalingAmount: 0
-  size: 1
-  spinSpeed: 0
+  health: 0
+  contactDamage: 0
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 1
   iciclePrefabs:
   - {fileID: 9124016292243078404, guid: b80a9db96dd6adb4d8cb804fe9651611, type: 3}
   - {fileID: 9124016292243078404, guid: 281b0e9cc657b044aafe01fadbcfbedb, type: 3}
   - {fileID: 9124016292243078404, guid: d7aa22b26edcb1440bd66e4fc8be8fde, type: 3}
   icicleDamage: 12
-  icicleLifeTime: 1
+  icicleLifeTime: 0.7
   projectileCount: 5
   icicleSpeed: 5
   icicleSize: 0.42

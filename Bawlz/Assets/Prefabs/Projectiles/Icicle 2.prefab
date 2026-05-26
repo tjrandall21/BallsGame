@@ -214,8 +214,9 @@ MonoBehaviour:
   weaponName: Icicle
   description: Made with ice magic
   damage: 10
-  knockbackSpeed: 0
+  knockbackSpeed: 5
   attackCooldown: 0
+  canWeaponCollide: 0
   parent: {fileID: 0}
   weaponUpgrades: []
   possibleWeaponUpgradesInShop: []
