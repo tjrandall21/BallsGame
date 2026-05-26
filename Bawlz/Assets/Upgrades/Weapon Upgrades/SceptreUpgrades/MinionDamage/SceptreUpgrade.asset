@@ -15,7 +15,7 @@ MonoBehaviour:
   shopIcon: {fileID: -6088529919393740113, guid: a89d9ad11adef4a4aaadbceb1f58c1d9, type: 3}
   upgradeFamily: Sceptre Minion Damage
   upgradeName: Minion Damage
-  description: This is a weapon upgrade.
+  description: Increases the damage of your sceptre minions.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 55bcdb3d0394d6e4596eea6c6fa6f25e, type: 2}

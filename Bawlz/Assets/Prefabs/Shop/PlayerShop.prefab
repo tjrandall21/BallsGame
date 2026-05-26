@@ -2929,6 +2929,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1710ca59695d2c1498f1be04bc308c27, type: 2}
   - {fileID: 11400000, guid: 1dc5a0aa2142a7744b48281d9b055b45, type: 2}
   - {fileID: 11400000, guid: 4fd1b641f6a16b548b476992fd4a81ea, type: 2}
+  - {fileID: 11400000, guid: a43b945b522820e4db1132dd0bcddd4c, type: 2}
   weaponUpgrades:
   - {fileID: 11400000, guid: ecb45aac70fce3645b9c2e3cc08c6aab, type: 2}
   - {fileID: 11400000, guid: 11893f453ad4bf84689a9b0c18ce374e, type: 2}

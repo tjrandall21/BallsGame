@@ -15,7 +15,7 @@ MonoBehaviour:
   shopIcon: {fileID: 1730117128237689286, guid: de24cbb1933b4314a88818ec3528c702, type: 3}
   upgradeFamily: Big Arrows
   upgradeName: Big Arrow
-  description: Periodically shoots a large arrow that deals 3x damage and explodes.
+  description: Periodically shoots a giant arrow.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: b6252a20410f3c0489bdf17e7eda566f, type: 2}
