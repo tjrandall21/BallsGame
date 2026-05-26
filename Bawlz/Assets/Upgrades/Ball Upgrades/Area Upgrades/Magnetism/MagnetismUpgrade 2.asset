@@ -26,6 +26,6 @@ MonoBehaviour:
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 0.9
-  ballAreaPrefab: {fileID: 4866617159980323993, guid: 93194089957f1884fb12b623bcd867d1, type: 3}
+  ballAreaPrefab: {fileID: 4866617159980323993, guid: ea91e3eff0aa40d4a876cb3ce1bc00f9, type: 3}
   radius: 2.5
   magnetismStrength: 50

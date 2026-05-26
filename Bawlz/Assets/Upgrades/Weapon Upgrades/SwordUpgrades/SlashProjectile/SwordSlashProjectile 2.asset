@@ -34,4 +34,4 @@ MonoBehaviour:
   projectileLifeTime: 0
   projectileSpeed: 8
   projectileSize: 0.75
-  slashCooldown: 0.3
+  slashCooldown: 0.25

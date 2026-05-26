@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc8d06586d00f048ac4dbe711b4cab9, type: 3}
-  m_Name: MagnetismUpgrade
+  m_Name: ForceBubble 2
   m_EditorClassIdentifier: Assembly-CSharp::MagnetismUpgrade
-  shopIcon: {fileID: -3421563057652809195, guid: b7ee614682101534a9f7a52472c4fbe8, type: 3}
-  upgradeFamily: Magnetism
-  upgradeName: Magnetism
-  description: Pulls nearby enemies towards you.
-  upgradeLevel: 0
+  shopIcon: {fileID: 5852587019534965874, guid: 284b55288c7a3264098ca48b96fccf8c, type: 3}
+  upgradeFamily: ForceBubble
+  upgradeName: Force Bubble 2
+  description: Creates a bubble around you that pushes enemies away.
+  upgradeLevel: 2
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 11400000, guid: dd6e436dfea0f0448a36d15fa32621f7, type: 2}
+  nextLevelUpgrade: {fileID: 0}
   stackable: 1
   health: 0
   contactDamage: 0
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 1
-  ballAreaPrefab: {fileID: 4866617159980323993, guid: ea91e3eff0aa40d4a876cb3ce1bc00f9, type: 3}
+  ballAreaPrefab: {fileID: 4866617159980323993, guid: 31c3519d14e35cd44a6cd1b2f8f9594e, type: 3}
   radius: 2.5
-  magnetismStrength: 30
+  magnetismStrength: -34
