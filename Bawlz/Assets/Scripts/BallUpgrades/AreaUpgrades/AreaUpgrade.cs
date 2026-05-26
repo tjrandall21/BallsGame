@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Mathematics;
 
 [CreateAssetMenu(fileName = "AreaUpgrade", menuName = "Ball Upgrades/Area Upgrades/AreaUpgrade")]
 public class AreaUpgrade : Upgrade
@@ -25,6 +26,7 @@ public class AreaUpgrade : Upgrade
         {
             BallUpdate(ball);
         }
+        ballArea.transform.rotation = quaternion.identity;
     }
 
     public virtual void BallEnteredArea(BallController otherBall)
