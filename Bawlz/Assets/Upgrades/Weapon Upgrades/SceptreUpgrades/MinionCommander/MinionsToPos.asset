@@ -18,7 +18,7 @@ MonoBehaviour:
   description: Your Minions will periodically choose an enemy to rush towards.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: a885e4c1b4c178741951268bd7ae391d, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   superMinionDamageMult: 1
   superMinionHealthMult: 1
   damageScaling: 0
-  attackInterval: 3
-  attackSpeed: 20
+  attackInterval: 5
+  attackSpeed: 15
   defend: 0
   attackDeathPos: 0

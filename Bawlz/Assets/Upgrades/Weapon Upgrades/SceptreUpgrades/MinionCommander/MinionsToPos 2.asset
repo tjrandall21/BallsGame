@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinionsGoToDeath
   shopIcon: {fileID: 7619200178112292876, guid: 9e46e71278d626e49b5d32e58892903d, type: 3}
   upgradeFamily: Coordinated Minions
-  upgradeName: Coordinated Attack
+  upgradeName: Coordinated Attack 3
   description: Your Minions will periodically choose an enemy to rush towards.
-  upgradeLevel: 0
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
@@ -36,7 +36,7 @@ MonoBehaviour:
   superMinionDamageMult: 1
   superMinionHealthMult: 1
   damageScaling: 0
-  attackInterval: 3
-  attackSpeed: 20
+  attackInterval: 2
+  attackSpeed: 25
   defend: 0
   attackDeathPos: 0

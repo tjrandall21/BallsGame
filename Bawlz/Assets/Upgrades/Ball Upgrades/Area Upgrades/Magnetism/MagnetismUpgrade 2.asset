@@ -17,12 +17,12 @@ MonoBehaviour:
   upgradeName: Magnetism 3
   description: Pulls nearby enemies towards you and increases your defense and contact
     damage.
-  upgradeLevel: 0
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
   health: 0
-  contactDamage: 10
+  contactDamage: 0
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 0.9

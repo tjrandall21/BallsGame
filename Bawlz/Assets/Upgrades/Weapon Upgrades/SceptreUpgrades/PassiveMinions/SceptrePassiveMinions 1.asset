@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79542993a6ca064ab72719ed6bc2194, type: 3}
   m_Name: SceptrePassiveMinions 1
   m_EditorClassIdentifier: Assembly-CSharp::PassiveMinions
-  shopIcon: {fileID: -6593789865660963755, guid: ebb90cc63b0eff5459671a2903ffc406, type: 3}
+  shopIcon: {fileID: -7927271261871600978, guid: 85eab7f0bf203814abf34edac4ed75d8, type: 3}
   upgradeFamily: Passive Minions
   upgradeName: Passive Minions 2
   description: Your Sceptre passively generates a minion every 3.5 seconds.

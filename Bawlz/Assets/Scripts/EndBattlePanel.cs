@@ -94,6 +94,10 @@ public class EndBattlePanel : MonoBehaviour
             {
                 rows[i].SetPlayerForStandings(playersByPoints[i], "2nd:");
             }
+            else
+            {
+                rows[i].SetPlayerForStandings(playersByPoints[i]);
+            }
         }
     }
 
