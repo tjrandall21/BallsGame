@@ -2,13 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-// To use this you must have a canvas in the scene an event system with the InputSystemUIInputModule component
-// that is set to use my custom made Input Actions asset with the move and click actions or IT WILL NOT WORK
-// it should automatically find the canvas and event system in the scene
-// The prefab will be made for each player when they hit A or X or whatever
-// Make sure the playerInputManager has a max of 4
-// Make sure to use the one named Player Controls Input Actions in the player input manager and not the default
+
 public class MultiplayerCursor : MonoBehaviour
 {
     public RectTransform cursor;
@@ -23,22 +19,129 @@ public class MultiplayerCursor : MonoBehaviour
     private InputAction clickAction;
 
     private Vector2 cursorPos;
-    
+    private Transform playerRoot;
+
     void Awake()
     {
-        transform.SetParent(FindAnyObjectByType<Canvas>().transform, false);
+        playerRoot = transform.root;
+
+        DontDestroyOnLoad(playerRoot.gameObject);
 
         playerInput = GetComponent<PlayerInput>();
 
         moveAction = playerInput.actions["Move"];
         clickAction = playerInput.actions["Click"];
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        MoveToPersistentCursorCanvas();
+        ReconnectToSceneUI();
+        SetCursorColor();
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnEnable()
+    {
+        if (moveAction != null)
+            moveAction.Enable();
+
+        if (clickAction != null)
+            clickAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        if (moveAction != null)
+            moveAction.Disable();
+
+        if (clickAction != null)
+            clickAction.Disable();
+    }
+
+    void Start()
+    {
+        if (cursor != null)
+            cursorPos = cursor.position;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Cursor carried into scene: " + scene.name);
+
+        MoveToPersistentCursorCanvas();
+        ReconnectToSceneUI();
+
+        if (cursor != null)
+        {
+            cursorPos.x = Mathf.Clamp(cursorPos.x, 0, Screen.width);
+            cursorPos.y = Mathf.Clamp(cursorPos.y, 0, Screen.height);
+            cursor.position = cursorPos;
+        }
+    }
+
+    void MoveToPersistentCursorCanvas()
+    {
+        GameObject cursorCanvasObject = GameObject.Find("Persistent Cursor Canvas");
+
+        if (cursorCanvasObject == null)
+        {
+            cursorCanvasObject = new GameObject("Persistent Cursor Canvas");
+
+            Canvas canvas = cursorCanvasObject.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.sortingOrder = 999;
+
+            cursorCanvasObject.AddComponent<CanvasScaler>();
+
+            DontDestroyOnLoad(cursorCanvasObject);
+        }
+
+        playerRoot.SetParent(cursorCanvasObject.transform, false);
+    }
+
+    void ReconnectToSceneUI()
+    {
         eventSystem = FindAnyObjectByType<EventSystem>();
-        raycaster = FindAnyObjectByType<GraphicRaycaster>();
+
+        GraphicRaycaster[] raycasters = FindObjectsByType<GraphicRaycaster>(FindObjectsInactive.Exclude);
+        raycaster = null;
+
+        foreach (GraphicRaycaster currentRaycaster in raycasters)
+        {
+            if (currentRaycaster.gameObject.name != "Persistent Cursor Canvas")
+            {
+                raycaster = currentRaycaster;
+                break;
+            }
+        }
 
         if (cursor == null)
-            cursor = GetComponentInChildren<Image>().rectTransform;
-        cursorImage = cursor.GetComponent<Image>();
+        {
+            Image image = GetComponentInChildren<Image>();
+
+            if (image != null)
+                cursor = image.rectTransform;
+        }
+
+        if (cursor != null)
+        {
+            cursorImage = cursor.GetComponent<Image>();
+        }
+
+        if (cursorImage != null)
+        {
+            cursorImage.raycastTarget = false;
+        }
+    }
+
+    void SetCursorColor()
+    {
+        if (cursorImage == null || playerInput == null)
+            return;
 
         switch (playerInput.playerIndex)
         {
@@ -58,25 +161,13 @@ public class MultiplayerCursor : MonoBehaviour
                 cursorImage.color = Color.yellow;
                 break;
         }
-
-    }
-
-    void OnEnable()
-    {
-        if (moveAction != null)
-            moveAction.Enable();
-
-        if (clickAction != null)
-            clickAction.Enable();
-    }
-
-    void Start()
-    {
-        cursorPos = cursor.position;
     }
 
     void Update()
     {
+        if (cursor == null || moveAction == null || clickAction == null)
+            return;
+
         MoveCursor();
         HandleUI();
     }
@@ -95,15 +186,14 @@ public class MultiplayerCursor : MonoBehaviour
 
     void HandleUI()
     {
+        if (eventSystem == null || raycaster == null)
+            return;
+
         PointerEventData data = new PointerEventData(eventSystem);
         data.position = cursorPos;
 
         List<RaycastResult> results = new List<RaycastResult>();
         raycaster.Raycast(data, results);
-        if (results.Count > 0)
-        {
-            Debug.Log("Hovering over: " + results[0].gameObject.name);
-        }
 
         if (results.Count == 0)
             return;
