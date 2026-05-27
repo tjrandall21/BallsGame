@@ -50,7 +50,7 @@ public class Sceptre : Weapon
         ballController.Init(new List<Upgrade>(),parent.playerNum,Random.Range(0.0f,360.0f));
         ballController.contactDamage = superMinion ? minionDamage*superMinionDamageMult : minionDamage;
         ballController.maxHealth = superMinion ? minionHealth*superMinionHealthMult : minionHealth;
-        parent.OnBallSpawned(ballController);
+        GameManager.Instance.GetMainBallByNumber(parent.playerNum).OnBallSpawned(ballController);
         
         minionDamage += minionDamageScaling;
         minionHealth += minionHealthScaling;

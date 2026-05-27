@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b0c5e45e1565994e8b1ea213de5a502, type: 3}
   m_Name: CloneUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::CloneUpgrade
-  shopIcon: {fileID: 0}
-  upgradeName: Upgrade
-  description: This is an upgrade.
+  shopIcon: {fileID: 8933588910403783665, guid: c4ae8c2b33a7e6c45b3be660d3f7cefe, type: 3}
+  upgradeFamily: Clone
+  upgradeName: Clone
+  description: Spawns a clone of yourself when you reach 25% HP
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 1810543f0fb1b0d44b750dd544e59bdf, type: 2}
   stackable: 1
   health: 0
   contactDamage: 0
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 1
-  clonePrefab: {fileID: 0}
+  clonePrefab: {fileID: 7189852719700939712, guid: 8a0bb346788748f4ca5edad5deeecb47, type: 3}
   hpThreshold: 0.25

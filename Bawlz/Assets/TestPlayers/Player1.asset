@@ -16,11 +16,10 @@ MonoBehaviour:
   playerName: Player
   weaponPrefab: {fileID: 9124016292243078404, guid: bb4bef6c9f5aaca459680b5b7e086c2c, type: 3}
   ballPrefab: {fileID: 7189852719700939712, guid: dbc579720f7d5db48ab5ecbe97d0ddfd, type: 3}
-  upgrades:
-  - {fileID: 11400000, guid: a43b945b522820e4db1132dd0bcddd4c, type: 2}
+  upgrades: []
   weaponUpgrades: []
-  roundsWon: 7
-  coins: 0
-  placementsByRound: 01000000010000000100000001000000010000000100000001000000
-  winPoints: 7
+  roundsWon: 0
+  coins: 10
+  placementsByRound: 
+  winPoints: 1
   playerSprite: {fileID: 5731981955572824522, guid: f16fe25a5aef5ab44abf7f15e6708e0f, type: 3}

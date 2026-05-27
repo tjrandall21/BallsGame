@@ -30,6 +30,7 @@ public class BallController : MonoBehaviour
 
     public List<Weapon> weapons = new List<Weapon>();
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
+    public List<Upgrade> Upgrades {get {return upgrades;}}
     [SerializeField] List<StatusEffect> statusEffects;
     [SerializeField] List<BallController> minions = new List<BallController>();
     bool queueCleanMinions = false;
@@ -51,6 +52,20 @@ public class BallController : MonoBehaviour
         }
            
         launchAngle = startingAngle;
+
+        //load upgrades
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.Init(this);
+            //add stats
+            maxHealth += upgrade.health;
+            speed += upgrade.moveSpeed;
+            rotationSpeed += upgrade.rotationSpeed;
+            contactDamage += upgrade.contactDamage;
+            defenseMultiplier *= upgrade.defenseMultiplier;
+
+            upgrade.OnRoundStart(); //Need to move this once a start round countdown is added
+        }
     }
 
     void Awake()
@@ -72,19 +87,7 @@ public class BallController : MonoBehaviour
             weapons.Add(weapon);
         }
 
-        //load upgrades
-        foreach (Upgrade upgrade in upgrades)
-        {
-            upgrade.Init(this);
-            //add stats
-            maxHealth += upgrade.health;
-            speed += upgrade.moveSpeed;
-            rotationSpeed += upgrade.rotationSpeed;
-            contactDamage += upgrade.contactDamage;
-            defenseMultiplier *= upgrade.defenseMultiplier;
 
-            upgrade.OnRoundStart(); //Need to move this once a start round countdown is added
-        }
 
         health = maxHealth;
 
@@ -167,6 +170,18 @@ public class BallController : MonoBehaviour
     public void RemoveStatus(StatusEffect status)
     {
         statusEffects.Remove(status);
+    }
+
+    public void RemoveUpgradeByFamily(String family)
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            if (upgrade.upgradeFamily == family)
+            {
+                upgrades.Remove(upgrade);
+                return;
+            }
+        }
     }
 
     public void AddVelocity(Vector2 velocity)
@@ -311,8 +326,9 @@ public class BallController : MonoBehaviour
     {
         if (alive)
         {   
-            
             alive = false;
+            FXManager.Instance.PlayDeath(gameObject);
+            Destroy(gameObject);
             if (isMainBall)
             {
                 //kill all minions
@@ -328,8 +344,7 @@ public class BallController : MonoBehaviour
             {
                 GameManager.Instance.GetMainBallByNumber(playerNum).OnMinionDeath(this);
             }
-            FXManager.Instance.PlayDeath(gameObject);
-            Destroy(gameObject);
+            
         }
     }
 

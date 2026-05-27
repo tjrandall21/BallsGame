@@ -20,6 +20,6 @@ MonoBehaviour:
   weaponUpgrades: []
   roundsWon: 0
   coins: 10
-  placementsByRound: 0300000003000000
-  winPoints: 2
+  placementsByRound: 
+  winPoints: 0
   playerSprite: {fileID: 2019789747948817947, guid: 7376bbf61e0b0d94d96f42fc2cf2702b, type: 3}

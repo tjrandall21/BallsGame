@@ -20,7 +20,7 @@ public class ShopItem : MonoBehaviour
 
     [SerializeField] GameObject defaultPanel;
     [SerializeField] GameObject detailsPanel;
-
+    int sellCost = 1;
 
     public void ShowDetails(bool show)
     {
@@ -44,7 +44,7 @@ public class ShopItem : MonoBehaviour
         description.text = desc;
         if (sellMode)
         {
-            coinText.text = "1";
+            coinText.text = sellCost.ToString();
             buttonText.text = "Sell";
         }
         index = newIndex;
@@ -52,12 +52,14 @@ public class ShopItem : MonoBehaviour
 
     public void Init(Upgrade upgrade, int newIndex, bool sellMode = false)
     {
+        sellCost = 1 + upgrade.upgradeLevel;
         Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, upgrade.description, sellMode);
         shopItemType = ShopItemType.Upgrade;
     }
 
     public void Init(WeaponUpgrade upgrade, int newIndex, bool sellMode = false)
     {
+        sellCost = 1 + upgrade.upgradeLevel;
         Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, upgrade.description, sellMode);
         shopItemType = ShopItemType.WeaponUpgrade;
     }

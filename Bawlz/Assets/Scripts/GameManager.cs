@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     public EndBattlePanel endBattlePanel = null;
 
+    public static bool isPaused = false;
 
     void Awake()
     {
@@ -80,7 +81,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    
 
     public void StartShopWithPlayerCount(int count)
     {
@@ -258,7 +259,7 @@ public class GameManager : MonoBehaviour
     public void EndBattleScene()
     {
         
-        if (roundNumber > maxRounds)
+        if (roundNumber >= maxRounds)
         {
             ReturnToMainMenu();
         }
@@ -296,5 +297,17 @@ public class GameManager : MonoBehaviour
         mainBalls.Remove(deadBall);
         queueGameOverCheck = true; //delay checking until next frame in case theres a draw
         playerDeathOrder.Add(deadBall.playerNum);
+    }
+
+    public static void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public static void Unpause()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
     }
 }

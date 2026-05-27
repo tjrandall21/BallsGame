@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
 
     Dictionary<int, float> excludeDict = new Dictionary<int, float>();
-    float layerExcludeDuration = 0.1f;
+    float layerExcludeDuration = 0.15f;
 
     [SerializeField] public List<WeaponUpgrade> possibleWeaponUpgradesInShop = new List<WeaponUpgrade>();
     

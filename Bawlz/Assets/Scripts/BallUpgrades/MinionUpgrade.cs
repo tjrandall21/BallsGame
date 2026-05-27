@@ -18,7 +18,7 @@ public class MinionUpgrade : Upgrade
             BallController ballController = ball.GetComponent<BallController>();
             ballController.Init(new List<Upgrade>(),parentBall.playerNum,Random.Range(0.0f,360.0f));
             ballController.contactDamage = minionDamage;
-            parentBall.OnBallSpawned(ballController);
+            GameManager.Instance.GetMainBallByNumber(parentBall.playerNum).OnBallSpawned(ballController);
         }
     }
 }
