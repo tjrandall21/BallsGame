@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     public int playerNum = 0;
+    public string playerName = "Player";
     public GameObject weaponPrefab = null;
     public GameObject ballPrefab = null;
     public List<Upgrade> upgrades = new List<Upgrade>();
@@ -14,6 +15,8 @@ public class PlayerData : ScriptableObject
     public int coins = 4;
 
     public List<int> placementsByRound = new List<int>();
+
+    public int winPoints = 0;
 
     public Sprite playerSprite;
 

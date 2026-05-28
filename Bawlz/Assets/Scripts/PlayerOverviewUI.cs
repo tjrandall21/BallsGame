@@ -8,9 +8,12 @@ public class PlayerOverviewUI : MonoBehaviour
     [SerializeField] List<Image> weaponUpgradeIcons;
     [SerializeField] List<Image> playerUpgradeBars;
     [SerializeField] List<Image> weaponUpgradeBars;
+    [SerializeField] List<Image> playerUpgradeRankBorders;
+    [SerializeField] List<Image> weaponUpgradeRankBorders;
     [SerializeField] Image weaponIcon;
 
     [SerializeField] Color upgradeBarColor;
+    [SerializeField] List<Color> rankColors;
 
     public void UpdateIcons(int playerIndex)
     {
@@ -31,11 +34,20 @@ public class PlayerOverviewUI : MonoBehaviour
         {
             bar.color = new Color(0,0,0,0);
         }
+        foreach (Image border in playerUpgradeRankBorders)
+        {
+            border.color = new Color(0,0,0,0);
+        }
+        foreach (Image border in weaponUpgradeRankBorders)
+        {
+            border.color = new Color(0,0,0,0);
+        }
         weaponIcon.color = new Color(0,0,0,0);
         for (int i = 0; i < player.upgrades.Count; i++)
         {
             playerUpgradeIcons[i].sprite = player.upgrades[i].shopIcon;
             playerUpgradeIcons[i].color = Color.white;
+            playerUpgradeRankBorders[i].color = rankColors[player.upgrades[i].upgradeLevel];
             if (!player.upgrades[i].isUpgradeMaxLevel())
             {              
                 playerUpgradeBars[i].color = upgradeBarColor;
@@ -47,6 +59,7 @@ public class PlayerOverviewUI : MonoBehaviour
         {
             weaponUpgradeIcons[i].sprite = player.weaponUpgrades[i].shopIcon;
             weaponUpgradeIcons[i].color = Color.white;
+            weaponUpgradeRankBorders[i].color = rankColors[player.weaponUpgrades[i].upgradeLevel];
             if (!player.weaponUpgrades[i].isUpgradeMaxLevel())
             {  
                 weaponUpgradeBars[i].color = upgradeBarColor;

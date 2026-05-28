@@ -215,7 +215,7 @@ MonoBehaviour:
   description: This is a weapon.
   damage: 3
   knockbackSpeed: 0
-  attackCooldown: 0
+  attackCooldown: 0.1
   parent: {fileID: 0}
   weaponUpgrades: []
   poisonEffect: {fileID: 11400000, guid: f821b0b36c990c24babb330f473f6053, type: 2}

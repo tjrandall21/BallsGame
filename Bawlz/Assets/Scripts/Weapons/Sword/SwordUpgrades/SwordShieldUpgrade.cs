@@ -9,7 +9,7 @@ public class SwordShieldUpgrade : SwordUpgrade
 
     void OnEnable()
     {
-        buff = new StatChangeEffect();
+        buff = CreateInstance<StatChangeEffect>();
     }
 
     public override void OnRoundStart()

@@ -169,12 +169,14 @@ MonoBehaviour:
   description: This is a weapon.
   damage: 10
   knockbackSpeed: 0
-  attackCooldown: 0.3
+  attackCooldown: 1
   parent: {fileID: 0}
   weaponUpgrades: []
   projectilePrefab: {fileID: 9124016292243078404, guid: bc8b116b71767e24ea8ff7c146af2cb5, type: 3}
-  knifeSpeed: 15
+  knifeSpeed: 5
   knifeDamage: 10
+  extraProjectiles: 0
+  spreadIncreasePerDagger: 10
 --- !u!61 &9158410719958858030
 BoxCollider2D:
   m_ObjectHideFlags: 0

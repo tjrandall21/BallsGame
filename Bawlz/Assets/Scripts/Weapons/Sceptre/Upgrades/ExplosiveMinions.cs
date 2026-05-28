@@ -13,8 +13,10 @@ public class ExplosiveMinions : Upgrade
     {
         base.OnMinionDeath(minion);
         GameObject explosionObject = Instantiate(explosionPrefab);
-        explosionObject.layer = minion.gameObject.layer+4;
+        explosionObject.layer = minion.gameObject.layer;
         Explosion explosion = explosionObject.GetComponent<Explosion>();
-        explosion.ExplosionInit(explosionDamage,minion.transform.position,explosionKnockback,explosionSize);
+        float size = minion.tag == "Super Minion" ? explosionSize * 1.5f : explosionSize;
+        float damage = minion.tag == "Super Minion" ? explosionDamage * 2 : explosionDamage;
+        explosion.ExplosionInit(damage,minion.transform.position,explosionKnockback,size);
     }
 }

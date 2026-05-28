@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     bool gameOver = false;
 
+    int[] placementPoints = {3,2,1,0};
+
     public int coinsPerRound = 10;
     public int buyPrice = 3;
 
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     public EndBattlePanel endBattlePanel = null;
 
+    public static bool isPaused = false;
 
     void Awake()
     {
@@ -78,7 +81,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    
 
     public void StartShopWithPlayerCount(int count)
     {
@@ -149,6 +152,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int GetMainBallCount()
+    {
+        return mainBalls.Count;
+    }
+
+    public List<BallController> GetMainBalls()
+    {
+        return mainBalls;
+    }
+
     public BallController GetMainBallByNumber(int playerNum)
     {
         mainBalls.RemoveAll(item => item == null);
@@ -197,6 +210,7 @@ public class GameManager : MonoBehaviour
                     index--;
                 }
 
+                UpdatePoints();
                 gameOver = true;
                 endBattlePanel.SetUpPanelForDraw();
                 ShowEndScreen();
@@ -212,6 +226,7 @@ public class GameManager : MonoBehaviour
                     players[playerNum-1].placementsByRound.Add(playerCount-i);
                 }
 
+                UpdatePoints();
                 gameOver = true;
                 endBattlePanel.SetUpPanel();
                 ShowEndScreen();
@@ -219,17 +234,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int GetPointsByPlacement(int placement)
+    {
+        return placementPoints[placement-1]-(4-playerCount);
+    }
+
+    void UpdatePoints()
+    {
+        foreach (PlayerData player in players)
+        {
+            player.winPoints = 0;
+            foreach (int placement in player.placementsByRound)
+            {
+                player.winPoints += GetPointsByPlacement(placement);
+            }
+        }
+    }
+
     void ShowEndScreen()
     {
-        
         endBattlePanel.gameObject.SetActive(true);
-
     }
 
     public void EndBattleScene()
     {
         
-        if (roundNumber > maxRounds)
+        if (roundNumber >= maxRounds)
         {
             ReturnToMainMenu();
         }
@@ -267,5 +297,17 @@ public class GameManager : MonoBehaviour
         mainBalls.Remove(deadBall);
         queueGameOverCheck = true; //delay checking until next frame in case theres a draw
         playerDeathOrder.Add(deadBall.playerNum);
+    }
+
+    public static void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public static void Unpause()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
     }
 }

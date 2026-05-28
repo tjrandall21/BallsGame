@@ -6,11 +6,14 @@ using UnityEngine.UIElements;
 public class EndBattlePanel : MonoBehaviour
 {
     [SerializeField] List<BattleResultsRow> rows = new List<BattleResultsRow>();
-
+    [SerializeField] GameObject goToStandingsButton;
+    [SerializeField] GameObject nextRoundButton;
+    [SerializeField] TextMeshProUGUI Title;
 
     void Awake()
     {
         GameManager.Instance.endBattlePanel = this;
+        nextRoundButton.SetActive(false);
         foreach (BattleResultsRow row in rows)
         {
             row.gameObject.SetActive(false);
@@ -24,7 +27,7 @@ public class EndBattlePanel : MonoBehaviour
         int index = GameManager.Instance.roundNumber-1;
         foreach (PlayerData player in GameManager.Instance.players)
         {
-            int placeIndex = player.placementsByRound[index]-1;
+            int placeIndex = player.placementsByRound[index]-1; // <- error here
             rows[placeIndex].gameObject.SetActive(true);
             rows[placeIndex].SetPlayer(player);
         }
@@ -51,11 +54,49 @@ public class EndBattlePanel : MonoBehaviour
             rows[placeIndex].gameObject.SetActive(true);
             if (placeIndex == 1)
             {
-                rows[placeIndex].SetPlayer(player,"1st");
+                rows[placeIndex].SetPlayer(player,"1st:");
             }
             else
             {
                 rows[placeIndex].SetPlayer(player);
+            }
+        }
+    }
+
+    public void SetUpPanelForStandings()
+    {
+        if (GameManager.Instance.roundNumber == 1)
+        {
+            EndBattle();
+            return;
+        }
+        goToStandingsButton.SetActive(false);
+        nextRoundButton.SetActive(true);
+        Title.text = "Standings:";
+        List<PlayerData> playersByPoints = new List<PlayerData>();
+        for (int i = 0; i < GameManager.Instance.PlayerCount; i++)
+        {
+            foreach (PlayerData player in GameManager.Instance.players)
+            {
+                if (!playersByPoints.Contains(player))
+                {
+                    if (playersByPoints.Count == i)
+                    {
+                        playersByPoints.Add(player);
+                    }
+                    else if (player.winPoints > playersByPoints[i].winPoints)
+                    {
+                        playersByPoints[i] = player;
+                    }
+                }
+            }
+            if (i == 1)
+            {
+                rows[i].SetPlayerForStandings(playersByPoints[i], "2nd:");
+            }
+            else
+            {
+                rows[i].SetPlayerForStandings(playersByPoints[i]);
             }
         }
     }

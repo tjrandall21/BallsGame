@@ -5,6 +5,8 @@ public class Dagger : Weapon
     [SerializeField] private DoTEffect poisonEffect;
     public float durationScaling = 0.3f;
     public float damageScaling = 0.3f;
+    public float damagePerSecond = 1;
+    public float duration = 5f;
 
 
     protected override void Start()
@@ -35,8 +37,10 @@ public class Dagger : Weapon
             weaponUpgrade.OnBallHit(otherBall);
 
         DoTEffect scaledPoison = Instantiate(poisonEffect);
-        scaledPoison.damagePerSecond += damageScaling;
-        scaledPoison.statusDuration += durationScaling;
+        damagePerSecond += damageScaling;
+        scaledPoison.damagePerSecond = damagePerSecond;
+        duration += durationScaling;
+        scaledPoison.statusDuration = duration;
 
         otherBall.ApplyStatus(scaledPoison, parent);
     }

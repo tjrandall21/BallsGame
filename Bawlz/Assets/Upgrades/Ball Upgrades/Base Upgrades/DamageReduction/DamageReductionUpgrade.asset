@@ -18,7 +18,7 @@ MonoBehaviour:
   description: You recieve less damage.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: f04fda4194af80849a4de4c53ec2acb6, type: 2}
   stackable: 1
   health: 0
   contactDamage: 0

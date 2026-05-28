@@ -15,11 +15,10 @@ MonoBehaviour:
   shopIcon: {fileID: -1181283550536322723, guid: a32739013c7b40e4483b769c7ffce058, type: 3}
   upgradeFamily: Poison Cloud Arrows
   upgradeName: Bigger Poison Cloud
-  description: Your arrows create a burst of poison on impact but you have a reduced
-    fire rate.
+  description: Your arrows create a burst of poison on impact.
   upgradeLevel: 1
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: fe3afd3dc0d6c6c46aa55d2d88c27992, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

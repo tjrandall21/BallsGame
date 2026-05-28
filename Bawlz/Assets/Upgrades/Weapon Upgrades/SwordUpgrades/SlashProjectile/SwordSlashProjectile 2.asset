@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da7b93cb18636c458ccf629bc66f969, type: 3}
+  m_Name: SwordSlashProjectile 2
+  m_EditorClassIdentifier: Assembly-CSharp::SwordSlashProjectile
+  shopIcon: {fileID: -5925910517926113243, guid: 4d2eba44ead9fff478454296ca9eb7dd, type: 3}
+  upgradeFamily: SwordSlashProjectile
+  upgradeName: Wind Slash 3
+  description: Your sword shoots damaging slashes of wind.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  size: 1
+  spinSpeed: 0
+  projectilePrefab: {fileID: 9124016292243078404, guid: c03fb04ca20dd064dbbc594d92478328, type: 3}
+  projectileDamage: 24
+  projectileLifeTime: 0
+  projectileSpeed: 8
+  projectileSize: 0.75
+  slashCooldown: 0.25
