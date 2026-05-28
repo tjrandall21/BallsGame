@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6f11510d0906d449319870e1aa515e, type: 3}
   m_Name: RatMinionUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::RatMinionUpgrade
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  shopIcon: {fileID: -8583813090422531927, guid: 6908a576f0dbebc44a393a3db12db7e6, type: 3}
+  upgradeFamily: DaggerRats
+  upgradeName: Rats
+  description: Spawn rats that poison on hit and can also hit you.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
@@ -32,5 +32,5 @@ MonoBehaviour:
   ratDamage: 1
   ratHealth: 10
   ratPoisonEffect: {fileID: 11400000, guid: f821b0b36c990c24babb330f473f6053, type: 2}
-  durationScaling: 0.3
-  damageScaling: 0.3
+  durationScaling: 0
+  damageScaling: 0

@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: -4926090583861382007}
   m_Layer: 6
   m_Name: Rat
-  m_TagString: Minion
+  m_TagString: Rat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,7 +398,8 @@ MonoBehaviour:
   isMainBall: 0
   alive: 1
   weapons: []
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: d625e214c07baf846b987d34de2eacc9, type: 2}
   statusEffects: []
   minions: []
 --- !u!82 &-4926090583861382007

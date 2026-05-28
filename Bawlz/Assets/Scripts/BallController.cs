@@ -344,7 +344,7 @@ public class BallController : MonoBehaviour
                 //alert gamemanager that a player's main ball has died
                 GameManager.Instance.MainBallDied(this);
             }
-            else
+            else if (tag != "Rat")
             {
                 GameManager.Instance.GetMainBallByNumber(playerNum).OnMinionDeath(this);
             }

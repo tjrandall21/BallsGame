@@ -1,5 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 [CreateAssetMenu(fileName = "GrapeShotUpgrade", menuName = "Weapon Upgrades/Cannon Upgrades/GrapeShotUpgrade")]
 public class GrapeShotUpgrade : CannonUpgrade
@@ -10,6 +12,8 @@ public class GrapeShotUpgrade : CannonUpgrade
     [SerializeField] float spawnJitter = 0.1f;
     [SerializeField] float speedVariance = 0.2f;
     [SerializeField] float damageMultiplier = 0.5f;
+    [SerializeField] float minionHealthMultiplier = 0.3f;
+    
 
     public override void OnAttack()
     {
@@ -22,12 +26,14 @@ public class GrapeShotUpgrade : CannonUpgrade
 
         GameObject prefabToUse = grapeProjectilePrefab;
         MinionRoundUpgrade minionRoundUpgrade = null;
+        string tagToUse = "Grape Shot";
         foreach (WeaponUpgrade upgrade in cannon.WeaponUpgrades)
         {
             if (upgrade is MinionRoundUpgrade minionRound)
             {
                 prefabToUse = minionRound.MinionPrefab;
                 minionRoundUpgrade = minionRound;
+                tagToUse = "Grape Minion";
                 break;
             }
         }
@@ -47,11 +53,20 @@ public class GrapeShotUpgrade : CannonUpgrade
                 spawnPos,
                 parentWeapon.transform.rotation
             );
+            projectileObject.tag = tagToUse;
 
             CannonProdj projectile = projectileObject.GetComponent<CannonProdj>();
             if (projectile != null)
             {
                 projectile.ProjectileInit(spreadDirection, randomSpeed, cannon.ProjDamage * damageMultiplier, cannon);
+            }
+            else if (minionRoundUpgrade != null)
+            {
+                BallController minion = projectileObject.GetComponent<BallController>();
+                minion.maxHealth = minionRoundUpgrade.MinionHealth*minionHealthMultiplier;
+                minion.contactDamage = cannon.ProjDamage*damageMultiplier;
+                minion.Init(new List<Upgrade>(), parentBall.playerNum,spreadDirection.z,parentBall.sprite.sprite);
+                GameManager.Instance.GetMainBallByNumber(parentBall.playerNum).OnBallSpawned(minion);
             }
             else
             {
@@ -59,12 +74,6 @@ public class GrapeShotUpgrade : CannonUpgrade
                 if (proj != null)
                     proj.ProjectileInit(spreadDirection, randomSpeed, cannon.ProjDamage * damageMultiplier, cannon);
             }
-
-            // Register minion with MinionRoundUpgrade for death tracking
-            BallController minion = projectileObject.GetComponent<BallController>();
-            if (minion != null && minionRoundUpgrade != null)
-                minionRoundUpgrade.TrackMinion(minion, spawnPos);
-
             projectileObject.layer = parentWeapon.gameObject.layer + 4;
         }
     }

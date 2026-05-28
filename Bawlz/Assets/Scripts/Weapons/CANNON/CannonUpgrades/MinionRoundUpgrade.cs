@@ -6,24 +6,11 @@ using UnityEngine;
 public class MinionRoundUpgrade : CannonUpgrade
 {
     [SerializeField] GameObject minionPrefab;
+    [SerializeField] float minionHealth = 1;
+
+    public float MinionHealth => minionHealth;
+
     public GameObject MinionPrefab => minionPrefab;
-
-    private class TrackedMinion
-    {
-        public BallController ball;
-        public Vector3 lastPosition;
-    }
-
-    private List<TrackedMinion> _activeMinions = new List<TrackedMinion>();
-
-    public void TrackMinion(BallController minion, Vector3 position)
-    {
-        _activeMinions.Add(new TrackedMinion
-        {
-            ball = minion,
-            lastPosition = position
-        });
-    }
 
     public override void OnAttack()
     {
@@ -45,38 +32,22 @@ public class MinionRoundUpgrade : CannonUpgrade
         GameObject minionObject = Instantiate(
             minionPrefab,
             parentWeapon.transform.position,
-            parentWeapon.transform.rotation
+            quaternion.identity
         );
-
         minionObject.layer = parentWeapon.gameObject.layer + 4;
+        minionObject.tag = "Cannon Minion";
 
         BallController minion = minionObject.GetComponent<BallController>();
         if (minion != null)
-            TrackMinion(minion, minionObject.transform.position);
+        {
+            minion.maxHealth = minionHealth;
+            minion.contactDamage = cannon.ProjDamage;
+            minion.Init(new List<Upgrade>(),parentBall.playerNum,rotation,parentBall.sprite.sprite);
+            GameManager.Instance.GetMainBallByNumber(parentBall.playerNum).OnBallSpawned(minion);
+        }
 
         Projectile projectile = minionObject.GetComponent<Projectile>();
         if (projectile != null)
             projectile.ProjectileInit(shotDirection, cannon.ProjSpeed, cannon.ProjDamage, cannon);
-    }
-
-    public override void Update()
-    {
-        Cannon cannon = parentWeapon as Cannon;
-        if (cannon == null) return;
-
-        for (int i = _activeMinions.Count - 1; i >= 0; i--)
-        {
-            TrackedMinion tracked = _activeMinions[i];
-
-            if (tracked.ball == null)
-            {
-                cannon.OnMinionDeath(tracked.lastPosition);
-                _activeMinions.RemoveAt(i);
-            }
-            else
-            {
-                tracked.lastPosition = tracked.ball.transform.position;
-            }
-        }
     }
 }

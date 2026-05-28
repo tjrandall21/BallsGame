@@ -20,16 +20,9 @@ public class RatMinionUpgrade : DaggerUpgrade
         rat.layer = parentBall.gameObject.layer + 4;
 
         BallController ratController = rat.GetComponent<BallController>();
-        ratController.Init(new List<Upgrade>(), parentBall.playerNum, Random.Range(0.0f, 360.0f));
+        ratController.Init(new List<Upgrade>(), 1, Random.Range(0.0f, 360.0f), ratController.sprite.sprite);
         ratController.contactDamage = ratDamage;
         ratController.maxHealth = ratHealth;
-
-        DoTEffect scaledPoison = Instantiate(ratPoisonEffect);
-        scaledPoison.damagePerSecond += damageScaling;
-        scaledPoison.statusDuration += durationScaling;
-        ratController.ApplyStatus(scaledPoison, parentBall);
-
-        parentBall.OnBallSpawned(ratController);
     }
 
 

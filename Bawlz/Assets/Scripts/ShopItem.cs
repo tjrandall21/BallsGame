@@ -52,16 +52,22 @@ public class ShopItem : MonoBehaviour
 
     public void Init(Upgrade upgrade, int newIndex, bool sellMode = false)
     {
-        sellCost = 1 + upgrade.upgradeLevel;
-        Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, upgrade.description, sellMode);
-        shopItemType = ShopItemType.Upgrade;
+        if (upgrade != null)
+        {    
+            sellCost = 1 + upgrade.upgradeLevel;
+            Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, upgrade.description, sellMode);
+            shopItemType = ShopItemType.Upgrade;
+        }
     }
 
     public void Init(WeaponUpgrade upgrade, int newIndex, bool sellMode = false)
     {
-        sellCost = 1 + upgrade.upgradeLevel;
-        Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, upgrade.description, sellMode);
-        shopItemType = ShopItemType.WeaponUpgrade;
+        if (upgrade != null)
+        {  
+            sellCost = 1 + upgrade.upgradeLevel;
+            Init(upgrade.shopIcon,upgrade.upgradeName, newIndex, upgrade.description, sellMode);
+            shopItemType = ShopItemType.WeaponUpgrade;
+        }
     }
     
     

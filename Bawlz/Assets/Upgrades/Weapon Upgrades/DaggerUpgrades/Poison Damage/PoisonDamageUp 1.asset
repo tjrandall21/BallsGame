@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce46156c397803449afe45d5afceef5, type: 3}
   m_Name: PoisonDamageUp 1
   m_EditorClassIdentifier: Assembly-CSharp::DaggerUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 4138806074648621384, guid: 8cef859fca30d3944b950e5dff77dae3, type: 3}
   upgradeFamily: PoisonDamageUp
   upgradeName: Venom Boost
   description: Increases Posion Damage
-  upgradeLevel: 0
+  upgradeLevel: 1
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 25f1f63b78d7b6c4dab06e5dba459897, type: 2}
   stackable: 1

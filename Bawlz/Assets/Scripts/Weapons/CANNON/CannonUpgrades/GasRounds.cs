@@ -5,20 +5,32 @@ public class GasRound : CannonUpgrade
 {
     [SerializeField] GameObject gasPrefab;
     [SerializeField] float gasSize = 1f;
+    [SerializeField] float gasDamage = 3f;
+    [SerializeField] float gasKnockback = 10f;
+    [SerializeField] float grapeShotGasSize = 0.5f;
 
     public override void OnProjectileDestroyed(Projectile projectile)
     {
-        GameObject gasObject = Instantiate(gasPrefab, projectile.transform.position, Quaternion.identity);
+        GameObject gasObject = Instantiate(gasPrefab);
         gasObject.layer = projectile.gameObject.layer;
-        gasObject.transform.localScale = Vector3.one * gasSize;
+        gasObject.GetComponent<Explosion>().ExplosionInit(gasDamage,projectile.transform.position,gasKnockback,gasSize);
         base.OnProjectileDestroyed(projectile);
     }
 
-    public override void OnMinionDeath(Vector3 position)
+    public override void OnMinionDeath(BallController minion)
     {
-        GameObject gasObject = Instantiate(gasPrefab, position, Quaternion.identity);
-        gasObject.layer = parentWeapon.gameObject.layer + 4;
-        gasObject.transform.localScale = Vector3.one * gasSize;
-        base.OnMinionDeath(position);
+        if (minion.tag == "Cannon Minion")
+        {
+            GameObject gasObject = Instantiate(gasPrefab);
+            gasObject.layer = parentWeapon.gameObject.layer + 4;
+            gasObject.GetComponent<Explosion>().ExplosionInit(gasDamage,minion.transform.position,gasKnockback,gasSize);
+        }
+        else if (minion.tag == "Grape Minion")
+        {
+            GameObject gasObject = Instantiate(gasPrefab);
+            gasObject.layer = parentWeapon.gameObject.layer + 4;
+            gasObject.GetComponent<Explosion>().ExplosionInit(gasDamage,minion.transform.position,gasKnockback,grapeShotGasSize);
+        }
+        base.OnMinionDeath(minion);
     }
 }

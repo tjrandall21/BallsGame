@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sword
   weaponName: Sword
-  description: This is a weapon.
+  description: Deals damage on hit.
   damage: 8
   knockbackSpeed: 0
   attackCooldown: 0

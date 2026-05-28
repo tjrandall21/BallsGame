@@ -2939,6 +2939,9 @@ MonoBehaviour:
   - {fileID: 9124016292243078404, guid: 197b6462f8419164fb6286363c47f2a1, type: 3}
   - {fileID: 9124016292243078404, guid: bb4bef6c9f5aaca459680b5b7e086c2c, type: 3}
   - {fileID: 9124016292243078404, guid: 9598dc8f8abab4a4e82d958447ebcb94, type: 3}
+  - {fileID: 9124016292243078404, guid: 502494173fd300a42a15616314ec96aa, type: 3}
+  - {fileID: 9124016292243078404, guid: 3d883afbaf0d3de47a6feb5139cfa31d, type: 3}
+  - {fileID: 9124016292243078404, guid: 9bf94f272db4a1a48a21e1dfa20d3ecc, type: 3}
   upgradeWeights: 020000000100000001000000
   weaponUpgradeWeights: 
   weaponPrefabWeights: 

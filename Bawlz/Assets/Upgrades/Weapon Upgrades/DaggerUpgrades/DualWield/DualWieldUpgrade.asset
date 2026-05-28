@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b427e9ff0e7214bb3608edd202ca9a, type: 3}
   m_Name: DualWieldUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::DualWieldUpgrade
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
+  shopIcon: {fileID: 3519075851948252805, guid: f1b75c995b8a7c542b58f5fc084579c7, type: 3}
+  upgradeFamily: Dual Wield
   upgradeName: Dual Wield
-  description: This is a weapon upgrade.
+  description: You get a second dagger.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 179424141fa4fe04485034b865048459, type: 2}

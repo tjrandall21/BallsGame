@@ -212,14 +212,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cannon
   weaponName: Cannon
-  description: LOTS OF RECOIL
+  description: Shoots cannonballs and has strong recoil.
   damage: 5
   knockbackSpeed: 0
   attackCooldown: 2
+  canWeaponCollide: 1
+  excludeOnHit: 1
   parent: {fileID: 0}
-  weaponUpgrades:
-  - {fileID: 11400000, guid: 2616e84e4f583734bac8c38ca4148fca, type: 2}
-  possibleWeaponUpgradesInShop: []
+  weaponUpgrades: []
+  possibleWeaponUpgradesInShop:
+  - {fileID: 0}
   projectilePrefab: {fileID: 9124016292243078404, guid: e7f298a72ba99434b9561c2018919173, type: 3}
   projSpeed: 15
   projCount: 1

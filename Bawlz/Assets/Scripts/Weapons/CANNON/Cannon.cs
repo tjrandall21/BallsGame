@@ -130,16 +130,6 @@ public class Cannon : Weapon
         }
     }
 
-    public void OnMinionDeath(Vector3 position)
-{
-    foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
-    {
-        if (weaponUpgrade is CannonUpgrade cannonUpgrade)
-        {
-            cannonUpgrade.OnMinionDeath(position);
-        }
-    }
-}
 
     public void FireVolley()
     {
