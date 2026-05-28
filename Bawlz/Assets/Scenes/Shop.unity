@@ -370,7 +370,7 @@ MonoBehaviour:
   m_MoveAction: {fileID: -2215885219977492551, guid: 33270548133ffe149a1faa56328763ca, type: 3}
   m_SubmitAction: {fileID: 0}
   m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: -3468830091373826762, guid: 33270548133ffe149a1faa56328763ca, type: 3}
+  m_LeftClickAction: {fileID: 762566738088604403, guid: 33270548133ffe149a1faa56328763ca, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}
