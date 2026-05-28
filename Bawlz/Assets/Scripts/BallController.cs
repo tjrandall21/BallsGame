@@ -293,8 +293,12 @@ public class BallController : MonoBehaviour
         queueCleanMinions = true;
     }
 
-    void OnBallDeath()
+    public void OnBallDeath()
     {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.OnBallDeath();
+        }
         if (alive)
         {   
             

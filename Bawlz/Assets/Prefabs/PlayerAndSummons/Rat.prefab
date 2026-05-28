@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 8545179988194218778}
   - component: {fileID: -4926090583861382007}
   m_Layer: 6
-  m_Name: Minion
+  m_Name: Rat
   m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a068ad0365c714b9acdce4b880837b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallController
-  ballName: Minion
+  ballName: Rat
   speed: 10
   launchAngle: 200
   rotationSpeed: 360

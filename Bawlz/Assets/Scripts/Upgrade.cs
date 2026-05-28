@@ -91,4 +91,9 @@ public class Upgrade : ScriptableObject
         //called when a minion or clone of this ball dies
     }
 
+    public virtual void OnBallDeath()
+    {
+        //called when the ball this upgrade is applied to dies
+    }
+
 }

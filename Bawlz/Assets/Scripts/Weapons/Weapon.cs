@@ -19,6 +19,7 @@ public class Weapon : MonoBehaviour
     protected Collider2D collider = null;
     public BallController parent = null;
     [SerializeField] protected List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
+    public List<WeaponUpgrade> WeaponUpgrades { get { return weaponUpgrades; } }
 
     Dictionary<int, float> excludeDict = new Dictionary<int, float>();
     float layerExcludeDuration = 0.1f;
