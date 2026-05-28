@@ -6284,7 +6284,7 @@ MonoBehaviour:
   coinsPerRound: 10
   buyPrice: 3
   roundNumber: 1
-  maxRounds: 5
+  maxRounds: 6
   clearPlayerDataOnStart: 0
   endBattlePanel: {fileID: 0}
 --- !u!4 &1223880454
