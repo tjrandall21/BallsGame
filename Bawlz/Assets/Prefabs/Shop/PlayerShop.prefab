@@ -2928,6 +2928,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 27da74e40eff6de469d922fa2314695a, type: 2}
   - {fileID: 11400000, guid: 1710ca59695d2c1498f1be04bc308c27, type: 2}
   - {fileID: 11400000, guid: 1dc5a0aa2142a7744b48281d9b055b45, type: 2}
+  - {fileID: 11400000, guid: 4fd1b641f6a16b548b476992fd4a81ea, type: 2}
+  - {fileID: 11400000, guid: a43b945b522820e4db1132dd0bcddd4c, type: 2}
+  - {fileID: 11400000, guid: 26106b6722122d14f8ce7eb886ea5044, type: 2}
   weaponUpgrades:
   - {fileID: 11400000, guid: ecb45aac70fce3645b9c2e3cc08c6aab, type: 2}
   - {fileID: 11400000, guid: 11893f453ad4bf84689a9b0c18ce374e, type: 2}
@@ -2936,6 +2939,9 @@ MonoBehaviour:
   - {fileID: 9124016292243078404, guid: 197b6462f8419164fb6286363c47f2a1, type: 3}
   - {fileID: 9124016292243078404, guid: bb4bef6c9f5aaca459680b5b7e086c2c, type: 3}
   - {fileID: 9124016292243078404, guid: 9598dc8f8abab4a4e82d958447ebcb94, type: 3}
+  - {fileID: 9124016292243078404, guid: 502494173fd300a42a15616314ec96aa, type: 3}
+  - {fileID: 9124016292243078404, guid: 3d883afbaf0d3de47a6feb5139cfa31d, type: 3}
+  - {fileID: 9124016292243078404, guid: 9bf94f272db4a1a48a21e1dfa20d3ecc, type: 3}
   upgradeWeights: 020000000100000001000000
   weaponUpgradeWeights: 
   weaponPrefabWeights: 

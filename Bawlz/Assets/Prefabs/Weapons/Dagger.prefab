@@ -211,13 +211,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf5239d3fcd1f1449b4e7e80aa92a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dagger
-  weaponName: Weapon
-  description: This is a weapon.
+  weaponName: Dagger
+  description: Applies poison on hit.
   damage: 3
   knockbackSpeed: 0
   attackCooldown: 0.1
+  canWeaponCollide: 1
+  excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop:
+  - {fileID: 11400000, guid: 0dbeb4fb2aa77194fa900de49cca1a28, type: 2}
+  - {fileID: 11400000, guid: f6eaccbfef66780499193a50a9873304, type: 2}
+  - {fileID: 11400000, guid: b2b334ca9d982d14783ab4a4ef210658, type: 2}
   poisonEffect: {fileID: 11400000, guid: f821b0b36c990c24babb330f473f6053, type: 2}
   durationScaling: 0.2
   damageScaling: 0.2
+  damagePerSecond: 1
+  duration: 5

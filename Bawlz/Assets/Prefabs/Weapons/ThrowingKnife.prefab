@@ -165,18 +165,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5435eda5beeec47a358d3e533e937b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TKScript
-  weaponName: Weapon
-  description: This is a weapon.
+  weaponName: Throwing Knives
+  description: Throw daggers that stick to walls and cause bleed.
   damage: 10
   knockbackSpeed: 0
   attackCooldown: 1
+  canWeaponCollide: 1
+  excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop: []
   projectilePrefab: {fileID: 9124016292243078404, guid: bc8b116b71767e24ea8ff7c146af2cb5, type: 3}
   knifeSpeed: 5
   knifeDamage: 10
-  extraProjectiles: 0
-  spreadIncreasePerDagger: 10
 --- !u!61 &9158410719958858030
 BoxCollider2D:
   m_ObjectHideFlags: 0

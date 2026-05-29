@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CloneUpgrade", menuName = "Ball Upgrades/HPThreshold/CloneUpgrade")]
@@ -36,13 +37,19 @@ public class CloneUpgrade : Upgrade
     {
         GameObject ball = Instantiate(clonePrefab, parentBall.transform.position, Quaternion.identity);
         ball.layer = parentBall.gameObject.layer;
+
         BallController ballController = ball.GetComponent<BallController>();
-        ballController.Init(new System.Collections.Generic.List<Upgrade>(), parentBall.playerNum, Random.Range(0.0f, 360.0f));
-        foreach (Weapon weapon in parentBall.weapons)
+        ballController.Init(GameManager.Instance.players[parentBall.playerNum-1].upgrades, parentBall.playerNum, Random.Range(0.0f, 360.0f),GameManager.Instance.players[parentBall.playerNum-1].playerSprite);
+        ballController.maxHealth = parentBall.health;
+        ballController.RemoveUpgradeByFamily("Clone");
+        
+        if(GameManager.Instance.players[parentBall.playerNum-1].weaponPrefab != null)
         {
-            GameObject weaponCopy = Instantiate(weapon.gameObject, ball.transform);
+            GameObject weaponCopy = Instantiate(GameManager.Instance.players[parentBall.playerNum-1].weaponPrefab, ball.transform);
             weaponCopy.layer = ball.layer;
+            weaponCopy.GetComponent<Weapon>().SetUpgrades(GameManager.Instance.players[parentBall.playerNum-1].weaponUpgrades);
         }
-        parentBall.OnBallSpawned(ballController);
+
+        GameManager.Instance.GetMainBallByNumber(parentBall.playerNum).OnBallSpawned(ballController);
     }
 }

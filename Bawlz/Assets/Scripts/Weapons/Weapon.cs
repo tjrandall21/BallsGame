@@ -10,18 +10,21 @@ public class Weapon : MonoBehaviour
     public string weaponName = "Weapon";
     public string description = "This is a weapon.";
     [SerializeField] protected float damage = 10;
-    public float Damage { get { return damage; } }
+    public float Damage { get { return damage; } set {damage = value;}}
     [SerializeField] protected float knockbackSpeed = 0;
     public float KnockbackSpeed { get { return knockbackSpeed; } }
     [SerializeField] protected float attackCooldown = 0;
+    public bool canWeaponCollide = true;
+    public bool excludeOnHit = true;
     protected float attackTimer = 0;
     protected Rigidbody2D rb = null;
     protected Collider2D collider = null;
     public BallController parent = null;
     [SerializeField] protected List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
+    public List<WeaponUpgrade> WeaponUpgrades { get { return weaponUpgrades; } }
 
     Dictionary<int, float> excludeDict = new Dictionary<int, float>();
-    float layerExcludeDuration = 0.1f;
+    float layerExcludeDuration = 0.15f;
 
     [SerializeField] public List<WeaponUpgrade> possibleWeaponUpgradesInShop = new List<WeaponUpgrade>();
     
@@ -92,7 +95,7 @@ public class Weapon : MonoBehaviour
 
     void ExcludeLayer(int layer)
     {
-        if (!excludeDict.ContainsKey(layer))
+        if (excludeOnHit && !excludeDict.ContainsKey(layer))
         {
             excludeDict.Add(layer,layerExcludeDuration);
             collider.excludeLayers |= 1<<layer;
@@ -157,7 +160,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         BallController ball = collision.GetComponent<BallController>();
         if (ball != null)
@@ -168,7 +171,10 @@ public class Weapon : MonoBehaviour
         Weapon otherWeapon = collision.GetComponent<Weapon>();
         if (otherWeapon != null)
         {
-            OnWeaponHit(otherWeapon);
+            if (otherWeapon.canWeaponCollide && canWeaponCollide)
+            {
+                OnWeaponHit(otherWeapon);
+            }
             return;
         }
         if(collision.gameObject.layer == 0)
@@ -179,7 +185,7 @@ public class Weapon : MonoBehaviour
 
 
 
-    void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         BallController ball = collision.collider.GetComponent<BallController>();
         if (ball != null)

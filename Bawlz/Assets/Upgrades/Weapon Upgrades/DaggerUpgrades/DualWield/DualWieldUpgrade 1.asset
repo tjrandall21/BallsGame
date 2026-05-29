@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b427e9ff0e7214bb3608edd202ca9a, type: 3}
+  m_Name: DualWieldUpgrade 1
+  m_EditorClassIdentifier: Assembly-CSharp::DualWieldUpgrade
+  shopIcon: {fileID: 3519075851948252805, guid: f1b75c995b8a7c542b58f5fc084579c7, type: 3}
+  upgradeFamily: Dual Wield
+  upgradeName: Dual Wield
+  description: You get a second dagger and spin faster.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 6da962a3bfbe3d74d860afe053d30056, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  spinSpeed: 90
+  secondaryDaggerPrefab: {fileID: 9124016292243078404, guid: e72ecaa4d1e77d44d84fefe3eaa8fc84, type: 3}

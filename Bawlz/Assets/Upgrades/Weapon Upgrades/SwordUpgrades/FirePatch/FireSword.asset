@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2643994116b424f99d73cdc4d02a05, type: 3}
+  m_Name: FireSword
+  m_EditorClassIdentifier: Assembly-CSharp::FireSword
+  shopIcon: {fileID: 6888718506746277854, guid: 120a2c0ebe6d8f34887822385d203a7b, type: 3}
+  upgradeFamily: Fire Sword
+  upgradeName: Flaming Blade
+  description: Your sword leaves behind patches of burning ground.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: e6ddd1d797ed933498c955e9e0126f65, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  size: 1
+  spinSpeed: 0
+  firePatchPrefab: {fileID: 4866617159980323993, guid: f66124e763c3c024d8f95a7f2292194e, type: 3}
+  firePatchDmg: 3
+  firePatchCD: 0.3
+  firePatchSize: 0.8
+  firePatchDuration: 3

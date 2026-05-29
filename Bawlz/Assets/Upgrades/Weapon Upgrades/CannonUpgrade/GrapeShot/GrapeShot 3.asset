@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GrapeShot 3
   m_EditorClassIdentifier: Assembly-CSharp::GrapeShot
   shopIcon: {fileID: 4043598713951800814, guid: 1e25eaf33ba2dc44794e3f330f4eedf3, type: 3}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  upgradeFamily: Grape Shot
+  upgradeName: Grape Shot
+  description: Shoots a spread of smaller projectiles
   upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}

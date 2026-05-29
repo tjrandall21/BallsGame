@@ -15,8 +15,7 @@ MonoBehaviour:
   shopIcon: {fileID: -1181283550536322723, guid: a32739013c7b40e4483b769c7ffce058, type: 3}
   upgradeFamily: Poison Cloud Arrows
   upgradeName: Poison Explosion
-  description: Your arrows create a burst of poison on impact but you have a reduced
-    fire rate.
+  description: Your arrows create a burst of poison on impact.
   upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}

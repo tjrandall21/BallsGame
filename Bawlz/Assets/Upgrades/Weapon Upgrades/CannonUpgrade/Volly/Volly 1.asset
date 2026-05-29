@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Volly 1
   m_EditorClassIdentifier: Assembly-CSharp::BurstUpgrade
   shopIcon: {fileID: -4223280122241261657, guid: d2fc1381caf45644fa330688aac227f4, type: 3}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  upgradeFamily: Volley
+  upgradeName: Volley Shot
+  description: Shoots in bursts.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 105d6afd0b67a1049aadcd566bcaea6e, type: 2}

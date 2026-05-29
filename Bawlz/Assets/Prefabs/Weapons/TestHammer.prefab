@@ -212,12 +212,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hammer
   weaponName: Hammer
-  description: This is a Hammer
+  description: Increases damage with spin rate.
   damage: 0
   knockbackSpeed: 10
   attackCooldown: 1
+  canWeaponCollide: 1
+  excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades: []
+  possibleWeaponUpgradesInShop: []
   baseDmg: 7
   maxWeaponSpin: 400
   rotationAcceleration: 100
