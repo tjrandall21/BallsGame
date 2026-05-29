@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6d67a569fc010149933d53a30cb3719, type: 3}
-  m_Name: MinionRoundUpgrade
+  m_Name: MinionRoundUpgrade 2
   m_EditorClassIdentifier: Assembly-CSharp::MinionRoundUpgrade
   shopIcon: {fileID: 2642110035874775915, guid: 349496ac6d345c74989d36d2eb546fbd, type: 3}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  upgradeFamily: Minion Rounds
+  upgradeName: Minion Rounds
+  description: Fires minions instead of cannonballs.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
@@ -30,3 +30,4 @@ MonoBehaviour:
   u_projSpeed: 0
   u_projDamage: 0
   minionPrefab: {fileID: 7189852719700939712, guid: 849f3f1784d95034e8ac6c79eb317c27, type: 3}
+  minionHealth: 20

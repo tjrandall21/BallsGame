@@ -22,6 +22,7 @@ public class AreaUpgrade : Upgrade
     public override void Update()
     {
         base.Update();
+        ballsInContact.RemoveAll(item => item == null);
         foreach (BallController ball in ballsInContact)
         {
             BallUpdate(ball);

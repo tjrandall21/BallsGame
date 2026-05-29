@@ -215,13 +215,17 @@ MonoBehaviour:
   description: Shoots cannonballs and has strong recoil.
   damage: 5
   knockbackSpeed: 0
-  attackCooldown: 2
+  attackCooldown: 1.3
   canWeaponCollide: 1
   excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades: []
   possibleWeaponUpgradesInShop:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ac7cf5171da7e6c4c96a850552df4a03, type: 2}
+  - {fileID: 11400000, guid: 213b45e94ffc9854692aa26016f3a563, type: 2}
+  - {fileID: 11400000, guid: a02bcbd27f4ee4943b54838a380c3a76, type: 2}
+  - {fileID: 11400000, guid: 653fdca9f59b2d14b91c163cb4a7515e, type: 2}
+  - {fileID: 11400000, guid: 8507b9583e7a604409abd629b842c639, type: 2}
   projectilePrefab: {fileID: 9124016292243078404, guid: e7f298a72ba99434b9561c2018919173, type: 3}
   projSpeed: 15
   projCount: 1

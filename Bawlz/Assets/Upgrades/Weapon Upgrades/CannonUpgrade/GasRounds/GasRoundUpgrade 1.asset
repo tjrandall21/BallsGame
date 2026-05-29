@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef10ef8e56202c448edd8d005f0fb88, type: 3}
+  m_Name: GasRoundUpgrade 1
+  m_EditorClassIdentifier: Assembly-CSharp::GasRound
+  shopIcon: {fileID: 4913151709059605098, guid: ab13d32e3edbd5d4387a37c7b6a19a71, type: 3}
+  upgradeFamily: Gas Rounds
+  upgradeName: Gas Rounds 2
+  description: Leaves a poisonous gas cloud on impact.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 8f6940c2b0215d141b1d914a492a0578, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  u_prodCount: 0
+  u_projSpeed: 0
+  u_projDamage: 0
+  gasPrefab: {fileID: 9124016292243078404, guid: ce351ec3afaf3194c841198925454b4e, type: 3}
+  gasSize: 1.3
+  gasDamage: 6
+  gasKnockback: 10
+  grapeShotGasSize: 0.65
