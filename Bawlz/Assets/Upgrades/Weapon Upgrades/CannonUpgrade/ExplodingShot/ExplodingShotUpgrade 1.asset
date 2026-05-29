@@ -31,8 +31,8 @@ MonoBehaviour:
   u_projDamage: 0
   explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
   explosionDamage: 30
-  explosionKnockback: 1
+  explosionKnockback: 30
   explosionSize: 1.2
-  grapeShotExplosionDamage: 5
-  grapeShotExplosionKnockback: 30
+  grapeShotExplosionDamage: 10
+  grapeShotExplosionKnockback: 5
   grapeShotExplosionSize: 0.6

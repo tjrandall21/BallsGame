@@ -14,10 +14,10 @@ public class DualWieldUpgrade : DaggerUpgrade
         dualWield.layer = ball.gameObject.layer;
 
         Dagger secondDagger = dualWield.GetComponent<Dagger>();
-       foreach(WeaponUpgrade existingUpgrade in parentWeapon.WeaponUpgrades)
-       {
-           if (existingUpgrade is DualWieldUpgrade) continue;
-           secondDagger.AddUpgrade(existingUpgrade);
-       }
+        foreach(WeaponUpgrade existingUpgrade in parentWeapon.WeaponUpgrades)
+        {
+            if (existingUpgrade is DualWieldUpgrade) continue;
+            secondDagger.AddUpgrade(existingUpgrade);
+        }
     }
 }

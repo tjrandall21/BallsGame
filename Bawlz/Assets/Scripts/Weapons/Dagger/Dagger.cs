@@ -49,5 +49,6 @@ public class Dagger : Weapon
     {
         FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
+        Debug.Log("HIT");
     }
 }
