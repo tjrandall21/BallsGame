@@ -214,7 +214,7 @@ MonoBehaviour:
   weaponName: Cannon
   description: Shoots cannonballs and has strong recoil.
   damage: 5
-  knockbackSpeed: 0
+  knockbackSpeed: 10
   attackCooldown: 2
   canWeaponCollide: 1
   excludeOnHit: 1
@@ -228,4 +228,5 @@ MonoBehaviour:
   projDamage: 50
   knockbackForce: 20
   knockbackDuration: 0.4
+  attackSpeedScaling: 0.02
   suppressBaseShot: 0

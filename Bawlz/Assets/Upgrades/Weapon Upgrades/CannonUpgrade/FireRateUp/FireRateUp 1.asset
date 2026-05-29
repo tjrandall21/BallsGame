@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ce3cfd106f6e64fbaf9ee929af96a2, type: 3}
   m_Name: FireRateUp 1
   m_EditorClassIdentifier: Assembly-CSharp::CannonUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 7637693588557836039, guid: bcb0f253db703784ab8409496fc46d09, type: 3}
   upgradeFamily: Upgrade
   upgradeName: Weapon Upgrade
   description: This is a weapon upgrade.
@@ -23,10 +23,9 @@ MonoBehaviour:
   damage: 0
   knockbackSpeed: 0
   attackCooldown: 0
-  attackCooldownMultiplier: 0.2
+  attackCooldownMultiplier: 0.6
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
   u_prodCount: 0
   u_projSpeed: 0
   u_projDamage: 0
-  attackSpeedScaling: 0
