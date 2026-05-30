@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73f8ceda3c0c2042ae0f08ebafd45d6, type: 3}
+  m_Name: BreakingStrength 1
+  m_EditorClassIdentifier: Assembly-CSharp::BreakingStrength
+  shopIcon: {fileID: 3023572191513790032, guid: 57d4121f30c63334db50bcf4d381955c, type: 3}
+  upgradeFamily: BreakingStrength
+  upgradeName: BreakingStrength
+  description: Makes it so your Weapon Deals % Damage when hit a wepon
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 020a708abcbc607448f32aa803e49ded, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  u_baseDmg: 0
+  u_maxWeaponSpin: 0
+  u_baseRotationSpeed: 0
+  u_rotationAcceleration: 0
+  u_maxSpinIncreasePerHit: 0
+  damagePercent: 0.4
+  flatdamage: 30
