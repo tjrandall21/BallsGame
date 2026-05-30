@@ -31,5 +31,5 @@ MonoBehaviour:
   u_baseRotationSpeed: 0
   u_rotationAcceleration: 0
   u_maxSpinIncreasePerHit: 0
-  damagePercent: 0
-  flatdamage: 50
+  damagePercent: 0.5
+  flatdamage: 30

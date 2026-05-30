@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeFamily: SpinSpeed
   upgradeName: SpinSpeed
   description: Makes your Hammer speed up faster
-  upgradeLevel: 0
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
@@ -29,5 +29,5 @@ MonoBehaviour:
   u_baseDmg: 0
   u_maxWeaponSpin: 300
   u_baseRotationSpeed: 0
-  u_rotationAcceleration: 300
+  u_rotationAcceleration: 150
   u_maxSpinIncreasePerHit: 0
