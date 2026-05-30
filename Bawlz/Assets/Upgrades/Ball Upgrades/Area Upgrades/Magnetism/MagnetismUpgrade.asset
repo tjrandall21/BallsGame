@@ -18,13 +18,13 @@ MonoBehaviour:
   description: Pulls nearby enemies towards you.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: dd6e436dfea0f0448a36d15fa32621f7, type: 2}
   stackable: 1
   health: 0
   contactDamage: 0
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 1
-  ballAreaPrefab: {fileID: 4866617159980323993, guid: 93194089957f1884fb12b623bcd867d1, type: 3}
+  ballAreaPrefab: {fileID: 4866617159980323993, guid: ea91e3eff0aa40d4a876cb3ce1bc00f9, type: 3}
   radius: 2.5
-  magnetismStrength: 50
+  magnetismStrength: 30

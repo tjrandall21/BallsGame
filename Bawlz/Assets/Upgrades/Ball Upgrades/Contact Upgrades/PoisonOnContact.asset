@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d93cde49ec77843893fad95dc4c824, type: 3}
+  m_Name: PoisonOnContact
+  m_EditorClassIdentifier: Assembly-CSharp::ContactStatusUpgrade
+  shopIcon: {fileID: 0}
+  upgradeFamily: Upgrade
+  upgradeName: Upgrade
+  description: This is an upgrade.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  health: 0
+  contactDamage: 0
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 1
+  status: {fileID: 11400000, guid: f821b0b36c990c24babb330f473f6053, type: 2}

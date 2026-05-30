@@ -30,6 +30,7 @@ public class BallController : MonoBehaviour
 
     public List<Weapon> weapons = new List<Weapon>();
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
+    public List<Upgrade> Upgrades {get {return upgrades;}}
     [SerializeField] List<StatusEffect> statusEffects;
     [SerializeField] List<BallController> minions = new List<BallController>();
     bool queueCleanMinions = false;
@@ -51,8 +52,33 @@ public class BallController : MonoBehaviour
         }
            
         launchAngle = startingAngle;
+
+        //load upgrades
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.Init(this);
+            //add stats
+            maxHealth += upgrade.health;
+            speed += upgrade.moveSpeed;
+            rotationSpeed += upgrade.rotationSpeed;
+            contactDamage += upgrade.contactDamage;
+            defenseMultiplier *= upgrade.defenseMultiplier;
+        }
     }
-    
+
+    public void OnRoundStart()
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.OnRoundStart();
+        }
+    }
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        healthText = GetComponentInChildren<TextMeshPro>();
+    }
 
     void Start()
     {
@@ -67,28 +93,16 @@ public class BallController : MonoBehaviour
             weapons.Add(weapon);
         }
 
-        //load upgrades
-        foreach (Upgrade upgrade in upgrades)
-        {
-            upgrade.Init(this);
-            //add stats
-            maxHealth += upgrade.health;
-            speed += upgrade.moveSpeed;
-            rotationSpeed += upgrade.rotationSpeed;
-            contactDamage += upgrade.contactDamage;
-            defenseMultiplier *= upgrade.defenseMultiplier;
-
-            upgrade.OnRoundStart(); //Need to move this once a start round countdown is added
-        }
-
         health = maxHealth;
 
         launchAngle = launchAngle * math.PI / 180.0f;
-        rb = GetComponent<Rigidbody2D>();
-        healthText = GetComponentInChildren<TextMeshPro>();
+        
         SetVelocityAngle(launchAngle, speed);
 
-        FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
+        if (FXManager.Instance != null)
+        {
+            FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
+        }
     }
 
     // Update is called once per frame
@@ -117,7 +131,10 @@ public class BallController : MonoBehaviour
         sprite.transform.rotation = new Quaternion(0, 0, 0, 1);
     }
 
-
+    public bool HasAnyStatus()
+    {
+        return statusEffects.Count > 0;
+    }
     public bool HasStatus(string statusName) // confirms if the ball has a status matching the name
     {
         foreach (StatusEffect statusEffect in statusEffects)
@@ -148,7 +165,7 @@ public class BallController : MonoBehaviour
         { //check for any active status with a matching name
             foreach (StatusEffect statusEffect in statusEffects)
             {
-                if (statusEffect.name == status.name)
+                if (statusEffect.statusName == status.statusName)
                 {
                     statusEffect.OnStatusRefresh();
                     return;
@@ -163,6 +180,18 @@ public class BallController : MonoBehaviour
     public void RemoveStatus(StatusEffect status)
     {
         statusEffects.Remove(status);
+    }
+
+    public void RemoveUpgradeByFamily(String family)
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            if (upgrade.upgradeFamily == family)
+            {
+                upgrades.Remove(upgrade);
+                return;
+            }
+        }
     }
 
     public void AddVelocity(Vector2 velocity)
@@ -187,8 +216,8 @@ public class BallController : MonoBehaviour
         {
             magnitude = rb.linearVelocity.magnitude;
         }
-        rb.linearVelocityX = math.sin(angle - transform.rotation.eulerAngles.z) * magnitude;
-        rb.linearVelocityY = math.cos(angle - transform.rotation.eulerAngles.z) * magnitude;
+        rb.linearVelocityX = Mathf.Cos(angle) * magnitude;
+        rb.linearVelocityY = Mathf.Sin(angle) * magnitude;
     }
     
     public void SetVelocity(Vector2 velocity)
@@ -280,6 +309,16 @@ public class BallController : MonoBehaviour
         }
     }
 
+    public void SendMinionsTo(Vector2 pos, float speed = -1)
+    {
+        foreach (BallController minion in minions)
+        {
+            Vector2 difference = pos - (Vector2)minion.transform.position;
+            float angle = math.atan2(difference.y,difference.x);
+            minion.SetVelocityAngle(angle, speed);
+        }
+    }
+
     public void OnMinionDeath(BallController minion)
     {
         foreach (Upgrade upgrade in upgrades)
@@ -293,12 +332,17 @@ public class BallController : MonoBehaviour
         queueCleanMinions = true;
     }
 
-    void OnBallDeath()
+    public void OnBallDeath()
     {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.OnBallDeath();
+        }
         if (alive)
         {   
-            
             alive = false;
+            FXManager.Instance.PlayDeath(gameObject);
+            Destroy(gameObject);
             if (isMainBall)
             {
                 //kill all minions
@@ -310,12 +354,11 @@ public class BallController : MonoBehaviour
                 //alert gamemanager that a player's main ball has died
                 GameManager.Instance.MainBallDied(this);
             }
-            else
+            else if (tag != "Rat")
             {
                 GameManager.Instance.GetMainBallByNumber(playerNum).OnMinionDeath(this);
             }
-            FXManager.Instance.PlayDeath(gameObject);
-            Destroy(gameObject);
+            
         }
     }
 

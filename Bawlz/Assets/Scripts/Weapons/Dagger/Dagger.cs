@@ -5,10 +5,22 @@ public class Dagger : Weapon
     [SerializeField] private DoTEffect poisonEffect;
     public float durationScaling = 0.3f;
     public float damageScaling = 0.3f;
+    public float damagePerSecond = 1;
+    public float duration = 5f;
+
 
     protected override void Start()
     {
         base.Start();
+        foreach(WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if(weaponUpgrade is DaggerUpgrade)
+            {
+                DaggerUpgrade daggerUpgrade = (DaggerUpgrade)weaponUpgrade;
+                damageScaling += daggerUpgrade.damageScalingAmount;
+                parent.RotationSpeed += daggerUpgrade.spinSpeed;
+            }
+        }
     }
 
     protected override void OnBallHit(BallController otherBall)
@@ -25,8 +37,10 @@ public class Dagger : Weapon
             weaponUpgrade.OnBallHit(otherBall);
 
         DoTEffect scaledPoison = Instantiate(poisonEffect);
-        scaledPoison.damagePerSecond += damageScaling;
-        scaledPoison.statusDuration += durationScaling;
+        damagePerSecond += damageScaling;
+        scaledPoison.damagePerSecond = damagePerSecond;
+        duration += durationScaling;
+        scaledPoison.statusDuration = duration;
 
         otherBall.ApplyStatus(scaledPoison, parent);
     }
@@ -35,5 +49,6 @@ public class Dagger : Weapon
     {
         FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
+        Debug.Log("HIT");
     }
 }

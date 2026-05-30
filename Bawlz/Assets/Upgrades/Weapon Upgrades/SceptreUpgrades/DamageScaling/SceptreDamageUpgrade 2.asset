@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d45a13bea475a49994a0f5b1d4cb6c, type: 3}
+  m_Name: SceptreDamageUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::SceptreDamageScaling
+  shopIcon: {fileID: -5119249448611504100, guid: be839ab5803e250439c1d63c92146d4c, type: 3}
+  upgradeFamily: Sceptre Damage Scaling
+  upgradeName: Sacrificial Reinforcement 3
+  description: Your sceptre gains 6 damage on every minion death.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  minionDamageScaling: 0
+  minionDamage: 0
+  minionHealth: 0
+  minionHealthScaling: 0
+  minionsPerHit: 0
+  extraMinionChance: 0
+  superMinionChance: 0
+  superMinionDamageMult: 1
+  superMinionHealthMult: 1
+  damageScaling: 6

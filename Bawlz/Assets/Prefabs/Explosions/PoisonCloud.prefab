@@ -116,9 +116,12 @@ MonoBehaviour:
   damage: 10
   knockbackSpeed: 0
   attackCooldown: 0
+  canWeaponCollide: 1
+  excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades:
-  - {fileID: 11400000, guid: 5ef6cb52f6563ec4f9b37ac3b0f0ecde, type: 2}
+  - {fileID: 11400000, guid: 2f84c4baf56d2f64e87f05019063f126, type: 2}
+  possibleWeaponUpgradesInShop: []
 --- !u!212 &6466981764433241920
 SpriteRenderer:
   serializedVersion: 2

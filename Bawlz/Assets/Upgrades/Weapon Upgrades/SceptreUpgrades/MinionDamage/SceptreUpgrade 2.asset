@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ed19ba9956b6549b7cf01b7610051f, type: 3}
   m_Name: SceptreUpgrade 2
   m_EditorClassIdentifier: Assembly-CSharp::SceptreUpgrade
-  shopIcon: {fileID: 7619200178112292876, guid: 9e46e71278d626e49b5d32e58892903d, type: 3}
+  shopIcon: {fileID: -6088529919393740113, guid: a89d9ad11adef4a4aaadbceb1f58c1d9, type: 3}
   upgradeFamily: Sceptre Minion Damage
   upgradeName: Minion Damage
-  description: This is a weapon upgrade.
+  description: Increases the damage of your sceptre minions.
   upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
@@ -32,3 +32,6 @@ MonoBehaviour:
   minionHealthScaling: 0
   minionsPerHit: 0
   extraMinionChance: 0
+  superMinionChance: 0
+  superMinionDamageMult: 1
+  superMinionHealthMult: 1

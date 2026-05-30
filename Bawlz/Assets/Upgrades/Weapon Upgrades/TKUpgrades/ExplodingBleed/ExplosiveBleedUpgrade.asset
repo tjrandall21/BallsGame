@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4c994213a6adb409d0c64ae369006d, type: 3}
+  m_Name: ExplosiveBleedUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::TKExplosiveBleed
+  shopIcon: {fileID: 4043003000456710386, guid: 3a74dcd611cc51846ad8577d74f93a65, type: 3}
+  upgradeFamily: TKExplodingBleed
+  upgradeName: Bleeding Knives
+  description: Applies a stack of bleed and explodes at 10 stacks.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 195960007a9282644b64ae106a96427d, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  TKSpeed: 0
+  TKDamage: 0
+  TKDamageScaling: 0
+  extraProjectiles: 0
+  attackSpeedScaling: 0
+  fadeDurationMulti: 1
+  stickDurationMulti: 1
+  spinSpeed: 0
+  bleedEffect: {fileID: 11400000, guid: c14e9294fdfe14f42bdcdbe5cb8f54a0, type: 2}
+  stacks: 1
