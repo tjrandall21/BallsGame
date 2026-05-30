@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e71add33bfca0f49a04f942d6ca462c, type: 3}
+  m_Name: LightningBall
+  m_EditorClassIdentifier: Assembly-CSharp::LightningBall
+  shopIcon: {fileID: 2881979740265337775, guid: 485b9d2a3651582468fdcb2959e43b0e, type: 3}
+  upgradeFamily: LightningBall
+  upgradeName: LightningBall
+  description: spawns a lightning ball on weapon hit
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 8481b4dca9078954c8aa49b5f4f7b7e9, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  u_baseDmg: 0
+  u_maxWeaponSpin: 0
+  u_baseRotationSpeed: 0
+  u_rotationAcceleration: 0
+  u_maxSpinIncreasePerHit: 0
+  lightningBallPrefab: {fileID: 9124016292243078404, guid: 2f28ffe465eda064d87b443427299686, type: 3}
+  ballSpeed: 10
+  ballDamage: 20
+  ballSize: 0.3
+  ballLifetime: 3
