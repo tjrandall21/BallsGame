@@ -50,8 +50,8 @@ MonoBehaviour:
   damage: 10
   knockbackSpeed: 0
   attackCooldown: 0
-  canWeaponCollide: 1
-  excludeOnHit: 1
+  canWeaponCollide: 0
+  excludeOnHit: 0
   parent: {fileID: 0}
   weaponUpgrades: []
   possibleWeaponUpgradesInShop: []
