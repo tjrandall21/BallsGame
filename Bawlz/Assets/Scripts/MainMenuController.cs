@@ -75,6 +75,8 @@ public class MainMenuController : MonoBehaviour
         playerCount = 0;
         playerDropoutButtons.ForEach(button => button.interactable = false); // Disable all dropout buttons
         playerJoinButtons[0].interactable = true; // Enable the first join button
+        startGameButton.interactable = false; // Disable the start game button
+
         for (int i = 1; i < playerJoinButtons.Count; i++)
         {
             playerJoinButtons[i].interactable = false; // Disable all join buttons except the first one
