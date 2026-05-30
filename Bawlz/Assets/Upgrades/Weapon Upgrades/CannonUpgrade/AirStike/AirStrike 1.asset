@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ccbd5dc2793dc49a00bb4ee6be91f6, type: 3}
+  m_Name: AirStrike 1
+  m_EditorClassIdentifier: Assembly-CSharp::AirStrike
+  shopIcon: {fileID: 5071806384473446621, guid: 52b275b8cfd360a49a82d5ca349c1182, type: 3}
+  upgradeFamily: Air Strike
+  upgradeName: Air Strike 2
+  description: Melee cannon hits call an air strike.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: e814064e4b8af774db01692bfa823e36, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  u_prodCount: 0
+  u_projSpeed: 0
+  u_projDamage: 0
+  attackSpeedScaling: 0
+  airStrikePrefab: {fileID: 4866617159980323993, guid: fcbf50575a3227542b45dee13166346e, type: 3}
+  airStrikeDamage: 40
+  airStrikeKnockback: 0
+  airStrikeExplosionSize: 1
+  airStrikeDelay: 1
+  airStrikeSize: 1.3

@@ -28,10 +28,11 @@ MonoBehaviour:
   parentWeapon: {fileID: 0}
   TKSpeed: 0
   TKDamage: 0
-  meleeScaling: 2
-  projectileScaling: 2
+  meleeScaling: 4
+  projectileScaling: 4
   extraProjectiles: 0
   attackSpeedScaling: 0
   fadeDurationMulti: 1
   stickDurationMulti: 1
   spinSpeed: 0
+  projectileBounces: 0

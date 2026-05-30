@@ -15,8 +15,8 @@ MonoBehaviour:
   shopIcon: {fileID: 239855412795449307, guid: 0e9826ca44c1c5c4f8ca50835ef5f79d, type: 3}
   upgradeFamily: TKTeleport
   upgradeName: Poison Teleport
-  description: You have a chance to trade places with your knives and leave behind
-    a poison cloud.
+  description: You can teleport to your thrown daggers and leave behind a poison
+    cloud.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: e9c86e789cdb3084190a33e39babdba1, type: 2}

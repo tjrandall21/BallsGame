@@ -99,7 +99,10 @@ public class BallController : MonoBehaviour
         
         SetVelocityAngle(launchAngle, speed);
 
-        FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
+        if (FXManager.Instance != null)
+        {
+            FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
+        }
     }
 
     // Update is called once per frame

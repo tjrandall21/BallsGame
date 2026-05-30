@@ -20,6 +20,10 @@ public class PlayerData : ScriptableObject
 
     public Sprite playerSprite;
 
+    // freeze store indices from the shop lists
+    public List<int> frozenUpgradeIndices = new List<int>();
+    public List<int> frozenWeaponUpgradeIndices = new List<int>();
+    public List<int> frozenWeaponPrefabIndices = new List<int>();
 
     public bool AddUpgrade(Upgrade newUpgrade)
     {
@@ -78,6 +82,71 @@ public class PlayerData : ScriptableObject
         return true;
     }
 
+    public bool ToggleFreezeUpgrade(int shopIndex)
+    {
+        bool nowFrozen = false;
+        Debug.Log("ToggleFreezeUpgrade called with: " + shopIndex);
+        if (frozenUpgradeIndices.Contains(shopIndex))
+        {
+            frozenUpgradeIndices.Remove(shopIndex);
+        }
+        else
+        {
+            nowFrozen = true;
+            frozenUpgradeIndices.Add(shopIndex);
+        }
 
+        Debug.Log("Frozen count: " + frozenUpgradeIndices.Count);
+        Debug.Log("Frozen Upgrades:");
+        foreach (int i in frozenUpgradeIndices)
+        {
+            Debug.Log(i);
+        }
+        return nowFrozen;
+    }
 
+    public bool ToggleFreezeWeaponUpgrade(int shopIndex)
+    {
+        bool nowFrozen = false;
+        if (frozenWeaponUpgradeIndices.Contains(shopIndex))
+        {
+            frozenWeaponUpgradeIndices.Remove(shopIndex);
+        }
+        else
+        {
+            nowFrozen = true;
+            frozenWeaponUpgradeIndices.Add(shopIndex);
+        }
+        return nowFrozen;
+    }
+
+    public bool ToggleFreezeWeaponPrefab(int shopIndex)
+    {
+        bool nowFrozen = false;
+        if (frozenWeaponPrefabIndices.Contains(shopIndex))
+        {
+            frozenWeaponPrefabIndices.Remove(shopIndex);
+        }
+        else
+        {
+            nowFrozen = true;
+            frozenWeaponPrefabIndices.Add(shopIndex);
+        }
+        return nowFrozen;
+    }
+
+    public void RemoveFrozenUpgrade(int shopIndex)
+    {
+        frozenUpgradeIndices.Remove(shopIndex);
+    }
+
+    public void RemoveFrozenWeaponUpgrade(int shopIndex)
+    {
+        frozenWeaponUpgradeIndices.Remove(shopIndex);
+    }
+
+    public void RemoveFrozenWeaponPrefab(int shopIndex)
+    {
+        frozenWeaponPrefabIndices.Remove(shopIndex);
+    }
 }

@@ -9,6 +9,7 @@ public class Hammer : Weapon
     [SerializeField] float rotationAccelerationScaling = 20f;
     [SerializeField] float baseRotationSpeed = 180f;
     [SerializeField] float maxSpinIncreasePerHit = 45f;
+    public bool skipSpinReset = false;
 
     protected override void Start()
     {
@@ -55,21 +56,31 @@ public class Hammer : Weapon
     {
         FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
 
-        if (parent != null)
-            parent.FlipRotation();
-
-        float damage = GetSpinDamage();
-        otherBall.OnDamageTaken(damage);
-        otherBall.OnWeaponCollision(this);
-
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
             if (weaponUpgrade is HammerUpgrade hammerUpgrade)
                 hammerUpgrade.OnBallHit(otherBall);
         }
 
+        if (parent != null)
+            parent.FlipRotation();
+
+        
+        float damage = GetSpinDamage();
+        otherBall.OnDamageTaken(damage);
+        otherBall.OnWeaponCollision(this);
+
+      
         rotationAcceleration += rotationAccelerationScaling;
         maxWeaponSpin += maxSpinIncreasePerHit;
-        parent.RotationSpeed = baseRotationSpeed;
+
+        if (skipSpinReset)
+        {
+            skipSpinReset = false;   
+        }
+        else
+        {
+            parent.RotationSpeed = baseRotationSpeed;
+        }
     }
 }

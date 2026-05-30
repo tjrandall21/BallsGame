@@ -15,12 +15,51 @@ public class ShopItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI detailsNameText;
     [SerializeField] TextMeshProUGUI description;
 
+    bool frozen = false;
+
+    bool inFreezeMode = false;
 
     [SerializeField] ShopItemType shopItemType = ShopItemType.Upgrade;
 
     [SerializeField] GameObject defaultPanel;
     [SerializeField] GameObject detailsPanel;
     int sellCost = 1;
+
+    public void SetFreezeMode(bool freezeMode)
+    {
+        inFreezeMode = freezeMode;
+
+        if (inFreezeMode)
+        {
+            SetFreezeModeText();
+        }
+        else
+        {
+            buttonText.text = "Buy";
+        }
+    }
+
+    void SetFreezeModeText()
+    {
+        if (frozen)
+        {
+            buttonText.text = "Unfreeze";
+        }
+        else
+        {
+            buttonText.text = "Freeze";
+        }
+    }
+
+    public void makeFrozen(bool freeze, Color freezeColor)
+    {
+        GetComponent<Image>().color = freezeColor;
+        frozen = freeze;
+        if (inFreezeMode)
+        {
+            SetFreezeModeText();
+        }
+    }
 
     public void ShowDetails(bool show)
     {

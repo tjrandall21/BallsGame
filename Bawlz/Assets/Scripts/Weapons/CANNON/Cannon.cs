@@ -11,6 +11,7 @@ public class Cannon : Weapon
     [SerializeField, Tooltip("Damage dealt by each projectile")] int projDamage = 10;
     [SerializeField, Tooltip("Force applied to the shooter on firing")] float knockbackForce = 10f;
     [SerializeField, Tooltip("Duration in seconds the knockback force is spread over")] float knockbackDuration = 0.2f;
+    [SerializeField] float attackSpeedScaling = 0.02f;
     [HideInInspector] public bool suppressBaseShot = false;
 
     public List<WeaponUpgrade> WeaponUpgrades => weaponUpgrades;
@@ -27,9 +28,10 @@ public class Cannon : Weapon
         {
             if (weaponUpgrade is CannonUpgrade cannonUpgrade)
             {
-                projSpeed += cannonUpgrade.u_projSpeed;
-                projDamage += cannonUpgrade.u_projDamage;
-                projCount += cannonUpgrade.u_prodCount;
+                projSpeed += ((CannonUpgrade)cannonUpgrade).u_projSpeed;
+                projDamage += ((CannonUpgrade)cannonUpgrade).u_projDamage;
+                projCount += ((CannonUpgrade)cannonUpgrade).u_prodCount;
+                attackSpeedScaling += ((CannonUpgrade)cannonUpgrade).attackSpeedScaling;
             }
         }
     }

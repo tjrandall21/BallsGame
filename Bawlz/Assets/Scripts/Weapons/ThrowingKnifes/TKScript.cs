@@ -9,8 +9,8 @@ public class TKScript : Weapon
     [SerializeField] float stickDuration = 1f;
     [SerializeField] float baseFadeDuration = 0.5f;
     float fadeDuration = 0;
-    [SerializeField] float meleeScaling = 0f;
-    [SerializeField] float projectileScaling = 0f;
+    [SerializeField] float meleeScaling = 1f;
+    [SerializeField] float projectileScaling = 1f;
     [SerializeField] float attackSpeedScaling = 0.03f;
     [SerializeField] DoTEffect bleedEffect;
     [SerializeField] float burstSpinModifier = 0.3f;

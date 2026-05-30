@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167a1c056c88f534596f631f8f7094c4, type: 3}
   m_Name: DaggerSlowUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::DaggerSlowUpgrade
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  shopIcon: {fileID: 1725833294605539793, guid: 623892fbbee5eb949b4551026eb3c92d, type: 3}
+  upgradeFamily: Dagger Slow
+  upgradeName: Paralyzing Toxins
+  description: Your dagger applies a slow effect to enemies.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: bf06805284ab32844ad9843e96c241f6, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

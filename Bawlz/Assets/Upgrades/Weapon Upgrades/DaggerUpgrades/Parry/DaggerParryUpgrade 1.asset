@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b19e291977fdc4d9028fa495de7f09, type: 3}
   m_Name: DaggerParryUpgrade 1
   m_EditorClassIdentifier: Assembly-CSharp::DaggerParryUpgrade
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  shopIcon: {fileID: 7093922600755937876, guid: f8a7f26883c2f7848afe9cd166ee4987, type: 3}
+  upgradeFamily: Dagger Parry
+  upgradeName: Parry
+  description: Your dagger can parry weapons to reflect damage.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: c774a7c89a108fb48a9c8d6dc8e64f31, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

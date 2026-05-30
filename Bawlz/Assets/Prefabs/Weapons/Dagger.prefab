@@ -187,7 +187,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.004939243, y: 0.0020335317}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -224,6 +224,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0dbeb4fb2aa77194fa900de49cca1a28, type: 2}
   - {fileID: 11400000, guid: f6eaccbfef66780499193a50a9873304, type: 2}
   - {fileID: 11400000, guid: b2b334ca9d982d14783ab4a4ef210658, type: 2}
+  - {fileID: 11400000, guid: 8320c102d3fddd340bfd06e8aee2aa74, type: 2}
+  - {fileID: 11400000, guid: a2586876451cdac40bb0034bee17fff5, type: 2}
+  - {fileID: 11400000, guid: 03b7e6d9f58e03441aff8d1048c9ab0c, type: 2}
   poisonEffect: {fileID: 11400000, guid: f821b0b36c990c24babb330f473f6053, type: 2}
   durationScaling: 0.2
   damageScaling: 0.2

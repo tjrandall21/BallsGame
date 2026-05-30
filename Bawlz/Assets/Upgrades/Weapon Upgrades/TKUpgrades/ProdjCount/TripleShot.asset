@@ -33,5 +33,6 @@ MonoBehaviour:
   extraProjectiles: 2
   attackSpeedScaling: 0
   fadeDurationMulti: 1
-  stickDurationMulti: 1
+  stickDurationMulti: 0.7
   spinSpeed: 0
+  projectileBounces: 0

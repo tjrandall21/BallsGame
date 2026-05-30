@@ -226,10 +226,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a02bcbd27f4ee4943b54838a380c3a76, type: 2}
   - {fileID: 11400000, guid: 653fdca9f59b2d14b91c163cb4a7515e, type: 2}
   - {fileID: 11400000, guid: 8507b9583e7a604409abd629b842c639, type: 2}
+  - {fileID: 11400000, guid: 9a0f035a2c4ce80459ecb1b868c41476, type: 2}
+  - {fileID: 11400000, guid: 7d06eb14e30b0af42a3c42bb78e0b161, type: 2}
   projectilePrefab: {fileID: 9124016292243078404, guid: e7f298a72ba99434b9561c2018919173, type: 3}
   projSpeed: 15
   projCount: 1
   projDamage: 50
   knockbackForce: 20
   knockbackDuration: 0.4
+  attackSpeedScaling: 0.02
   suppressBaseShot: 0
