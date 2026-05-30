@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8573606738932645095}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7193412149526430195}
+        m_TargetAssemblyTypeName: PlayerShop, Assembly-CSharp
+        m_MethodName: ToggleFreezeMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &344362119975935889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +2976,7 @@ MonoBehaviour:
   playerSprite: {fileID: 3191785670772988152}
   coinText: {fileID: 1064381457840176737}
   sellButtonText: {fileID: 8726955010531120457}
+  freezeButtonText: {fileID: 2729511648931398180}
   playerOverviewUI: {fileID: 8427784784069937391}
 --- !u!222 &6239017768814734783
 CanvasRenderer:
