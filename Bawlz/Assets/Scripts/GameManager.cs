@@ -310,4 +310,12 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
     }
+
+    public void OnRoundStart()
+    {
+        foreach (BallController ball in mainBalls)
+        {
+            ball.OnRoundStart();
+        }
+    }
 }

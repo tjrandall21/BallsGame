@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinionRoundUpgrade
   shopIcon: {fileID: 2642110035874775915, guid: 349496ac6d345c74989d36d2eb546fbd, type: 3}
   upgradeFamily: Minion Rounds
-  upgradeName: Minion Rounds
+  upgradeName: Minion Rounds 3
   description: Fires minions instead of cannonballs.
-  upgradeLevel: 0
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
@@ -31,3 +31,4 @@ MonoBehaviour:
   u_projDamage: 0
   minionPrefab: {fileID: 7189852719700939712, guid: 849f3f1784d95034e8ac6c79eb317c27, type: 3}
   minionHealth: 20
+  minionDamageMult: 0.8
