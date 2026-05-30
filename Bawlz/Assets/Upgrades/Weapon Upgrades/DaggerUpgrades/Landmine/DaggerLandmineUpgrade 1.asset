@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472cb1a4533fabe438f4700b3233bfac, type: 3}
   m_Name: DaggerLandmineUpgrade 1
   m_EditorClassIdentifier: Assembly-CSharp::DaggerLandmineUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: -3173641124243354320, guid: 43f1a041ec837bb4cbf69b0a89f5df46, type: 3}
   upgradeFamily: DaggerLandmine
   upgradeName: Landmines
   description: Places landmines on dagger hits.
