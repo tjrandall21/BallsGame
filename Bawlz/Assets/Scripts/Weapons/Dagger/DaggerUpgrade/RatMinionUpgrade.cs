@@ -6,7 +6,7 @@ public class RatMinionUpgrade : DaggerUpgrade
 {
     [SerializeField] GameObject ratMinionPrefab;
     [SerializeField] float ratDamage = 1f;
-    [SerializeField] float ratHealth = 10f;
+    [SerializeField] float ratHealth = 1f;
 
     [SerializeField] DoTEffect ratPoisonEffect;
     public float durationScaling = 0.3f;
