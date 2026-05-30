@@ -12,12 +12,15 @@ public class MinionWeaponUpgrade : SceptreUpgrade
         {
             GameObject weapon = Instantiate(weaponPrefab, newBall.transform);
             weapon.layer = newBall.gameObject.layer;
-            Vector3 weaponScale = weapon.transform.localScale;
-            weaponScale *= 0.5f;
-            weapon.transform.localScale = weaponScale;
-            Vector3 weaponPosition = weapon.transform.localPosition;
-            weaponPosition.y *= 0.5f;
-            weapon.transform.localPosition = weaponPosition;
+            if (newBall.tag != "Super Minion")
+            {
+                Vector3 weaponScale = weapon.transform.localScale;
+                weaponScale *= 0.5f;
+                weapon.transform.localScale = weaponScale;
+                Vector3 weaponPosition = weapon.transform.localPosition;
+                weaponPosition.y *= 0.5f;
+                weapon.transform.localPosition = weaponPosition;
+            }
         }
     }
 }

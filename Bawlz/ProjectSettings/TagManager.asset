@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Minion
   - Big Arrow
+  - Super Minion
+  - Cannon Minion
+  - Grape Shot
+  - Grape Minion
+  - Rat
   layers:
   - Default
   - TransparentFX

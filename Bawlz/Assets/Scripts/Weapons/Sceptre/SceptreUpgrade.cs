@@ -9,4 +9,7 @@ public class SceptreUpgrade : WeaponUpgrade
     public float minionHealthScaling = 0;
     public int minionsPerHit = 0;
     public float extraMinionChance = 0;
+    public float superMinionChance = 0;
+    public float superMinionDamageMult = 1;
+    public float superMinionHealthMult = 1;
 }

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc8d06586d00f048ac4dbe711b4cab9, type: 3}
+  m_Name: ForceBubble
+  m_EditorClassIdentifier: Assembly-CSharp::MagnetismUpgrade
+  shopIcon: {fileID: 5852587019534965874, guid: 284b55288c7a3264098ca48b96fccf8c, type: 3}
+  upgradeFamily: ForceBubble
+  upgradeName: Force Bubble
+  description: Creates a bubble around you that pushes enemies away.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 63d931d0434d6864083566767a6229cb, type: 2}
+  stackable: 1
+  health: 0
+  contactDamage: 0
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 1
+  ballAreaPrefab: {fileID: 4866617159980323993, guid: 31c3519d14e35cd44a6cd1b2f8f9594e, type: 3}
+  radius: 2.5
+  magnetismStrength: -18

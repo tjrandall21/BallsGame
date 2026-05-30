@@ -27,7 +27,7 @@ public class EndBattlePanel : MonoBehaviour
         int index = GameManager.Instance.roundNumber-1;
         foreach (PlayerData player in GameManager.Instance.players)
         {
-            int placeIndex = player.placementsByRound[index];
+            int placeIndex = player.placementsByRound[index]-1;
             rows[placeIndex].gameObject.SetActive(true);
             rows[placeIndex].SetPlayer(player);
         }
@@ -93,6 +93,10 @@ public class EndBattlePanel : MonoBehaviour
             if (i == 1)
             {
                 rows[i].SetPlayerForStandings(playersByPoints[i], "2nd:");
+            }
+            else
+            {
+                rows[i].SetPlayerForStandings(playersByPoints[i]);
             }
         }
     }

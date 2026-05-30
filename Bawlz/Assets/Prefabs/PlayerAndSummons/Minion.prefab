@@ -392,10 +392,15 @@ MonoBehaviour:
   maxHealth: 1
   contactDamage: 5
   defenseMultiplier: 1
+  health: 0
   sprite: {fileID: 4784969165194606517}
   playerNum: 1
+  isMainBall: 0
+  alive: 1
+  weapons: []
   upgrades: []
   statusEffects: []
+  minions: []
 --- !u!82 &-4926090583861382007
 AudioSource:
   m_ObjectHideFlags: 0

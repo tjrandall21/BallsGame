@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f2b0fa77095ab4da85866d21661c1c, type: 3}
+  m_Name: IceSword
+  m_EditorClassIdentifier: Assembly-CSharp::SwordIcicleBurst
+  shopIcon: {fileID: -9011520686636964963, guid: 8952f3f8ff624b942a7c57a37cfcfa31, type: 3}
+  upgradeFamily: SwordIceBurst
+  upgradeName: Ice Blade
+  description: Shoots a burst of ice shards on hit.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: cc821635f0b721a46903aa17cd29c49e, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  size: 1
+  spinSpeed: 0
+  iciclePrefabs:
+  - {fileID: 9124016292243078404, guid: b80a9db96dd6adb4d8cb804fe9651611, type: 3}
+  - {fileID: 9124016292243078404, guid: 281b0e9cc657b044aafe01fadbcfbedb, type: 3}
+  - {fileID: 9124016292243078404, guid: d7aa22b26edcb1440bd66e4fc8be8fde, type: 3}
+  icicleDamage: 5
+  icicleLifeTime: 1
+  projectileCount: 3
+  icicleSpeed: 5
+  icicleSize: 0.42

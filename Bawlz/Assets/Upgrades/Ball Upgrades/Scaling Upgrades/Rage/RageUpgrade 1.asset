@@ -25,4 +25,4 @@ MonoBehaviour:
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 1
-  damageIncrease: 4
+  damageIncrease: 2

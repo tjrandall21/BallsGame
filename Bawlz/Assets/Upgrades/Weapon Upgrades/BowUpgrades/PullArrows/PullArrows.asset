@@ -15,8 +15,7 @@ MonoBehaviour:
   shopIcon: {fileID: -3034724841050143229, guid: 479d822884d7995418b527fb5a77baf5, type: 3}
   upgradeFamily: Pull Arrows
   upgradeName: Pull Arrows
-  description: Your arrows pull enemies towards you and increase your contact damage
-    on hit.
+  description: Your Arrows pull enemies and increase your contact damage.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 7c9152ecee1a5274ca2e9a53b5faf2e9, type: 2}

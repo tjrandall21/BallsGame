@@ -20,7 +20,7 @@ public class MinionArrow : BowUpgrade
             ballController.maxHealth = minionHealth;
             ballController.Init(new List<Upgrade>(),parentBall.playerNum,Random.Range(0.0f,360.0f));
             ballController.contactDamage = minionDamage;
-            parentBall.OnBallSpawned(ballController);
+            GameManager.Instance.GetMainBallByNumber(parentBall.playerNum).OnBallSpawned(ballController);
         }
         base.OnArrowBallHit(otherBall, arrow);
     }

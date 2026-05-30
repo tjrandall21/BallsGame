@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d956a0202c91a74f96dede7e81e862f, type: 3}
+  m_Name: DaggerStatusDamageBoost 1
+  m_EditorClassIdentifier: Assembly-CSharp::DaggerStatusDamageBoost
+  shopIcon: {fileID: -4141778118154828093, guid: 58ed5b9a0c166d24b9217c94ba4a5c7c, type: 3}
+  upgradeFamily: Drug Boost
+  upgradeName: Drug Boost 2
+  description: You deal additional damage if you have an active status effect.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: ccb4b78d8d0340244b38c5fd355fe9f8, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  spinSpeed: 0
+  damageBoostAmount: 30

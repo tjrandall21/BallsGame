@@ -11,6 +11,4 @@ public class RageUpgrade : Upgrade
         parentBall.contactDamage += damageIncrease;
     }
 
-
-
 }
