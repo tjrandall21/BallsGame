@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BigBoomUpgrade
   shopIcon: {fileID: 2543244090855550724, guid: 1b5443337ca8e4e4eb5734e840c4976a, type: 3}
   upgradeFamily: HammerExplode
-  upgradeName: HammerExplosions
+  upgradeName: Hammer Explosions
   description: Your hammer can explode on hit.
   upgradeLevel: 2
   upgradeExp: 0
