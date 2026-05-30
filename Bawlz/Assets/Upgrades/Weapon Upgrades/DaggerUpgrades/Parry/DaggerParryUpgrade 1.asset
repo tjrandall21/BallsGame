@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeFamily: Dagger Parry
   upgradeName: Parry
   description: Your dagger can parry weapons to reflect damage.
-  upgradeLevel: 0
+  upgradeLevel: 1
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: c774a7c89a108fb48a9c8d6dc8e64f31, type: 2}
   stackable: 1
