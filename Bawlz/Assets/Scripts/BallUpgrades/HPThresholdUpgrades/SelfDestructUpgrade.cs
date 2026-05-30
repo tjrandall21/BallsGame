@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SelfDestructUpgrade", menuName = "Ball Upgrades/SelfDestructUpgrade")]
+[CreateAssetMenu(fileName = "SelfDestructUpgrade", menuName = "Ball Upgrades/HPThreshold/SelfDestructUpgrade")]
 public class SelfDestructUpgrade : Upgrade
 {
     [SerializeField] GameObject explosionPrefab;

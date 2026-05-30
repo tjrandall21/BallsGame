@@ -124,7 +124,10 @@ public class BallController : MonoBehaviour
         sprite.transform.rotation = new Quaternion(0, 0, 0, 1);
     }
 
-
+    public bool HasAnyStatus()
+    {
+        return statusEffects.Count > 0;
+    }
     public bool HasStatus(string statusName) // confirms if the ball has a status matching the name
     {
         foreach (StatusEffect statusEffect in statusEffects)
