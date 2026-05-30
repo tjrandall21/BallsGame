@@ -8,7 +8,6 @@ using System.Collections.Generic;
 public class MultiplayerCursor : MonoBehaviour
 {
     public RectTransform cursor;
-    public GraphicRaycaster raycaster;
     public EventSystem eventSystem;
     public Image cursorImage;
 
@@ -25,6 +24,7 @@ public class MultiplayerCursor : MonoBehaviour
     {
         playerRoot = transform.root;
 
+        // keep the player object alive across scenes, but don't reparent the whole player under the UI canvas
         DontDestroyOnLoad(playerRoot.gameObject);
 
         playerInput = GetComponent<PlayerInput>();
@@ -100,24 +100,20 @@ public class MultiplayerCursor : MonoBehaviour
             DontDestroyOnLoad(cursorCanvasObject);
         }
 
-        playerRoot.SetParent(cursorCanvasObject.transform, false);
+       
+        if (cursor != null)
+        {
+            cursor.SetParent(cursorCanvasObject.transform, false);
+        }
+        else
+        {
+            transform.SetParent(cursorCanvasObject.transform, false);
+        }
     }
 
     void ReconnectToSceneUI()
     {
         eventSystem = FindAnyObjectByType<EventSystem>();
-
-        GraphicRaycaster[] raycasters = FindObjectsByType<GraphicRaycaster>(FindObjectsInactive.Exclude);
-        raycaster = null;
-
-        foreach (GraphicRaycaster currentRaycaster in raycasters)
-        {
-            if (currentRaycaster.gameObject.name != "Persistent Cursor Canvas")
-            {
-                raycaster = currentRaycaster;
-                break;
-            }
-        }
 
         if (cursor == null)
         {
@@ -134,6 +130,7 @@ public class MultiplayerCursor : MonoBehaviour
 
         if (cursorImage != null)
         {
+            // ensure the cursor graphic does not block raycasts
             cursorImage.raycastTarget = false;
         }
     }
@@ -176,7 +173,7 @@ public class MultiplayerCursor : MonoBehaviour
     {
         Vector2 move = moveAction.ReadValue<Vector2>();
 
-        cursorPos += move * speed * Time.deltaTime;
+        cursorPos += move * speed * Time.unscaledDeltaTime;
 
         cursorPos.x = Mathf.Clamp(cursorPos.x, 0, Screen.width);
         cursorPos.y = Mathf.Clamp(cursorPos.y, 0, Screen.height);
@@ -186,18 +183,21 @@ public class MultiplayerCursor : MonoBehaviour
 
     void HandleUI()
     {
-        if (eventSystem == null || raycaster == null)
+        if (eventSystem == null)
             return;
 
         PointerEventData data = new PointerEventData(eventSystem);
         data.position = cursorPos;
 
         List<RaycastResult> results = new List<RaycastResult>();
-        raycaster.Raycast(data, results);
+
+        // Use the instance method on the eventSystem, not the static class
+        eventSystem.RaycastAll(data, results);
 
         if (results.Count == 0)
             return;
 
+        // RaycastAll returns results ordered by canvas sorting and depth; take the topmost hit.
         GameObject target = results[0].gameObject;
 
         Button button = target.GetComponentInParent<Button>();
