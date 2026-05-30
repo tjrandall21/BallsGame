@@ -55,6 +55,12 @@ public class Hammer : Weapon
     {
         FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
 
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            if (weaponUpgrade is HammerUpgrade hammerUpgrade)
+                hammerUpgrade.OnBallHit(otherBall);
+        }
+
         if (parent != null)
             parent.FlipRotation();
 
@@ -62,11 +68,7 @@ public class Hammer : Weapon
         otherBall.OnDamageTaken(damage);
         otherBall.OnWeaponCollision(this);
 
-        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
-        {
-            if (weaponUpgrade is HammerUpgrade hammerUpgrade)
-                hammerUpgrade.OnBallHit(otherBall);
-        }
+      
 
         rotationAcceleration += rotationAccelerationScaling;
         maxWeaponSpin += maxSpinIncreasePerHit;

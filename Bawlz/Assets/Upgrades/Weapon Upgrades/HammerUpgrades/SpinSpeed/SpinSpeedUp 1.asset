@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05961a7eb37529a44a20dcf029d3bf64, type: 3}
-  m_Name: BOOM
-  m_EditorClassIdentifier: Assembly-CSharp::BigBoomUpgrade
-  shopIcon: {fileID: 2543244090855550724, guid: 1b5443337ca8e4e4eb5734e840c4976a, type: 3}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  m_Script: {fileID: 11500000, guid: 454939e5e64359a42a9584eef38998a3, type: 3}
+  m_Name: SpinSpeedUp 1
+  m_EditorClassIdentifier: Assembly-CSharp::HammerUpgrade
+  shopIcon: {fileID: 4385544748127223420, guid: a5c90d4de260f544d857aa98ceadccf2, type: 3}
+  upgradeFamily: SpinSpeed
+  upgradeName: SpinSpeed
+  description: Makes your Hammer speed up faster
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
@@ -27,11 +27,7 @@ MonoBehaviour:
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
   u_baseDmg: 0
-  u_maxWeaponSpin: 0
+  u_maxWeaponSpin: 200
   u_baseRotationSpeed: 0
-  u_rotationAcceleration: 0
+  u_rotationAcceleration: 200
   u_maxSpinIncreasePerHit: 0
-  explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
-  explosionDamage: 20
-  explosionKnockback: 10
-  explosionSize: 2
