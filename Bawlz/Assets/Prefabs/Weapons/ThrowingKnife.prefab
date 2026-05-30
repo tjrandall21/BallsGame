@@ -166,18 +166,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TKScript
   weaponName: Throwing Knives
-  description: Throw daggers that stick to walls and cause bleed.
+  description: Throw daggers that stick to walls.
   damage: 10
   knockbackSpeed: 0
-  attackCooldown: 1
+  attackCooldown: 0.65
   canWeaponCollide: 1
   excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades: []
-  possibleWeaponUpgradesInShop: []
+  possibleWeaponUpgradesInShop:
+  - {fileID: 11400000, guid: ce9fc2c2eb7c0c14592a04c10b70fce6, type: 2}
+  - {fileID: 11400000, guid: cf25acd16bdd1fb468096e0ff409b099, type: 2}
+  - {fileID: 11400000, guid: f3240b73d1347da4fa926f8d0fc1e10f, type: 2}
+  - {fileID: 11400000, guid: a748dcf9463503743a2aea7a63159ce3, type: 2}
+  - {fileID: 11400000, guid: e4be10cf2b1c7734a953a97a8d0cc7a2, type: 2}
+  - {fileID: 11400000, guid: 0d631d4b703db1842acfe26e82eceea8, type: 2}
+  - {fileID: 11400000, guid: 2b87fcb6e7b9ced4daaa638edd1a97a7, type: 2}
+  - {fileID: 11400000, guid: b3705af8a076d304f988aca2a8875344, type: 2}
+  - {fileID: 11400000, guid: 1fa95a6298d605e4ea0c3ee110122d50, type: 2}
   projectilePrefab: {fileID: 9124016292243078404, guid: bc8b116b71767e24ea8ff7c146af2cb5, type: 3}
   knifeSpeed: 5
   knifeDamage: 10
+  stickDuration: 1
+  baseFadeDuration: 0.5
+  meleeScaling: 1
+  projectileScaling: 0
+  attackSpeedScaling: 0.03
+  bleedEffect: {fileID: 0}
+  burstSpinModifier: 0.3
+  timeBetweenAttacks: 0.2
 --- !u!61 &9158410719958858030
 BoxCollider2D:
   m_ObjectHideFlags: 0

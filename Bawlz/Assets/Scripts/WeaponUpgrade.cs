@@ -77,6 +77,11 @@ public class WeaponUpgrade : ScriptableObject
         //called when the round starts
     }
 
+    public virtual void OnUpgradeAdded(WeaponUpgrade newUpgrade)
+    {
+        //called when a new upgrade is added to the weapon
+    }
+
 
     //ball functions
 

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad7526f48cb5374a969d190571e78f2, type: 3}
   m_Name: QuadShot
   m_EditorClassIdentifier: Assembly-CSharp::TKUpgrade
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  shopIcon: {fileID: -5396555610505891738, guid: 7b861ac9d7770f949941316535552186, type: 3}
+  upgradeFamily: TKMultishot
+  upgradeName: Quad Throw
+  description: Throws 4 daggers consecutively.
   upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
@@ -23,14 +23,16 @@ MonoBehaviour:
   damage: 0
   knockbackSpeed: 0
   attackCooldown: 0
-  attackCooldownMultiplier: 0
+  attackCooldownMultiplier: 1.7
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
   TKSpeed: 0
   TKDamage: 0
-  TKDamageScaling: 0
+  meleeScaling: 0
+  projectileScaling: 0
   extraProjectiles: 3
   attackSpeedScaling: 0
-  fadeDurationMulti: 0
-  bleedDamageScaling: 0
-  bleedDurationScaling: 0
+  fadeDurationMulti: 1
+  stickDurationMulti: 0.8
+  spinSpeed: 0
+  projectileBounces: 0

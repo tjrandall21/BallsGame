@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DualWieldUpgrade
   shopIcon: {fileID: 3519075851948252805, guid: f1b75c995b8a7c542b58f5fc084579c7, type: 3}
   upgradeFamily: Dual Wield
-  upgradeName: Dual Wield
+  upgradeName: Dual Wield 3
   description: You get a second dagger and spin faster.
   upgradeLevel: 2
   upgradeExp: 0
@@ -27,5 +27,5 @@ MonoBehaviour:
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
   damageScalingAmount: 0
-  spinSpeed: 180
-  secondaryDaggerPrefab: {fileID: 9124016292243078404, guid: e72ecaa4d1e77d44d84fefe3eaa8fc84, type: 3}
+  spinSpeed: 120
+  secondaryDaggerPrefab: {fileID: 9124016292243078404, guid: 032b7d1d594d87a41bf3bbf7cc6e8c43, type: 3}

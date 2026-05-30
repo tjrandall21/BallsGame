@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e190571a642eb429f4920a2bfb46b7, type: 3}
+  m_Name: TeleportUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::TKTeleport
+  shopIcon: {fileID: 239855412795449307, guid: 0e9826ca44c1c5c4f8ca50835ef5f79d, type: 3}
+  upgradeFamily: TKTeleport
+  upgradeName: Poison Teleport
+  description: You can teleport to your thrown daggers and leave behind a poison
+    cloud.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: e9c86e789cdb3084190a33e39babdba1, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  TKSpeed: 0
+  TKDamage: 0
+  meleeScaling: 0
+  projectileScaling: 0
+  extraProjectiles: 0
+  attackSpeedScaling: 0
+  fadeDurationMulti: 1
+  stickDurationMulti: 1
+  spinSpeed: 0
+  projectileBounces: 0
+  explosionPrefab: {fileID: 9124016292243078404, guid: ce351ec3afaf3194c841198925454b4e, type: 3}
+  teleportChance: 0.5
+  teleportCooldown: 4
+  explosionDamage: 5
+  explosionKnockback: 10
+  explosionSize: 1.2

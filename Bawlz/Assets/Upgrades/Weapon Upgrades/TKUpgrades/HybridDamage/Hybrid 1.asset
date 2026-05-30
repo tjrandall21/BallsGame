@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad7526f48cb5374a969d190571e78f2, type: 3}
+  m_Name: Hybrid 1
+  m_EditorClassIdentifier: Assembly-CSharp::TKUpgrade
+  shopIcon: {fileID: 37801499251974089, guid: f55b67d39b985a94a828f9aa110efd4d, type: 3}
+  upgradeFamily: TKHybridDamage
+  upgradeName: Jack of All Trades 2
+  description: Your melee hits increase your throwing damage and vice versa.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: b0bf720e7da1d05438f229888fb9e851, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  TKSpeed: 0
+  TKDamage: 0
+  meleeScaling: 4
+  projectileScaling: 4
+  extraProjectiles: 0
+  attackSpeedScaling: 0
+  fadeDurationMulti: 1
+  stickDurationMulti: 1
+  spinSpeed: 0
+  projectileBounces: 0

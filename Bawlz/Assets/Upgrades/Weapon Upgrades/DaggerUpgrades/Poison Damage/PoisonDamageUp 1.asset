@@ -26,5 +26,5 @@ MonoBehaviour:
   attackCooldownMultiplier: 1
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
-  damageScalingAmount: 10
+  damageScalingAmount: 0.6
   spinSpeed: 0

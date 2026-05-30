@@ -63,8 +63,14 @@ public class BallController : MonoBehaviour
             rotationSpeed += upgrade.rotationSpeed;
             contactDamage += upgrade.contactDamage;
             defenseMultiplier *= upgrade.defenseMultiplier;
+        }
+    }
 
-            upgrade.OnRoundStart(); //Need to move this once a start round countdown is added
+    public void OnRoundStart()
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.OnRoundStart();
         }
     }
 
@@ -87,15 +93,16 @@ public class BallController : MonoBehaviour
             weapons.Add(weapon);
         }
 
-
-
         health = maxHealth;
 
         launchAngle = launchAngle * math.PI / 180.0f;
         
         SetVelocityAngle(launchAngle, speed);
 
-        FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
+        if (FXManager.Instance != null)
+        {
+            FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
+        }
     }
 
     // Update is called once per frame
@@ -124,7 +131,10 @@ public class BallController : MonoBehaviour
         sprite.transform.rotation = new Quaternion(0, 0, 0, 1);
     }
 
-
+    public bool HasAnyStatus()
+    {
+        return statusEffects.Count > 0;
+    }
     public bool HasStatus(string statusName) // confirms if the ball has a status matching the name
     {
         foreach (StatusEffect statusEffect in statusEffects)

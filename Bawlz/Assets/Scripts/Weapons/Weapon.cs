@@ -60,6 +60,15 @@ public class Weapon : MonoBehaviour
     public void AddUpgrade(WeaponUpgrade newUpgrade)
     {
         weaponUpgrades.Add(Instantiate(newUpgrade));
+        OnUpgradeAdded(newUpgrade);
+    }
+
+    public virtual void OnUpgradeAdded(WeaponUpgrade newUpgrade)
+    {
+        foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
+        {
+            weaponUpgrade.OnUpgradeAdded(newUpgrade);
+        }
     }
 
     protected virtual void Update()
