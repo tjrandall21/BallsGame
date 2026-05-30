@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2551d294a39a2454bbd7db1bec77ec8f, type: 3}
   m_Name: DaggerBearTrapUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::DaggerBearTrapUpgrade
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  shopIcon: {fileID: -3887501870374500503, guid: 521321b0998a4f24a9e0bda4872d392d, type: 3}
+  upgradeFamily: DaggerBearTrap
+  upgradeName: Bear Trap
+  description: Places a bear trap that slows enemies.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: 4e0e25f2bf383854790a9448a3e91910, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0
