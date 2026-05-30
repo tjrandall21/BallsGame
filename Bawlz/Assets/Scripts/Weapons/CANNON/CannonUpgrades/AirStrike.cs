@@ -9,6 +9,7 @@ public class AirStrike : CannonUpgrade
     [SerializeField] float airStrikeExplosionSize = 1f;
     [SerializeField] float airStrikeDelay = 1f;
     [SerializeField] float airStrikeSize = 1.2f;
+    float airStrikeCooldown = 2f;
 
     public override void OnBallHit(BallController otherBall)
     {

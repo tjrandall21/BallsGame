@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: FireRateUp
   m_EditorClassIdentifier: Assembly-CSharp::CannonUpgrade
   shopIcon: {fileID: 7637693588557836039, guid: bcb0f253db703784ab8409496fc46d09, type: 3}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  upgradeFamily: Cannon Fire Rate
+  upgradeName: Fire Rate Up
+  description: Increases your rate of fire.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: 2d204e439abc8c54fb712f4d189aa376, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0
   attackCooldown: 0
-  attackCooldownMultiplier: 0.8
+  attackCooldownMultiplier: 0.85
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
   u_prodCount: 0
   u_projSpeed: 0
   u_projDamage: 0
+  attackSpeedScaling: 0

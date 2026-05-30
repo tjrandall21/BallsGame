@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AirStrike
   m_EditorClassIdentifier: Assembly-CSharp::AirStrike
   shopIcon: {fileID: 5071806384473446621, guid: 52b275b8cfd360a49a82d5ca349c1182, type: 3}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  upgradeFamily: Air Strike
+  upgradeName: Air Strike
+  description: Melee cannon hits call an air strike.
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: 07d3f51fcad626d4992032cfa37ecfc5, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0
@@ -35,4 +35,4 @@ MonoBehaviour:
   airStrikeKnockback: 0
   airStrikeExplosionSize: 1
   airStrikeDelay: 2
-  airStrikeSize: 1
+  airStrikeSize: 1.2
