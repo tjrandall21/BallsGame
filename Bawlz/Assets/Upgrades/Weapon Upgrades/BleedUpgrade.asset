@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: BleedUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::StatusWeaponUpgrade
   shopIcon: {fileID: 0}
-  upgradeName: Poison Upgrade
+  upgradeFamily: Upgrade
+  upgradeName: Bleed Upgrade
   description: This is a weapon upgrade.
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
   stackable: 1
   damage: 0
   knockbackSpeed: 0
