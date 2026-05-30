@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HammerUpgrade
   shopIcon: {fileID: 4385544748127223420, guid: a5c90d4de260f544d857aa98ceadccf2, type: 3}
   upgradeFamily: SpinSpeed
-  upgradeName: SpinSpeed
+  upgradeName: Spin Speed
   description: Makes your Hammer speed up faster
   upgradeLevel: 0
   upgradeExp: 0
