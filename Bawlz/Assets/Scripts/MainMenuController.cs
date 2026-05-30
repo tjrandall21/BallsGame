@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
+
+    [SerializeField] private GameObject MainPanel;
     [SerializeField] private CanvasGroup OptionPanel;
     [SerializeField] private CanvasGroup PlayPanel;
     [SerializeField] private CanvasGroup CharacterSelectPanel;
@@ -53,6 +55,7 @@ public class MainMenuController : MonoBehaviour
         OptionPanel.alpha = 1;
         OptionPanel.interactable = true;
         OptionPanel.blocksRaycasts = true;
+        MainPanel.SetActive(false);
     }
 
     public void StartGame() // Shows the play panel where the player can choose how many players will be playing
@@ -60,6 +63,7 @@ public class MainMenuController : MonoBehaviour
         PlayPanel.alpha = 1; // shows the play panel putting it on top of everything else
         PlayPanel.interactable = true;
         PlayPanel.blocksRaycasts = true;
+        MainPanel.SetActive(false);
     }
 
     public void PlayBack() //Back button for the play panel
@@ -67,6 +71,7 @@ public class MainMenuController : MonoBehaviour
         PlayPanel.alpha = 0;
         PlayPanel.interactable = false;
         PlayPanel.blocksRaycasts = false;
+        MainPanel.SetActive(true);
         playerCount = 0;
         playerDropoutButtons.ForEach(button => button.interactable = false); // Disable all dropout buttons
         playerJoinButtons[0].interactable = true; // Enable the first join button
@@ -158,6 +163,7 @@ public class MainMenuController : MonoBehaviour
         OptionPanel.alpha = 0;
         OptionPanel.interactable = false;
         OptionPanel.blocksRaycasts = false;
+        MainPanel.SetActive(true);
     }
 
 
