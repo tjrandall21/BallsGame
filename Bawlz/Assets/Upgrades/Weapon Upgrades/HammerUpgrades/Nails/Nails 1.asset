@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7dc3095aad9694391a1ffc194485b0, type: 3}
+  m_Name: Nails 1
+  m_EditorClassIdentifier: Assembly-CSharp::HammerNails
+  shopIcon: {fileID: -855935619743729987, guid: e309ff1337109574383134bd59325028, type: 3}
+  upgradeFamily: HammerNails
+  upgradeName: Nails
+  description: Shoots nails that apply bleed in random directions on hit.
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 5e2d601ad297cda4ca8855941d4b871a, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  u_baseDmg: 0
+  u_maxWeaponSpin: 0
+  u_baseRotationSpeed: 0
+  u_rotationAcceleration: 0
+  u_maxSpinIncreasePerHit: 0
+  nailPrefabs:
+  - {fileID: 9124016292243078404, guid: f8099279bb236cd4681ad47ef72fe8f4, type: 3}
+  nailDamage: 1
+  nailLifeTime: 0.8
+  projectileCount: 4
+  nailSpeed: 7
+  nailSize: 0.4

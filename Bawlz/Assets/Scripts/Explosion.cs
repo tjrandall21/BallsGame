@@ -38,14 +38,23 @@ public class Explosion : Weapon
         Destroy(gameObject);
     }
 
-    protected override void OnBallHit(BallController otherBall)
+    protected override void OnBallHit(BallController otherBall) 
     {
-        if (!hitBalls.Contains(otherBall)) // make sure the explosion can't hit the same ball twice
+        if (!hitBalls.Contains(otherBall))
         {
             base.OnBallHit(otherBall);
             hitBalls.Add(otherBall);
-            Vector2 direction = (transform.position - otherBall.transform.position).normalized * -1;
-            otherBall.SetVelocity(direction * knockbackSpeed);
+
+            Vector2 direction = (otherBall.transform.position - transform.position).normalized;
+
+
+            if (direction == Vector2.zero)
+            {
+                direction = Vector2.up; // <-- bug fix for balls getting "frozen" when blown up
+            }
+                
+
+            otherBall.AddVelocity(direction * knockbackSpeed);
         }
     }
 }
