@@ -8,6 +8,12 @@ using UnityEngine.UI;
 public class PlayerShop : MonoBehaviour
 {
     [SerializeField] int playerNum = 0;
+
+    [SerializeField] Color freezeColor;
+    [SerializeField] Color unfrozenColor;
+
+    [SerializeField] Button sellButton;
+
     // Upgrades lists
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] List<WeaponUpgrade> weaponUpgrades = new List<WeaponUpgrade>();
@@ -72,6 +78,14 @@ public class PlayerShop : MonoBehaviour
                 if (chosenIndex >= 0 && chosenIndex < upgrades.Count)
                 {
                     upgradeItems[i].Init(upgrades[chosenIndex], chosenIndex);
+                    if (i < player.frozenUpgradeIndices.Count)
+                    {
+                        upgradeItems[i].makeFrozen(true,freezeColor);
+                    }
+                    else
+                    {
+                        upgradeItems[i].makeFrozen(false,unfrozenColor);
+                    }
                 }
             }
         }
@@ -91,6 +105,15 @@ public class PlayerShop : MonoBehaviour
                     {
                         weaponUpgradeItems[i].gameObject.SetActive(true);
                         weaponUpgradeItems[i].Init(weaponUpgrades[chosenIndex], chosenIndex);
+
+                        if (i < player.frozenWeaponUpgradeIndices.Count)
+                        {
+                            weaponUpgradeItems[i].makeFrozen(true,freezeColor);
+                        }
+                        else
+                        {
+                            weaponUpgradeItems[i].makeFrozen(false,unfrozenColor);
+                        }
                     }
                 }
             }
@@ -133,6 +156,14 @@ public class PlayerShop : MonoBehaviour
                     }
                     Weapon weapon = weaponPrefabs[chosenIndex].GetComponent<Weapon>();
                     weaponItems[i].Init(icon, weapon.weaponName, chosenIndex, weapon.description);
+                    if (i < player.frozenWeaponPrefabIndices.Count)
+                    {
+                        weaponItems[i].makeFrozen(true,freezeColor);
+                    }
+                    else
+                    {
+                        weaponItems[i].makeFrozen(false,unfrozenColor);
+                    }
                 }
             }
         }
@@ -308,13 +339,28 @@ public class PlayerShop : MonoBehaviour
     {
         freezeMode = !freezeMode;
 
+        foreach (ShopItem item in upgradeItems)
+        {
+            item.SetFreezeMode(freezeMode);
+        }
+        foreach (ShopItem item in weaponItems)
+        {
+            item.SetFreezeMode(freezeMode);
+        }
+        foreach (ShopItem item in weaponUpgradeItems)
+        {
+            item.SetFreezeMode(freezeMode);
+        }
+
+
+        sellButton.interactable = !freezeMode;
         if (freezeMode)
         {
-            freezeButtonText.text = "Freeze: ON";
+            freezeButtonText.text = "Cancel";
         }
         else
         {
-            freezeButtonText.text = "Freeze: OFF";
+            freezeButtonText.text = "Freeze";
         }
     }
 
@@ -362,12 +408,20 @@ public class PlayerShop : MonoBehaviour
 
     public void BuyUpgrade(int index)
     {
+        int itemIndex = index;
         index = upgradeItems[index].index;
         // if in freeze mode add item to frozen list and return
         if (freezeMode)
         {
             Debug.Log("Freezing upgrade index: " + index);
-            player.ToggleFreezeUpgrade(index);
+            if (player.ToggleFreezeUpgrade(index))
+            {
+                upgradeItems[itemIndex].makeFrozen(true,freezeColor);
+            }
+            else
+            {
+                upgradeItems[itemIndex].makeFrozen(false,unfrozenColor);
+            }
             return;
         }
         if (player.coins >= 3)
@@ -412,11 +466,19 @@ public class PlayerShop : MonoBehaviour
 
     public void BuyWeaponUpgrade(int index)
     {
+        int itemIndex = index;
         index = weaponUpgradeItems[index].index;
 
         if (freezeMode)
         {
-            player.ToggleFreezeWeaponUpgrade(index);
+            if (player.ToggleFreezeWeaponUpgrade(index))
+            {
+                weaponUpgradeItems[itemIndex].makeFrozen(true,freezeColor);
+            }
+            else
+            {
+                weaponUpgradeItems[itemIndex].makeFrozen(false,unfrozenColor);
+            }
             return;
         }
         if (player.coins >= 3)
@@ -473,11 +535,19 @@ public class PlayerShop : MonoBehaviour
 
     public void BuyWeaponPrefab(int index)
     {
+        int itemIndex = index;
         index = weaponItems[index].index;
 
         if (freezeMode)
         {
-            player.ToggleFreezeWeaponPrefab(index);
+            if (player.ToggleFreezeWeaponPrefab(index))
+            {
+                weaponItems[itemIndex].makeFrozen(true,freezeColor);
+            }
+            else
+            {
+                weaponItems[itemIndex].makeFrozen(false,unfrozenColor);
+            }
             return;
         }
         if (player.coins >= 3)

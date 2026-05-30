@@ -821,6 +821,7 @@ GameObject:
   - component: {fileID: 4171114878303503769}
   - component: {fileID: 3131967188213885278}
   - component: {fileID: 8849846789025965642}
+  - component: {fileID: 8657553754928039461}
   m_Layer: 5
   m_Name: Ready_Button
   m_TagString: Untagged
@@ -930,6 +931,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8657553754928039461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626962662915889461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2141e7e31fbabb4eaaa949dc014c51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReadyButton
+  readyButton: {fileID: 0}
+  deactivateGameObjectInsteadOfInteractable: 0
+  canUnready: 1
+  readyColor: {r: 0.27450982, g: 0.50980395, b: 0.27450982, a: 0.7764706}
+  unreadyColor: {r: 0.121568635, g: 0.7058824, b: 0.121568635, a: 1}
 --- !u!1 &1995182334518775717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,6 +2949,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShop
   playerNum: 0
+  freezeColor: {r: 0.40365788, g: 0.9103774, b: 0.9103774, a: 1}
+  unfrozenColor: {r: 1, g: 1, b: 1, a: 1}
+  sellButton: {fileID: 3387403337998809743}
   upgrades:
   - {fileID: 11400000, guid: 441bd96e1e5313445aa11c38a0a217c7, type: 2}
   - {fileID: 11400000, guid: 0c7486fb411e0d340ab34d660f5e743f, type: 2}

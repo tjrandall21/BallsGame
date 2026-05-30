@@ -82,8 +82,9 @@ public class PlayerData : ScriptableObject
         return true;
     }
 
-    public void ToggleFreezeUpgrade(int shopIndex)
+    public bool ToggleFreezeUpgrade(int shopIndex)
     {
+        bool nowFrozen = false;
         Debug.Log("ToggleFreezeUpgrade called with: " + shopIndex);
         if (frozenUpgradeIndices.Contains(shopIndex))
         {
@@ -91,6 +92,7 @@ public class PlayerData : ScriptableObject
         }
         else
         {
+            nowFrozen = true;
             frozenUpgradeIndices.Add(shopIndex);
         }
 
@@ -100,30 +102,37 @@ public class PlayerData : ScriptableObject
         {
             Debug.Log(i);
         }
+        return nowFrozen;
     }
 
-    public void ToggleFreezeWeaponUpgrade(int shopIndex)
+    public bool ToggleFreezeWeaponUpgrade(int shopIndex)
     {
+        bool nowFrozen = false;
         if (frozenWeaponUpgradeIndices.Contains(shopIndex))
         {
             frozenWeaponUpgradeIndices.Remove(shopIndex);
         }
         else
         {
+            nowFrozen = true;
             frozenWeaponUpgradeIndices.Add(shopIndex);
         }
+        return nowFrozen;
     }
 
-    public void ToggleFreezeWeaponPrefab(int shopIndex)
+    public bool ToggleFreezeWeaponPrefab(int shopIndex)
     {
+        bool nowFrozen = false;
         if (frozenWeaponPrefabIndices.Contains(shopIndex))
         {
             frozenWeaponPrefabIndices.Remove(shopIndex);
         }
         else
         {
+            nowFrozen = true;
             frozenWeaponPrefabIndices.Add(shopIndex);
         }
+        return nowFrozen;
     }
 
     public void RemoveFrozenUpgrade(int shopIndex)
