@@ -25,7 +25,7 @@ public class ArrowBleedEffect : DoTEffect
         damagePerSecond = baseDPS*stacks;
         statusTimer = statusDuration;
 
-        if (stacks >= stackThreshold && explodeAtThreshold)
+        if (stacks >= stackThreshold && explodeAtThreshold && sourceBall != null)
         {
             stacks -= stackThreshold;
 

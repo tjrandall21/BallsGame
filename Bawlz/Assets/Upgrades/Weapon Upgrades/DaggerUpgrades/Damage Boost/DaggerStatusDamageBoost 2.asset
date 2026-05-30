@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d956a0202c91a74f96dede7e81e862f, type: 3}
   m_Name: DaggerStatusDamageBoost 2
   m_EditorClassIdentifier: Assembly-CSharp::DaggerStatusDamageBoost
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
-  upgradeLevel: 0
+  shopIcon: {fileID: -4141778118154828093, guid: 58ed5b9a0c166d24b9217c94ba4a5c7c, type: 3}
+  upgradeFamily: Drug Boost
+  upgradeName: Drug Boost 3
+  description: You deal additional damage if you have an active status effect.
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1

@@ -17,4 +17,4 @@ MonoBehaviour:
   statusName: Slow
   stackable: 0
   statusDuration: 5
-  slowMultiplier: 0.5
+  slowMultiplier: 0.3

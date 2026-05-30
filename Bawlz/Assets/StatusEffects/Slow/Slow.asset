@@ -16,5 +16,5 @@ MonoBehaviour:
   SFX: {fileID: 0}
   statusName: Slow
   stackable: 0
-  statusDuration: 5
+  statusDuration: 3
   slowMultiplier: 0.5

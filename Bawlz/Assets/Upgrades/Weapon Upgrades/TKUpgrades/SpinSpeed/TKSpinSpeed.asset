@@ -34,5 +34,5 @@ MonoBehaviour:
   attackSpeedScaling: 0
   fadeDurationMulti: 1
   stickDurationMulti: 1
-  spinSpeed: 60
+  spinSpeed: 90
   projectileBounces: 0
