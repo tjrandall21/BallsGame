@@ -23,7 +23,7 @@ MonoBehaviour:
   damage: 0
   knockbackSpeed: 0
   attackCooldown: 0
-  attackCooldownMultiplier: 1
+  attackCooldownMultiplier: 1.35
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
   u_prodCount: 0

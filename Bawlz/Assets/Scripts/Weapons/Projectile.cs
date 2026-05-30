@@ -7,6 +7,7 @@ public class Projectile : Weapon
     public Weapon parentWeapon = null;
     public float lifetime = 0;
     float lifeTimer = 0;
+    public bool travel = true;
 
     public virtual void ProjectileInit(Vector3 moveDirection, float moveSpeed, float projectileDamage, Weapon weapon)
     {
@@ -20,7 +21,10 @@ public class Projectile : Weapon
     protected override void Update()
     {
         base.Update();
-        transform.position += direction * speed * Time.deltaTime;
+        if (travel)
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
         if (lifetime > 0)
         {
             if (lifeTimer <= 0)

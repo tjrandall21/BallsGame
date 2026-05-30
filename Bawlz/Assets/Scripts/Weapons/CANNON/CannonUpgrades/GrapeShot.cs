@@ -8,6 +8,7 @@ public class GrapeShotUpgrade : CannonUpgrade
 {
     [SerializeField] GameObject grapeProjectilePrefab;
     [SerializeField] int projectileCount = 5;
+    [SerializeField] int minionCount = 5;
     [SerializeField] float spreadAngle = 45f;
     [SerializeField] float spawnJitter = 0.1f;
     [SerializeField] float speedVariance = 0.2f;
@@ -27,6 +28,7 @@ public class GrapeShotUpgrade : CannonUpgrade
         GameObject prefabToUse = grapeProjectilePrefab;
         MinionRoundUpgrade minionRoundUpgrade = null;
         string tagToUse = "Grape Shot";
+        float minionDamageMultiplier = damageMultiplier;
         foreach (WeaponUpgrade upgrade in cannon.WeaponUpgrades)
         {
             if (upgrade is MinionRoundUpgrade minionRound)
@@ -34,6 +36,7 @@ public class GrapeShotUpgrade : CannonUpgrade
                 prefabToUse = minionRound.MinionPrefab;
                 minionRoundUpgrade = minionRound;
                 tagToUse = "Grape Minion";
+                minionDamageMultiplier *= minionRoundUpgrade.MinionDamageMult;
                 break;
             }
         }
@@ -41,7 +44,8 @@ public class GrapeShotUpgrade : CannonUpgrade
         float baseRotation = parentWeapon.transform.eulerAngles.z * math.PI / 180f + math.PI / 2f;
         Vector3 baseDirection = new Vector3(math.cos(baseRotation), math.sin(baseRotation), 0f);
 
-        for (int i = 0; i < projectileCount; i++)
+        int count = minionRoundUpgrade == null ? projectileCount : minionCount;
+        for (int i = 0; i < count; i++)
         {
             float angleOffset = UnityEngine.Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
             Vector3 spreadDirection = Quaternion.Euler(0f, 0f, angleOffset) * baseDirection;
@@ -64,8 +68,8 @@ public class GrapeShotUpgrade : CannonUpgrade
             {
                 BallController minion = projectileObject.GetComponent<BallController>();
                 minion.maxHealth = minionRoundUpgrade.MinionHealth*minionHealthMultiplier;
-                minion.contactDamage = cannon.ProjDamage*damageMultiplier;
-                minion.Init(new List<Upgrade>(), parentBall.playerNum,spreadDirection.z,parentBall.sprite.sprite);
+                minion.contactDamage = cannon.ProjDamage*minionDamageMultiplier;
+                minion.Init(new List<Upgrade>(), parentBall.playerNum,baseRotation + angleOffset,parentBall.sprite.sprite);
                 GameManager.Instance.GetMainBallByNumber(parentBall.playerNum).OnBallSpawned(minion);
             }
             else

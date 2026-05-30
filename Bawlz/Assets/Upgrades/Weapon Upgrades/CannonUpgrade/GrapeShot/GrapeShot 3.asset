@@ -31,7 +31,9 @@ MonoBehaviour:
   u_projDamage: 0
   grapeProjectilePrefab: {fileID: 9124016292243078404, guid: def53368b028b714d90fba4419938940, type: 3}
   projectileCount: 7
+  minionCount: 5
   spreadAngle: 45
   spawnJitter: 0.1
   speedVariance: 0.2
   damageMultiplier: 0.5
+  minionHealthMultiplier: 0.3

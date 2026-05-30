@@ -7,8 +7,10 @@ public class MinionRoundUpgrade : CannonUpgrade
 {
     [SerializeField] GameObject minionPrefab;
     [SerializeField] float minionHealth = 1;
+    [SerializeField] float minionDamageMult = 1;
 
     public float MinionHealth => minionHealth;
+    public float MinionDamageMult => minionDamageMult;
 
     public GameObject MinionPrefab => minionPrefab;
 
@@ -41,7 +43,7 @@ public class MinionRoundUpgrade : CannonUpgrade
         if (minion != null)
         {
             minion.maxHealth = minionHealth;
-            minion.contactDamage = cannon.ProjDamage;
+            minion.contactDamage = cannon.ProjDamage * minionDamageMult;
             minion.Init(new List<Upgrade>(),parentBall.playerNum,rotation,parentBall.sprite.sprite);
             GameManager.Instance.GetMainBallByNumber(parentBall.playerNum).OnBallSpawned(minion);
         }

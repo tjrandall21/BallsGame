@@ -63,8 +63,14 @@ public class BallController : MonoBehaviour
             rotationSpeed += upgrade.rotationSpeed;
             contactDamage += upgrade.contactDamage;
             defenseMultiplier *= upgrade.defenseMultiplier;
+        }
+    }
 
-            upgrade.OnRoundStart(); //Need to move this once a start round countdown is added
+    public void OnRoundStart()
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.OnRoundStart();
         }
     }
 
@@ -86,8 +92,6 @@ public class BallController : MonoBehaviour
         {
             weapons.Add(weapon);
         }
-
-
 
         health = maxHealth;
 

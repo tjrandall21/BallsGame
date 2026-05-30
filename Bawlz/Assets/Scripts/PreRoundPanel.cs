@@ -25,6 +25,7 @@ public class PreRoundPanel : MonoBehaviour
         if (countdownTimer <= 0)
         {
             GameManager.Unpause();
+            GameManager.Instance.OnRoundStart();
             gameObject.SetActive(false);
         }
     }
