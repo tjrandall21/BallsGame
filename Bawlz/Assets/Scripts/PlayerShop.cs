@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerShop : MonoBehaviour
 {
-    [SerializeField] int playerNum = 0;
+   [SerializeField] public int playerNum = 0;
 
     [SerializeField] Color freezeColor;
     [SerializeField] Color unfrozenColor;

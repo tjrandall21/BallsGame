@@ -19,6 +19,7 @@ public class MultiplayerCursor : MonoBehaviour
 
     private Vector2 cursorPos;
     private Transform playerRoot;
+    [SerializeField] private int playerNum; // added to identify which player this cursor belongs to
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class MultiplayerCursor : MonoBehaviour
 
         moveAction = playerInput.actions["Move"];
         clickAction = playerInput.actions["Click"];
+        playerNum = playerInput.playerIndex; // assign player number based on PlayerInput index
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -81,8 +83,13 @@ public class MultiplayerCursor : MonoBehaviour
             cursorPos.y = Mathf.Clamp(cursorPos.y, 0, Screen.height);
             cursor.position = cursorPos;
         }
+        if (SceneManager.GetActiveScene().name == "TestMenuScene")
+        {// clears every cursor so that they have to be recreated
+            Destroy(playerRoot.gameObject);
+        }
     }
-
+    
+    
     void MoveToPersistentCursorCanvas()
     {
         GameObject cursorCanvasObject = GameObject.Find("Persistent Cursor Canvas");
@@ -191,13 +198,11 @@ public class MultiplayerCursor : MonoBehaviour
 
         List<RaycastResult> results = new List<RaycastResult>();
 
-        // Use the instance method on the eventSystem, not the static class
         eventSystem.RaycastAll(data, results);
 
         if (results.Count == 0)
             return;
 
-        // RaycastAll returns results ordered by canvas sorting and depth; take the topmost hit.
         GameObject target = results[0].gameObject;
 
         Button button = target.GetComponentInParent<Button>();
@@ -206,6 +211,12 @@ public class MultiplayerCursor : MonoBehaviour
             return;
 
         target = button.gameObject;
+
+        PlayerShop shop = target.GetComponentInParent<PlayerShop>();
+        if (shop != null && shop.playerNum != playerNum)
+        {
+            return;
+        }
 
         if (clickAction.WasPressedThisFrame())
         {
