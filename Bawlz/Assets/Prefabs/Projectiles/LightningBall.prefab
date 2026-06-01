@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 207017317070638197}
   - component: {fileID: 2255129472153577191}
   - component: {fileID: 4310053671644251508}
-  - component: {fileID: 9016882178636441674}
+  - component: {fileID: 4092213306324232995}
+  - component: {fileID: 1135296087456804606}
   m_Layer: 6
   m_Name: LightningBall
   m_TagString: Untagged
@@ -131,7 +132,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: acdd614a9c7ebad419e103a8f63a9d46, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -157,7 +158,29 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.9
---- !u!114 &9016882178636441674
+--- !u!95 &4092213306324232995
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124016292243078404}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea1c432d115a28d4199dc1415aadc54d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1135296087456804606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,21 +189,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 9124016292243078404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc4e5b3de541b94ba7ee946347671f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 68a068ad0365c714b9acdce4b880837b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PersistentProjectile
-  weaponName: Weapon
-  description: This is a weapon.
-  damage: 10
-  knockbackSpeed: 0
-  attackCooldown: 0
-  canWeaponCollide: 0
-  excludeOnHit: 0
-  parent: {fileID: 0}
-  weaponUpgrades: []
-  possibleWeaponUpgradesInShop: []
-  direction: {x: 0, y: 0, z: 0}
-  speed: 0
-  parentWeapon: {fileID: 0}
-  lifetime: 0
-  defaultLifetime: 3
+  m_EditorClassIdentifier: Assembly-CSharp::BallController
+  ballName: Ball
+  speed: 10
+  launchAngle: 200
+  rotationSpeed: 360
+  rotationDirection: 1
+  maxHealth: 200
+  contactDamage: 0
+  defenseMultiplier: 1
+  health: 0
+  sprite: {fileID: 0}
+  playerNum: 1
+  isMainBall: 0
+  alive: 1
+  weapons: []
+  upgrades: []
+  statusEffects: []
+  minions: []

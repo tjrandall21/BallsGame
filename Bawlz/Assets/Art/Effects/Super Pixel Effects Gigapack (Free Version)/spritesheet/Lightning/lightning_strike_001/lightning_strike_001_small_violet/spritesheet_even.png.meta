@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 0932a414582c3fc4eb6da6dab621df3a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2127009430245088588
+    second: spritesheet_even_0
+  - first:
+      213: -8234162820466610612
+    second: spritesheet_even_1
+  - first:
+      213: -332661263109750757
+    second: spritesheet_even_2
+  - first:
+      213: 6969761053083844070
+    second: spritesheet_even_3
+  - first:
+      213: 5868381105709669999
+    second: spritesheet_even_4
+  - first:
+      213: -6531887851695645728
+    second: spritesheet_even_5
+  - first:
+      213: -852315028348189233
+    second: spritesheet_even_6
+  - first:
+      213: 572777874254211371
+    second: spritesheet_even_7
+  - first:
+      213: -2947088756493296654
+    second: spritesheet_even_8
+  - first:
+      213: 1828265267380768147
+    second: spritesheet_even_9
+  - first:
+      213: 7472628956331141129
+    second: spritesheet_even_10
+  - first:
+      213: 9120629863647079413
+    second: spritesheet_even_11
+  - first:
+      213: 7158511300509798708
+    second: spritesheet_even_12
+  - first:
+      213: -360228700663978965
+    second: spritesheet_even_13
+  - first:
+      213: -3269532774615176030
+    second: spritesheet_even_14
+  - first:
+      213: -5984702074836739130
+    second: spritesheet_even_15
+  - first:
+      213: -2008802998808768357
+    second: spritesheet_even_16
+  - first:
+      213: 7961929858196467039
+    second: spritesheet_even_17
+  - first:
+      213: -10597173841296956
+    second: spritesheet_even_18
+  - first:
+      213: 865212491351317
+    second: spritesheet_even_19
+  - first:
+      213: 1515872013608445716
+    second: spritesheet_even_20
+  - first:
+      213: 1383893923703767375
+    second: spritesheet_even_21
+  - first:
+      213: 347552815686778749
+    second: spritesheet_even_22
+  - first:
+      213: 3532099824081100730
+    second: spritesheet_even_23
+  - first:
+      213: -683441513235368606
+    second: spritesheet_even_24
+  - first:
+      213: 810627935796697871
+    second: spritesheet_even_25
+  - first:
+      213: 1771870631297058875
+    second: spritesheet_even_26
+  - first:
+      213: -6149233216291893581
+    second: spritesheet_even_27
+  - first:
+      213: -4365793377680304293
+    second: spritesheet_even_28
+  - first:
+      213: -6070389204265101374
+    second: spritesheet_even_29
+  - first:
+      213: 2070338838901965480
+    second: spritesheet_even_30
+  - first:
+      213: -3928564511406132103
+    second: spritesheet_even_31
+  - first:
+      213: -6151653802950489820
+    second: spritesheet_even_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet_even_0
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 6
+        width: 59
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b2e55c41385b72e0800000000000000
+      internalID: -2127009430245088588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_even_6
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 4
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc5449a5ff7fb24f0800000000000000
+      internalID: -852315028348189233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_even_7
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 7
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b292022217ae2f700800000000000000
+      internalID: 572777874254211371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_even_15
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 5
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb10d6db2112fca0800000000000000
+      internalID: -5984702074836739130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_even_19
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 5
+        width: 52
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515c33bf7e2130000800000000000000
+      internalID: 865212491351317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_even_23
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 4
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abfd29d731a840130800000000000000
+      internalID: 3532099824081100730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_even_24
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 7
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265b9d2909de386f0800000000000000
+      internalID: -683441513235368606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 02221d3bad41a424b9ba8ca8a0660fe3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spritesheet_even_0: -2127009430245088588
+      spritesheet_even_1: -8234162820466610612
+      spritesheet_even_10: 7472628956331141129
+      spritesheet_even_11: 9120629863647079413
+      spritesheet_even_12: 7158511300509798708
+      spritesheet_even_13: -360228700663978965
+      spritesheet_even_14: -3269532774615176030
+      spritesheet_even_15: -5984702074836739130
+      spritesheet_even_16: -2008802998808768357
+      spritesheet_even_17: 7961929858196467039
+      spritesheet_even_18: -10597173841296956
+      spritesheet_even_19: 865212491351317
+      spritesheet_even_2: -332661263109750757
+      spritesheet_even_20: 1515872013608445716
+      spritesheet_even_21: 1383893923703767375
+      spritesheet_even_22: 347552815686778749
+      spritesheet_even_23: 3532099824081100730
+      spritesheet_even_24: -683441513235368606
+      spritesheet_even_25: 810627935796697871
+      spritesheet_even_26: 1771870631297058875
+      spritesheet_even_27: -6149233216291893581
+      spritesheet_even_28: -4365793377680304293
+      spritesheet_even_29: -6070389204265101374
+      spritesheet_even_3: 6969761053083844070
+      spritesheet_even_30: 2070338838901965480
+      spritesheet_even_31: -3928564511406132103
+      spritesheet_even_32: -6151653802950489820
+      spritesheet_even_4: 5868381105709669999
+      spritesheet_even_5: -6531887851695645728
+      spritesheet_even_6: -852315028348189233
+      spritesheet_even_7: 572777874254211371
+      spritesheet_even_8: -2947088756493296654
+      spritesheet_even_9: 1828265267380768147
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
