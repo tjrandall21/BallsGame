@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BOOM 2
   m_EditorClassIdentifier: Assembly-CSharp::BigBoomUpgrade
   shopIcon: {fileID: 2543244090855550724, guid: 1b5443337ca8e4e4eb5734e840c4976a, type: 3}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
-  upgradeLevel: 0
+  upgradeFamily: HammerExplode
+  upgradeName: Hammer Explosions
+  description: Your hammer can explode on hit.
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
@@ -34,5 +34,5 @@ MonoBehaviour:
   explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
   explosionDamage: 40
   explosionKnockback: 10
-  explosionSize: 2
-  requiredSpinSpeed: 100
+  explosionSize: 1.2
+  requiredSpinSpeed: 360

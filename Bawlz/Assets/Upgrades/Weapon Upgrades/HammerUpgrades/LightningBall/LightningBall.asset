@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e71add33bfca0f49a04f942d6ca462c, type: 3}
   m_Name: LightningBall
   m_EditorClassIdentifier: Assembly-CSharp::LightningBall
-  shopIcon: {fileID: 0}
-  upgradeFamily: Upgrade
-  upgradeName: Weapon Upgrade
-  description: This is a weapon upgrade.
+  shopIcon: {fileID: 2881979740265337775, guid: 485b9d2a3651582468fdcb2959e43b0e, type: 3}
+  upgradeFamily: LightningBall
+  upgradeName: Lightning Ball
+  description: spawns a lightning ball on weapon hit
   upgradeLevel: 0
   upgradeExp: 0
-  nextLevelUpgrade: {fileID: 0}
+  nextLevelUpgrade: {fileID: 11400000, guid: 8481b4dca9078954c8aa49b5f4f7b7e9, type: 2}
   stackable: 1
   damage: 0
   knockbackSpeed: 0

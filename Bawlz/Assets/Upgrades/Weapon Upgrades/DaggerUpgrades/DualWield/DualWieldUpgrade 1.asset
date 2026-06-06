@@ -27,5 +27,5 @@ MonoBehaviour:
   parentBall: {fileID: 0}
   parentWeapon: {fileID: 0}
   damageScalingAmount: 0
-  spinSpeed: 60
+  spinSpeed: 0
   secondaryDaggerPrefab: {fileID: 9124016292243078404, guid: 032b7d1d594d87a41bf3bbf7cc6e8c43, type: 3}
