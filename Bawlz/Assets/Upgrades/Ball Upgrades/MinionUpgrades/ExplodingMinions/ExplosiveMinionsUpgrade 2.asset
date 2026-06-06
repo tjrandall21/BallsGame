@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ExplosiveMinionsUpgrade 2
   m_EditorClassIdentifier: Assembly-CSharp::ExplosiveMinions
   shopIcon: {fileID: 3186300881023684162, guid: b8d02a8565ea62a44b025dd4a55efc68, type: 3}
-  upgradeFamily: Explsosive Minions
-  upgradeName: Explsosive Minions
+  upgradeFamily: Explosive Minions
+  upgradeName: Explosive Minions
   description: Your minions create a damaging explosion on death.
   upgradeLevel: 2
   upgradeExp: 0

@@ -210,13 +210,13 @@ public class PlayerShop : MonoBehaviour
         if (sellmode)
         {
             SetupSellMenu();
-            sellButtonText.text = "Back to Shop";
+            sellButtonText.text = "Back";
             buyPanel.SetActive(false);
             sellPanel.SetActive(true);
         }
         else
         {
-            sellButtonText.text = "See Current Upgrades";
+            sellButtonText.text = "Sell";
             buyPanel.SetActive(true);
             sellPanel.SetActive(false);
         }
