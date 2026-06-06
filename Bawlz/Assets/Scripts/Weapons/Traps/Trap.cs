@@ -22,7 +22,14 @@ public class Trap : Weapon
         damage = trapDamage;
         knockbackSpeed = trapKnockback;
         parent = owner;
-        gameObject.layer = owner.gameObject.layer;
+        if (owner != null)
+        {
+            gameObject.layer = owner.gameObject.layer+4;
+        }
+        else
+        {
+            gameObject.layer = 0;
+        }
         timer = duration;
         activationTimer = activationDelay;
     }

@@ -11,6 +11,14 @@ public class RatSpawner : Trap
     private float spawnTimer = 0f;
     private bool isSpawning = false;
 
+    public override void TrapInit(float trapDamage, float trapKnockback, BallController owner)
+    {
+        triggered = true;
+        isSpawning = true;
+        spawnTimer = spawnInterval; 
+        base.TrapInit(trapDamage, trapKnockback, owner);
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -43,9 +51,6 @@ public class RatSpawner : Trap
         {
             return;
         }
-        triggered = true;
-        isSpawning = true;
-        spawnTimer = 0; 
     }
 
     void SpawnRat()
@@ -58,10 +63,10 @@ public class RatSpawner : Trap
         }
 
         GameObject rat = Instantiate(ratPrefab, transform.position, Quaternion.identity);
-         BallController ratController = rat.GetComponent<BallController>();
-         ratController.Init(new List<Upgrade>(), 1, Random.Range(0.0f, 360.0f), ratController.sprite.sprite);
-         ratController.contactDamage = damage;
-         ratController.maxHealth = 1f;
-         parent.OnBallSpawned(ratController);
+        BallController ratController = rat.GetComponent<BallController>();
+        ratController.Init(new List<Upgrade>(), 1, Random.Range(0.0f, 360.0f), ratController.sprite.sprite);
+        ratController.contactDamage = damage;
+        ratController.maxHealth = 1f;
+        rat.layer = 0;
     }
 }
