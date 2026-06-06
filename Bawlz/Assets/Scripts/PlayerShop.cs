@@ -505,6 +505,7 @@ public class PlayerShop : MonoBehaviour
 
     public void SellWeapon()
     {
+        player.frozenWeaponUpgradeIndices = new List<int>();
         player.weaponPrefab = null;
         SellAllWeaponUpgrades();
         UpdateCoinText();
