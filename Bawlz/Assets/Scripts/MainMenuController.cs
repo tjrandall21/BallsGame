@@ -25,6 +25,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private List<GameObject> characterSelectGrids; // Character Grid Prefabs to be enabled/disabled based on player count
     [SerializeField] private List<GameObject> weaponSelectGrids; // Weapon Grid Prefabs to be enabled/disabled based on player count
     [SerializeField] List<Image> weaponSelectPreviews;
+    [SerializeField] private Button StartGameplayButton;
 
     void Start()
     {
@@ -135,6 +136,7 @@ public class MainMenuController : MonoBehaviour
         WeaponSelectPanel.alpha = 1;
         WeaponSelectPanel.interactable = true;
         WeaponSelectPanel.blocksRaycasts = true;
+        StartGameplayButton.interactable = false;
         foreach (Image image in weaponSelectPreviews)
         {
             image.gameObject.SetActive(false);
@@ -284,6 +286,8 @@ public class MainMenuController : MonoBehaviour
         int playerIndex = buttonData.playerNum-1;
         GameManager.Instance.players[playerIndex].weaponPrefab = buttonData.weaponPrefab;
         weaponSelectPreviews[playerIndex].sprite = button.GetComponent<Image>().sprite;
+        weaponSelectPreviews[playerIndex].color = Color.white;
+        ActivatePlayButtton();
     }
 
     public void UpdateButtons()
@@ -294,6 +298,18 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+    public void ActivatePlayButtton() // Once all players select their weapons enable the play button
+    {
+        foreach (Image image in weaponSelectPreviews)
+        {
+            if (image.gameObject.activeSelf && image.sprite == null)
+            {
+                StartGameplayButton.interactable = false;
+                return;
+            }
+        }
+        StartGameplayButton.interactable = true;
+    }
 
     public void SelectCharacterSprite()
     {

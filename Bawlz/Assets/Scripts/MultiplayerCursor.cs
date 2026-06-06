@@ -25,7 +25,6 @@ public class MultiplayerCursor : MonoBehaviour
     {
         playerRoot = transform.root;
 
-        // keep the player object alive across scenes, but don't reparent the whole player under the UI canvas
         DontDestroyOnLoad(playerRoot.gameObject);
 
         playerInput = GetComponent<PlayerInput>();
@@ -72,6 +71,7 @@ public class MultiplayerCursor : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        int screenQuarterWidth = Screen.width / 4;
         Debug.Log("Cursor carried into scene: " + scene.name);
 
         MoveToPersistentCursorCanvas();
@@ -81,12 +81,14 @@ public class MultiplayerCursor : MonoBehaviour
         {
             cursorPos.x = Mathf.Clamp(cursorPos.x, 0, Screen.width);
             cursorPos.y = Mathf.Clamp(cursorPos.y, 0, Screen.height);
+           
             cursor.position = cursorPos;
         }
         if (SceneManager.GetActiveScene().name == "TestMenuScene")
         {// clears every cursor so that they have to be recreated
             Destroy(playerRoot.gameObject);
         }
+
     }
     
     
