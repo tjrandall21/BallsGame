@@ -5,8 +5,10 @@ using UnityEngine;
 public class DaggerRatSpawnerUpgrade : DaggerUpgrade
 {
     [SerializeField ] GameObject ratSpawnerPrefab;
-    public float duration = 2f;
     public int numRatsToSpawn = 5;
+    public float ratDamage = 1f;
+    public float ratInterval = 2f;
+    float trapDuration = 20f;
     public float spawnChance = 0.5f;
 
     public override void OnBallHit(BallController otherBall)
@@ -17,8 +19,10 @@ public class DaggerRatSpawnerUpgrade : DaggerUpgrade
 
         GameObject trapObject = Instantiate(ratSpawnerPrefab, otherBall.transform.position, Quaternion.identity);
         RatSpawner ratSpawner = trapObject.GetComponent<RatSpawner>();
-        ratSpawner.trapDuration = duration;
-        ratSpawner.numRatsToSpawn = numRatsToSpawn;
+        ratSpawner.Damage = ratDamage;
+        ratSpawner.ratCount = numRatsToSpawn;
+        ratSpawner.spawnInterval = ratInterval;
+        ratSpawner.duration = trapDuration;
         ratSpawner.TrapInit(0, 0, parentBall);
     }
 }

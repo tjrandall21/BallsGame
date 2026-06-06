@@ -28,7 +28,7 @@ MonoBehaviour:
   parentWeapon: {fileID: 0}
   damageScalingAmount: 0
   spinSpeed: 0
-  ratSpawnerPrefab: {fileID: 0}
-  duration: 3
+  ratSpawnerPrefab: {fileID: 6058236976940340801, guid: 8f8c06fc16e2e984ebed9fd92a63a26a, type: 3}
+  duration: 0.5
   numRatsToSpawn: 5
   spawnChance: 0.5

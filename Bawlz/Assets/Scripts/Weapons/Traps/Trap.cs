@@ -7,7 +7,7 @@ public class Trap : Weapon
     public float activationDelay = 0.5f;
     private float timer;
     private float activationTimer;
-    private bool isActive = false;
+    protected bool isActive = false;
 
     protected override void Start()
     {
