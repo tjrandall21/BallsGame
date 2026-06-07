@@ -216,6 +216,8 @@ MonoBehaviour:
   damage: 0
   knockbackSpeed: 0
   attackCooldown: 0.4
+  canWeaponCollide: 1
+  excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades: []
   possibleWeaponUpgradesInShop:
@@ -233,4 +235,4 @@ MonoBehaviour:
   arrowDamageScaling: 1.5
   extraProjectiles: 0
   spreadIncreasePerArrow: 20
-  attackSpeedScaling: 0.02
+  attackSpeedScaling: 0.01

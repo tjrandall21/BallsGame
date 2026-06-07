@@ -17,8 +17,7 @@ public class Sceptre : Weapon
 
     protected override void OnBallHit(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
-
+        FXManager.Instance.PlayWeaponHit(transform.position, this);
 
         int minionAmount = minionsPerHit;
         if (Random.value < extraMinionChance)
@@ -58,7 +57,6 @@ public class Sceptre : Weapon
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
-        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
     }
 

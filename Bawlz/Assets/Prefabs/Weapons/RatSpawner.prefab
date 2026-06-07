@@ -92,7 +92,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -110,21 +110,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf24ffa1d2fe21344b0da45b78099c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RatSpawner
-  weaponName: Weapon
+  weaponName: Rat Spawner
   description: This is a weapon.
-  damage: 10
+  damage: 0
   knockbackSpeed: 0
   attackCooldown: 0
-  canWeaponCollide: 1
-  excludeOnHit: 1
+  canWeaponCollide: 0
+  excludeOnHit: 0
   parent: {fileID: 0}
   weaponUpgrades: []
   possibleWeaponUpgradesInShop: []
   duration: 10
-  activationDelay: 0.5
+  activationDelay: 0
   ratPrefab: {fileID: 7189852719700939712, guid: d6e87e75f2829944db17e2fac55d2ad1, type: 3}
-  numRatsToSpawn: 5
-  trapDuration: 2
+  ratCount: 5
+  spawnInterval: 2
 --- !u!1 &6373445590752778803
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.90943396, g: 0.007460314, b: 0, a: 1}

@@ -31,8 +31,8 @@ MonoBehaviour:
   u_baseRotationSpeed: 0
   u_rotationAcceleration: 0
   u_maxSpinIncreasePerHit: 0
-  lightningBallPrefab: {fileID: 7189852719700939712, guid: c959db8532fde92498bc9513b9b4ae76, type: 3}
-  minionSpeed: 6
-  minionContactDamage: 5
-  minionHealth: 20
-  minionSize: 1
+  lightningBallPrefab: {fileID: 9124016292243078404, guid: 2f28ffe465eda064d87b443427299686, type: 3}
+  ballSpeed: 10
+  ballDamage: 20
+  ballSize: 0.3
+  ballLifetime: 8

@@ -38,6 +38,7 @@ public class Cannon : Weapon
 
     protected override void OnAttack()
     {
+        FXManager.Instance.PlayWeaponHit(transform.position, this);
         float rotation = transform.eulerAngles.z * math.PI / 180.0f + math.PI / 2;
         Vector3 shotDirection = new Vector3(math.cos(rotation), math.sin(rotation));
 
@@ -74,7 +75,6 @@ public class Cannon : Weapon
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
-        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
 
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
@@ -88,7 +88,6 @@ public class Cannon : Weapon
 
     protected override void OnBallHit(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
 
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {

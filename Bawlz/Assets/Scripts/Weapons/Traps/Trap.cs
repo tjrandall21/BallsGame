@@ -7,7 +7,7 @@ public class Trap : Weapon
     public float activationDelay = 0.5f;
     private float timer;
     private float activationTimer;
-    private bool isActive = false;
+    protected bool isActive = false;
 
     protected override void Start()
     {
@@ -22,7 +22,14 @@ public class Trap : Weapon
         damage = trapDamage;
         knockbackSpeed = trapKnockback;
         parent = owner;
-        gameObject.layer = owner.gameObject.layer;
+        if (owner != null)
+        {
+            gameObject.layer = owner.gameObject.layer+4;
+        }
+        else
+        {
+            gameObject.layer = 0;
+        }
         timer = duration;
         activationTimer = activationDelay;
     }
