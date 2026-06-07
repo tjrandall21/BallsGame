@@ -32,6 +32,8 @@ public class FXManager : MonoBehaviour
     [Header("Audio Settings")]
     [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
 
+    private AudioSource loopingStatusAudio;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -116,11 +118,11 @@ public class FXManager : MonoBehaviour
     }
     public void PlayDeath(GameObject entity)
     {
+        StopStatusLoop(); 
         if (entity.CompareTag("Minion") || entity.CompareTag("Rat"))
-        {
             PlayMinionDeath(entity.transform.position);
-        } 
-        else PlayPlayerDeath(entity.transform.position);
+        else
+            PlayPlayerDeath(entity.transform.position);
     }
 
     public void PlaySFX(AudioClip clip, Vector3 pos)
@@ -152,5 +154,26 @@ public class FXManager : MonoBehaviour
         ParticleSystem instance = Instantiate(particleSystem, pos, Quaternion.identity);
         instance.Play();
         Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+    }
+
+    public void StartStatusLoop(AudioClip clip)
+    {
+        if (clip == null) return;
+        if (loopingStatusAudio != null) return; // already playing, don't add another
+        GameObject audioObject = new GameObject("LoopingStatusSFX");
+        audioObject.transform.SetParent(transform);
+        loopingStatusAudio = audioObject.AddComponent<AudioSource>();
+        loopingStatusAudio.clip = clip;
+        loopingStatusAudio.loop = true;
+        loopingStatusAudio.volume = sfxVolume;
+        loopingStatusAudio.Play();
+    }
+
+    public void StopStatusLoop()
+    {
+        if (loopingStatusAudio == null) return;
+        loopingStatusAudio.Stop();
+        Destroy(loopingStatusAudio.gameObject);
+        loopingStatusAudio = null;
     }
 }

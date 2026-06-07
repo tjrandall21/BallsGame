@@ -4,13 +4,20 @@ using UnityEngine;
 public class DoTEffect : StatusEffect
 {
     public float damagePerSecond = 5;
-    public float tickRate = 0.2f; 
+    public float tickRate = 0.2f;
     float tickTimer = 0;
 
     public override void OnStatusApplied()
     {
         base.OnStatusApplied();
         tickTimer = tickRate;
+        FXManager.Instance.StartStatusLoop(SFX);
+    }
+
+    public override void OnStatusEnd()
+    {
+        base.OnStatusEnd();
+        FXManager.Instance.StopStatusLoop();
     }
 
     public override void Update()
