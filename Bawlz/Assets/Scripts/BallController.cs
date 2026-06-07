@@ -98,11 +98,6 @@ public class BallController : MonoBehaviour
         launchAngle = launchAngle * math.PI / 180.0f;
         
         SetVelocityAngle(launchAngle, speed);
-
-        if (FXManager.Instance != null)
-        {
-            FXManager.Instance.RegisterPlayer(GetComponent<AudioSource>());
-        }
     }
 
     // Update is called once per frame
@@ -284,8 +279,6 @@ public class BallController : MonoBehaviour
 
     public void OnDamageTaken(float amount)
     {
-        //FXManager.Instance.PlayPlayerHit(transform.position);
-
         amount *= defenseMultiplier;
         health -= amount;
 
@@ -339,9 +332,9 @@ public class BallController : MonoBehaviour
             upgrade.OnBallDeath();
         }
         if (alive)
-        {   
+        {
             alive = false;
-            FXManager.Instance.PlayDeath(gameObject);
+            FXManager.Instance.PlayDeath(gameObject); // This is the correct place to call PlayDeath
             Destroy(gameObject);
             if (isMainBall)
             {
@@ -350,7 +343,7 @@ public class BallController : MonoBehaviour
                 {
                     minion.OnBallDeath();
                 }
-                
+
                 //alert gamemanager that a player's main ball has died
                 GameManager.Instance.MainBallDied(this);
             }
@@ -358,13 +351,11 @@ public class BallController : MonoBehaviour
             {
                 GameManager.Instance.GetMainBallByNumber(playerNum).OnMinionDeath(this);
             }
-            
         }
     }
 
     void OnBallCollision(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
         foreach (Upgrade upgrade in upgrades)
         {
             upgrade.OnBallCollision(otherBall);

@@ -18,7 +18,7 @@ public class AirStrike : CannonUpgrade
         Vector3 pos = otherBall.transform.position;
 
         GameObject airStrikeObject = Instantiate(airStrikePrefab);
-        //airStrikeObject.layer = parentBall.gameObject.layer + 4;
+        airStrikeObject.layer = parentBall.gameObject.layer + 4;
         CannonAirStrike airStrike = airStrikeObject.GetComponent<CannonAirStrike>();
         airStrike.AirStrikeInit(airStrikeDamage, airStrikeKnockback, airStrikeExplosionSize, airStrikeDelay, otherBall.transform.position);
         airStrike.Init(0.0f, otherBall.transform.position, airStrikeDelay, airStrikeSize);

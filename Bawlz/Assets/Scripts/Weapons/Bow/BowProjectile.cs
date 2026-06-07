@@ -4,8 +4,10 @@ public class BowProjectile : Projectile
 {
     protected override void OnBallHit(BallController otherBall)
     {
+        FXManager.Instance.PlayProjectileFire(transform.position, this);
         ((Bow)parentWeapon).OnArrowBallHit(otherBall, this);
         base.OnBallHit(otherBall);
+
     }
 
     protected override void OnWallHit()

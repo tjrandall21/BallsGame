@@ -22,7 +22,6 @@ public class Sword : Weapon
             }
         }
     }
-    
 
     public override void OnWallCollision()
     {
@@ -32,13 +31,12 @@ public class Sword : Weapon
 
     protected override void OnBallHit(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+        FXManager.Instance.PlayWeaponHit(transform.position, this);
         base.OnBallHit(otherBall);
     }
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
-        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
     }
 

@@ -42,7 +42,6 @@ public class Hammer : Weapon
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
-        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
 
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
@@ -54,7 +53,7 @@ public class Hammer : Weapon
 
     protected override void OnBallHit(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+        FXManager.Instance.PlayWeaponHit(transform.position, this);
 
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {

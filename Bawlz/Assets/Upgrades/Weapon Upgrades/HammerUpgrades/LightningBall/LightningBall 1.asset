@@ -35,4 +35,4 @@ MonoBehaviour:
   ballSpeed: 10
   ballDamage: 20
   ballSize: 0.3
-  ballLifetime: 3
+  ballLifetime: 5

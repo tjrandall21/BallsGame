@@ -5,75 +5,150 @@ public class FXManager : MonoBehaviour
     public static FXManager Instance;
 
     [Header("Audio")]
-    [SerializeField] AudioClip weaponHitSFX;
-    [SerializeField] AudioClip playerHitSFX;
     [SerializeField] AudioClip playerDeathSFX;
     [SerializeField] AudioClip minionDeathSFX;
-    [SerializeField] AudioClip PlayerHitsPlayerSFX;
 
-    [Header("Particles")]
-    [SerializeField] ParticleSystem weaponVsWeaponFX;
-    [SerializeField] ParticleSystem weaponVsPlayerFX;
+    [Header("WEAPONS")]
+    [SerializeField] AudioClip SwordHitSFX;
+    [SerializeField] AudioClip HammerHitSFX;
+    [SerializeField] AudioClip DaggerHitSFX;
+    [SerializeField] AudioClip SceptreHitSFX;
+
+    [Header("PROJECTILES FIRE")]
+    [SerializeField] AudioClip CannonFireSFX;
+    [SerializeField] AudioClip TKHitSFX;
+    [SerializeField] AudioClip ArrowReleaseSFX;
+
+    [Header("PROJECTILES HIT")]
+    [SerializeField] AudioClip ArrowHitSFX;
+    [SerializeField] AudioClip CannonHitSFX;
+
+
+
+    [Header("Particle Systems")]
     [SerializeField] ParticleSystem playerDeathFX;
     [SerializeField] ParticleSystem minionDeathFX;
 
     [Header("Audio Settings")]
     [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
 
-    [SerializeField] int audioPoolSize = 10;
-    private AudioSource[] audioPool;
-    private int poolIndex;
-
-
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        audioPool = new AudioSource[audioPoolSize];
-        for (int i = 0; i < audioPoolSize; i++)
-        {
-            audioPool[i] = gameObject.AddComponent<AudioSource>();
-            audioPool[i].playOnAwake = false;
-            audioPool[i].volume = sfxVolume;
-        }
     }
 
-    public void RegisterPlayer(AudioSource source) { }
+    public void PlayWeaponHit(Vector3 pos, Weapon weapon)
+    {
+        AudioClip weaponSFX = null;
 
-    // sound effects for hits and deaths
-    public void PlayWeaponHit(Vector3 pos) => PlayFX(weaponVsWeaponFX, weaponHitSFX, pos);
-    public void PlayPlayerHit(Vector3 pos) => PlayFX(weaponVsPlayerFX, playerHitSFX, pos);
-    public void PlayPlayerDeath(Vector3 pos) => PlayFX(playerDeathFX, playerDeathSFX, pos);
-    public void PlayMinionDeath(Vector3 pos) => PlayFX(minionDeathFX, minionDeathSFX, pos);
-    public void PlayPlayerHitsPlayer(Vector3 pos) => PlayFX(weaponVsPlayerFX, PlayerHitsPlayerSFX, pos);
-   
+        switch (weapon)
+        {
+            case Hammer:
+                weaponSFX = HammerHitSFX;
+                break;
+            case Dagger:
+                weaponSFX = DaggerHitSFX;
+                break;
+            case Sceptre:
+                weaponSFX = SceptreHitSFX;
+                break;
+            case Sword:
+                weaponSFX = SwordHitSFX;
+                break;
+            case Cannon:
+                weaponSFX = CannonFireSFX;
+                break;
+
+            case Bow:
+                weaponSFX = ArrowReleaseSFX;
+                break;
+
+            default:
+                return;
+        }
+
+        PlaySFX(weaponSFX, pos); // Fixed to use PlaySFX for audio clips
+    }
+    public void PlayProjectileFire(Vector3 pos, Projectile proj)
+    {
+        AudioClip projSFX = null;
+
+        switch (proj)
+        {
+            case TKProdj:
+                projSFX = TKHitSFX;
+                break;
+            case CannonProdj:
+                projSFX = CannonHitSFX;
+                break;
+            case BowProjectile:
+                projSFX = ArrowHitSFX;
+                break;
+
+            default:
+                return;
+        }
+
+        PlaySFX(projSFX, pos); // Fixed to use PlaySFX for audio clips
+    }
+
+
+    public void PlayPlayerDeath(Vector3 pos)
+    {
+        PlaySFX(playerDeathSFX, pos);
+        PlayFX(playerDeathFX, pos);
+    } 
+
+    public void PlayMinionDeath(Vector3 pos)
+    { 
+        PlaySFX(minionDeathSFX, pos);
+        PlayFX(minionDeathFX, pos);
+    }
+  
     public void PlayDeath(GameObject entity)
     {
-        if (entity.CompareTag("Minion")) PlayMinionDeath(entity.transform.position);
+        if (entity.CompareTag("Minion") || entity.CompareTag("Rat"))
+        {
+            PlayMinionDeath(entity.transform.position);
+        } 
         else PlayPlayerDeath(entity.transform.position);
     }
 
-    public void PlayFX(ParticleSystem prefab, AudioClip clip, Vector3 pos)
+    public void PlaySFX(AudioClip clip, Vector3 pos)
     {
-        if (prefab != null)
+        if (clip == null)
         {
-            ParticleSystem fx = Instantiate(prefab, pos, Quaternion.identity);
-            fx.Play();
-            Destroy(fx.gameObject, fx.main.duration + fx.main.startLifetime.constantMax);
+            Debug.LogWarning("Audio clip is null!");
+            return;
         }
-        if (clip == null) return;
-        AudioSource source = GetFreeSource();
+
+        // Dynamically create an AudioSource for this sound effect
+        GameObject audioObject = new GameObject("TempAudio");
+        AudioSource source = audioObject.AddComponent<AudioSource>();
         source.transform.position = pos;
         source.clip = clip;
         source.pitch = Random.Range(0.9f, 1.1f);
         source.volume = sfxVolume;
+        
         source.Play();
+        Destroy(audioObject, clip.length);
     }
 
-    private AudioSource GetFreeSource()
+    public void PlayFX(ParticleSystem particleSystem, Vector3 pos)
     {
-        foreach (var s in audioPool)
-            if (!s.isPlaying) return s;
-        return audioPool[poolIndex++ % audioPoolSize];
+        if (particleSystem == null)
+        {
+            Debug.LogWarning("Particle system is null!");
+            return;
+        }
+        ParticleSystem instance = Instantiate(particleSystem, pos, Quaternion.identity);
+        instance.Play();
+        Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
     }
 }

@@ -26,12 +26,12 @@ public class StatusEffect : ScriptableObject
 
     public virtual void OnStatusApplied()
     {
-        FXManager.Instance.PlayFX(Fx, SFX, appliedBall.transform.position);
+
     }
 
     public void PlayTickFX()
     {
-        FXManager.Instance.PlayFX(Fx, SFX, appliedBall.transform.position);
+       
     }
 
     public virtual void Update()

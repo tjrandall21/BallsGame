@@ -40,7 +40,7 @@ public class TKProdj : Projectile
 
     protected override void OnBallHit(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
+        FXManager.Instance.PlayProjectileFire(transform.position, this);
         ((TKScript)parentWeapon).OnProjectileBallHit(this,otherBall);
         ((TKScript)parentWeapon).OnProjectileDestroyed(this);
         //otherBall.ApplyStatus(bleedEffect, parent);
@@ -49,7 +49,6 @@ public class TKProdj : Projectile
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
-        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         ((TKScript)parentWeapon).OnProjectileWeaponHit(this,otherWeapon);
         ((TKScript)parentWeapon).OnProjectileDestroyed(this);
         base.OnWeaponHit(otherWeapon);
