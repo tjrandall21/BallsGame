@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4334133856636644485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6828778130818228379}
+  - component: {fileID: 155654182882925667}
+  m_Layer: 0
+  m_Name: FXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6828778130818228379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334133856636644485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 6.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155654182882925667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334133856636644485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3a361195b93044cb540a09798876bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FXManager
+  playerDeathSFX: {fileID: 8300000, guid: 74b1c0d830af6c847a36da433a7213b9, type: 3}
+  minionDeathSFX: {fileID: 8300000, guid: 89982799965cf944eba6e77167761820, type: 3}
+  SwordHitSFX: {fileID: 8300000, guid: 2ec398d9b4584ea4589e323c5d0f4240, type: 3}
+  HammerHitSFX: {fileID: 8300000, guid: 80adc6020c2da9845824fb7225f06b6e, type: 3}
+  DaggerHitSFX: {fileID: 8300000, guid: dbb5817a7e9f9a6489c4da7efa9c692b, type: 3}
+  SceptreHitSFX: {fileID: 0}
+  CannonFireSFX: {fileID: 8300000, guid: 29d739cc63a29a046a06142335afac3d, type: 3}
+  TKHitSFX: {fileID: 0}
+  ArrowReleaseSFX: {fileID: 8300000, guid: 22602d80bb215804e9016f75bb38a7a8, type: 3}
+  ArrowHitSFX: {fileID: 8300000, guid: e7ad04f4b2c5cb547b623866b17d17da, type: 3}
+  CannonHitSFX: {fileID: 8300000, guid: 249c2132d3392f64a9b9df47b9f38c99, type: 3}
+  playerDeathFX: {fileID: 2438070733455081059, guid: 5ede3ca26c083a041b882f82764fdddd, type: 3}
+  minionDeathFX: {fileID: 2438070733455081059, guid: bb7a088a29706794a9cc4fa6d53dd460, type: 3}
+  sfxVolume: 0.064
