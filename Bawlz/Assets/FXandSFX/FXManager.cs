@@ -90,27 +90,30 @@ public class FXManager : MonoBehaviour
             case BowProjectile:
                 projSFX = ArrowHitSFX;
                 break;
-
             default:
                 return;
         }
 
         PlaySFX(projSFX, pos); // Fixed to use PlaySFX for audio clips
     }
-
+    public void PlayStausEffect(Vector3 pos, StatusEffect effect)
+    {
+        switch (effect)
+        {
+         
+        }
+    }
 
     public void PlayPlayerDeath(Vector3 pos)
     {
         PlaySFX(playerDeathSFX, pos);
         PlayFX(playerDeathFX, pos);
     } 
-
     public void PlayMinionDeath(Vector3 pos)
     { 
         PlaySFX(minionDeathSFX, pos);
         PlayFX(minionDeathFX, pos);
     }
-  
     public void PlayDeath(GameObject entity)
     {
         if (entity.CompareTag("Minion") || entity.CompareTag("Rat"))
@@ -133,13 +136,12 @@ public class FXManager : MonoBehaviour
         AudioSource source = audioObject.AddComponent<AudioSource>();
         source.transform.position = pos;
         source.clip = clip;
-        source.pitch = Random.Range(0.9f, 1.1f);
+        source.pitch = Random.Range(0.8f, 1.2f);
         source.volume = sfxVolume;
         
         source.Play();
         Destroy(audioObject, clip.length);
     }
-
     public void PlayFX(ParticleSystem particleSystem, Vector3 pos)
     {
         if (particleSystem == null)
