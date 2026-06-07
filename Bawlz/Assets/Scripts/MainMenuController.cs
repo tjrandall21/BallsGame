@@ -26,6 +26,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private List<GameObject> weaponSelectGrids; // Weapon Grid Prefabs to be enabled/disabled based on player count
     [SerializeField] List<Image> weaponSelectPreviews;
     [SerializeField] private Button StartGameplayButton;
+    [SerializeField] private Button goToWeaponSelectButton;
 
     void Start()
     {
@@ -93,6 +94,7 @@ public class MainMenuController : MonoBehaviour
         CharacterSelectPanel.interactable = true;
         CharacterSelectPanel.blocksRaycasts = true;
         GameManager.Instance.ResetPlayers(playerCount);
+        goToWeaponSelectButton.interactable = false;
 
         foreach (Image image in playerCharacterSelectPreviews)
         {
@@ -125,6 +127,7 @@ public class MainMenuController : MonoBehaviour
         PlayPanel.alpha = 1;
         PlayPanel.interactable = true;
         PlayPanel.blocksRaycasts = true;
+        goToWeaponSelectButton.interactable = false;
         GameManager.Instance.players.Clear();
     }
 
@@ -311,6 +314,18 @@ public class MainMenuController : MonoBehaviour
         StartGameplayButton.interactable = true;
     }
 
+    public void ActivateGoToWeaponSelectButton()
+    {
+        foreach (Image image in playerCharacterSelectPreviews)
+            {
+            if (image.gameObject.activeSelf && image.sprite == null)
+            {
+                goToWeaponSelectButton.interactable = false;
+                return;
+            }
+        }
+        goToWeaponSelectButton.interactable = true;
+    }
     public void SelectCharacterSprite()
     {
         if (EventSystem.current != null && EventSystem.current.currentSelectedGameObject != null)
@@ -324,11 +339,13 @@ public class MainMenuController : MonoBehaviour
                 var image = clickedButton.GetComponentInChildren<Image>();
                 if (image != null)
                 {
+                    image.color = Color.white;
                     SetPlayerCharacterSprite(image, clickedButton.name, gridIndex);
                     Debug.Log("Character sprite selected: " + clickedButton.name + " for player index: " + gridIndex);
                 }
             }
         }
+        ActivateGoToWeaponSelectButton();
     }
 
     // Traverses up from the clicked transform to find which character select grid it belongs to.
@@ -370,6 +387,7 @@ public class MainMenuController : MonoBehaviour
         
 
         playerCharacterSelectPreviews[indexToUse].sprite = CharacterImage.sprite;
+        playerCharacterSelectPreviews[indexToUse].color = Color.white;
         playerCharacterSelectPreviews[indexToUse].GetComponent<SelectedCharacter>().characterName = characterName;
         playerCharacterSelectPreviews[indexToUse].SetNativeSize();
         

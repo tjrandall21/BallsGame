@@ -415,14 +415,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.10980393, g: 0.5529412, b: 0.5686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4807775697852972887, guid: 4719ee1fb2727284292d75c18f84eade, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2365,14 +2365,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.10980393, g: 0.5529412, b: 0.5686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1948035008154585338, guid: 0fba3e8e8518e3746af6ecb560486acc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2667,7 +2667,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488512052}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -2961,6 +2961,18 @@ PrefabInstance:
     - target: {fileID: 1032376349281274799, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5169811
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.g
+      value: 0.13948734
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15134908
       objectReference: {fileID: 0}
     - target: {fileID: 1562678429472871850, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3475,6 +3487,18 @@ PrefabInstance:
     - target: {fileID: 1032376349281274799, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.b
+      value: 0.020156559
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.g
+      value: 0.51056343
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5622641
       objectReference: {fileID: 0}
     - target: {fileID: 1562678429472871850, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8022,6 +8046,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.b
+      value: 0.09347123
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4113207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.r
+      value: 0.024058359
+      objectReference: {fileID: 0}
     - target: {fileID: 1562678429472871850, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -9107,14 +9143,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.10980393, g: 0.5529412, b: 0.5686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2663283879771305436, guid: 7d2ea5fcacd3b8540ab78a55373373d0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11466,14 +11502,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.10980393, g: 0.5529412, b: 0.5686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7806759438263799239, guid: bbe9acf200234194ab8a1b6a0ddb1b1b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12117,6 +12153,7 @@ MonoBehaviour:
   - {fileID: 369336849}
   - {fileID: 1478722}
   StartGameplayButton: {fileID: 2041173071}
+  goToWeaponSelectButton: {fileID: 1797439954}
 --- !u!4 &2040655292
 Transform:
   m_ObjectHideFlags: 0
@@ -12769,6 +12806,18 @@ PrefabInstance:
     - target: {fileID: 1032376349281274799, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 1562678429472871850, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_SizeDelta.x
