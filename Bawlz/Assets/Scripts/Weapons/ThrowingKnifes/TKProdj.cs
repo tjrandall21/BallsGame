@@ -65,7 +65,7 @@ public class TKProdj : Projectile
         {
             stuck = true;
             travel = false;
-            Debug.Log($"Wall hit! stickDuration: {stickDuration}, fadeDuration: {fadeDuration}");
+            //Debug.Log($"Wall hit! stickDuration: {stickDuration}, fadeDuration: {fadeDuration}");
             StartCoroutine(StickAndFade());
         }
         ((TKScript)parentWeapon).OnProjectileWallHit(this);

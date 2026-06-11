@@ -31,8 +31,9 @@ MonoBehaviour:
   u_projDamage: 0
   attackSpeedScaling: 0
   airStrikePrefab: {fileID: 4866617159980323993, guid: fcbf50575a3227542b45dee13166346e, type: 3}
-  airStrikeDamage: 20
+  airStrikeDamage: 30
   airStrikeKnockback: 0
-  airStrikeExplosionSize: 1
-  airStrikeDelay: 2
-  airStrikeSize: 1.2
+  airStrikeExplosionSize: 1.4
+  airStrikeDelay: 1
+  airStrikeSize: 1
+  airStrikeCooldown: 1

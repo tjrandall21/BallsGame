@@ -33,6 +33,7 @@ MonoBehaviour:
   airStrikePrefab: {fileID: 4866617159980323993, guid: fcbf50575a3227542b45dee13166346e, type: 3}
   airStrikeDamage: 40
   airStrikeKnockback: 0
-  airStrikeExplosionSize: 1
-  airStrikeDelay: 1
-  airStrikeSize: 1.3
+  airStrikeExplosionSize: 1.45
+  airStrikeDelay: 0.75
+  airStrikeSize: 1
+  airStrikeCooldown: 0.75

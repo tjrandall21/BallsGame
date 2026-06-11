@@ -231,7 +231,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c1bdc1698bac98d479bbab946e2ae541, type: 2}
   projectilePrefab: {fileID: 9124016292243078404, guid: e837acfa33ae31842acd69591b6a4543, type: 3}
   arrowSpeed: 30
-  arrowDamage: 10
+  arrowDamage: 5
   arrowDamageScaling: 1.5
   extraProjectiles: 0
   spreadIncreasePerArrow: 20

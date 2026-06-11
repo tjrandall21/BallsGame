@@ -177,6 +177,19 @@ public class BallController : MonoBehaviour
         statusEffects.Remove(status);
     }
 
+    public void RemoveStatusByName(string name)
+    {
+        foreach (StatusEffect status in statusEffects)
+        {
+            if (status.statusName == name)
+            {
+                status.OnStatusEnd();
+                RemoveStatus(status);
+                break;
+            }
+        }
+    }
+
     public void RemoveUpgradeByFamily(String family)
     {
         foreach (Upgrade upgrade in upgrades)
@@ -295,7 +308,7 @@ public class BallController : MonoBehaviour
             statusEffect.OnDamageTaken(amount);
         }
 
-        Debug.Log($"Name: {ballName}, PlayerNum: {playerNum}, Health: {health}");
+        //Debug.Log($"Name: {ballName}, PlayerNum: {playerNum}, Health: {health}");
         if (health <= 0)
         {
             OnBallDeath();

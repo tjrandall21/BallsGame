@@ -9,18 +9,33 @@ public class AirStrike : CannonUpgrade
     [SerializeField] float airStrikeExplosionSize = 1f;
     [SerializeField] float airStrikeDelay = 1f;
     [SerializeField] float airStrikeSize = 1.2f;
-    float airStrikeCooldown = 2f;
+    [SerializeField] float airStrikeCooldown = 1f;
+    float airStrikeTimer = 0;
+
+    public override void Update()
+    {
+        base.Update();
+        if (airStrikeTimer > 0)
+        {
+            airStrikeTimer-=Time.deltaTime;
+        }
+    }
 
     public override void OnBallHit(BallController otherBall)
     {
         base.OnBallHit(otherBall);
+        if (airStrikeTimer <= 0)
+        {
+            airStrikeTimer = airStrikeCooldown;
+            Vector3 pos = otherBall.transform.position;
 
-        Vector3 pos = otherBall.transform.position;
-
-        GameObject airStrikeObject = Instantiate(airStrikePrefab);
-        airStrikeObject.layer = parentBall.gameObject.layer + 4;
-        CannonAirStrike airStrike = airStrikeObject.GetComponent<CannonAirStrike>();
-        airStrike.AirStrikeInit(airStrikeDamage, airStrikeKnockback, airStrikeExplosionSize, airStrikeDelay, otherBall.transform.position);
-        airStrike.Init(0.0f, otherBall.transform.position, airStrikeDelay, airStrikeSize);
+            GameObject airStrikeObject = Instantiate(airStrikePrefab);
+            airStrikeObject.layer = parentBall.gameObject.layer + 4;
+            CannonAirStrike airStrike = airStrikeObject.GetComponent<CannonAirStrike>();
+            airStrike.AirStrikeInit(airStrikeDamage, airStrikeKnockback, airStrikeExplosionSize, airStrikeDelay, otherBall.transform.position);
+            airStrike.Init(0.0f, otherBall.transform.position, airStrikeDelay, airStrikeSize);
+        }
     }
+
+    
 }
