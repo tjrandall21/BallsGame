@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8507b9583e7a604409abd629b842c639, type: 2}
   - {fileID: 11400000, guid: 9a0f035a2c4ce80459ecb1b868c41476, type: 2}
   - {fileID: 11400000, guid: 7d06eb14e30b0af42a3c42bb78e0b161, type: 2}
+  - {fileID: 11400000, guid: de9cc59131d63294c847b59de3b88f22, type: 2}
   projectilePrefab: {fileID: 9124016292243078404, guid: e7f298a72ba99434b9561c2018919173, type: 3}
   projSpeed: 15
   projCount: 1

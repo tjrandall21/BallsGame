@@ -45,6 +45,9 @@ public class Bow : Weapon
             quaternion arrowRotation = quaternion.Euler(0,0,rotation-math.PI/2);
             GameObject projectileObject = Instantiate(projectilePrefab, transform.position, arrowRotation);
             BowProjectile projectile = projectileObject.GetComponent<BowProjectile>();
+
+            FXManager.Instance.PlayWeaponHit(transform.position, this);
+
             projectile.ProjectileInit(new Vector3(math.cos(rotation), math.sin(rotation)), arrowSpeed, arrowDamage, this);
             projectileObject.layer = gameObject.layer < 10 ? gameObject.layer+4 : gameObject.layer;
 

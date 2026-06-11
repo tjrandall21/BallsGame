@@ -32,6 +32,7 @@ public class AreaUpgrade : Upgrade
 
     public virtual void BallEnteredArea(BallController otherBall)
     {
+        ballsInContact.RemoveAll(item => item == null);
         ballsInContact.Add(otherBall);
     }
 
@@ -43,6 +44,7 @@ public class AreaUpgrade : Upgrade
     public virtual void BallExitedArea(BallController otherBall)
     {
         ballsInContact.Remove(otherBall);
+        ballsInContact.RemoveAll(item => item == null);
     }
 
 

@@ -39,7 +39,9 @@ MonoBehaviour:
   projectileBounces: 0
   explosionPrefab: {fileID: 9124016292243078404, guid: ce351ec3afaf3194c841198925454b4e, type: 3}
   teleportChance: 0.5
-  teleportCooldown: 2.5
+  teleportCooldown: 2.6
   explosionDamage: 5
   explosionKnockback: 10
-  explosionSize: 1.3
+  explosionSize: 1.5
+  ballAreaPrefab: {fileID: 4866617159980323993, guid: 43e74b554636b774598823d3ae6fd74a, type: 3}
+  radius: 2.2

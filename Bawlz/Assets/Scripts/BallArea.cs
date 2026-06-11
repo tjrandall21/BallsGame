@@ -3,11 +3,19 @@ using UnityEngine;
 
 public class BallArea : MonoBehaviour
 {
-    AreaUpgrade upgrade;
+    AreaUpgrade upgrade = null;
+    TKTeleport teleportUpgrade = null;
 
     public virtual void Init(AreaUpgrade areaUpgrade, float radius, int layer)
     {
         upgrade = areaUpgrade;
+        SetRadius(radius);
+        gameObject.layer = layer;
+    }
+
+    public virtual void Init(TKTeleport tkTeleportUpgrade, float radius, int layer)
+    {
+        teleportUpgrade = tkTeleportUpgrade;
         SetRadius(radius);
         gameObject.layer = layer;
     }
@@ -20,12 +28,17 @@ public class BallArea : MonoBehaviour
         transform.localScale = scale;
     }
 
+    
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         BallController otherBall = collision.GetComponent<BallController>();
         if (otherBall != null)
         {
-            upgrade.BallEnteredArea(otherBall);
+            if (upgrade != null)
+                upgrade.BallEnteredArea(otherBall);
+            if (teleportUpgrade != null)
+                teleportUpgrade.BallEnteredArea(otherBall);
         }
     }
 
@@ -34,7 +47,10 @@ public class BallArea : MonoBehaviour
         BallController otherBall = collision.GetComponent<BallController>();
         if (otherBall != null)
         {
-            upgrade.BallExitedArea(otherBall);
+            if (upgrade != null)
+                upgrade.BallExitedArea(otherBall);
+            if (teleportUpgrade != null)
+                teleportUpgrade.BallEnteredArea(otherBall);
         }
     }
 }

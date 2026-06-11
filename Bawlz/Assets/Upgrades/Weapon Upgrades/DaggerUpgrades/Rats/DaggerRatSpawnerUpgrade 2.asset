@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ff48933b3bf1a45b95eeb3238d665c, type: 3}
+  m_Name: DaggerRatSpawnerUpgrade 2
+  m_EditorClassIdentifier: Assembly-CSharp::DaggerRatSpawnerUpgrade
+  shopIcon: {fileID: -8583813090422531927, guid: 6908a576f0dbebc44a393a3db12db7e6, type: 3}
+  upgradeFamily: DaggerRatSpawner
+  upgradeName: Rat Spawner 3
+  description: Places traps that spawn poisonous rats.
+  upgradeLevel: 2
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 0}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  damageScalingAmount: 0
+  spinSpeed: 0
+  ratSpawnerPrefab: {fileID: 6058236976940340801, guid: 8f8c06fc16e2e984ebed9fd92a63a26a, type: 3}
+  numRatsToSpawn: 10
+  ratDamage: 1
+  ratInterval: 1
+  spawnChance: 0.5
+  spawnCooldown: 6

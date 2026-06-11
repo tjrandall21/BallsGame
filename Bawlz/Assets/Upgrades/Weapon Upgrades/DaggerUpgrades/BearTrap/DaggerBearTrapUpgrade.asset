@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DaggerBearTrapUpgrade
   shopIcon: {fileID: -3887501870374500503, guid: 521321b0998a4f24a9e0bda4872d392d, type: 3}
   upgradeFamily: DaggerBearTrap
-  upgradeName: Bear Trap
-  description: Places a bear trap that slows enemies.
+  upgradeName: Spike Trap
+  description: Places a spike trap that slows and damages enemies.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 4e0e25f2bf383854790a9448a3e91910, type: 2}

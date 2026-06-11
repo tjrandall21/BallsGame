@@ -25,12 +25,12 @@ public class Dagger : Weapon
 
     protected override void OnBallHit(BallController otherBall)
     {
-        FXManager.Instance.PlayPlayerHit(otherBall.transform.position);
         Debug.Log("Ball Collision");
 
         if (parent != null)
             parent.FlipRotation();
 
+        FXManager.Instance.PlayWeaponHit(transform.position, this);
         otherBall.OnWeaponCollision(this);
 
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
@@ -47,7 +47,6 @@ public class Dagger : Weapon
 
     protected override void OnWeaponHit(Weapon otherWeapon)
     {
-        FXManager.Instance.PlayWeaponHit(otherWeapon.transform.position);
         base.OnWeaponHit(otherWeapon);
         Debug.Log("HIT");
     }

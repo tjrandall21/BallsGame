@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0467d55e3507dc46889c7980731317e, type: 3}
+  m_Name: TKDualWeild 1
+  m_EditorClassIdentifier: Assembly-CSharp::TKDualWield
+  shopIcon: {fileID: 3519075851948252805, guid: f1b75c995b8a7c542b58f5fc084579c7, type: 3}
+  upgradeFamily: TKDualWeild
+  upgradeName: Dual Knives 2
+  description: Gives you a second Knife for melee attacks
+  upgradeLevel: 1
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 5adf9b699874368488e9fd70866cc2f3, type: 2}
+  stackable: 1
+  damage: 0
+  knockbackSpeed: 0
+  attackCooldown: 0
+  attackCooldownMultiplier: 1
+  parentBall: {fileID: 0}
+  parentWeapon: {fileID: 0}
+  TKSpeed: 0
+  TKDamage: 0
+  meleeScaling: 0
+  projectileScaling: 0
+  extraProjectiles: 0
+  attackSpeedScaling: 0
+  fadeDurationMulti: 1
+  stickDurationMulti: 1
+  spinSpeed: 50
+  projectileBounces: 0
+  secondDaggerPrefab: {fileID: 9124016292243078404, guid: 0335e64bc3baabe4fa8495f48d106690, type: 3}

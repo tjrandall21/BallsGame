@@ -4,6 +4,7 @@ public class CannonProdj : Projectile
 {
     protected override void OnBallHit(BallController otherBall)
     {
+        FXManager.Instance.PlayProjectileFire(transform.position, this);
         ((Cannon)parentWeapon).OnProjectileHit(otherBall, this);
         ((Cannon)parentWeapon).OnProjectileDestroyed(this);
         base.OnBallHit(otherBall);

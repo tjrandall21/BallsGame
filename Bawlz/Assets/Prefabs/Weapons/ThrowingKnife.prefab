@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5069279007790728011}
@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 9124016292243078404}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -177,7 +177,7 @@ MonoBehaviour:
   possibleWeaponUpgradesInShop:
   - {fileID: 11400000, guid: ce9fc2c2eb7c0c14592a04c10b70fce6, type: 2}
   - {fileID: 11400000, guid: cf25acd16bdd1fb468096e0ff409b099, type: 2}
-  - {fileID: 11400000, guid: f3240b73d1347da4fa926f8d0fc1e10f, type: 2}
+  - {fileID: 11400000, guid: 4113b4048fbf24e46af0b20e211d4d40, type: 2}
   - {fileID: 11400000, guid: a748dcf9463503743a2aea7a63159ce3, type: 2}
   - {fileID: 11400000, guid: e4be10cf2b1c7734a953a97a8d0cc7a2, type: 2}
   - {fileID: 11400000, guid: 0d631d4b703db1842acfe26e82eceea8, type: 2}
@@ -229,7 +229,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.004055187, y: -0.026358664}
+  m_Offset: {x: -0.004055187, y: 0.019670427}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -239,5 +239,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.38645485, y: 0.97972405}
+  m_Size: {x: 0.38645485, y: 1.4620582}
   m_EdgeRadius: 0
