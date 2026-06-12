@@ -6,7 +6,10 @@ public class BearTrap : Trap
 
     public override void OnTrapTriggered(BallController otherBall)
     {
-        SlowEffect slow = Instantiate(slowEffect);
-        otherBall.ApplyStatus(slow, parent);
+        if (parent != null)
+        {   
+            SlowEffect slow = Instantiate(slowEffect);
+            otherBall.ApplyStatus(slow, parent);
+        }
     }
 }

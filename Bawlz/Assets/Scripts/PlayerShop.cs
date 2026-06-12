@@ -507,6 +507,7 @@ public class PlayerShop : MonoBehaviour
     {
         player.weaponPrefab = null;
         SellAllWeaponUpgrades();
+        player.coins += 1;
         UpdateCoinText();
         playerOverviewUI.UpdateIcons(playerNum);
         SetupSellMenu();
@@ -518,9 +519,9 @@ public class PlayerShop : MonoBehaviour
 
     void SellAllWeaponUpgrades()
     {
-        for (int i = 0; i < player.weaponUpgrades.Count; i++)
+        for (int i = player.weaponUpgrades.Count-1; i >= 0 ; i--)
         {
-            SellWeaponUpgrade(0);
+            SellWeaponUpgrade(i);
         }
     }
 

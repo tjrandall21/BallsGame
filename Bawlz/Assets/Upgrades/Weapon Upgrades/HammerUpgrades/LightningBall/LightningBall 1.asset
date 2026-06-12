@@ -15,7 +15,7 @@ MonoBehaviour:
   shopIcon: {fileID: 2881979740265337775, guid: 485b9d2a3651582468fdcb2959e43b0e, type: 3}
   upgradeFamily: LightningBall
   upgradeName: Lightning Ball
-  description: spawns a lightning ball on weapon hit
+  description: Spawns a lightning ball on weapon hit
   upgradeLevel: 1
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 8d76b2debe824dc46ad65723af9917d3, type: 2}

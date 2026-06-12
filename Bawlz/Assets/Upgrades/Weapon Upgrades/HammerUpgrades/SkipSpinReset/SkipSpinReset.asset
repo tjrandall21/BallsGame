@@ -15,7 +15,7 @@ MonoBehaviour:
   shopIcon: {fileID: -5721175427601167305, guid: bee998109177abc40b45145590d11874, type: 3}
   upgradeFamily: SkipSpinReset
   upgradeName: Endless Whirlwind
-  description: You have a chance to maintain your spin speed after hammer hits.
+  description: You have a chance to maintain your spin speed after hits.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 11400000, guid: 99f47cf88ea005c47b71e4b1518a0dd2, type: 2}
