@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerShop : MonoBehaviour
 {
-    [SerializeField] int playerNum = 0;
+   [SerializeField] public int playerNum = 0;
 
     [SerializeField] Color freezeColor;
     [SerializeField] Color unfrozenColor;
@@ -56,6 +56,8 @@ public class PlayerShop : MonoBehaviour
     {
         playerNum = playerIndex;
         player = GameManager.Instance.players[playerNum];
+
+        GetComponent<Image>().color = GameManager.Instance.playerUIColors[playerNum];
 
         SetupShop();
     }
