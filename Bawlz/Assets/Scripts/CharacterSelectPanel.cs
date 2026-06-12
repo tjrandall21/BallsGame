@@ -6,6 +6,12 @@ public class CharacterSelectPanel : MonoBehaviour
 {
     [SerializeField] List<Button> cells;
     [SerializeField] List<SelectedCharacter> selectedCharacters;
+    public int playerIndex = 0;
+
+    void Awake()
+    {
+        GetComponent<Image>().color = GameManager.Instance.playerUIColors[playerIndex];
+    }
 
     public void UpdateCells()
     {

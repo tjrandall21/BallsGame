@@ -57,6 +57,8 @@ public class PlayerShop : MonoBehaviour
         playerNum = playerIndex;
         player = GameManager.Instance.players[playerNum];
 
+        GetComponent<Image>().color = GameManager.Instance.playerUIColors[playerNum];
+
         SetupShop();
     }
 

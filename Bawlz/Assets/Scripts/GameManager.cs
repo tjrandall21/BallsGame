@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
 
     public static bool isPaused = false;
 
+    public Color[] playerColors = {Color.blue,Color.red,Color.green,Color.yellow};
+    public Color[] playerUIColors = {Color.blue,Color.red,Color.green,Color.yellow};
+
     void Awake()
     {
         if (instance == null)

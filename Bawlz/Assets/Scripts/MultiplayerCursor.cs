@@ -29,6 +29,8 @@ public class MultiplayerCursor : MonoBehaviour
 
         playerInput = GetComponent<PlayerInput>();
 
+        InputSystem.EnableDevice(Mouse.current);
+
         moveAction = playerInput.actions["Move"];
         clickAction = playerInput.actions["Click"];
         playerNum = playerInput.playerIndex; // assign player number based on PlayerInput index
@@ -148,25 +150,7 @@ public class MultiplayerCursor : MonoBehaviour
     {
         if (cursorImage == null || playerInput == null)
             return;
-
-        switch (playerInput.playerIndex)
-        {
-            case 0:
-                cursorImage.color = Color.blue;
-                break;
-
-            case 1:
-                cursorImage.color = Color.red;
-                break;
-
-            case 2:
-                cursorImage.color = Color.green;
-                break;
-
-            case 3:
-                cursorImage.color = Color.yellow;
-                break;
-        }
+        cursorImage.color = GameManager.Instance.playerColors[playerInput.playerIndex];
     }
 
     void Update()

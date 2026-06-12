@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f6c68f8d15bb459a57d853bd907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacter
-  characterName: Homer
+  characterName: 
 --- !u!1 &76326232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,7 +2402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f6c68f8d15bb459a57d853bd907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacter
-  characterName: Lois
+  characterName: 
 --- !u!1 &438646748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,15 +2964,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_Color.b
-      value: 0.5169811
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_Color.g
-      value: 0.13948734
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_Color.r
-      value: 0.15134908
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 1562678429472871850, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3065,6 +3065,10 @@ PrefabInstance:
     - target: {fileID: 2562751214223474906, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectCharacterSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: playerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: selectedCharacters.Array.size
@@ -3591,6 +3595,10 @@ PrefabInstance:
     - target: {fileID: 2562751214223474906, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectCharacterSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: playerIndex
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: selectedCharacters.Array.size
@@ -6063,7 +6071,7 @@ MonoBehaviour:
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
       m_Id: 3f726865-a899-4291-a379-51bf611d3f84
@@ -6912,6 +6920,16 @@ MonoBehaviour:
   maxRounds: 6
   clearPlayerDataOnStart: 0
   endBattlePanel: {fileID: 0}
+  playerColors:
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  playerUIColors:
+  - {r: 0.25939155, g: 0.24904327, b: 0.5801887, a: 1}
+  - {r: 0.54901963, g: 0, b: 0, a: 1}
+  - {r: 0.023529412, g: 0.4117647, b: 0.09411765, a: 1}
+  - {r: 0.56078434, g: 0.50980395, b: 0.019607844, a: 1}
 --- !u!4 &1223880454
 Transform:
   m_ObjectHideFlags: 0
@@ -8151,6 +8169,10 @@ PrefabInstance:
       value: SelectCharacterSprite
       objectReference: {fileID: 0}
     - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
+      propertyPath: playerIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788398786208341242, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: selectedCharacters.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -9180,7 +9202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f6c68f8d15bb459a57d853bd907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacter
-  characterName: Dave
+  characterName: 
 --- !u!114 &1509346813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2546962851324852652, guid: 6188889fb30ca554e83cf73e93b0e8c8, type: 3}
@@ -11539,7 +11561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9f6c68f8d15bb459a57d853bd907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacter
-  characterName: Mr. Smith
+  characterName: 
 --- !u!1 &1916336038
 GameObject:
   m_ObjectHideFlags: 0
@@ -12809,15 +12831,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.5176471
       objectReference: {fileID: 0}
     - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.14117646
       objectReference: {fileID: 0}
     - target: {fileID: 1317660437223436150, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_Color.r
-      value: 0.5471698
+      value: 0.14300501
       objectReference: {fileID: 0}
     - target: {fileID: 1562678429472871850, guid: 892617050207c1d4eb8e34f3e47ea945, type: 3}
       propertyPath: m_SizeDelta.x
