@@ -19,18 +19,21 @@ public class MultiplayerCursor : MonoBehaviour
 
     private Vector2 cursorPos;
     private Transform playerRoot;
+    [SerializeField] private int playerNum; // added to identify which player this cursor belongs to
 
     void Awake()
     {
         playerRoot = transform.root;
 
-        // keep the player object alive across scenes, but don't reparent the whole player under the UI canvas
         DontDestroyOnLoad(playerRoot.gameObject);
 
         playerInput = GetComponent<PlayerInput>();
 
+        InputSystem.EnableDevice(Mouse.current);
+
         moveAction = playerInput.actions["Move"];
         clickAction = playerInput.actions["Click"];
+        playerNum = playerInput.playerIndex; // assign player number based on PlayerInput index
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -70,6 +73,7 @@ public class MultiplayerCursor : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        int screenQuarterWidth = Screen.width / 4;
         Debug.Log("Cursor carried into scene: " + scene.name);
 
         MoveToPersistentCursorCanvas();
@@ -79,10 +83,17 @@ public class MultiplayerCursor : MonoBehaviour
         {
             cursorPos.x = Mathf.Clamp(cursorPos.x, 0, Screen.width);
             cursorPos.y = Mathf.Clamp(cursorPos.y, 0, Screen.height);
+           
             cursor.position = cursorPos;
         }
-    }
+        if (SceneManager.GetActiveScene().name == "TestMenuScene")
+        {// clears every cursor so that they have to be recreated
+            Destroy(playerRoot.gameObject);
+        }
 
+    }
+    
+    
     void MoveToPersistentCursorCanvas()
     {
         GameObject cursorCanvasObject = GameObject.Find("Persistent Cursor Canvas");
@@ -139,25 +150,7 @@ public class MultiplayerCursor : MonoBehaviour
     {
         if (cursorImage == null || playerInput == null)
             return;
-
-        switch (playerInput.playerIndex)
-        {
-            case 0:
-                cursorImage.color = Color.blue;
-                break;
-
-            case 1:
-                cursorImage.color = Color.red;
-                break;
-
-            case 2:
-                cursorImage.color = Color.green;
-                break;
-
-            case 3:
-                cursorImage.color = Color.yellow;
-                break;
-        }
+        cursorImage.color = GameManager.Instance.playerColors[playerInput.playerIndex];
     }
 
     void Update()
@@ -191,13 +184,11 @@ public class MultiplayerCursor : MonoBehaviour
 
         List<RaycastResult> results = new List<RaycastResult>();
 
-        // Use the instance method on the eventSystem, not the static class
         eventSystem.RaycastAll(data, results);
 
         if (results.Count == 0)
             return;
 
-        // RaycastAll returns results ordered by canvas sorting and depth; take the topmost hit.
         GameObject target = results[0].gameObject;
 
         Button button = target.GetComponentInParent<Button>();
@@ -206,6 +197,12 @@ public class MultiplayerCursor : MonoBehaviour
             return;
 
         target = button.gameObject;
+
+        PlayerShop shop = target.GetComponentInParent<PlayerShop>();
+        if (shop != null && shop.playerNum != playerNum)
+        {
+            return;
+        }
 
         if (clickAction.WasPressedThisFrame())
         {

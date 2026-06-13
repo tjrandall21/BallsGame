@@ -26,21 +26,21 @@
                 },
                 {
                     "name": "Left Click",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "16c7b616-d2fa-4727-90f9-e8eda325df8e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Point",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "ab517221-0953-4152-bb3d-1ee5fd4ce79e",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Pause",
@@ -57,7 +57,7 @@
                     "name": "",
                     "id": "522ca8f6-1ae6-4ab0-a5d1-78b995d6de2c",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Click",
@@ -81,7 +81,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Mouse",
                     "action": "Left Click",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -92,7 +92,7 @@
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Mouse",
                     "action": "Point",
                     "isComposite": false,
                     "isPartOfComposite": false
