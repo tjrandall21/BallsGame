@@ -51,7 +51,6 @@ public class Trap : Weapon
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            OnTrapTriggered(null);
             Destroy(gameObject);
         }
     }

@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1430e47169881154c96494da24511a4b, type: 3}
   m_Name: AdrenalineRushUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::AdrenalineRush
-  shopIcon: {fileID: 0}
-  upgradeName: Upgrade
-  description: This is an upgrade.
+  shopIcon: {fileID: -7741088188625754841, guid: a27ddbc272abd5b4aa8b2b86ff072c10, type: 3}
+  upgradeFamily: Adrenaline Rush
+  upgradeName: Adrenaline Rush
+  description: Speed Increases every time you are hit
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: 87b9404e396cef64f861b732b5145b1f, type: 2}
   stackable: 1
   health: 0
   contactDamage: 0
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 1
-  speedIncrease: 0.5
+  speedIncrease: 0.2

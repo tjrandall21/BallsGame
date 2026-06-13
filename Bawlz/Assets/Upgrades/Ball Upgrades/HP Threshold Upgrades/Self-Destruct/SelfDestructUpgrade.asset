@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41043cd5de505e47a4e9dda39b19536, type: 3}
+  m_Name: SelfDestructUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::SelfDestructUpgrade
+  shopIcon: {fileID: 5041747291481160876, guid: 193824c35e6efe34c942915dc5d60038, type: 3}
+  upgradeFamily: SelfDestructUpgrade
+  upgradeName: Self-Destruct
+  description: Explode on death
+  upgradeLevel: 0
+  upgradeExp: 0
+  nextLevelUpgrade: {fileID: 11400000, guid: c3175d5d68c34684ea81fcbf91e4cf37, type: 2}
+  stackable: 1
+  health: 0
+  contactDamage: 0
+  moveSpeed: 0
+  rotationSpeed: 0
+  defenseMultiplier: 1
+  explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
+  explosionDamage: 80
+  knockback: 10
+  explosionSize: 2

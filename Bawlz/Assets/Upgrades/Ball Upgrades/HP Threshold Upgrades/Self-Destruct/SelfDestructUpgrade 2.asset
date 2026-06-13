@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41043cd5de505e47a4e9dda39b19536, type: 3}
   m_Name: SelfDestructUpgrade 2
   m_EditorClassIdentifier: Assembly-CSharp::SelfDestructUpgrade
-  shopIcon: {fileID: 0}
+  shopIcon: {fileID: 5041747291481160876, guid: 193824c35e6efe34c942915dc5d60038, type: 3}
   upgradeFamily: SelfDestructUpgrade
-  upgradeName: Self-Destruct
-  description: 'Train go boom '
-  upgradeLevel: 0
+  upgradeName: Self-Destruct 2
+  description: Explode on death
+  upgradeLevel: 2
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
   stackable: 1
@@ -26,6 +26,6 @@ MonoBehaviour:
   rotationSpeed: 0
   defenseMultiplier: 1
   explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
-  explosionDamage: 200
+  explosionDamage: 300
   knockback: 10
-  explosionSize: 2
+  explosionSize: 2.5

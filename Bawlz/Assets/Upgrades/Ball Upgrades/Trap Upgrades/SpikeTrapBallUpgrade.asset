@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41043cd5de505e47a4e9dda39b19536, type: 3}
-  m_Name: SelfDestructUpgrade 3
-  m_EditorClassIdentifier: Assembly-CSharp::SelfDestructUpgrade
+  m_Script: {fileID: 11500000, guid: b5621f484aa15244abfa0b2b78f69ca8, type: 3}
+  m_Name: SpikeTrapBallUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::SpikeTrapBallUpgrade
   shopIcon: {fileID: 0}
-  upgradeFamily: SelfDestructUpgrade
-  upgradeName: Self-Destruct
-  description: 'Train go boom '
+  upgradeFamily: Upgrade
+  upgradeName: Upgrade
+  description: This is an upgrade.
   upgradeLevel: 0
   upgradeExp: 0
   nextLevelUpgrade: {fileID: 0}
@@ -25,7 +25,6 @@ MonoBehaviour:
   moveSpeed: 0
   rotationSpeed: 0
   defenseMultiplier: 1
-  explosionPrefab: {fileID: 9124016292243078404, guid: d201188b62670364b8f3c034027a9c27, type: 3}
-  explosionDamage: 200
-  knockback: 10
-  explosionSize: 2
+  spikeTrapPrefab: {fileID: 6058236976940340801, guid: 4f825976c8bb8994ca428ecba13dcc67, type: 3}
+  duration: 10
+  spawnCooldown: 0.5
