@@ -122,9 +122,6 @@ public class Weapon : MonoBehaviour
         {
             parent.FlipRotation();
         }
-
-        FXManager.Instance.PlayWeaponHit(transform.position, this);
-
         otherBall.OnWeaponCollision(this);
         foreach (WeaponUpgrade weaponUpgrade in weaponUpgrades)
         {
@@ -132,7 +129,6 @@ public class Weapon : MonoBehaviour
         }
         ExcludeLayer(otherBall.gameObject.layer);
     }
-
     protected virtual void OnWeaponHit(Weapon otherWeapon)
     {
         if (parent != null)

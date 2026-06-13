@@ -9,7 +9,13 @@ public class BreakingStrength : HammerUpgrade
 
     public override void OnWeaponHit(Weapon otherWeapon)
     {
-     otherWeapon.parent.OnDamageTaken(flatdamage);
-     Debug.Log($"Dealt {flatdamage} damage");
+        if (otherWeapon == null || otherWeapon.parent == null)
+        {
+            Debug.LogWarning("Other weapon or its parent is null. Cannot apply damage.");
+            return;
+        }
+
+        otherWeapon.parent.OnDamageTaken(flatdamage);
+        Debug.Log($"Dealt {flatdamage} damage to {otherWeapon.parent.name}");
     }
 }
