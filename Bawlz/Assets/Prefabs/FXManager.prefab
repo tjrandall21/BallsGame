@@ -47,11 +47,11 @@ MonoBehaviour:
   playerDeathSFX: {fileID: 8300000, guid: 74b1c0d830af6c847a36da433a7213b9, type: 3}
   minionDeathSFX: {fileID: 8300000, guid: 89982799965cf944eba6e77167761820, type: 3}
   SwordHitSFX: {fileID: 8300000, guid: 2ec398d9b4584ea4589e323c5d0f4240, type: 3}
-  HammerHitSFX: {fileID: 8300000, guid: 80adc6020c2da9845824fb7225f06b6e, type: 3}
+  HammerHitSFX: {fileID: 8300000, guid: 3f677ab5737a2c04db368a111b893434, type: 3}
   DaggerHitSFX: {fileID: 8300000, guid: dbb5817a7e9f9a6489c4da7efa9c692b, type: 3}
-  SceptreHitSFX: {fileID: 0}
+  SceptreHitSFX: {fileID: 8300000, guid: 80adc6020c2da9845824fb7225f06b6e, type: 3}
   CannonFireSFX: {fileID: 8300000, guid: 29d739cc63a29a046a06142335afac3d, type: 3}
-  TKHitSFX: {fileID: 0}
+  TKHitSFX: {fileID: 8300000, guid: b45fe2b1b3211d14783829d0649df522, type: 3}
   ArrowReleaseSFX: {fileID: 8300000, guid: 22602d80bb215804e9016f75bb38a7a8, type: 3}
   ArrowHitSFX: {fileID: 8300000, guid: e7ad04f4b2c5cb547b623866b17d17da, type: 3}
   CannonHitSFX: {fileID: 8300000, guid: 249c2132d3392f64a9b9df47b9f38c99, type: 3}
