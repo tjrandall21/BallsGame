@@ -16,17 +16,20 @@ public class ExplodingShot : CannonUpgrade
 
     public override void OnProjectileDestroyed(Projectile projectile)
     {
+     
+
         if (projectile.tag == "Grape Shot")
         {
             GameObject explosionObject = Instantiate(explosionPrefab);
-            explosionObject.layer = projectile.parent.gameObject.layer + 4;
+            explosionObject.layer = projectile.parentWeapon.gameObject.layer + 4;
             Explosion explosion = explosionObject.GetComponent<Explosion>();
             explosion.ExplosionInit(grapeShotExplosionDamage, projectile.transform.position, grapeShotExplosionKnockback, grapeShotExplosionSize);
         }
         else
-        {    
+        {
+          
             GameObject explosionObject = Instantiate(explosionPrefab);
-            explosionObject.layer = projectile.parent.gameObject.layer + 4;
+            explosionObject.layer = projectile.parentWeapon.gameObject.layer + 4;
             Explosion explosion = explosionObject.GetComponent<Explosion>();
             explosion.ExplosionInit(explosionDamage, projectile.transform.position, explosionKnockback, explosionSize);
         }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7516687748183293505}
   m_Layer: 6
   m_Name: GrapeShot
-  m_TagString: Untagged
+  m_TagString: Grape Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,9 +174,13 @@ MonoBehaviour:
   damage: 10
   knockbackSpeed: 0
   attackCooldown: 0
+  canWeaponCollide: 1
+  excludeOnHit: 1
   parent: {fileID: 0}
   weaponUpgrades: []
   possibleWeaponUpgradesInShop: []
   direction: {x: 0, y: 0, z: 0}
   speed: 0
   parentWeapon: {fileID: 0}
+  lifetime: 0
+  travel: 1
